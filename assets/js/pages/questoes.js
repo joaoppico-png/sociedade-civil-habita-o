@@ -36,10 +36,12 @@ async function iniciar() {
 
 function cartao(q, fontes, nomes) {
   const fs = q.fontesConsultadas.map((id) => fontes.get(id)).filter(Boolean);
-  return h('li', { class: 'question-card', id: q.id },
-    h('p', { class: 'eyebrow' }, h('span', { class: 'num' }, q.id), ` · Prioridade ${q.prioridade} · `,
-      h('span', { class: `status status--${q.estado === 'aberta' ? 'por-confirmar' : 'aberta'}` }, ESTADO[q.estado] || q.estado)),
-    h('h3', {}, q.pergunta),
+  const aberto = window.matchMedia('(min-width: 768px)').matches || window.location.hash === `#${q.id}`;
+  return h('li', { id: q.id }, h('details', { class: 'question-card collapsible', open: aberto },
+    h('summary', {}, h('div', {},
+      h('p', { class: 'eyebrow' }, h('span', { class: 'num' }, q.id), ` · Prioridade ${q.prioridade} · `,
+        h('span', { class: `status status--${q.estado === 'aberta' ? 'por-confirmar' : 'aberta'}` }, ESTADO[q.estado] || q.estado)),
+      h('h3', {}, q.pergunta))),
     h('dl', { class: 'facts facts--stack' },
       h('dt', {}, 'Contexto'), h('dd', {}, q.contexto),
       h('dt', {}, 'Texto atual no site'), h('dd', {}, q.redacaoAtual),
@@ -48,11 +50,12 @@ function cartao(q, fontes, nomes) {
       fs.length ? [h('dt', {}, 'Fontes já consultadas'), h('dd', {}, h('ul', { class: 'sources' }, fs.map((f) => h('li', {}, externalLink(f.url, f.titulo)))))] : null,
       h('dt', {}, 'Resposta'), h('dd', {}, q.resposta
         ? [q.resposta, ' ', h('span', { class: 'meta' }, `(${q.respondidoPor || 'advogado'}, ${formatDate(q.respondidoEm) || 's/ data'})`)]
-        : h('span', { class: 'answer-line' }, 'Por responder.'))));
+        : h('span', { class: 'answer-line' }, 'Por responder.')))));
 }
 
 const slug = (t) => t.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 iniciar();
 
+window.addEventListener('beforeprint', () => document.querySelectorAll('#app details').forEach((d) => { d.open = true; }));
 document.getElementById('imprimir')?.addEventListener('click', () => window.print());

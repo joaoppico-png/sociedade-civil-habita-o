@@ -9,6 +9,7 @@ import { questoesDe } from '../lib/questoes.js';
 
 const app = document.getElementById('app');
 const hoje = todayISO();
+const largo = () => window.matchMedia('(min-width: 768px)').matches;
 let ctx;
 
 async function iniciar() {
@@ -45,6 +46,8 @@ function render(focar) {
   const estado = walk(ctx.tree, caminho, ctx.municipios);
   clear(app);
   app.setAttribute('aria-busy', 'false');
+  // Num percurso já iniciado, o telemóvel esconde a introdução para mostrar logo a pergunta ou a ficha.
+  document.body.classList.toggle('em-percurso', estado.passos.length > 0);
 
   if (estado.invalido) {
     app.append(alerta('info', 'Parte do endereço não corresponde a uma resposta válida.',
@@ -65,15 +68,25 @@ function render(focar) {
 }
 
 function resumo(passos) {
-  return h('nav', { class: 'answers', 'aria-label': 'As tuas respostas' },
-    h('h2', { class: 'answers__title' }, 'As tuas respostas'),
-    h('ol', { class: 'answers__list' }, passos.map((p, i) => {
+  const lista = h('ol', { class: 'answers__list' }, passos.map((p, i) => {
       const alterar = h('button', { type: 'button', class: 'btn btn--link' }, 'Alterar',
         h('span', { class: 'visually-hidden' }, ` a resposta «${p.pergunta.texto}»`));
       alterar.addEventListener('click', () => navegar(passos.slice(0, i).map((x) => x.opcao.id)));
       return h('li', {}, h('span', { class: 'answers__q' }, p.pergunta.texto), ' ',
         h('strong', {}, p.opcao.rotulo), ' ', alterar);
-    })));
+    }));
+  // No telemóvel as respostas ficam recolhidas para a pergunta atual aparecer logo.
+  return h('nav', { class: 'answers', 'aria-label': 'As tuas respostas' },
+    h('details', { class: 'collapsible', open: largo() },
+      h('summary', {}, h('h2', { class: 'answers__title' }, `As tuas respostas (${passos.length})`)),
+      lista));
+}
+
+/** Secção da ficha; as secundárias ficam recolhidas no telemóvel. */
+function secao(titulo, conteudo, { secundaria = false, classe = '' } = {}) {
+  if (!secundaria) return h('section', { class: `block ${classe}`.trim() }, h('h3', {}, titulo), ...conteudo);
+  return h('details', { class: `block collapsible ${classe}`.trim(), open: largo() },
+    h('summary', {}, h('h3', {}, titulo)), ...conteudo);
 }
 
 function pergunta(p, profundidade) {
@@ -135,6 +148,7 @@ function ficha(resultadoBase, contexto) {
 
   const imprimir = h('button', { type: 'button', class: 'btn btn--link' }, 'Imprimir esta ficha');
   imprimir.addEventListener('click', () => window.print());
+  window.addEventListener('beforeprint', () => document.querySelectorAll('#app details').forEach((d) => { d.open = true; }));
   controlos.append(imprimir);
 
   return h('article', { class: 'result', 'aria-labelledby': 'resultado-titulo' },
@@ -170,30 +184,23 @@ function ficha(resultadoBase, contexto) {
       h('h3', {}, 'O que podes fazer agora'),
       h('ul', { class: 'action-list', role: 'list' }, r.acoes.map((a) => h('li', {}, acao(a))))) : null,
 
-    r.documentos?.length ? h('section', { class: 'block' },
-      h('h3', {}, 'Documentos que podem ser úteis'),
-      h('ul', {}, r.documentos.map((d) => h('li', {}, d)))) : null,
+    r.documentos?.length ? secao('Documentos que podem ser úteis', [h('ul', {}, r.documentos.map((d) => h('li', {}, d)))], { secundaria: true }) : null,
 
-    r.limitacoes?.length ? h('section', { class: 'block' },
-      h('h3', {}, 'Limitações e o que falta confirmar'),
-      h('ul', {}, r.limitacoes.map((l) => h('li', {}, l)))) : null,
+    r.limitacoes?.length ? secao('Limitações e o que falta confirmar', [h('ul', {}, r.limitacoes.map((l) => h('li', {}, l)))], { secundaria: true }) : null,
 
     blocoQuestoes(r.id),
 
-    h('section', { class: 'block' },
-      h('h3', {}, 'Fontes'),
-      listaFontes(r.fontes, ctx.fontes, hoje),
-      datasEditoriais(r)),
+    secao('Fontes', [listaFontes(r.fontes, ctx.fontes, hoje), datasEditoriais(r)], { secundaria: true }),
     controlos);
 }
 
 function blocoQuestoes(id) {
   const qs = questoesDe(id, ctx.questoes);
   if (!qs.length) return null;
-  return h('section', { class: 'block block--pending' },
-    h('h3', {}, 'Em análise jurídica'),
+  return secao(`Em análise jurídica (${qs.length})`, [
     h('p', { class: 'hint' }, 'Estas dúvidas foram enviadas a um advogado. Até haver resposta, a ficha não as resolve.'),
-    h('ul', {}, qs.map((q) => h('li', {}, h('a', { href: `questoes-juridicas.html#${q.id}` }, q.id), ' — ', q.pergunta.length > 180 ? `${q.pergunta.slice(0, 177)}…` : q.pergunta))));
+    h('ul', {}, qs.map((q) => h('li', {}, h('a', { href: `questoes-juridicas.html#${q.id}` }, q.id), ' — ', q.pergunta.length > 180 ? `${q.pergunta.slice(0, 177)}…` : q.pergunta)))],
+  { secundaria: true, classe: 'block--pending' });
 }
 
 function cartaoEntidade(e) {
