@@ -1,5 +1,5 @@
-// Gera o pacote para publicar numa subpasta de um alojamento Apache/cPanel (ex.: sociedadecivil.pt/habitacao).
-// Uso: node tools/build-package.mjs [https://sociedadecivil.pt/habitacao] [--indexar]
+// Gera o pacote para publicar numa subpasta de um alojamento Apache/cPanel (ex.: sociedadecivil.pt/direito_habitacao).
+// Uso: node tools/build-package.mjs [https://sociedadecivil.pt/direito_habitacao] [--indexar]
 //   --indexar  retira o bloqueio aos motores de busca (usar só quando as fichas estiverem verificadas).
 // Resultado: dist/habitacao/ (pasta pronta) e dist/habitacao-AAAA-MM-DD.zip.
 // O código-fonte não é alterado: o domínio, o noindex e a <base> da 404 só existem no pacote.
@@ -12,10 +12,10 @@ import path from 'node:path';
 const raiz = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const args = process.argv.slice(2);
 const indexar = args.includes('--indexar');
-const base = (args.find((a) => a.startsWith('https://')) || 'https://sociedadecivil.pt/habitacao').replace(/\/$/, '');
+const base = (args.find((a) => a.startsWith('https://')) || 'https://sociedadecivil.pt/direito_habitacao').replace(/\/$/, '');
 const url = new URL(base);
 if (url.protocol !== 'https:' || url.search || url.hash) {
-  console.error('Indica um endereço https sem parâmetros, por exemplo: https://sociedadecivil.pt/habitacao');
+  console.error('Indica um endereço https sem parâmetros, por exemplo: https://sociedadecivil.pt/direito_habitacao');
   process.exit(1);
 }
 const caminho = url.pathname.replace(/\/$/, '') || '';          // ex.: /habitacao
@@ -102,20 +102,20 @@ ${indexar ? '' : `  # Versão de teste: não indexar nos motores de busca. Gerar
 await writeFile(path.join(destino, '.htaccess'), htaccess);
 
 // 6. Código WordPress com o endereço final e instruções.
-const wp = (await readFile(path.join(raiz, 'docs', 'wordpress-embed.html'), 'utf8')).replaceAll('https://sociedadecivil.pt/habitacao', base);
+const wp = (await readFile(path.join(raiz, 'docs', 'wordpress-embed.html'), 'utf8')).replaceAll('https://sociedadecivil.pt/direito_habitacao', base);
 await writeFile(path.join(dist, 'wordpress-embed.html'), wp);
 await writeFile(path.join(dist, 'LEIA-ME.txt'), `SOCIEDADE CIVIL — HABITAÇÃO · PACOTE DE PUBLICAÇÃO (${hoje})
 Endereço final: ${base}/
 Indexação nos motores de busca: ${indexar ? 'PERMITIDA' : 'BLOQUEADA (versão de teste)'}
 
 1. No cPanel (Gestor de Ficheiros) ou por FTP, abrir public_html/.
-2. Carregar o ZIP habitacao-${hoje}.zip para public_html/ e usar «Extract». Fica public_html/${pasta}/.
+2. Carregar o ZIP ${pasta}-${hoje}.zip para public_html/ e usar «Extract». Fica public_html/${pasta}/.
    Confirmar que o ficheiro oculto .htaccess foi extraído (no Gestor de Ficheiros: Definições > Mostrar ficheiros ocultos).
 3. Abrir ${base}/ e testar: página inicial, «Quem resolve?», gerador de documentos, uma página inexistente (deve mostrar a 404).
 4. WordPress no mesmo domínio:
    - A pasta real ${caminho}/ tem prioridade sobre o WordPress. Não criar no WordPress uma página com o mesmo endereço (${caminho}).
    - Para mostrar a ferramenta dentro de uma página WordPress, criar uma página com outro endereço
-     (ex.: ${origemSite}/direito-a-habitacao/) e colar o conteúdo de wordpress-embed.html num bloco «HTML personalizado».
+     (ex.: ${origemSite}/habitacao/) e colar o conteúdo de wordpress-embed.html num bloco «HTML personalizado».
 5. robots.txt: os motores de busca só leem ${origemSite}/robots.txt (na raiz). ${indexar
   ? `Quando quiseres indexar, acrescenta lá a linha: Sitemap: ${base}/sitemap.xml`
   : `Enquanto for versão de teste, o bloqueio é garantido pelo cabeçalho X-Robots-Tag do .htaccess e pela meta robots de cada página.`}
