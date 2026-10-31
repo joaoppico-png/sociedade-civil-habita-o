@@ -41,5 +41,5 @@ if (erros.length) {
   console.error(`\n${erros.length} erro(s):\n- ${erros.join('\n- ')}`);
   process.exit(1);
 }
-console.log(`Questões jurídicas: ${questoes.questoes.length} (${questoes.questoes.filter((q) => q.estado === 'aberta').length} por responder)`);
+console.log(`Questões jurídicas: ${questoes.questoes.length} (${questoes.questoes.filter((q) => q.estadoValidacaoProfissional !== 'validada').length} sem parecer de advogado; ${questoes.questoes.filter((q) => q.estadoAplicacaoSite === 'aplicada').length} aplicadas no site)`);
 console.log('Dados válidos.');

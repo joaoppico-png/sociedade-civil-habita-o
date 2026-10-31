@@ -48,11 +48,11 @@ As dúvidas enviadas ao advogado vivem num único ficheiro. Esse ficheiro alimen
 - a página pública `questoes-juridicas.html`, que se imprime ou guarda em PDF para entregar ao advogado;
 - o bloco «Em análise jurídica» de cada ficha e de cada orientação do gerador (campo `registos`).
 
-**Quando o advogado responder:**
-1. Preencher `resposta`, `respondidoEm` (AAAA-MM-DD) e `respondidoPor`, e mudar `estado` para `respondida`.
-2. Corrigir as fichas indicadas em `registos` de acordo com a resposta.
-3. Mudar `estado` para `aplicada`. A questão desaparece das fichas e fica no histórico da página.
-4. Só depois disso passar a ficha a `verificado`, com `verificadoEm` e `responsavel`.
-5. Correr `npm run check`.
+**Três estados independentes por questão:**
+- `estadoInvestigacao`: `aberta` → `respondida` quando há resposta documentada; cada investigação fica em `investigacoes[]`, com origem, resumo e a nossa verificação.
+- `estadoValidacaoProfissional`: `pendente` → `validada` só com `parecerAssinado` (`advogado`, `cedula`, `data`, `texto`); `recusada` se o advogado discordar.
+- `estadoAplicacaoSite`: `por-aplicar` → `parcial` → `aplicada` quando as fichas foram corrigidas e testadas.
+
+Uma questão só desaparece das fichas quando está `validada` **e** `aplicada`. Só depois disso a ficha pode passar a `verificado`. Uma investigação documental, mesmo bem fundamentada, nunca conta como validação profissional.
 
 **Nova dúvida:** acrescentar um registo com `id` sequencial (Q22…), uma pergunta fechada e explícita, o texto atual do site, as fontes já consultadas (ids de `fontes.json`) e os registos afetados (`r-…` ou `requerimento:<id>`).

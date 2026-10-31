@@ -17,10 +17,17 @@ test('fichas de maior risco têm questões associadas', () => {
   }
 });
 
-test('questões aplicadas deixam de aparecer nas fichas; respondida exige resposta', () => {
-  const qs = [{ id: 'Q90', tema: 't', pergunta: 'p', estado: 'aplicada', resposta: 'sim', registos: ['r-despejo'] }];
-  assert.equal(questoesDe('r-despejo', qs).length, 0);
-  const erros = validarQuestoes({ questoes: [{ id: 'Q91', tema: 't', pergunta: 'p', estado: 'respondida', resposta: null, registos: ['inexistente'] }] }, arvore, requerimento);
-  assert.ok(erros.some((e) => /sem resposta/.test(e)));
+test('só sai das fichas com parecer de advogado E aplicação no site; validada exige parecer assinado', () => {
+  const base = { id: 'Q90', tema: 't', pergunta: 'p', registos: ['r-despejo'], estadoInvestigacao: 'respondida', investigacoes: [{}] };
+  assert.equal(questoesDe('r-despejo', [{ ...base, estadoValidacaoProfissional: 'pendente', estadoAplicacaoSite: 'aplicada' }]).length, 1);
+  assert.equal(questoesDe('r-despejo', [{ ...base, estadoValidacaoProfissional: 'validada', estadoAplicacaoSite: 'parcial' }]).length, 1);
+  assert.equal(questoesDe('r-despejo', [{ ...base, estadoValidacaoProfissional: 'validada', estadoAplicacaoSite: 'aplicada' }]).length, 0);
+  const erros = validarQuestoes({ questoes: [{ ...base, id: 'Q91', registos: ['inexistente'], estadoValidacaoProfissional: 'validada', estadoAplicacaoSite: 'x', parecerAssinado: null }] }, arvore, requerimento);
+  assert.ok(erros.some((e) => /validada sem parecer assinado/.test(e)));
+  assert.ok(erros.some((e) => /estadoAplicacaoSite inválido/.test(e)));
   assert.ok(erros.some((e) => /registo desconhecido/.test(e)));
+});
+
+test('nenhuma questão aparece como validada sem parecer assinado', () => {
+  for (const x of q.questoes) assert.ok(x.estadoValidacaoProfissional !== 'validada' || x.parecerAssinado?.advogado, x.id);
 });

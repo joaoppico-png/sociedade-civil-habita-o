@@ -7,7 +7,8 @@ import { mostrarErro } from '../core/ui.js';
 import { nomesDosRegistos } from '../lib/questoes.js';
 
 const app = document.getElementById('app');
-const ESTADO = { aberta: 'Por responder', respondida: 'Respondida — por aplicar', aplicada: 'Aplicada ao site' };
+const VALIDACAO = { pendente: 'Sem parecer de advogado', validada: 'Validada por advogado', recusada: 'Advogado discorda' };
+const APLICACAO = { 'por-aplicar': 'Por aplicar no site', parcial: 'Aplicada em parte', aplicada: 'Aplicada no site' };
 
 async function iniciar() {
   let d;
@@ -21,10 +22,10 @@ async function iniciar() {
   const nomes = nomesDosRegistos(d.arvore, d.requerimento);
   const questoes = d['questoes-juridicas'].questoes;
   const temas = [...new Set(questoes.map((q) => q.tema))];
-  const abertas = questoes.filter((q) => q.estado === 'aberta').length;
+  const abertas = questoes.filter((q) => q.estadoValidacaoProfissional !== 'validada').length;
 
   clear(app).append(
-    h('p', { class: 'meta' }, `${questoes.length} questões · ${abertas} por responder · preparado em ${formatDate(d['questoes-juridicas'].meta.preparadoEm)}.`),
+    h('p', { class: 'meta' }, `${questoes.length} questões · ${abertas} sem parecer de advogado · preparado em ${formatDate(d['questoes-juridicas'].meta.preparadoEm)}.`),
     h('div', { class: 'alert alert--neutral' }, h('p', {}, d['questoes-juridicas'].meta.instrucoes)),
     h('nav', { class: 'toc no-print', 'aria-label': 'Temas' }, h('ul', {}, temas.map((t) => h('li', {}, h('a', { href: `questoes-juridicas.html#${slug(t)}` }, t))))),
     ...temas.map((t) => h('section', { class: 'block', id: slug(t), 'aria-labelledby': `t-${slug(t)}` },
@@ -40,7 +41,8 @@ function cartao(q, fontes, nomes) {
   return h('li', { id: q.id }, h('details', { class: 'question-card collapsible', open: aberto },
     h('summary', {}, h('div', {},
       h('p', { class: 'eyebrow' }, h('span', { class: 'num' }, q.id), ` · Prioridade ${q.prioridade} · `,
-        h('span', { class: `status status--${q.estado === 'aberta' ? 'por-confirmar' : 'aberta'}` }, ESTADO[q.estado] || q.estado)),
+        h('span', { class: `status status--${q.estadoValidacaoProfissional === 'validada' ? 'aberta' : 'por-confirmar'}` }, VALIDACAO[q.estadoValidacaoProfissional]), ' ',
+        h('span', { class: 'status status--encerrada' }, APLICACAO[q.estadoAplicacaoSite])),
       h('h3', {}, q.pergunta))),
     h('dl', { class: 'facts facts--stack' },
       h('dt', {}, 'Contexto'), h('dd', {}, q.contexto),
@@ -48,12 +50,11 @@ function cartao(q, fontes, nomes) {
       h('dt', {}, 'Afeta'), h('dd', {}, q.registos.map((r) => nomes.get(r) || r).join(' · ')),
       h('dt', {}, 'Impacto'), h('dd', {}, q.impacto),
       fs.length ? [h('dt', {}, 'Fontes já consultadas'), h('dd', {}, h('ul', { class: 'sources' }, fs.map((f) => h('li', {}, externalLink(f.url, f.titulo)))))] : null,
-      q.respostaPreliminar ? [
-        h('dt', {}, 'Resposta preliminar (não assinada por advogado)'),
-        h('dd', {}, q.respostaPreliminar.texto, ' ', h('span', { class: 'meta' }, `— ${q.respostaPreliminar.origem}.`)),
-        h('dt', {}, 'A nossa verificação'), h('dd', {}, q.respostaPreliminar.verificacaoNossa)] : null,
-      h('dt', {}, 'Resposta do advogado'), h('dd', {}, q.resposta
-        ? [q.resposta, ' ', h('span', { class: 'meta' }, `(${q.respondidoPor || 'advogado'}, ${formatDate(q.respondidoEm) || 's/ data'})`)]
+      (q.investigacoes || []).map((inv) => [
+        h('dt', {}, `${inv.origem} · ${formatDate(inv.data) || ''}`),
+        h('dd', {}, inv.resumo, h('br'), h('span', { class: 'meta' }, 'A nossa verificação: ', inv.verificacaoNossa))]),
+      h('dt', {}, 'Parecer do advogado'), h('dd', {}, q.parecerAssinado
+        ? [q.parecerAssinado.texto, ' ', h('span', { class: 'meta' }, `(${q.parecerAssinado.advogado}, ${formatDate(q.parecerAssinado.data) || 's/ data'})`)]
         : h('span', { class: 'answer-line' }, 'Por responder.')))));
 }
 

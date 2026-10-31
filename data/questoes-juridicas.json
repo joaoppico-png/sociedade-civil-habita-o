@@ -5,11 +5,22 @@
     "preparadoPor": "Equipa editorial Sociedade Civil — Habitação (com apoio de pesquisa automatizada)",
     "instrucoes": "Para cada questão, indicar: (1) resposta direta; (2) norma, número e alínea; (3) se a redação proposta para o site pode ser publicada tal como está, com alterações (indicar quais) ou não deve ser publicada. As afirmações marcadas «fonte secundária» não foram confirmadas por nós na fonte oficial.",
     "estados": {
-      "aberta": "Por responder",
-      "respondida": "Respondida — por aplicar ao site",
-      "aplicada": "Respondida e aplicada ao site"
+      "estadoInvestigacao": {
+        "aberta": "Sem resposta documental",
+        "respondida": "Há resposta documentada com fontes e ressalvas"
+      },
+      "estadoValidacaoProfissional": {
+        "pendente": "Sem parecer assinado",
+        "validada": "Parecer de advogado identificado e datado",
+        "recusada": "Advogado discorda da redação"
+      },
+      "estadoAplicacaoSite": {
+        "por-aplicar": "Nada alterado no site",
+        "parcial": "Parte das recomendações aplicada",
+        "aplicada": "Recomendações aplicadas e testadas"
+      }
     },
-    "notaRespostasPreliminares": "As respostas preliminares vêm de um parecer documental não assinado por advogado. Não fecham nenhuma questão: só servem de ponto de partida para a revisão profissional."
+    "nota": "Nenhuma questão tem parecer assinado por advogado inscrito na Ordem. As investigações documentais orientam a revisão, não a substituem."
   },
   "questoes": [
     {
@@ -27,16 +38,24 @@
         "requerimento:custos"
       ],
       "impacto": "Permite indicar valores de referência ao cidadão e contestar cobranças excessivas.",
-      "estado": "aberta",
-      "resposta": null,
-      "respondidoEm": null,
-      "respondidoPor": null,
-      "respostaPreliminar": {
-        "texto": "O Despacho n.º 8617/2002 estará em vigor, com valores de fotocópia A4 a preto e branco entre 0,02 € e 0,04 € por página; não é uma tarifa universal.",
-        "origem": "Dois pareceres documentais de 31/10/2026 recebidos pela equipa — não assinados por advogado inscrito na Ordem",
-        "recebidaEm": "2026-10-31",
-        "verificacaoNossa": "Não confirmado por nós: não localizámos o despacho no Diário da República. Os valores não foram publicados no site."
-      }
+      "investigacoes": [
+        {
+          "data": "2026-10-31",
+          "origem": "Pareceres documentais 1 e 2 (não assinados por advogado)",
+          "resumo": "O Despacho n.º 8617/2002 estará em vigor, com valores de fotocópia A4 a preto e branco entre 0,02 € e 0,04 € por página; não é uma tarifa universal.",
+          "verificacaoNossa": "Não confirmado por nós: não localizámos o despacho no Diário da República. Os valores não foram publicados no site."
+        },
+        {
+          "data": "2026-10-31",
+          "origem": "Investigação documental 3 (não assinada por advogado; declara-o expressamente)",
+          "resumo": "Diz ter localizado o Despacho n.º 8617/2002 em vigor (A4: 0,04 € até 50 cópias, 0,03 € até 100, 0,02 € acima; A3: 0,08/0,07/0,05 €; redução de 25% para fins não lucrativos), aprovado no quadro da Lei n.º 65/93; aplicação a articular com a LADA, art. 14.º.",
+          "verificacaoNossa": "Continuamos sem localizar o despacho no DR; valores não publicados até confirmação."
+        }
+      ],
+      "estadoInvestigacao": "respondida",
+      "estadoValidacaoProfissional": "pendente",
+      "estadoAplicacaoSite": "por-aplicar",
+      "parecerAssinado": null
     },
     {
       "id": "Q02",
@@ -53,16 +72,24 @@
         "requerimento:custos"
       ],
       "impacto": "Define se o site pode dizer que o pagamento prévio não é exigível.",
-      "estado": "aberta",
-      "resposta": null,
-      "respondidoEm": null,
-      "respondidoPor": null,
-      "respostaPreliminar": {
-        "texto": "A LADA não autoriza expressamente o preparo, mas isso não torna ilegal toda a exigência antecipada. Uma cobrança que limite injustificadamente o acesso pode fundamentar queixa à CADA.",
-        "origem": "Dois pareceres documentais de 31/10/2026 recebidos pela equipa — não assinados por advogado inscrito na Ordem",
-        "recebidaEm": "2026-10-31",
-        "verificacaoNossa": "Redação recomendada aplicada à orientação «Custos», de forma prudente."
-      }
+      "investigacoes": [
+        {
+          "data": "2026-10-31",
+          "origem": "Pareceres documentais 1 e 2 (não assinados por advogado)",
+          "resumo": "A LADA não autoriza expressamente o preparo, mas isso não torna ilegal toda a exigência antecipada. Uma cobrança que limite injustificadamente o acesso pode fundamentar queixa à CADA.",
+          "verificacaoNossa": "Redação recomendada aplicada à orientação «Custos», de forma prudente."
+        },
+        {
+          "data": "2026-10-31",
+          "origem": "Investigação documental 3 (não assinada por advogado; declara-o expressamente)",
+          "resumo": "Sem autorização geral expressa de preparo e sem proibição absoluta; pedir fundamento, tabela e cálculo por escrito.",
+          "verificacaoNossa": "Não verificado de novo por nós nesta ronda."
+        }
+      ],
+      "estadoInvestigacao": "respondida",
+      "estadoValidacaoProfissional": "pendente",
+      "estadoAplicacaoSite": "aplicada",
+      "parecerAssinado": null
     },
     {
       "id": "Q03",
@@ -81,16 +108,24 @@
         "requerimento:identificacao"
       ],
       "impacto": "Determina se recomendamos e-mail com PDF digitalizado como meio seguro.",
-      "estado": "aberta",
-      "resposta": null,
-      "respondidoEm": null,
-      "respondidoPor": null,
-      "respostaPreliminar": {
-        "texto": "A assinatura manuscrita digitalizada pode ser aceite, sem garantia universal; não equivale a assinatura qualificada. Deve ser dada oportunidade de suprir deficiências quando aplicável (CPA, art. 108.º).",
-        "origem": "Dois pareceres documentais de 31/10/2026 recebidos pela equipa — não assinados por advogado inscrito na Ordem",
-        "recebidaEm": "2026-10-31",
-        "verificacaoNossa": "Aplicado como recomendação: pedir que indiquem o que falta corrigir. CPA, art. 108.º, não confirmado por nós."
-      }
+      "investigacoes": [
+        {
+          "data": "2026-10-31",
+          "origem": "Pareceres documentais 1 e 2 (não assinados por advogado)",
+          "resumo": "A assinatura manuscrita digitalizada pode ser aceite, sem garantia universal; não equivale a assinatura qualificada. Deve ser dada oportunidade de suprir deficiências quando aplicável (CPA, art. 108.º).",
+          "verificacaoNossa": "Aplicado como recomendação: pedir que indiquem o que falta corrigir. CPA, art. 108.º, não confirmado por nós."
+        },
+        {
+          "data": "2026-10-31",
+          "origem": "Investigação documental 3 (não assinada por advogado; declara-o expressamente)",
+          "resumo": "CPA, art. 108.º: convite a suprir deficiências; rejeição liminar só de pedidos não identificados ou ininteligíveis. Assinatura digitalizada aceitável mas não garantida.",
+          "verificacaoNossa": "Não verificado de novo por nós nesta ronda."
+        }
+      ],
+      "estadoInvestigacao": "respondida",
+      "estadoValidacaoProfissional": "pendente",
+      "estadoAplicacaoSite": "parcial",
+      "parecerAssinado": null
     },
     {
       "id": "Q04",
@@ -108,16 +143,24 @@
         "requerimento:seguimento"
       ],
       "impacto": "Um erro aqui pode fazer o cidadão perder o prazo da queixa.",
-      "estado": "aberta",
-      "resposta": null,
-      "respondidoEm": null,
-      "respondidoPor": null,
-      "respostaPreliminar": {
-        "texto": "O Parecer CADA 243/2019 indica 20 dias contínuos que não se suspendem em férias judiciais; o termo em dia de encerramento passa para o dia útil seguinte. 2.ª versão: confirma 20 dias corridos sem suspensão em férias judiciais (Pareceres 243/2019 e 336/2026, este é o Proc. 518/2026 que já lemos).",
-        "origem": "Dois pareceres documentais de 31/10/2026 recebidos pela equipa — não assinados por advogado inscrito na Ordem",
-        "recebidaEm": "2026-10-31",
-        "verificacaoNossa": "Compatível com o calculador atual. Parecer 243/2019 não lido por nós."
-      }
+      "investigacoes": [
+        {
+          "data": "2026-10-31",
+          "origem": "Pareceres documentais 1 e 2 (não assinados por advogado)",
+          "resumo": "O Parecer CADA 243/2019 indica 20 dias contínuos que não se suspendem em férias judiciais; o termo em dia de encerramento passa para o dia útil seguinte. 2.ª versão: confirma 20 dias corridos sem suspensão em férias judiciais (Pareceres 243/2019 e 336/2026, este é o Proc. 518/2026 que já lemos).",
+          "verificacaoNossa": "Compatível com o calculador atual. Parecer 243/2019 não lido por nós."
+        },
+        {
+          "data": "2026-10-31",
+          "origem": "Investigação documental 3 (não assinada por advogado; declara-o expressamente)",
+          "resumo": "Leu o Parecer CADA 243/2019 (Proc. 416/2019): 20 dias contínuos, sem suspensão em férias judiciais; termo em dia não útil passa para o dia útil seguinte.",
+          "verificacaoNossa": "Não verificado de novo por nós nesta ronda."
+        }
+      ],
+      "estadoInvestigacao": "respondida",
+      "estadoValidacaoProfissional": "pendente",
+      "estadoAplicacaoSite": "aplicada",
+      "parecerAssinado": null
     },
     {
       "id": "Q05",
@@ -136,16 +179,24 @@
         "r-obras"
       ],
       "impacto": "Necessária para fechar a ficha «Pedir documentos».",
-      "estado": "aberta",
-      "resposta": null,
-      "respondidoEm": null,
-      "respondidoPor": null,
-      "respostaPreliminar": {
-        "texto": "Há fundamento para acesso pela LADA a processos de obras concluídos, com expurgo de dados pessoais (Parecer CADA 112/2022), sem ignorar o regime especial do RJUE, art. 110.º. Recomenda dois percursos.",
-        "origem": "Dois pareceres documentais de 31/10/2026 recebidos pela equipa — não assinados por advogado inscrito na Ordem",
-        "recebidaEm": "2026-10-31",
-        "verificacaoNossa": "Por aplicar: requer reestruturar a ficha. Parecer 112/2022 não lido por nós."
-      }
+      "investigacoes": [
+        {
+          "data": "2026-10-31",
+          "origem": "Pareceres documentais 1 e 2 (não assinados por advogado)",
+          "resumo": "Há fundamento para acesso pela LADA a processos de obras concluídos, com expurgo de dados pessoais (Parecer CADA 112/2022), sem ignorar o regime especial do RJUE, art. 110.º. Recomenda dois percursos.",
+          "verificacaoNossa": "Por aplicar: requer reestruturar a ficha. Parecer 112/2022 não lido por nós."
+        },
+        {
+          "data": "2026-10-31",
+          "origem": "Investigação documental 3 (não assinada por advogado; declara-o expressamente)",
+          "resumo": "Pareceres CADA 191/2022 e 112/2022: processos urbanísticos concluídos regem-se pela LADA; em curso, regras procedimentais e RJUE. Propõe dois percursos.",
+          "verificacaoNossa": "Não verificado de novo por nós nesta ronda."
+        }
+      ],
+      "estadoInvestigacao": "respondida",
+      "estadoValidacaoProfissional": "pendente",
+      "estadoAplicacaoSite": "por-aplicar",
+      "parecerAssinado": null
     },
     {
       "id": "Q06",
@@ -163,16 +214,24 @@
         "r-pedir-documentos"
       ],
       "impacto": "Completa a ficha para pedidos de terceiros.",
-      "estado": "aberta",
-      "resposta": null,
-      "respondidoEm": null,
-      "respondidoPor": null,
-      "respostaPreliminar": {
-        "texto": "O interessado usa o CPA, arts. 82.º a 84.º; um terceiro usa o art. 85.º (interesse legítimo). O art. 6.º, n.º 3, da LADA permite diferir, não proibir.",
-        "origem": "Dois pareceres documentais de 31/10/2026 recebidos pela equipa — não assinados por advogado inscrito na Ordem",
-        "recebidaEm": "2026-10-31",
-        "verificacaoNossa": "Por aplicar: separar três situações na ficha."
-      }
+      "investigacoes": [
+        {
+          "data": "2026-10-31",
+          "origem": "Pareceres documentais 1 e 2 (não assinados por advogado)",
+          "resumo": "O interessado usa o CPA, arts. 82.º a 84.º; um terceiro usa o art. 85.º (interesse legítimo). O art. 6.º, n.º 3, da LADA permite diferir, não proibir.",
+          "verificacaoNossa": "Por aplicar: separar três situações na ficha."
+        },
+        {
+          "data": "2026-10-31",
+          "origem": "Investigação documental 3 (não assinada por advogado; declara-o expressamente)",
+          "resumo": "Três situações: interessado (CPA 82.º–84.º), terceiro com processo em curso (CPA 85.º, interesse legítimo e despacho), processo concluído (LADA 5.º–6.º).",
+          "verificacaoNossa": "Não verificado de novo por nós nesta ronda."
+        }
+      ],
+      "estadoInvestigacao": "respondida",
+      "estadoValidacaoProfissional": "pendente",
+      "estadoAplicacaoSite": "por-aplicar",
+      "parecerAssinado": null
     },
     {
       "id": "Q07",
@@ -190,16 +249,24 @@
         "r-morador-municipal"
       ],
       "impacto": "Orienta pedidos sobre candidaturas próprias e alheias.",
-      "estado": "aberta",
-      "resposta": null,
-      "respondidoEm": null,
-      "respondidoPor": null,
-      "respostaPreliminar": {
-        "texto": "CPA (10 dias), LADA (10 dias) e RGPD (1 mês, prorrogável) coexistem; o RGPD não garante cópia integral do processo; queixas à CADA ou à CNPD conforme o caso.",
-        "origem": "Dois pareceres documentais de 31/10/2026 recebidos pela equipa — não assinados por advogado inscrito na Ordem",
-        "recebidaEm": "2026-10-31",
-        "verificacaoNossa": "RGPD e prazos da CNPD não confirmados por nós."
-      }
+      "investigacoes": [
+        {
+          "data": "2026-10-31",
+          "origem": "Pareceres documentais 1 e 2 (não assinados por advogado)",
+          "resumo": "CPA (10 dias), LADA (10 dias) e RGPD (1 mês, prorrogável) coexistem; o RGPD não garante cópia integral do processo; queixas à CADA ou à CNPD conforme o caso.",
+          "verificacaoNossa": "RGPD e prazos da CNPD não confirmados por nós."
+        },
+        {
+          "data": "2026-10-31",
+          "origem": "Investigação documental 3 (não assinada por advogado; declara-o expressamente)",
+          "resumo": "RGPD art. 15.º e 12.º, n.º 3 (1 mês, prorrogável por 2): acesso aos próprios dados, queixa à CNPD; LADA para documentos, queixa à CADA; perguntar primeiro o objetivo do cidadão.",
+          "verificacaoNossa": "Não verificado de novo por nós nesta ronda."
+        }
+      ],
+      "estadoInvestigacao": "respondida",
+      "estadoValidacaoProfissional": "pendente",
+      "estadoAplicacaoSite": "por-aplicar",
+      "parecerAssinado": null
     },
     {
       "id": "Q08",
@@ -217,16 +284,24 @@
         "r-promessa"
       ],
       "impacto": "Necessária para fechar a ficha «Pedir documentos» e preparar o observatório de promessas.",
-      "estado": "aberta",
-      "resposta": null,
-      "respondidoEm": null,
-      "respondidoPor": null,
-      "respostaPreliminar": {
-        "texto": "(a) Sim, CCP, art. 127.º, n.os 1 e 3. (b) A consulta prévia especial segue a publicidade do art. 127.º por interpretação sistemática. (c) A Portaria n.º 318-B/2023 está em vigor; remissões por auditar.",
-        "origem": "Dois pareceres documentais de 31/10/2026 recebidos pela equipa — não assinados por advogado inscrito na Ordem",
-        "recebidaEm": "2026-10-31",
-        "verificacaoNossa": "Aplicado: após 10 anos o acesso depende de autorização e taxa do IMPIC (Portaria, art. 6.º, n.º 1, confirmado por nós)."
-      }
+      "investigacoes": [
+        {
+          "data": "2026-10-31",
+          "origem": "Pareceres documentais 1 e 2 (não assinados por advogado)",
+          "resumo": "(a) Sim, CCP, art. 127.º, n.os 1 e 3. (b) A consulta prévia especial segue a publicidade do art. 127.º por interpretação sistemática. (c) A Portaria n.º 318-B/2023 está em vigor; remissões por auditar.",
+          "verificacaoNossa": "Aplicado: após 10 anos o acesso depende de autorização e taxa do IMPIC (Portaria, art. 6.º, n.º 1, confirmado por nós)."
+        },
+        {
+          "data": "2026-10-31",
+          "origem": "Investigação documental 3 (não assinada por advogado; declara-o expressamente)",
+          "resumo": "CCP 127.º e 127.º-A confirmados; compatibilidade técnica da Portaria 318-B/2023 com a consulta prévia especial por confirmar.",
+          "verificacaoNossa": "Não verificado de novo por nós nesta ronda."
+        }
+      ],
+      "estadoInvestigacao": "respondida",
+      "estadoValidacaoProfissional": "pendente",
+      "estadoAplicacaoSite": "parcial",
+      "parecerAssinado": null
     },
     {
       "id": "Q09",
@@ -243,16 +318,24 @@
         "r-conservacao"
       ],
       "impacto": "Valida o modelo de carta ao senhorio do gerador.",
-      "estado": "aberta",
-      "resposta": null,
-      "respondidoEm": null,
-      "respondidoPor": null,
-      "respostaPreliminar": {
-        "texto": "A redação atual (NRAU, art. 9.º) é a mais segura; o e-mail pode servir como comunicação complementar.",
-        "origem": "Dois pareceres documentais de 31/10/2026 recebidos pela equipa — não assinados por advogado inscrito na Ordem",
-        "recebidaEm": "2026-10-31",
-        "verificacaoNossa": "Mantido. Modelo de carta já segue o NRAU, art. 9.º."
-      }
+      "investigacoes": [
+        {
+          "data": "2026-10-31",
+          "origem": "Pareceres documentais 1 e 2 (não assinados por advogado)",
+          "resumo": "A redação atual (NRAU, art. 9.º) é a mais segura; o e-mail pode servir como comunicação complementar.",
+          "verificacaoNossa": "Mantido. Modelo de carta já segue o NRAU, art. 9.º."
+        },
+        {
+          "data": "2026-10-31",
+          "origem": "Investigação documental 3 (não assinada por advogado; declara-o expressamente)",
+          "resumo": "Manter: NRAU art. 9.º, n.os 1 e 6; acrescentar conservação de comprovativos.",
+          "verificacaoNossa": "Não verificado de novo por nós nesta ronda."
+        }
+      ],
+      "estadoInvestigacao": "respondida",
+      "estadoValidacaoProfissional": "pendente",
+      "estadoAplicacaoSite": "aplicada",
+      "parecerAssinado": null
     },
     {
       "id": "Q10",
@@ -268,16 +351,24 @@
         "r-conservacao"
       ],
       "impacto": "Evita orientar o inquilino para atos que o exponham a resolução do contrato.",
-      "estado": "aberta",
-      "resposta": null,
-      "respondidoEm": null,
-      "respondidoPor": null,
-      "respostaPreliminar": {
-        "texto": "A advertência contra suspender a renda mantém-se, mas «exceto reparações verdadeiramente urgentes» é restritivo: o DL 157/2006, arts. 22.º-A a 22.º-D, prevê obras em substituição do senhorio com compensação.",
-        "origem": "Dois pareceres documentais de 31/10/2026 recebidos pela equipa — não assinados por advogado inscrito na Ordem",
-        "recebidaEm": "2026-10-31",
-        "verificacaoNossa": "Aplicada a redação proposta. DL 157/2006 não lido por nós."
-      }
+      "investigacoes": [
+        {
+          "data": "2026-10-31",
+          "origem": "Pareceres documentais 1 e 2 (não assinados por advogado)",
+          "resumo": "A advertência contra suspender a renda mantém-se, mas «exceto reparações verdadeiramente urgentes» é restritivo: o DL 157/2006, arts. 22.º-A a 22.º-D, prevê obras em substituição do senhorio com compensação.",
+          "verificacaoNossa": "Aplicada a redação proposta. DL 157/2006 não lido por nós."
+        },
+        {
+          "data": "2026-10-31",
+          "origem": "Investigação documental 3 (não assinada por advogado; declara-o expressamente)",
+          "resumo": "DL 157/2006, arts. 22.º-A a 22.º-D: obras em substituição do senhorio, aviso com 15 dias e orçamento (22.º-C), compensação com dedução nas rendas e acréscimo de 5% (22.º-D). Não é autorização geral para suspender a renda.",
+          "verificacaoNossa": "Não verificado de novo por nós nesta ronda."
+        }
+      ],
+      "estadoInvestigacao": "respondida",
+      "estadoValidacaoProfissional": "pendente",
+      "estadoAplicacaoSite": "parcial",
+      "parecerAssinado": null
     },
     {
       "id": "Q11",
@@ -294,16 +385,24 @@
         "r-degradado"
       ],
       "impacto": "Completa o percurso de obras e de prédio degradado.",
-      "estado": "aberta",
-      "resposta": null,
-      "respondidoEm": null,
-      "respondidoPor": null,
-      "respostaPreliminar": {
-        "texto": "O inquilino pode, em princípio, pedir intervenção municipal (RJUE, arts. 89.º e 90.º); não publicar taxas nem prazos sem validação.",
-        "origem": "Dois pareceres documentais de 31/10/2026 recebidos pela equipa — não assinados por advogado inscrito na Ordem",
-        "recebidaEm": "2026-10-31",
-        "verificacaoNossa": "Aplicado: pedir número de processo e descrever o perigo."
-      }
+      "investigacoes": [
+        {
+          "data": "2026-10-31",
+          "origem": "Pareceres documentais 1 e 2 (não assinados por advogado)",
+          "resumo": "O inquilino pode, em princípio, pedir intervenção municipal (RJUE, arts. 89.º e 90.º); não publicar taxas nem prazos sem validação.",
+          "verificacaoNossa": "Aplicado: pedir número de processo e descrever o perigo."
+        },
+        {
+          "data": "2026-10-31",
+          "origem": "Investigação documental 3 (não assinada por advogado; declara-o expressamente)",
+          "resumo": "Lisboa tem o serviço «Vistoria — comprovação do estado de conservação de imóvel»; taxa remete para tabela urbanística; prazo não fechado.",
+          "verificacaoNossa": "Não verificado de novo por nós nesta ronda."
+        }
+      ],
+      "estadoInvestigacao": "respondida",
+      "estadoValidacaoProfissional": "pendente",
+      "estadoAplicacaoSite": "parcial",
+      "parecerAssinado": null
     },
     {
       "id": "Q12",
@@ -311,7 +410,7 @@
       "prioridade": "alta",
       "pergunta": "Confirmam que a ficha pode afirmar o seguinte? (a) As antecedências mínimas do art. 1097.º, n.º 1, do CC (240, 120 e 60 dias, ou um terço do prazo). (b) A oposição à primeira renovação só produz efeitos três anos depois da celebração, salvo necessidade de habitação do senhorio ou dos filhos (n.os 3 e 4). (c) A comunicação tem de respeitar a forma do NRAU, art. 9.º. E, quando a antecedência é insuficiente, a oposição é ineficaz ou produz efeitos no termo seguinte?",
       "contexto": "Confirmámos os arts. 1097.º, 1101.º e 1103.º do CC e os arts. 9.º e 10.º do NRAU.",
-      "redacaoAtual": "Ver regras da ficha «Recebi uma carta do senhorio para sair».",
+      "redacaoAtual": "«Se o senhorio não respeitou a antecedência legal, a carta pode não produzir a cessação na data indicada. O resultado depende do contrato, da data de receção e da lei aplicável.»",
       "fontesConsultadas": [
         "codigo-civil",
         "nrau"
@@ -320,16 +419,24 @@
         "r-despejo"
       ],
       "impacto": "É a ficha de maior risco do site.",
-      "estado": "aberta",
-      "resposta": null,
-      "respondidoEm": null,
-      "respondidoPor": null,
-      "respostaPreliminar": {
-        "texto": "Antecedências do art. 1097.º confirmadas; só devem ser indicadas depois de identificado o contrato. Não afirmar o efeito de uma antecedência insuficiente.",
-        "origem": "Dois pareceres documentais de 31/10/2026 recebidos pela equipa — não assinados por advogado inscrito na Ordem",
-        "recebidaEm": "2026-10-31",
-        "verificacaoNossa": "As antecedências já estavam confirmadas por nós no DR. Acrescentada limitação sobre antecedência insuficiente."
-      }
+      "investigacoes": [
+        {
+          "data": "2026-10-31",
+          "origem": "Pareceres documentais 1 e 2 (não assinados por advogado)",
+          "resumo": "Antecedências do art. 1097.º confirmadas; só devem ser indicadas depois de identificado o contrato. Não afirmar o efeito de uma antecedência insuficiente.",
+          "verificacaoNossa": "As antecedências já estavam confirmadas por nós no DR. Acrescentada limitação sobre antecedência insuficiente."
+        },
+        {
+          "data": "2026-10-31",
+          "origem": "Investigação documental 3 (não assinada por advogado; declara-o expressamente)",
+          "resumo": "Carta sem a antecedência legal pode não produzir a cessação na data indicada (acórdão da Relação de Lisboa de 2026, citado); não presumir aproveitamento para renovação seguinte.",
+          "verificacaoNossa": "Aplicada a redação recomendada sobre carta tardia."
+        }
+      ],
+      "estadoInvestigacao": "respondida",
+      "estadoValidacaoProfissional": "pendente",
+      "estadoAplicacaoSite": "aplicada",
+      "parecerAssinado": null
     },
     {
       "id": "Q13",
@@ -347,24 +454,32 @@
         "r-senhorio-incumprimento"
       ],
       "impacto": "Permite criar perguntas adicionais no questionário.",
-      "estado": "aberta",
-      "resposta": null,
-      "respondidoEm": null,
-      "respondidoPor": null,
-      "respostaPreliminar": {
-        "texto": "A data do contrato é indispensável (regimes de 1990 e do NRAU); NRAU, art. 36.º, protege arrendatários de 65 anos ou mais ou com deficiência quanto à renda; CC, art. 1084.º, n.os 3 e 4: pôr fim à mora em 1 mês, uma vez por contrato.",
-        "origem": "Dois pareceres documentais de 31/10/2026 recebidos pela equipa — não assinados por advogado inscrito na Ordem",
-        "recebidaEm": "2026-10-31",
-        "verificacaoNossa": "CC, arts. 1083.º e 1084.º, e NRAU, art. 36.º, confirmados por nós. Aplicada regra da mora. Perguntas adicionais no questionário por fazer."
-      }
+      "investigacoes": [
+        {
+          "data": "2026-10-31",
+          "origem": "Pareceres documentais 1 e 2 (não assinados por advogado)",
+          "resumo": "A data do contrato é indispensável (regimes de 1990 e do NRAU); NRAU, art. 36.º, protege arrendatários de 65 anos ou mais ou com deficiência quanto à renda; CC, art. 1084.º, n.os 3 e 4: pôr fim à mora em 1 mês, uma vez por contrato.",
+          "verificacaoNossa": "CC, arts. 1083.º e 1084.º, e NRAU, art. 36.º, confirmados por nós. Aplicada regra da mora. Perguntas adicionais no questionário por fazer."
+        },
+        {
+          "data": "2026-10-31",
+          "origem": "Investigação documental 3 (não assinada por advogado; declara-o expressamente)",
+          "resumo": "Propõe questionário de 8 perguntas: data do contrato (antes de 15/11/1990, até 27/06/2006, depois), prazo, aditamentos, fundamento, receção, condições pessoais (NRAU art. 36.º), dívidas, uso anterior do art. 1084.º, n.º 3.",
+          "verificacaoNossa": "Não verificado de novo por nós nesta ronda."
+        }
+      ],
+      "estadoInvestigacao": "respondida",
+      "estadoValidacaoProfissional": "pendente",
+      "estadoAplicacaoSite": "parcial",
+      "parecerAssinado": null
     },
     {
       "id": "Q14",
       "tema": "Arrendamento — notificação do BAS ou do tribunal",
       "prioridade": "alta",
       "pergunta": "No procedimento especial de despejo (NRAU, art. 15.º e seguintes), qual o prazo de oposição a contar da notificação, como se conta e qual o canal oficial do BAS? O pedido de apoio judiciário interrompe ou suspende esse prazo, e o que deve o cidadão fazer para o garantir? Que redação curta e segura recomendam para «hoje mesmo»?",
-      "contexto": "A ficha não indica prazos por não os termos confirmado. O canal oficial do BAS não foi localizado.",
-      "redacaoAtual": "«Os prazos de oposição e o efeito do pedido de apoio judiciário estão em análise jurídica e não são indicados aqui.»",
+      "contexto": "Confirmados por nós no DR: 15 dias para oposição, por via eletrónica no BAS, com taxa de justiça e caução (NRAU, art. 15.º-F). Canal oficial do BAS confirmado. Falta: confirmar no DR a Lei n.º 34/2004, art. 24.º, n.os 4 e 5, e o efeito do Acórdão do TC n.º 515/2020 sobre o recomeço do prazo.",
+      "redacaoAtual": "«Se pedires nomeação de advogado oficioso, junta ao processo o comprovativo desse pedido antes de o prazo terminar. Sem essa junção, o prazo pode continuar a correr.» A ficha não indica quando o prazo recomeça.",
       "fontesConsultadas": [
         "nrau"
       ],
@@ -373,16 +488,24 @@
         "r-senhorio-incumprimento"
       ],
       "impacto": "Sem esta resposta, a ficha não pode dar o passo mais útil.",
-      "estado": "aberta",
-      "resposta": null,
-      "respondidoEm": null,
-      "respondidoPor": null,
-      "respostaPreliminar": {
-        "texto": "Oposição no procedimento especial de despejo: 15 dias a contar da notificação, por via eletrónica no BAS (NRAU, art. 15.º-F). A interrupção por pedido de patrono depende da comunicação ao processo (Lei n.º 34/2004, art. 24.º). 2.ª versão: o art. 15.º-D exige que a notificação indique o prazo e a contagem; oposição eletrónica (Portaria n.º 49/2024); canal oficial do BAS indicado e confirmado por nós em tribunais.org.pt.",
-        "origem": "Dois pareceres documentais de 31/10/2026 recebidos pela equipa — não assinados por advogado inscrito na Ordem",
-        "recebidaEm": "2026-10-31",
-        "verificacaoNossa": "NRAU, art. 15.º-F, confirmado por nós, incluindo taxa de justiça e caução (n.os 5 e 6). Aplicado. Lei n.º 34/2004 não lida por nós. Canal do BAS acrescentado ao site."
-      }
+      "investigacoes": [
+        {
+          "data": "2026-10-31",
+          "origem": "Pareceres documentais 1 e 2 (não assinados por advogado)",
+          "resumo": "Oposição no procedimento especial de despejo: 15 dias a contar da notificação, por via eletrónica no BAS (NRAU, art. 15.º-F). A interrupção por pedido de patrono depende da comunicação ao processo (Lei n.º 34/2004, art. 24.º). 2.ª versão: o art. 15.º-D exige que a notificação indique o prazo e a contagem; oposição eletrónica (Portaria n.º 49/2024); canal oficial do BAS indicado e confirmado por nós em tribunais.org.pt.",
+          "verificacaoNossa": "NRAU, art. 15.º-F, confirmado por nós, incluindo taxa de justiça e caução (n.os 5 e 6). Aplicado. Lei n.º 34/2004 não lida por nós. Canal do BAS acrescentado ao site."
+        },
+        {
+          "data": "2026-10-31",
+          "origem": "Investigação documental 3 (não assinada por advogado; declara-o expressamente)",
+          "resumo": "15 dias (NRAU 15.º-F); notificação indica prazo (15.º-D, n.º 4, al. b)); interrupção por pedido de patrono se o comprovativo for junto aos autos (Lei n.º 34/2004, art. 24.º, n.os 4 e 5).",
+          "verificacaoNossa": "Jurisprudência confirma que a interrupção exige junção do comprovativo aos autos durante o prazo; o Acórdão do TC n.º 515/2020 declarou inconstitucional uma interpretação do art. 24.º, n.º 5, al. a), não referida na 3.ª investigação — por isso o site não indica quando o prazo recomeça. Lei n.º 34/2004 não lida por nós no DR."
+        }
+      ],
+      "estadoInvestigacao": "respondida",
+      "estadoValidacaoProfissional": "pendente",
+      "estadoAplicacaoSite": "aplicada",
+      "parecerAssinado": null
     },
     {
       "id": "Q15",
@@ -399,24 +522,32 @@
         "r-conservacao"
       ],
       "impacto": "Fecha a ficha de condomínio.",
-      "estado": "aberta",
-      "resposta": null,
-      "respondidoEm": null,
-      "respondidoPor": null,
-      "respostaPreliminar": {
-        "texto": "O arrendatário pode comunicar ao administrador, sem direitos de condómino; Julgados de Paz competentes até 15 000 €, excluindo despejo; Lei n.º 29/2026 alterou o art. 1425.º (autoconsumo de energia).",
-        "origem": "Dois pareceres documentais de 31/10/2026 recebidos pela equipa — não assinados por advogado inscrito na Ordem",
-        "recebidaEm": "2026-10-31",
-        "verificacaoNossa": "Lei n.º 78/2001 não lida por nós; valores não publicados."
-      }
+      "investigacoes": [
+        {
+          "data": "2026-10-31",
+          "origem": "Pareceres documentais 1 e 2 (não assinados por advogado)",
+          "resumo": "O arrendatário pode comunicar ao administrador, sem direitos de condómino; Julgados de Paz competentes até 15 000 €, excluindo despejo; Lei n.º 29/2026 alterou o art. 1425.º (autoconsumo de energia).",
+          "verificacaoNossa": "Lei n.º 78/2001 não lida por nós; valores não publicados."
+        },
+        {
+          "data": "2026-10-31",
+          "origem": "Investigação documental 3 (não assinada por advogado; declara-o expressamente)",
+          "resumo": "Lei 78/2001: Julgados de Paz até 15 000 € (art. 8.º), condomínio (art. 9.º, n.º 1, al. c)) e arrendamento exceto despejo (al. g)); CC 1425.º, n.º 3 (Lei 29/2026): autoconsumo renovável por maioria simples.",
+          "verificacaoNossa": "Não verificado de novo por nós nesta ronda."
+        }
+      ],
+      "estadoInvestigacao": "respondida",
+      "estadoValidacaoProfissional": "pendente",
+      "estadoAplicacaoSite": "por-aplicar",
+      "parecerAssinado": null
     },
     {
       "id": "Q16",
       "tema": "Habitação pública — arrendamento apoiado",
       "prioridade": "alta",
       "pergunta": "No arrendamento apoiado (Lei n.º 81/2014), o «direito de recurso» da decisão de resolução (art. 25.º, n.º 2) é uma reclamação ou recurso administrativo (para que órgão e em que prazo, à luz do CPA) ou uma impugnação judicial? Que prazos indicar? Em Lisboa, quem decide o despejo nos bairros geridos pela Gebalis: a Gebalis ou a Câmara (art. 28.º, n.º 2)?",
-      "contexto": "Confirmámos os arts. 25.º e 28.º da Lei n.º 81/2014 consolidada (última alteração: DL 38/2023; Acórdão do TC n.º 197/2023 sobre o art. 2.º, n.os 4 e 5).",
-      "redacaoAtual": "Ficha nova «A câmara ou a empresa municipal quer pôr fim ao meu contrato».",
+      "contexto": "Confirmado por nós e pela 3.ª investigação: art. 25.º, n.º 2, prevê direito de recurso; n.º 3 revogado. Os pareceres 1 e 2 estavam errados neste ponto. Falta: meio e prazo de reação por tipo de ato; competência Gebalis/Câmara.",
+      "redacaoAtual": "«A lei reconhece-te o direito de recorrer da decisão de resolução. O meio de reação e o prazo dependem da decisão concreta e de quem a tomou.»",
       "fontesConsultadas": [
         "lei-81-2014"
       ],
@@ -425,16 +556,24 @@
         "r-morador-municipal"
       ],
       "impacto": "Ficha nova, separada do despejo privado.",
-      "estado": "aberta",
-      "resposta": null,
-      "respondidoEm": null,
-      "respondidoPor": null,
-      "respostaPreliminar": {
-        "texto": "O parecer afirma que o art. 25.º, n.º 2, não prevê direito de recurso e que o n.º 3 fixa 60 dias para desocupação. 2.ª versão repete a mesma leitura e acrescenta prazos gerais (reclamação 15 dias, CPA art. 191.º; recurso hierárquico 30 dias, art. 193.º; impugnação 3 meses, CPTA art. 58.º), que não devem ser aplicados sem identificar o ato.",
-        "origem": "Dois pareceres documentais de 31/10/2026 recebidos pela equipa — não assinados por advogado inscrito na Ordem",
-        "recebidaEm": "2026-10-31",
-        "verificacaoNossa": "CONTRADITO pelo texto consolidado que lemos no DR: o n.º 2 termina com «cabendo sempre direito de recurso desta decisão pelo arrendatário» e o n.º 3 está «(Revogado.)». Mantida a redação do site. Questão continua aberta para advogado. A 2.ª versão repete a afirmação contrária ao texto consolidado; mantém-se a nossa leitura do DR até parecer de advogado."
-      }
+      "investigacoes": [
+        {
+          "data": "2026-10-31",
+          "origem": "Pareceres documentais 1 e 2 (não assinados por advogado)",
+          "resumo": "O parecer afirma que o art. 25.º, n.º 2, não prevê direito de recurso e que o n.º 3 fixa 60 dias para desocupação. 2.ª versão repete a mesma leitura e acrescenta prazos gerais (reclamação 15 dias, CPA art. 191.º; recurso hierárquico 30 dias, art. 193.º; impugnação 3 meses, CPTA art. 58.º), que não devem ser aplicados sem identificar o ato.",
+          "verificacaoNossa": "CONTRADITO pelo texto consolidado que lemos no DR: o n.º 2 termina com «cabendo sempre direito de recurso desta decisão pelo arrendatário» e o n.º 3 está «(Revogado.)». Mantida a redação do site. Questão continua aberta para advogado. A 2.ª versão repete a afirmação contrária ao texto consolidado; mantém-se a nossa leitura do DR até parecer de advogado."
+        },
+        {
+          "data": "2026-10-31",
+          "origem": "Investigação documental 3 (não assinada por advogado; declara-o expressamente)",
+          "resumo": "Confirma a nossa leitura: art. 25.º, n.º 2, prevê direito de recurso; n.º 3 revogado. Meio e prazo dependem do ato (reclamação 15 dias, recurso hierárquico 30 dias, impugnação 3 meses como referências gerais); competência Gebalis/Câmara depende do contrato e de delegação.",
+          "verificacaoNossa": "Coincide com o texto consolidado lido por nós. Aplicada a redação recomendada."
+        }
+      ],
+      "estadoInvestigacao": "respondida",
+      "estadoValidacaoProfissional": "pendente",
+      "estadoAplicacaoSite": "aplicada",
+      "parecerAssinado": null
     },
     {
       "id": "Q17",
@@ -452,16 +591,24 @@
         "r-despejo-apoiado"
       ],
       "impacto": "Necessária para qualquer ficha municipal de Lisboa.",
-      "estado": "aberta",
-      "resposta": null,
-      "respondidoEm": null,
-      "respondidoPor": null,
-      "respostaPreliminar": {
-        "texto": "Versão consolidada pelo Aviso n.º 18018/2023 confirmada; revisão iniciada em 2026 sem publicação definitiva localizada; o Acórdão do TC n.º 197/2023 não anula todo o regulamento.",
-        "origem": "Dois pareceres documentais de 31/10/2026 recebidos pela equipa — não assinados por advogado inscrito na Ordem",
-        "recebidaEm": "2026-10-31",
-        "verificacaoNossa": "Não confirmado por nós."
-      }
+      "investigacoes": [
+        {
+          "data": "2026-10-31",
+          "origem": "Pareceres documentais 1 e 2 (não assinados por advogado)",
+          "resumo": "Versão consolidada pelo Aviso n.º 18018/2023 confirmada; revisão iniciada em 2026 sem publicação definitiva localizada; o Acórdão do TC n.º 197/2023 não anula todo o regulamento.",
+          "verificacaoNossa": "Não confirmado por nós."
+        },
+        {
+          "data": "2026-10-31",
+          "origem": "Investigação documental 3 (não assinada por advogado; declara-o expressamente)",
+          "resumo": "Regulamento de 2019, Aviso 18018/2023, alteração de 2024 ao anexo IV; deliberações 277/CM/2026 (revisão do RMDH) e 278/CM/2026 (gestão do parque) — dois processos de revisão; versão final de 2026 por confirmar.",
+          "verificacaoNossa": "Não verificado de novo por nós nesta ronda."
+        }
+      ],
+      "estadoInvestigacao": "respondida",
+      "estadoValidacaoProfissional": "pendente",
+      "estadoAplicacaoSite": "por-aplicar",
+      "parecerAssinado": null
     },
     {
       "id": "Q18",
@@ -480,16 +627,24 @@
         "r-procurar-apoio"
       ],
       "impacto": "Fecha as fichas de programas.",
-      "estado": "aberta",
-      "resposta": null,
-      "respondidoEm": null,
-      "respondidoPor": null,
-      "respostaPreliminar": {
-        "texto": "1.º Direito: pedido junto do município, sem garantia de casa; Porta 65: condições do Portal confirmadas. 2.ª versão: o Portal do Porta 65 refere dois momentos para juntar o contrato (2 meses após aprovação e 60 dias após apuramento).",
-        "origem": "Dois pareceres documentais de 31/10/2026 recebidos pela equipa — não assinados por advogado inscrito na Ordem",
-        "recebidaEm": "2026-10-31",
-        "verificacaoNossa": "Porta 65 confirmado por nós no Portal; DL 37/2018 não lido. Acrescentada limitação na ficha Porta 65."
-      }
+      "investigacoes": [
+        {
+          "data": "2026-10-31",
+          "origem": "Pareceres documentais 1 e 2 (não assinados por advogado)",
+          "resumo": "1.º Direito: pedido junto do município, sem garantia de casa; Porta 65: condições do Portal confirmadas. 2.ª versão: o Portal do Porta 65 refere dois momentos para juntar o contrato (2 meses após aprovação e 60 dias após apuramento).",
+          "verificacaoNossa": "Porta 65 confirmado por nós no Portal; DL 37/2018 não lido. Acrescentada limitação na ficha Porta 65."
+        },
+        {
+          "data": "2026-10-31",
+          "origem": "Investigação documental 3 (não assinada por advogado; declara-o expressamente)",
+          "resumo": "1.º Direito: pedido ao município (DL 37/2018, art. 59.º), com três encaminhamentos possíveis. Porta 65: DL 308/2007, art. 7.º; separar assinatura, apresentação e registo do contrato; 45 dias úteis não é prazo legal.",
+          "verificacaoNossa": "Não verificado de novo por nós nesta ronda."
+        }
+      ],
+      "estadoInvestigacao": "respondida",
+      "estadoValidacaoProfissional": "pendente",
+      "estadoAplicacaoSite": "parcial",
+      "parecerAssinado": null
     },
     {
       "id": "Q19",
@@ -505,16 +660,24 @@
         "r-obras"
       ],
       "impacto": "Fecha a ficha de obras.",
-      "estado": "aberta",
-      "resposta": null,
-      "respondidoEm": null,
-      "respondidoPor": null,
-      "respostaPreliminar": {
-        "texto": "Uma obra sem aviso visível não é, só por isso, ilegal; comunicar à fiscalização municipal. A Portaria n.º 320/2026/1 existe e revoga as Portarias 71-A/2024 e 71-B/2024.",
-        "origem": "Dois pareceres documentais de 31/10/2026 recebidos pela equipa — não assinados por advogado inscrito na Ordem",
-        "recebidaEm": "2026-10-31",
-        "verificacaoNossa": "Aplicada a ressalva. Portaria n.º 320/2026/1 não lida por nós."
-      }
+      "investigacoes": [
+        {
+          "data": "2026-10-31",
+          "origem": "Pareceres documentais 1 e 2 (não assinados por advogado)",
+          "resumo": "Uma obra sem aviso visível não é, só por isso, ilegal; comunicar à fiscalização municipal. A Portaria n.º 320/2026/1 existe e revoga as Portarias 71-A/2024 e 71-B/2024.",
+          "verificacaoNossa": "Aplicada a ressalva. Portaria n.º 320/2026/1 não lida por nós."
+        },
+        {
+          "data": "2026-10-31",
+          "origem": "Investigação documental 3 (não assinada por advogado; declara-o expressamente)",
+          "resumo": "RJUE 80.º-A (n.os 1–6) e 98.º, n.º 1, als. c) e j); Portaria n.º 320/2026/1 publicada a 31/07/2026, em vigor a 1/10/2026, revoga as Portarias 71-A e 71-B/2024.",
+          "verificacaoNossa": "Não verificado de novo por nós nesta ronda."
+        }
+      ],
+      "estadoInvestigacao": "respondida",
+      "estadoValidacaoProfissional": "pendente",
+      "estadoAplicacaoSite": "parcial",
+      "parecerAssinado": null
     },
     {
       "id": "Q20",
@@ -528,16 +691,24 @@
         "requerimento:modelo"
       ],
       "impacto": "Condição prévia de publicação.",
-      "estado": "aberta",
-      "resposta": null,
-      "respondidoEm": null,
-      "respondidoPor": null,
-      "respostaPreliminar": {
-        "texto": "A Lei n.º 49/2004 foi revogada pela Lei n.º 10/2024 (arts. 4.º, 6.º e 7.º relevantes). O aviso é necessário mas insuficiente; recomenda novo texto de limites do serviço e revisão funcional. 2.ª versão: propõe texto mais curto; aplicada a versão longa, que inclui a mesma mensagem.",
-        "origem": "Dois pareceres documentais de 31/10/2026 recebidos pela equipa — não assinados por advogado inscrito na Ordem",
-        "recebidaEm": "2026-10-31",
-        "verificacaoNossa": "Revogação confirmada (Ordem dos Advogados e DR). Aplicado o texto recomendado em «Sobre» e nas fichas. Revisão funcional por advogado continua necessária."
-      }
+      "investigacoes": [
+        {
+          "data": "2026-10-31",
+          "origem": "Pareceres documentais 1 e 2 (não assinados por advogado)",
+          "resumo": "A Lei n.º 49/2004 foi revogada pela Lei n.º 10/2024 (arts. 4.º, 6.º e 7.º relevantes). O aviso é necessário mas insuficiente; recomenda novo texto de limites do serviço e revisão funcional. 2.ª versão: propõe texto mais curto; aplicada a versão longa, que inclui a mesma mensagem.",
+          "verificacaoNossa": "Revogação confirmada (Ordem dos Advogados e DR). Aplicado o texto recomendado em «Sobre» e nas fichas. Revisão funcional por advogado continua necessária."
+        },
+        {
+          "data": "2026-10-31",
+          "origem": "Investigação documental 3 (não assinada por advogado; declara-o expressamente)",
+          "resumo": "Lei 10/2024, arts. 3.º, 4.º, 6.º, 7.º, 11.º, 12.º, 15.º; matriz de risco por funcionalidade; requisitos técnicos (bloquear resultados definitivos sem dados, encaminhar casos de despejo).",
+          "verificacaoNossa": "Não verificado de novo por nós nesta ronda."
+        }
+      ],
+      "estadoInvestigacao": "respondida",
+      "estadoValidacaoProfissional": "pendente",
+      "estadoAplicacaoSite": "parcial",
+      "parecerAssinado": null
     },
     {
       "id": "Q21",
@@ -554,16 +725,24 @@
         "requerimento:modelo"
       ],
       "impacto": "Valida o gerador.",
-      "estado": "aberta",
-      "resposta": null,
-      "respondidoEm": null,
-      "respondidoPor": null,
-      "respostaPreliminar": {
-        "texto": "O parecer não leu o código dos modelos; indica elementos que devem constar e o CPA, art. 41.º, para a remessa à entidade competente.",
-        "origem": "Dois pareceres documentais de 31/10/2026 recebidos pela equipa — não assinados por advogado inscrito na Ordem",
-        "recebidaEm": "2026-10-31",
-        "verificacaoNossa": "Por aplicar: entregar ao advogado os três modelos gerados."
-      }
+      "investigacoes": [
+        {
+          "data": "2026-10-31",
+          "origem": "Pareceres documentais 1 e 2 (não assinados por advogado)",
+          "resumo": "O parecer não leu o código dos modelos; indica elementos que devem constar e o CPA, art. 41.º, para a remessa à entidade competente.",
+          "verificacaoNossa": "Por aplicar: entregar ao advogado os três modelos gerados."
+        },
+        {
+          "data": "2026-10-31",
+          "origem": "Investigação documental 3 (não assinada por advogado; declara-o expressamente)",
+          "resumo": "Requisitos e cláusulas propostos para os três modelos e 9 testes obrigatórios; código não examinado.",
+          "verificacaoNossa": "Não verificado de novo por nós nesta ronda."
+        }
+      ],
+      "estadoInvestigacao": "respondida",
+      "estadoValidacaoProfissional": "pendente",
+      "estadoAplicacaoSite": "por-aplicar",
+      "parecerAssinado": null
     }
   ]
 }

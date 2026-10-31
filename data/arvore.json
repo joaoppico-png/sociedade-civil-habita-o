@@ -467,7 +467,7 @@
       ],
       "limitacoes": [
         "Contratos anteriores a 2006 ou a 1990 podem ter regras de transição diferentes: a data do contrato é indispensável.",
-        "Se a carta não respeitar a antecedência mínima, não se deve presumir em que data produz efeitos: isso exige análise do contrato.",
+        "Se o senhorio não respeitou a antecedência legal, a carta pode não produzir a cessação na data indicada. O resultado depende do contrato, da data de receção e da lei aplicável. Não abandones a casa só porque recebeste a carta, mas também não a ignores: guarda-a e confirma rapidamente os teus direitos.",
         "Esta ficha não calcula se a tua carta é válida."
       ],
       "estado": "por-confirmar",
@@ -1268,9 +1268,11 @@
         }
       ],
       "passos": [
-        "Verifica imediatamente a data da notificação e anota o fim dos 15 dias.",
+        "Guarda a notificação completa, com o envelope, o aviso de receção e os anexos.",
+        "Confirma a data em que foste notificado e o prazo indicado na notificação.",
         "Procura apoio jurídico urgente. Se não tiveres meios, pede apoio judiciário na Segurança Social.",
-        "Guarda o comprovativo do pedido de apoio judiciário e garante que é comunicado ao processo nos termos legais. Não suponhas que o prazo parou automaticamente.",
+        "Se pedires nomeação de advogado oficioso, junta ao processo o comprovativo desse pedido antes de o prazo terminar. Sem essa junção, o prazo pode continuar a correr.",
+        "Não ignores a taxa de justiça, a caução nem as rendas que se vençam durante o procedimento.",
         "Se estiveres em risco de ficar sem casa, contacta a ação social da câmara ou a Linha 144."
       ],
       "documentos": [
@@ -1295,8 +1297,8 @@
         "linha-144"
       ],
       "limitacoes": [
-        "Esta ficha não calcula o prazo: confirma a contagem com a notificação recebida e com apoio jurídico.",
-        "O efeito exato do pedido de apoio judiciário sobre o prazo está em análise jurídica."
+        "Uma notificação do BAS ou de tribunal não é igual a uma carta particular do senhorio: os prazos e as consequências são diferentes.",
+        "Esta ficha não calcula o prazo nem indica quando ele recomeça depois de um pedido de advogado oficioso: confirma com apoio jurídico."
       ],
       "estado": "por-confirmar",
       "verificadoEm": null,
@@ -1306,7 +1308,7 @@
     {
       "id": "r-despejo-apoiado",
       "titulo": "A câmara ou a empresa municipal quer pôr fim ao meu contrato",
-      "resumo": "Nas casas municipais em arrendamento apoiado aplica-se uma lei própria, a Lei n.º 81/2014, e não o despejo do arrendamento privado. A entidade tem de te ouvir antes de decidir e tens direito de recorrer. Se houver despejo e estiveres em carência habitacional, deves ser encaminhado para outra solução de habitação ou apoio.",
+      "resumo": "O arrendamento apoiado tem regras diferentes das do arrendamento privado (Lei n.º 81/2014). A entidade tem de te ouvir antes de decidir e a lei reconhece-te o direito de recorrer da decisão de resolução. O meio de reação e o prazo dependem da decisão concreta e de quem a tomou.",
       "municipal": true,
       "regras": [
         {
@@ -1357,11 +1359,10 @@
         }
       ],
       "passos": [
-        "Lê a comunicação e anota o motivo invocado e o prazo para te pronunciares.",
-        "Confirma na comunicação quem decidiu (câmara, empresa municipal ou outro órgão), o fundamento, se foste ouvido antes e que meios de reação são indicados.",
-        "Responde por escrito dentro do prazo, com a tua versão e documentos.",
-        "Se a decisão for desfavorável, pede apoio jurídico para recorrer.",
-        "Se não tiveres alternativa de habitação, di-lo por escrito: a lei prevê encaminhamento prévio."
+        "Guarda a decisão completa e todos os anexos, e regista a data em que foste notificado.",
+        "Confirma quem tomou a decisão (câmara, empresa municipal ou outro órgão), o fundamento e se foste ouvido antes.",
+        "Procura apoio jurídico imediatamente para identificar a via de reação e o prazo aplicáveis.",
+        "Se estiveres em carência habitacional, comunica-o por escrito aos serviços de habitação e de ação social: a lei prevê encaminhamento prévio."
       ],
       "documentos": [
         "Contrato ou título de ocupação",
@@ -1384,8 +1385,8 @@
         "provedor-justica-site"
       ],
       "limitacoes": [
-        "Fora de Lisboa, confirma no teu contrato qual é a entidade proprietária ou gestora.",
-        "O tipo de recurso, o prazo e o regulamento municipal aplicável estão em análise jurídica."
+        "Não presumas que o prazo é igual ao de um despejo privado, nem que uma reclamação suspende automaticamente a decisão.",
+        "Não se pode dizer em geral se decide a Câmara ou a empresa municipal: depende do contrato e das delegações de poderes."
       ],
       "estado": "por-confirmar",
       "verificadoEm": null,
