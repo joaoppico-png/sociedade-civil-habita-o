@@ -310,10 +310,10 @@
       "url": "https://www.cada.pt/files/pareceres/2026/127.pdf",
       "dataPublicacao": null,
       "ligacaoVerificadaEm": "2026-10-31",
-      "estado": "por-confirmar",
-      "verificadoEm": null,
+      "estado": "verificado",
+      "verificadoEm": "2026-10-31",
       "revisaoPrevista": "2027-04-30",
-      "responsavel": "Por atribuir"
+      "responsavel": "João Pico"
     },
     {
       "id": "cada-parecer-038-2025",
@@ -323,10 +323,10 @@
       "url": "https://www.cada.pt/files/pareceres/2025/038.pdf",
       "dataPublicacao": null,
       "ligacaoVerificadaEm": "2026-10-31",
-      "estado": "por-confirmar",
-      "verificadoEm": null,
+      "estado": "verificado",
+      "verificadoEm": "2026-10-31",
       "revisaoPrevista": "2027-04-30",
-      "responsavel": "Por atribuir"
+      "responsavel": "João Pico"
     },
     {
       "id": "cada-parecer-518-2026",
@@ -336,10 +336,10 @@
       "url": "https://www.cada.pt/files/pareceres/2026/336.pdf",
       "dataPublicacao": null,
       "ligacaoVerificadaEm": "2026-10-31",
-      "estado": "por-confirmar",
-      "verificadoEm": null,
+      "estado": "verificado",
+      "verificadoEm": "2026-10-31",
       "revisaoPrevista": "2027-04-30",
-      "responsavel": "Por atribuir"
+      "responsavel": "João Pico"
     }
   ]
 }

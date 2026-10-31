@@ -20,7 +20,7 @@ Responsável: ______________________ Data: ____________
 - [ ] Condições de reutilização das fontes verificadas.
 
 ## Estados e datas
-- [ ] Todos os registos revistos têm `estado: verificado`, `verificadoEm`, `revisaoPrevista`, `responsavel`.
+- [ ] Todos os registos revistos têm `estado: verificado` (feito em 2026-10-31 para 4 orientações LADA, regra de contagem e 3 pareceres CADA — responsável João Pico), `verificadoEm`, `revisaoPrevista`, `responsavel`.
 - [ ] Decidido o valor de `config.politica.mostrarPorConfirmar` para produção.
 - [ ] `oportunidades.json` só contém consultas confirmadas na fonte oficial, com prazos em vigor.
 

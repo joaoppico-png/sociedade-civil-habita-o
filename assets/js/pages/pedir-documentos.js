@@ -193,7 +193,7 @@ function renderOrientacoes() {
   clear(orientacoes).append(...dados.requerimento.orientacoes.map((o) => {
     const f = o.fonte ? fontes.get(o.fonte) : null;
     return h('details', { class: 'guide' },
-      h('summary', {}, o.titulo, ' ', badge({ estado: o.estado, verificadoEm: null })),
+      h('summary', {}, o.titulo, ' ', badge(o)),
       h('p', {}, o.texto),
       o.referencia || f ? h('p', { class: 'meta' }, o.referencia || '', f ? ' — ' : '', f ? externalLink(f.url, 'ver fonte') : null) : null);
   }));
@@ -232,7 +232,8 @@ function calcularPrazos() {
       h('dt', {}, 'Fim do prazo de resposta (estimativa)'), h('dd', {}, formatDate(cal.limiteResposta)),
       h('dt', {}, 'Sem resposta, podes apresentar queixa à CADA a partir de'), h('dd', {}, formatDate(cal.queixaDesde)),
       h('dt', {}, 'Último dia para a queixa (estimativa, 20 dias corridos)'), h('dd', {}, formatDate(cal.limiteQueixaSemResposta))),
-    alerta('warning', 'Estimativa, não prazo oficial', h('p', {}, regras.contagem)),
+    alerta('warning', 'Estimativa, não prazo oficial', h('p', {}, regras.contagem),
+      h('p', { class: 'meta' }, badge(regras), regras.verificadoEm ? ` Regra de contagem verificada em ${formatDate(regras.verificadoEm)}.` : '')),
     h('div', { class: 'actions' }, ics, insistir));
   anunciar(`Fim do prazo de resposta estimado: ${formatDate(cal.limiteResposta)}.`);
 }
