@@ -153,7 +153,7 @@ function ficha(resultadoBase, contexto) {
 
   return h('article', { class: 'result', 'aria-labelledby': 'resultado-titulo' },
     h('header', { class: 'result__header' },
-      h('p', { class: 'eyebrow' }, 'Resultado ', badge(r, hoje)),
+      h('p', { class: 'eyebrow' }, 'Resultado ', badge(r, hoje), ' ', revisaoAdvogado(r.id)),
       h('h2', { id: 'resultado-titulo', tabindex: '-1', 'data-foco': '' }, r.titulo)),
     porConfirmar ? alerta('warning', 'Informação por confirmar', h('p', {}, politica.notaPorConfirmar)) : null,
     h('p', { class: 'lead' }, r.resumo),
@@ -192,6 +192,14 @@ function ficha(resultadoBase, contexto) {
 
     secao('Fontes', [listaFontes(r.fontes, ctx.fontes, hoje), datasEditoriais(r)], { secundaria: true }),
     controlos);
+}
+
+/** Nível de confiança separado do estado editorial: só há «validada» com parecer assinado. */
+function revisaoAdvogado(id) {
+  const ligadas = ctx.questoes.filter((q) => q.registos.includes(id));
+  const validada = ligadas.length > 0 && ligadas.every((q) => q.estadoValidacaoProfissional === 'validada');
+  return h('span', { class: `badge ${validada ? 'badge--success' : 'badge--neutral'}` },
+    validada ? 'Validada por advogado' : 'Sem revisão por advogado');
 }
 
 function blocoQuestoes(id) {

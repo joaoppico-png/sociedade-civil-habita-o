@@ -223,12 +223,12 @@ function calcularPrazos() {
     return;
   }
   campo.removeAttribute('aria-invalid');
-  const ics = h('button', { type: 'button', class: 'btn btn--secondary' }, 'Descarregar lembretes para o calendário (.ics)');
+  const ics = h('button', { type: 'button', class: 'btn btn--secondary' }, 'Descarregar lembretes (estimativa) para o calendário (.ics)');
   ics.addEventListener('click', () => {
     descarregar(`lembretes-pedido-${cal.entrega}.ics`, gerarICS([
-      { data: cal.limiteResposta, titulo: 'Fim do prazo de resposta ao pedido de documentos', descricao: `Pedido entregue em ${cal.entrega}. Se não houver resposta, podes insistir ou apresentar queixa à CADA. Confirma o prazo na fonte oficial.` },
-      { data: cal.queixaDesde, titulo: 'Sem resposta? A partir de hoje podes apresentar queixa à CADA', descricao: 'Antes desta data a queixa seria intempestiva. Prazo: 20 dias corridos. Confirma no site da CADA.' },
-      { data: cal.limiteQueixaSemResposta, titulo: 'Último dia estimado para a queixa à CADA', descricao: 'Estimativa sujeita a confirmação (20 dias corridos). Confirma o prazo no site da CADA.' }
+      { data: cal.limiteResposta, titulo: 'ESTIMATIVA — fim do prazo de resposta ao pedido de documentos', descricao: `Pedido entregue em ${cal.entrega}. Se não houver resposta, podes insistir ou apresentar queixa à CADA. Confirma o prazo na fonte oficial.` },
+      { data: cal.queixaDesde, titulo: 'ESTIMATIVA — a partir de hoje podes apresentar queixa à CADA (se não houve resposta)', descricao: 'Antes desta data a queixa seria intempestiva. Prazo: 20 dias corridos. Confirma no site da CADA.' },
+      { data: cal.limiteQueixaSemResposta, titulo: 'ESTIMATIVA — último dia para a queixa à CADA', descricao: 'Estimativa sujeita a confirmação (20 dias corridos). Confirma o prazo no site da CADA.' }
     ]), 'text/calendar;charset=utf-8');
     estado('Ficheiro de calendário descarregado.');
   });

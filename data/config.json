@@ -2,12 +2,13 @@
   "site": {
     "nome": "Sociedade Civil — Habitação",
     "lema": "A tua casa. Os teus direitos. Respostas concretas.",
-    "dominio": null,
+    "dominio": "https://sociedadecivil.pt",
     "eixos": [
       "Compreender",
       "Agir",
       "Fiscalizar"
-    ]
+    ],
+    "paginaPublica": "https://sociedadecivil.pt/direito-habitacao/"
   },
   "politica": {
     "mostrarPorConfirmar": true,

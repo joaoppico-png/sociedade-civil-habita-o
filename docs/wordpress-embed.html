@@ -25,7 +25,7 @@
     if (!frame) return;
     var origem = new URL(frame.src).origin;
     window.addEventListener('message', function (ev) {
-      if (ev.origin !== origem || !ev.data || typeof ev.data !== 'object') return;
+      if (ev.source !== frame.contentWindow || ev.origin !== origem || !ev.data || typeof ev.data !== 'object') return;
       if (ev.data.tipo === 'sch-altura' && typeof ev.data.altura === 'number' && ev.data.altura > 200 && ev.data.altura < 40000) {
         frame.style.height = ev.data.altura + 'px';
       }

@@ -1,7 +1,6 @@
+# Versão de teste: o conteúdo não deve ser indexado enquanto não houver revisão jurídica.
+# Nota: os motores de busca só leem o robots.txt na raiz do domínio (https://sociedadecivil.pt/robots.txt).
 User-agent: *
-Allow: /
-Disallow: /data/demo/
-Disallow: /tests/
-Disallow: /tools/
+Disallow: /
 
-Sitemap: https://example.org/sitemap.xml
+Sitemap: https://sociedadecivil.pt/direito_habitacao/sitemap.xml

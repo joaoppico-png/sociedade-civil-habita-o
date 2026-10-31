@@ -1,7 +1,7 @@
 // Estados editoriais e datas. Funções puras: usadas no browser e nos testes Node.
 
 export const ESTADOS = {
-  'verificado': { rotulo: 'Verificado', tom: 'success' },
+  'verificado': { rotulo: 'Conferido pela equipa', tom: 'success' },
   'por-confirmar': { rotulo: 'Por confirmar', tom: 'warning' },
   'desatualizado': { rotulo: 'Desatualizado', tom: 'danger' },
   'arquivado': { rotulo: 'Arquivado', tom: 'neutral' }
