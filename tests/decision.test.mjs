@@ -77,3 +77,21 @@ test('sem informação verificada não há resultado quando a política o exige'
   assert.equal(isDisplayable(r, { mostrarPorConfirmar: true }, '2026-10-31'), true);
   assert.equal(isDisplayable({ ...r, estado: 'arquivado' }, { mostrarPorConfirmar: true }, '2026-10-31'), false);
 });
+
+test('Q13: a carta para sair mostra só as regras do motivo indicado e avisa sobre contratos antigos', () => {
+  const base = ['arrendada', 'inquilino', 'saida', 'carta-senhorio'];
+  const res = (data, motivo) => { const w = walk(tree, [...base, data, motivo], municipios); return resolveResultado(tree.resultados.get(w.resultadoId), w.contexto, municipios); };
+  const ren = res('depois-2006', 'renovacao');
+  assert.ok(ren.regras.some((g) => /1097/.test(g.referencia)));
+  assert.ok(!ren.regras.some((g) => /1101/.test(g.referencia)));
+  const rendas = res('antes-1990', 'rendas');
+  assert.ok(rendas.regras.some((g) => /1084/.test(g.referencia)));
+  assert.ok(!rendas.regras.some((g) => /1097/.test(g.referencia)));
+  assert.ok(rendas.limitacoes.some((l) => /anterior ao NRAU/.test(l)));
+  assert.ok(rendas.passos.every((p) => typeof p === 'string'));
+});
+
+test('Q05–Q07: quatro percursos para pedir documentos ou dados', () => {
+  const ids = ['concluido', 'meu-processo', 'processo-terceiro', 'dados'].map((o) => walk(tree, ['documentos', o], municipios).resultadoId);
+  assert.deepEqual(ids, ['r-pedir-documentos', 'r-processo-proprio', 'r-processo-terceiro', 'r-dados-pessoais']);
+});

@@ -119,12 +119,12 @@
           "data": "2026-10-31",
           "origem": "Investigação documental 3 (não assinada por advogado; declara-o expressamente)",
           "resumo": "CPA, art. 108.º: convite a suprir deficiências; rejeição liminar só de pedidos não identificados ou ininteligíveis. Assinatura digitalizada aceitável mas não garantida.",
-          "verificacaoNossa": "Não verificado de novo por nós nesta ronda."
+          "verificacaoNossa": "Aplicado: convite a corrigir (CPA, art. 108.º, n.os 1 e 4) e reencaminhamento (art. 41.º), lidos por nós no DR. A rejeição liminar está no n.º 4, não no n.º 3 como diz a 3.ª investigação."
         }
       ],
       "estadoInvestigacao": "respondida",
       "estadoValidacaoProfissional": "pendente",
-      "estadoAplicacaoSite": "parcial",
+      "estadoAplicacaoSite": "aplicada",
       "parecerAssinado": null
     },
     {
@@ -176,7 +176,8 @@
       ],
       "registos": [
         "r-pedir-documentos",
-        "r-obras"
+        "r-obras",
+        "r-processo-terceiro"
       ],
       "impacto": "Necessária para fechar a ficha «Pedir documentos».",
       "investigacoes": [
@@ -190,12 +191,12 @@
           "data": "2026-10-31",
           "origem": "Investigação documental 3 (não assinada por advogado; declara-o expressamente)",
           "resumo": "Pareceres CADA 191/2022 e 112/2022: processos urbanísticos concluídos regem-se pela LADA; em curso, regras procedimentais e RJUE. Propõe dois percursos.",
-          "verificacaoNossa": "Não verificado de novo por nós nesta ronda."
+          "verificacaoNossa": "Aplicado: percurso separado e regra do Parecer CADA 191/2022 (lido por nós). Falta: prevalência RJUE/LADA para certidões urbanísticas."
         }
       ],
       "estadoInvestigacao": "respondida",
       "estadoValidacaoProfissional": "pendente",
-      "estadoAplicacaoSite": "por-aplicar",
+      "estadoAplicacaoSite": "parcial",
       "parecerAssinado": null
     },
     {
@@ -211,7 +212,9 @@
         "cada-parecer-445-2024"
       ],
       "registos": [
-        "r-pedir-documentos"
+        "r-pedir-documentos",
+        "r-processo-proprio",
+        "r-processo-terceiro"
       ],
       "impacto": "Completa a ficha para pedidos de terceiros.",
       "investigacoes": [
@@ -225,12 +228,12 @@
           "data": "2026-10-31",
           "origem": "Investigação documental 3 (não assinada por advogado; declara-o expressamente)",
           "resumo": "Três situações: interessado (CPA 82.º–84.º), terceiro com processo em curso (CPA 85.º, interesse legítimo e despacho), processo concluído (LADA 5.º–6.º).",
-          "verificacaoNossa": "Não verificado de novo por nós nesta ronda."
+          "verificacaoNossa": "Aplicado: três percursos (processo meu, de terceiro em curso, concluído) com CPA 82.º, 83.º e 85.º e RJUE 110.º, lidos por nós."
         }
       ],
       "estadoInvestigacao": "respondida",
       "estadoValidacaoProfissional": "pendente",
-      "estadoAplicacaoSite": "por-aplicar",
+      "estadoAplicacaoSite": "aplicada",
       "parecerAssinado": null
     },
     {
@@ -246,7 +249,9 @@
       ],
       "registos": [
         "r-pedir-documentos",
-        "r-morador-municipal"
+        "r-morador-municipal",
+        "r-dados-pessoais",
+        "r-processo-proprio"
       ],
       "impacto": "Orienta pedidos sobre candidaturas próprias e alheias.",
       "investigacoes": [
@@ -260,12 +265,12 @@
           "data": "2026-10-31",
           "origem": "Investigação documental 3 (não assinada por advogado; declara-o expressamente)",
           "resumo": "RGPD art. 15.º e 12.º, n.º 3 (1 mês, prorrogável por 2): acesso aos próprios dados, queixa à CNPD; LADA para documentos, queixa à CADA; perguntar primeiro o objetivo do cidadão.",
-          "verificacaoNossa": "Não verificado de novo por nós nesta ronda."
+          "verificacaoNossa": "Aplicado: percurso «os meus dados pessoais» (RGPD 12.º e 15.º; CNPD). Falta modelo de pedido RGPD no gerador."
         }
       ],
       "estadoInvestigacao": "respondida",
       "estadoValidacaoProfissional": "pendente",
-      "estadoAplicacaoSite": "por-aplicar",
+      "estadoAplicacaoSite": "parcial",
       "parecerAssinado": null
     },
     {
@@ -362,12 +367,12 @@
           "data": "2026-10-31",
           "origem": "Investigação documental 3 (não assinada por advogado; declara-o expressamente)",
           "resumo": "DL 157/2006, arts. 22.º-A a 22.º-D: obras em substituição do senhorio, aviso com 15 dias e orçamento (22.º-C), compensação com dedução nas rendas e acréscimo de 5% (22.º-D). Não é autorização geral para suspender a renda.",
-          "verificacaoNossa": "Não verificado de novo por nós nesta ronda."
+          "verificacaoNossa": "Aplicado: DL 157/2006, arts. 22.º-A, 22.º-C e 22.º-D, lidos por nós no DR."
         }
       ],
       "estadoInvestigacao": "respondida",
       "estadoValidacaoProfissional": "pendente",
-      "estadoAplicacaoSite": "parcial",
+      "estadoAplicacaoSite": "aplicada",
       "parecerAssinado": null
     },
     {
@@ -465,7 +470,7 @@
           "data": "2026-10-31",
           "origem": "Investigação documental 3 (não assinada por advogado; declara-o expressamente)",
           "resumo": "Propõe questionário de 8 perguntas: data do contrato (antes de 15/11/1990, até 27/06/2006, depois), prazo, aditamentos, fundamento, receção, condições pessoais (NRAU art. 36.º), dívidas, uso anterior do art. 1084.º, n.º 3.",
-          "verificacaoNossa": "Não verificado de novo por nós nesta ronda."
+          "verificacaoNossa": "Aplicado: perguntas sobre data do contrato e motivo da carta, com regras condicionais. Falta: condições pessoais, aditamentos e regimes de transição detalhados."
         }
       ],
       "estadoInvestigacao": "respondida",
@@ -533,12 +538,12 @@
           "data": "2026-10-31",
           "origem": "Investigação documental 3 (não assinada por advogado; declara-o expressamente)",
           "resumo": "Lei 78/2001: Julgados de Paz até 15 000 € (art. 8.º), condomínio (art. 9.º, n.º 1, al. c)) e arrendamento exceto despejo (al. g)); CC 1425.º, n.º 3 (Lei 29/2026): autoconsumo renovável por maioria simples.",
-          "verificacaoNossa": "Não verificado de novo por nós nesta ronda."
+          "verificacaoNossa": "Aplicado: Julgados de Paz (Lei 78/2001, arts. 8.º e 9.º, lidos por nós) e CC 1425.º, n.º 3 (lido por nós); papel do inquilino."
         }
       ],
       "estadoInvestigacao": "respondida",
       "estadoValidacaoProfissional": "pendente",
-      "estadoAplicacaoSite": "por-aplicar",
+      "estadoAplicacaoSite": "aplicada",
       "parecerAssinado": null
     },
     {
@@ -638,7 +643,7 @@
           "data": "2026-10-31",
           "origem": "Investigação documental 3 (não assinada por advogado; declara-o expressamente)",
           "resumo": "1.º Direito: pedido ao município (DL 37/2018, art. 59.º), com três encaminhamentos possíveis. Porta 65: DL 308/2007, art. 7.º; separar assinatura, apresentação e registo do contrato; 45 dias úteis não é prazo legal.",
-          "verificacaoNossa": "Não verificado de novo por nós nesta ronda."
+          "verificacaoNossa": "Aplicado: DL 37/2018, arts. 5.º e 59.º (lidos por nós). Falta separar os prazos do contrato no Porta 65."
         }
       ],
       "estadoInvestigacao": "respondida",
@@ -671,7 +676,7 @@
           "data": "2026-10-31",
           "origem": "Investigação documental 3 (não assinada por advogado; declara-o expressamente)",
           "resumo": "RJUE 80.º-A (n.os 1–6) e 98.º, n.º 1, als. c) e j); Portaria n.º 320/2026/1 publicada a 31/07/2026, em vigor a 1/10/2026, revoga as Portarias 71-A e 71-B/2024.",
-          "verificacaoNossa": "Não verificado de novo por nós nesta ronda."
+          "verificacaoNossa": "Portaria 320/2026/1 referida como limitação, com base na Ordem dos Arquitectos; não lida por nós no DR."
         }
       ],
       "estadoInvestigacao": "respondida",
@@ -736,12 +741,12 @@
           "data": "2026-10-31",
           "origem": "Investigação documental 3 (não assinada por advogado; declara-o expressamente)",
           "resumo": "Requisitos e cláusulas propostos para os três modelos e 9 testes obrigatórios; código não examinado.",
-          "verificacaoNossa": "Não verificado de novo por nós nesta ronda."
+          "verificacaoNossa": "Aplicadas as cláusulas propostas (remessa, expurgo, fundamentação, data do pedido original, calendário e reserva de direitos, sem desconto de renda) e 6 testes novos. Falta revisão por advogado."
         }
       ],
       "estadoInvestigacao": "respondida",
       "estadoValidacaoProfissional": "pendente",
-      "estadoAplicacaoSite": "por-aplicar",
+      "estadoAplicacaoSite": "parcial",
       "parecerAssinado": null
     }
   ]

@@ -23,7 +23,7 @@
         {
           "id": "documentos",
           "rotulo": "Quero pedir documentos sobre um projeto ou decisão",
-          "resultado": "r-pedir-documentos"
+          "seguinte": "documentos-tipo"
         },
         {
           "id": "participar",
@@ -193,7 +193,7 @@
         {
           "id": "carta-senhorio",
           "rotulo": "Uma carta do senhorio (casa arrendada a um particular ou empresa)",
-          "resultado": "r-despejo"
+          "seguinte": "carta-data"
         },
         {
           "id": "notificacao",
@@ -212,6 +212,110 @@
       "tipo": "municipio",
       "texto": "Em que concelho fica a casa?",
       "resultado": "r-despejo-apoiado"
+    },
+    {
+      "id": "carta-data",
+      "texto": "Quando foi celebrado o teu contrato?",
+      "ajuda": "Vê a data no contrato. Contratos antigos podem ter regras de transição próprias.",
+      "opcoes": [
+        {
+          "id": "antes-1990",
+          "rotulo": "Antes de novembro de 1990",
+          "define": {
+            "contrato": "antigo"
+          },
+          "seguinte": "carta-motivo"
+        },
+        {
+          "id": "1990-2006",
+          "rotulo": "Entre novembro de 1990 e junho de 2006",
+          "define": {
+            "contrato": "antigo"
+          },
+          "seguinte": "carta-motivo"
+        },
+        {
+          "id": "depois-2006",
+          "rotulo": "Depois de junho de 2006",
+          "define": {
+            "contrato": "recente"
+          },
+          "seguinte": "carta-motivo"
+        },
+        {
+          "id": "nao-sei",
+          "rotulo": "Não sei",
+          "define": {
+            "contrato": "desconhecido"
+          },
+          "seguinte": "carta-motivo"
+        }
+      ]
+    },
+    {
+      "id": "carta-motivo",
+      "texto": "O que diz a carta?",
+      "opcoes": [
+        {
+          "id": "renovacao",
+          "rotulo": "Que o contrato não vai ser renovado no fim do prazo",
+          "define": {
+            "motivo": "renovacao"
+          },
+          "resultado": "r-despejo"
+        },
+        {
+          "id": "denuncia",
+          "rotulo": "Que o senhorio precisa da casa, vai fazer obras profundas ou quer terminar um contrato sem prazo",
+          "define": {
+            "motivo": "denuncia"
+          },
+          "resultado": "r-despejo"
+        },
+        {
+          "id": "rendas",
+          "rotulo": "Que o contrato acaba por rendas em atraso",
+          "define": {
+            "motivo": "rendas"
+          },
+          "resultado": "r-despejo"
+        },
+        {
+          "id": "outro",
+          "rotulo": "Outra coisa, ou não percebo",
+          "define": {
+            "motivo": "outro"
+          },
+          "resultado": "r-despejo"
+        }
+      ]
+    },
+    {
+      "id": "documentos-tipo",
+      "texto": "Que documentos ou informação queres?",
+      "ajuda": "As regras mudam conforme o processo é teu, de outra pessoa ou já terminou.",
+      "opcoes": [
+        {
+          "id": "concluido",
+          "rotulo": "Documentos de um processo concluído, de um contrato público ou de uma decisão",
+          "resultado": "r-pedir-documentos"
+        },
+        {
+          "id": "meu-processo",
+          "rotulo": "Informação ou documentos de um processo meu ainda a decorrer (candidatura, licença, pedido)",
+          "resultado": "r-processo-proprio"
+        },
+        {
+          "id": "processo-terceiro",
+          "rotulo": "Documentos de um processo de outra pessoa que ainda está a decorrer",
+          "resultado": "r-processo-terceiro"
+        },
+        {
+          "id": "dados",
+          "rotulo": "Os meus dados pessoais que uma entidade tem",
+          "resultado": "r-dados-pessoais"
+        }
+      ]
     }
   ],
   "resultados": [
@@ -235,6 +339,21 @@
           "texto": "Reparações urgentes: se o senhorio estiver em atraso e a urgência não permitir esperar por um tribunal, o inquilino pode fazê-las e pedir o reembolso. Se a urgência não permitir qualquer demora, pode fazê-las mesmo sem atraso do senhorio, desde que o avise ao mesmo tempo.",
           "referencia": "Código Civil, art. 1036.º",
           "fonte": "codigo-civil"
+        },
+        {
+          "texto": "Se a câmara intimou o senhorio a fazer obras (RJUE, art. 89.º, n.º 2) ou nas reparações urgentes do art. 1036.º, n.º 1, o inquilino pode executar as obras em substituição do senhorio, com direito a compensação.",
+          "referencia": "Decreto-Lei n.º 157/2006, art. 22.º-A",
+          "fonte": "dl-157-2006"
+        },
+        {
+          "texto": "Nesse caso, o inquilino comunica ao senhorio a intenção com pelo menos 15 dias de antecedência, com orçamento, mapa de quantidades e datas; comunica a conclusão em 30 dias, com os comprovativos. As comunicações seguem o NRAU, art. 9.º.",
+          "referencia": "Decreto-Lei n.º 157/2006, art. 22.º-C",
+          "fonte": "dl-157-2006"
+        },
+        {
+          "texto": "A compensação inclui as despesas e juros, mais 5% de despesas de administração; o inquilino pode deduzi-la nas rendas a partir do início das obras.",
+          "referencia": "Decreto-Lei n.º 157/2006, art. 22.º-D",
+          "fonte": "dl-157-2006"
         },
         {
           "texto": "As comunicações sobre obras entre senhorio e inquilino fazem-se por escrito assinado, enviado por carta registada com aviso de receção, ou entregue em mão com assinatura do destinatário numa cópia.",
@@ -311,7 +430,8 @@
         "codigo-civil",
         "nrau",
         "dl-108-2026",
-        "seg-social-protecao-juridica"
+        "seg-social-protecao-juridica",
+        "dl-157-2006"
       ],
       "limitacoes": [
         "Se o contrato tiver cláusulas sobre obras, essas cláusulas podem alterar a regra geral.",
@@ -405,17 +525,34 @@
         {
           "texto": "Contratos com prazo: o senhorio pode opor-se à renovação com antecedência mínima de 240 dias (contrato ou renovação de 6 anos ou mais), 120 dias (de 1 a 6 anos), 60 dias (de 6 meses a 1 ano) ou um terço do prazo (menos de 6 meses), contada até ao fim do prazo.",
           "referencia": "Código Civil, art. 1097.º, n.os 1 e 2",
-          "fonte": "codigo-civil"
+          "fonte": "codigo-civil",
+          "se": {
+            "motivo": "renovacao"
+          }
         },
         {
           "texto": "A oposição do senhorio à primeira renovação só produz efeitos três anos depois da celebração do contrato, salvo se precisar da casa para si ou para filhos.",
           "referencia": "Código Civil, art. 1097.º, n.os 3 e 4",
-          "fonte": "codigo-civil"
+          "fonte": "codigo-civil",
+          "se": {
+            "motivo": "renovacao"
+          }
         },
         {
           "texto": "Contratos sem prazo: o senhorio só pode denunciar por necessidade de habitação própria ou dos filhos, por obras profundas que obriguem a sair (com aviso de pelo menos 6 meses e o motivo escrito na carta), ou com aviso de pelo menos 5 anos.",
           "referencia": "Código Civil, arts. 1101.º e 1103.º, n.º 1",
-          "fonte": "codigo-civil"
+          "fonte": "codigo-civil",
+          "se": {
+            "motivo": "denuncia"
+          }
+        },
+        {
+          "texto": "Com rendas em atraso de 3 meses ou mais, o senhorio pode resolver o contrato por carta. A resolução fica sem efeito se o inquilino pagar o que deve no prazo de um mês, mas só uma vez em cada contrato.",
+          "referencia": "Código Civil, arts. 1083.º, n.º 3, e 1084.º, n.os 2 a 4",
+          "fonte": "codigo-civil",
+          "se": {
+            "motivo": "rendas"
+          }
         },
         {
           "texto": "Estas comunicações fazem-se por escrito assinado, enviado por carta registada com aviso de receção para a casa arrendada, ou entregue em mão com assinatura numa cópia.",
@@ -423,9 +560,12 @@
           "fonte": "nrau"
         },
         {
-          "texto": "Se o senhorio puser fim ao contrato por carta com fundamento em rendas em atraso de 3 meses ou mais, a resolução fica sem efeito se o inquilino pagar o que deve no prazo de um mês. Esta possibilidade só pode ser usada uma vez em cada contrato.",
-          "referencia": "Código Civil, arts. 1083.º, n.º 3, e 1084.º, n.os 2 a 4",
-          "fonte": "codigo-civil"
+          "texto": "Quem tem de sair por não renovação do contrato e não tem solução habitacional alternativa está numa situação de precariedade abrangida pelo 1.º Direito, a pedir na câmara municipal.",
+          "referencia": "Decreto-Lei n.º 37/2018, arts. 5.º, al. a), e 59.º",
+          "fonte": "dl-37-2018",
+          "se": {
+            "motivo": "renovacao"
+          }
         }
       ],
       "entidades": [
@@ -444,10 +584,38 @@
       ],
       "passos": [
         "Anota a data em que recebeste a carta e guarda o envelope.",
-        "Vê no contrato a data de início, se tem prazo e qual a duração.",
-        "Identifica o que a carta diz: não renovação, denúncia (fim de contrato sem prazo) ou resolução (por incumprimento).",
-        "Confirma se a antecedência e a forma de envio cumprem a lei.",
-        "Pede proteção jurídica ou procura um advogado antes de responder ou de sair."
+        {
+          "texto": "Vê no contrato o prazo e a data da última renovação, e conta os dias até ao fim do prazo: compara com a antecedência mínima.",
+          "se": {
+            "motivo": "renovacao"
+          }
+        },
+        {
+          "texto": "Confirma se a carta indica expressamente o motivo e, se forem obras, se junta os documentos exigidos por lei.",
+          "se": {
+            "motivo": "denuncia"
+          }
+        },
+        {
+          "texto": "Calcula o valor em atraso e confirma se já usaste antes, neste contrato, a possibilidade de pagar para anular a resolução: só se pode usar uma vez.",
+          "se": {
+            "motivo": "rendas"
+          }
+        },
+        {
+          "texto": "Mostra a carta a um jurista: não conseguimos identificar o tipo de comunicação a partir da tua resposta.",
+          "se": {
+            "motivo": "outro"
+          }
+        },
+        "Confirma se a forma de envio cumpre a lei.",
+        "Pede proteção jurídica ou procura um advogado antes de responder ou de sair.",
+        {
+          "texto": "Se não tiveres alternativa de habitação, pede apoio à câmara municipal ao abrigo do 1.º Direito.",
+          "se": {
+            "motivo": "renovacao"
+          }
+        }
       ],
       "documentos": [
         "A carta recebida e o envelope",
@@ -463,11 +631,23 @@
       "fontes": [
         "codigo-civil",
         "nrau",
+        "dl-37-2018",
         "seg-social-protecao-juridica"
       ],
       "limitacoes": [
-        "Contratos anteriores a 2006 ou a 1990 podem ter regras de transição diferentes: a data do contrato é indispensável.",
-        "Se o senhorio não respeitou a antecedência legal, a carta pode não produzir a cessação na data indicada. O resultado depende do contrato, da data de receção e da lei aplicável. Não abandones a casa só porque recebeste a carta, mas também não a ignores: guarda-a e confirma rapidamente os teus direitos.",
+        {
+          "texto": "O teu contrato é anterior ao NRAU (2006): pode ter regras de transição próprias, que esta ficha não descreve. Confirma com apoio jurídico.",
+          "se": {
+            "contrato": "antigo"
+          }
+        },
+        {
+          "texto": "Sem a data do contrato não é possível saber que regras se aplicam: procura-a no contrato ou nos recibos.",
+          "se": {
+            "contrato": "desconhecido"
+          }
+        },
+        "Se o senhorio não respeitou a antecedência legal, a carta pode não produzir a cessação na data indicada. O resultado depende do contrato, da data de receção e da lei aplicável. Não abandones a casa só porque recebeste a carta, mas também não a ignores.",
         "Esta ficha não calcula se a tua carta é válida."
       ],
       "estado": "por-confirmar",
@@ -667,14 +847,19 @@
       "municipal": true,
       "regras": [
         {
-          "texto": "O 1.º Direito apoia o acesso a habitação de pessoas em condições habitacionais indignas e é concretizado pelos municípios.",
-          "referencia": "Decreto-Lei n.º 37/2018; Portal da Habitação",
-          "fonte": "portal-1-direito"
-        },
-        {
           "texto": "No arrendamento apoiado, a renda é calculada em função do rendimento do agregado.",
           "referencia": "Portal da Habitação",
           "fonte": "portal-arrendamento-apoiado"
+        },
+        {
+          "texto": "O pedido ao 1.º Direito entrega-se no município, que pode atribuir uma habitação municipal, incluir o pedido numa candidatura própria ou tratá-lo como candidatura individual.",
+          "referencia": "Decreto-Lei n.º 37/2018, art. 59.º, n.os 1 e 2",
+          "fonte": "dl-37-2018"
+        },
+        {
+          "texto": "O 1.º Direito destina-se a quem vive em condições indignas: precariedade (incluindo sem-abrigo ou sem alternativa após não renovação do contrato), insalubridade e insegurança, sobrelotação ou inadequação.",
+          "referencia": "Decreto-Lei n.º 37/2018, art. 5.º",
+          "fonte": "dl-37-2018"
         }
       ],
       "entidades": [
@@ -728,10 +913,11 @@
         "portal-1-direito",
         "portal-arrendamento-apoiado",
         "portal-arrendamento-acessivel",
-        "cm-lisboa-site"
+        "cm-lisboa-site",
+        "dl-37-2018"
       ],
       "limitacoes": [
-        "Esta ficha não avalia a tua elegibilidade e não é uma decisão administrativa.",
+        "Esta ficha não avalia a tua elegibilidade e não é uma decisão administrativa. O pedido não garante uma casa, um apoio ou um prazo de entrega.",
         "A página específica dos programas municipais de Lisboa ainda não foi verificada."
       ],
       "estado": "por-confirmar",
@@ -841,6 +1027,16 @@
           "texto": "O administrador convoca a assembleia, cobra e paga as despesas comuns, guarda os documentos do condomínio e executa as deliberações no prazo máximo de 15 dias úteis, salvo outro prazo fixado ou impossibilidade fundamentada.",
           "referencia": "Código Civil, art. 1436.º, n.º 1",
           "fonte": "codigo-civil"
+        },
+        {
+          "texto": "Os Julgados de Paz podem resolver litígios entre condóminos ou com o administrador até 15 000 €, salvo se a assembleia tiver deliberado a obrigatoriedade de arbitragem.",
+          "referencia": "Lei n.º 78/2001, arts. 8.º e 9.º, n.º 1, al. c)",
+          "fonte": "julgados-paz"
+        },
+        {
+          "texto": "A instalação de painéis para autoconsumo de energia renovável depende de maioria simples dos condóminos, havendo pelo menos duas frações.",
+          "referencia": "Código Civil, art. 1425.º, n.º 3 (redação da Lei n.º 29/2026)",
+          "fonte": "codigo-civil"
         }
       ],
       "entidades": [
@@ -858,6 +1054,7 @@
         }
       ],
       "passos": [
+        "Se fores inquilino, podes comunicar o problema ao administrador, mas não votas nem tens os direitos de condómino: informa também o teu senhorio, por escrito.",
         "Escreve ao administrador do condomínio a descrever o problema.",
         "Se for preciso uma decisão coletiva, pede que o assunto entre na ordem de trabalhos da próxima assembleia.",
         "Pede cópia das atas, do regulamento e das contas do condomínio.",
@@ -874,9 +1071,8 @@
         "julgados-paz"
       ],
       "limitacoes": [
-        "Se fores inquilino, o interlocutor no condomínio é, em regra, o teu senhorio; o papel do inquilino está em análise jurídica.",
-        "A competência dos Julgados de Paz em matéria de condomínio está por confirmar.",
-        "A Lei n.º 29/2026 alterou as regras sobre inovações (art. 1425.º); não estão descritas aqui."
+        "O inquilino não tem, em regra, os direitos de condómino, como votar ou exigir as atas; pede-as através do senhorio.",
+        "Os Julgados de Paz não são obrigatórios: também se pode recorrer aos tribunais judiciais."
       ],
       "estado": "por-confirmar",
       "verificadoEm": null,
@@ -948,7 +1144,8 @@
       ],
       "limitacoes": [
         "O tipo de controlo prévio depende da obra concreta. Nunca assumas que uma obra interior está dispensada de tudo.",
-        "Os novos modelos de requerimento previstos na revisão do RJUE estão por confirmar."
+        "Os novos modelos de requerimento previstos na revisão do RJUE estão por confirmar.",
+        "Os modelos de requerimento mudaram com a revisão do RJUE: segundo a Ordem dos Arquitectos, a Portaria n.º 320/2026/1 revogou as Portarias n.os 71-A/2024 e 71-B/2024 (por confirmar no Diário da República)."
       ],
       "estado": "por-confirmar",
       "verificadoEm": null,
@@ -1028,6 +1225,11 @@
           "fonte": "lada"
         },
         {
+          "texto": "Os documentos de processos de obras particulares já concluídos são, por regra, acessíveis ao abrigo da LADA, com expurgo dos dados pessoais de terceiros.",
+          "referencia": "Parecer CADA 191/2022; LADA, art. 6.º, n.º 8",
+          "fonte": "cada-parecer-191-2022"
+        },
+        {
           "texto": "Se o processo ainda estiver em curso e te disser diretamente respeito, o direito à informação rege-se pelo Código do Procedimento Administrativo (resposta em 10 dias). Nos processos de obras e licenciamento, o RJUE dá-te o direito de consultar o processo e pedir certidões em 10 dias e informação em 15 dias.",
           "referencia": "LADA, art. 1.º, n.º 4, al. a); CPA, arts. 82.º a 85.º; RJUE, art. 110.º",
           "fonte": "cpa"
@@ -1094,13 +1296,15 @@
         "cada-parecer-518-2026",
         "portaria-base",
         "dl-177-2026",
-        "base"
+        "base",
+        "cada-parecer-191-2022"
       ],
       "limitacoes": [
         "O Portal BASE não é um arquivo de todos os documentos administrativos: só cobre contratação pública e oculta informação protegida. A informação fica visível 10 anos; depois disso, o acesso depende de autorização do IMPIC e de uma taxa. Não encontrar um contrato no portal não prova que ele não exista nem que seja ilegal.",
         "Documentos com dados pessoais de outras pessoas, como candidaturas a apoios à habitação, só são acessíveis com autorização do titular, com interesse legítimo demonstrado ou em versão anonimizada.",
         "A LADA não se aplica a registos prediais, documentos notariais, dados protegidos por segredo fiscal e outros regimes especiais.",
-        "A relação entre o RJUE e a LADA para processos de obras já concluídos e o funcionamento prático do Portal BASE ainda estão por confirmar."
+        "Para uma certidão urbanística específica ou um processo ainda em curso aplicam-se regras próprias (RJUE, art. 110.º; CPA); a articulação com a LADA está em análise jurídica.",
+        "Funcionamento prático do Portal BASE por confirmar. Os dados públicos do BASE podem ser extraídos gratuitamente em formatos abertos (Portaria n.º 318-B/2023, art. 6.º, n.º 2)."
       ],
       "estado": "por-confirmar",
       "verificadoEm": null,
@@ -1387,6 +1591,191 @@
       "limitacoes": [
         "Não presumas que o prazo é igual ao de um despejo privado, nem que uma reclamação suspende automaticamente a decisão.",
         "Não se pode dizer em geral se decide a Câmara ou a empresa municipal: depende do contrato e das delegações de poderes."
+      ],
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-04-30",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "r-processo-proprio",
+      "titulo": "Informação ou documentos de um processo meu",
+      "municipal": false,
+      "resumo": "Num processo que te diz diretamente respeito e que ainda está a decorrer (uma candidatura, um pedido de licença), tens direito a saber em que ponto está, a consultá-lo e a pedir certidões ou cópias. Aqui aplica-se o Código do Procedimento Administrativo, não a LADA. Nos processos de obras há regras próprias no RJUE.",
+      "regras": [
+        {
+          "texto": "Os interessados têm direito a ser informados, quando o pedirem, sobre o andamento dos procedimentos que lhes digam diretamente respeito e a conhecer as decisões; as informações são dadas no prazo máximo de 10 dias.",
+          "referencia": "CPA, art. 82.º, n.os 1 e 3",
+          "fonte": "cpa"
+        },
+        {
+          "texto": "Os interessados podem consultar o processo e obter certidão ou reprodução dos documentos, pagando o que for devido. Os documentos classificados e os segredos comerciais ficam excluídos.",
+          "referencia": "CPA, art. 83.º",
+          "fonte": "cpa"
+        },
+        {
+          "texto": "Nos processos de obras, o interessado pode pedir informação sobre o andamento (resposta em 15 dias) e consultar o processo ou pedir certidões por escrito (resposta em 10 dias).",
+          "referencia": "RJUE, art. 110.º, n.os 1 a 4",
+          "fonte": "dl-108-2026"
+        },
+        {
+          "texto": "Enquanto o procedimento decorre, aplicam-se estas regras e não a LADA.",
+          "referencia": "LADA, art. 1.º, n.º 4, al. a); Parecer CADA 445/2024",
+          "fonte": "cada-parecer-445-2024"
+        }
+      ],
+      "entidades": [
+        {
+          "id": "camara-municipal",
+          "papel": "Responsável pelos processos municipais (licenças, candidaturas a habitação municipal)."
+        },
+        {
+          "id": "ihru",
+          "papel": "Responsável pelos processos de programas nacionais."
+        }
+      ],
+      "passos": [
+        "Identifica o processo: número, data do pedido e serviço.",
+        "Pede por escrito informação sobre o andamento, a consulta do processo ou certidões, indicando que és interessado.",
+        "Guarda o comprovativo do pedido: a resposta deve chegar em 10 dias (15 dias para informação urbanística).",
+        "Se não responderem, insiste por escrito e procura apoio jurídico."
+      ],
+      "documentos": [
+        "Número do processo ou comprovativo do pedido original",
+        "Documento de identificação"
+      ],
+      "acoes": [
+        {
+          "rotulo": "Preparar um pedido escrito",
+          "href": "pedir-documentos.html"
+        }
+      ],
+      "fontes": [
+        "cpa",
+        "dl-108-2026",
+        "cada-parecer-445-2024"
+      ],
+      "limitacoes": [
+        "A CADA não aprecia queixas sobre processos em curso: a reação faz-se perante a própria entidade ou os tribunais.",
+        "O gerador do site usa um modelo LADA; adapta o texto para indicar que és interessado no processo."
+      ],
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-04-30",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "r-processo-terceiro",
+      "titulo": "Documentos de um processo de outra pessoa ainda a decorrer",
+      "municipal": false,
+      "resumo": "Se o processo é de outra pessoa e ainda não terminou (por exemplo, a licença de obra de um vizinho), só tens acesso se demonstrares um interesse legítimo, por requerimento escrito com provas, e depende de despacho do dirigente do serviço. Quando o processo terminar, podes pedir os documentos ao abrigo da LADA.",
+      "regras": [
+        {
+          "texto": "Os direitos de informação e consulta estendem-se a quem prove ter interesse legítimo, mediante requerimento escrito com os documentos que o comprovem e despacho do dirigente do serviço.",
+          "referencia": "CPA, art. 85.º",
+          "fonte": "cpa"
+        },
+        {
+          "texto": "Nos processos de obras, os mesmos direitos estendem-se a quem prove interesse legítimo e, para defesa de interesses difusos, a qualquer cidadão e às associações que os defendam.",
+          "referencia": "RJUE, art. 110.º, n.º 6",
+          "fonte": "dl-108-2026"
+        },
+        {
+          "texto": "O acesso a documentos preparatórios de uma decisão ou de processos não concluídos pode ser adiado até à decisão, ao arquivamento ou a um ano após a sua elaboração.",
+          "referencia": "LADA, art. 6.º, n.º 3",
+          "fonte": "lada"
+        }
+      ],
+      "entidades": [
+        {
+          "id": "camara-municipal",
+          "papel": "Decide o acesso aos processos municipais em curso."
+        }
+      ],
+      "passos": [
+        "Explica por escrito porque o processo te afeta (por exemplo, a obra é no prédio onde vives) e junta provas.",
+        "Pede a consulta ou a cópia dos documentos que precisas.",
+        "Se o pedido for recusado, pede a decisão fundamentada por escrito.",
+        "Quando o processo terminar, podes pedir os documentos ao abrigo da LADA sem justificar o interesse."
+      ],
+      "documentos": [
+        "Provas do teu interesse: morada, fotografias, comunicações recebidas"
+      ],
+      "acoes": [
+        {
+          "rotulo": "Preparar um pedido escrito",
+          "href": "pedir-documentos.html"
+        }
+      ],
+      "fontes": [
+        "cpa",
+        "dl-108-2026",
+        "lada"
+      ],
+      "limitacoes": [
+        "Os dados pessoais do titular do processo podem ser ocultados.",
+        "A articulação entre o RJUE e a LADA está em análise jurídica."
+      ],
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-04-30",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "r-dados-pessoais",
+      "titulo": "Os meus dados pessoais que uma entidade tem",
+      "municipal": false,
+      "resumo": "Tens direito a saber que dados pessoais uma entidade trata sobre ti e a obter uma cópia. A entidade responde sem demora e, em regra, no prazo de um mês, prorrogável. Se não responder, podes queixar-te à CNPD. Para documentos administrativos (e não dados pessoais), usa a LADA e, em caso de recusa, a CADA.",
+      "regras": [
+        {
+          "texto": "O titular tem direito a saber se os seus dados pessoais são tratados e a aceder a eles e a uma cópia, sem prejudicar os direitos de terceiros.",
+          "referencia": "RGPD, art. 15.º",
+          "fonte": "rgpd"
+        },
+        {
+          "texto": "A entidade responde sem demora injustificada e no prazo de um mês, prorrogável por mais dois meses quando necessário, informando-te da prorrogação.",
+          "referencia": "RGPD, art. 12.º, n.º 3",
+          "fonte": "rgpd"
+        },
+        {
+          "texto": "Documentos administrativos com dados de outras pessoas só são acessíveis com autorização do titular ou interesse direto, pessoal e legítimo demonstrado.",
+          "referencia": "LADA, art. 6.º, n.º 5",
+          "fonte": "lada"
+        }
+      ],
+      "entidades": [
+        {
+          "id": "cnpd",
+          "papel": "Queixas sobre pedidos de acesso a dados pessoais sem resposta ou recusados."
+        },
+        {
+          "id": "cada",
+          "papel": "Queixas sobre acesso a documentos administrativos."
+        }
+      ],
+      "passos": [
+        "Decide o que queres: os teus dados pessoais (RGPD) ou documentos de um processo (LADA ou CPA).",
+        "Pede por escrito à entidade, indicando que exerces o direito de acesso aos teus dados pessoais (RGPD, art. 15.º).",
+        "Guarda o comprovativo: a resposta deve chegar, em regra, num mês.",
+        "Sem resposta, apresenta queixa à CNPD."
+      ],
+      "documentos": [
+        "Documento de identificação"
+      ],
+      "acoes": [
+        {
+          "rotulo": "Site da CNPD",
+          "fonte": "cnpd"
+        }
+      ],
+      "fontes": [
+        "rgpd",
+        "cnpd",
+        "lada"
+      ],
+      "limitacoes": [
+        "O direito de acesso aos dados pessoais não dá necessariamente acesso a todo o processo administrativo.",
+        "O gerador do site não tem ainda um modelo para pedidos ao abrigo do RGPD."
       ],
       "estado": "por-confirmar",
       "verificadoEm": null,

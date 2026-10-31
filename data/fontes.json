@@ -265,12 +265,12 @@
     },
     {
       "id": "julgados-paz",
-      "titulo": "Julgados de Paz — Lei n.º 78/2001 (competência em matéria de condomínio e arrendamento a confirmar)",
+      "titulo": "Lei n.º 78/2001 — Julgados de Paz, versão consolidada (arts. 8.º e 9.º: até 15 000 €; condomínio; arrendamento, exceto despejo)",
       "emissor": "Diário da República",
       "tipo": "legislacao",
-      "url": null,
+      "url": "https://diariodarepublica.pt/dr/legislacao-consolidada/lei/2001-56735875",
       "dataPublicacao": null,
-      "ligacaoVerificadaEm": null,
+      "ligacaoVerificadaEm": "2026-10-31",
       "estado": "por-confirmar",
       "verificadoEm": null,
       "revisaoPrevista": "2027-01-31",
@@ -548,6 +548,71 @@
       "verificadoEm": "2026-10-31",
       "revisaoPrevista": "2027-04-30",
       "responsavel": "João Pico"
+    },
+    {
+      "id": "dl-157-2006",
+      "titulo": "Decreto-Lei n.º 157/2006 — regime jurídico das obras em prédios arrendados, versão consolidada (arts. 22.º-A a 22.º-D)",
+      "emissor": "Diário da República",
+      "tipo": "legislacao",
+      "url": "https://diariodarepublica.pt/dr/legislacao-consolidada/decreto-lei/2006-34529275",
+      "dataPublicacao": "2006-08-08",
+      "ligacaoVerificadaEm": "2026-10-31",
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-04-30",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "dl-37-2018",
+      "titulo": "Decreto-Lei n.º 37/2018 — 1.º Direito, versão consolidada (arts. 5.º e 59.º; última alteração: DL 116/2025)",
+      "emissor": "Diário da República",
+      "tipo": "legislacao",
+      "url": "https://diariodarepublica.pt/dr/legislacao-consolidada/decreto-lei/2018-115868810",
+      "dataPublicacao": "2018-06-04",
+      "ligacaoVerificadaEm": "2026-10-31",
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-04-30",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "cada-parecer-191-2022",
+      "titulo": "Parecer da CADA n.º 191/2022 — processos de obras particulares são, por regra, acessíveis; em curso, aplica-se o RJUE",
+      "emissor": "CADA",
+      "tipo": "institucional",
+      "url": "https://www.cada.pt/files/pareceres/2022/191.pdf",
+      "dataPublicacao": null,
+      "ligacaoVerificadaEm": "2026-10-31",
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-04-30",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "rgpd",
+      "titulo": "Regulamento (UE) 2016/679 (RGPD) — arts. 12.º e 15.º (direito de acesso aos dados pessoais)",
+      "emissor": "EUR-Lex",
+      "tipo": "legislacao",
+      "url": "https://eur-lex.europa.eu/legal-content/PT/TXT/?uri=CELEX:32016R0679",
+      "dataPublicacao": "2016-04-27",
+      "ligacaoVerificadaEm": "2026-10-31",
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-04-30",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "cnpd",
+      "titulo": "Comissão Nacional de Proteção de Dados (CNPD)",
+      "emissor": "CNPD",
+      "tipo": "institucional",
+      "url": "https://www.cnpd.pt/",
+      "dataPublicacao": null,
+      "ligacaoVerificadaEm": "2026-10-31",
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-04-30",
+      "responsavel": "Por atribuir"
     }
   ]
 }

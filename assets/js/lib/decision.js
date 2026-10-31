@@ -36,6 +36,7 @@ export function walk(tree, caminho, municipios) {
     if (!opcao) { invalido = true; break; }
     passos.push({ pergunta: atual, opcao });
     if (atual.tipo === 'municipio') contexto.municipio = opcao.id;
+    if (opcao.define) Object.assign(contexto, opcao.define);
     if (opcao.resultado) { resultadoId = opcao.resultado; atual = null; break; }
     atual = tree.perguntas.get(opcao.seguinte) || null;
     if (!atual) { invalido = true; break; }
@@ -47,7 +48,12 @@ export function walk(tree, caminho, municipios) {
 const cumpre = (condicao, contexto) =>
   !condicao || Object.entries(condicao).every(([k, v]) => contexto[k] === v);
 
-/** Entidades, ações e marcadores de um resultado resolvidos para o contexto (concelho). */
+// Itens de listas podem ser texto ou { texto, se }; os condicionados só aparecem se o contexto cumprir.
+const textos = (lista, contexto) => (lista || [])
+  .filter((x) => typeof x === 'string' || cumpre(x.se, contexto))
+  .map((x) => (typeof x === 'string' ? x : x.texto));
+
+/** Resultado resolvido para o contexto das respostas (concelho, tipo de contrato, motivo…). */
 export function resolveResultado(resultado, contexto, municipios) {
   const municipio = (municipios?.municipios || []).find((m) => m.id === contexto.municipio) || null;
   const marcadores = {
@@ -57,6 +63,10 @@ export function resolveResultado(resultado, contexto, municipios) {
   const substituir = (href) => href.replace(/\{(\w+)\}/g, (_, k) => encodeURIComponent(marcadores[k] || ''));
   return {
     ...resultado,
+    regras: (resultado.regras || []).filter((g) => cumpre(g.se, contexto)),
+    passos: textos(resultado.passos, contexto),
+    documentos: textos(resultado.documentos, contexto),
+    limitacoes: textos(resultado.limitacoes, contexto),
     entidades: (resultado.entidades || []).filter((e) => cumpre(e.se, contexto)),
     acoes: (resultado.acoes || []).filter((a) => cumpre(a.se, contexto))
       .map((a) => (a.href ? { ...a, href: substituir(a.href) } : a)),

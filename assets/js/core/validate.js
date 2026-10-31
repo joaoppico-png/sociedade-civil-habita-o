@@ -89,6 +89,11 @@ export function validarArvore(arvore, idsEntidades, idsFontes) {
     if (!Array.isArray(r.entidades) || r.entidades.length === 0) erros.push(`${onde}: sem entidades`);
     for (const e of r.entidades || []) if (!idsEntidades.has(e.id)) erros.push(`${onde}: entidade desconhecida «${e.id}»`);
     if (!Array.isArray(r.passos) || r.passos.length === 0) erros.push(`${onde}: sem passos`);
+    for (const campo of ['passos', 'limitacoes', 'documentos']) {
+      for (const x of r[campo] || []) {
+        if (typeof x !== 'string' && (typeof x?.texto !== 'string' || typeof x?.se !== 'object')) erros.push(`${onde}: item inválido em ${campo}`);
+      }
+    }
     for (const a of r.acoes || []) {
       if (a.fonte && !idsFontes.has(a.fonte)) erros.push(`${onde}: ação com fonte desconhecida`);
       if (a.href && !safeInternalHref(a.href.replace(/\{\w+\}/g, 'x'))) erros.push(`${onde}: ação com ligação interna inválida`);

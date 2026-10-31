@@ -172,7 +172,7 @@
       "nome": "Julgados de Paz e tribunais judiciais",
       "tipo": "tribunal",
       "ambito": "nacional",
-      "competencias": "Resolvem litígios. Os Julgados de Paz tratam alguns conflitos de menor valor, incluindo certas questões de condomínio e de arrendamento; o âmbito exato está por confirmar.",
+      "competencias": "Os Julgados de Paz resolvem litígios até 15 000 €, incluindo questões entre condóminos e ações sobre arrendamento urbano, exceto despejos. Não têm competência exclusiva: também se pode recorrer aos tribunais judiciais.",
       "contacto": null,
       "fontes": [
         "julgados-paz"
@@ -239,6 +239,26 @@
       "estado": "por-confirmar",
       "verificadoEm": null,
       "revisaoPrevista": "2027-01-31",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "cnpd",
+      "nome": "CNPD — Comissão Nacional de Proteção de Dados",
+      "tipo": "publica",
+      "ambito": "nacional",
+      "competencias": "Aprecia queixas sobre o tratamento de dados pessoais, incluindo quando uma entidade não responde a um pedido de acesso aos teus próprios dados.",
+      "contacto": {
+        "fonte": "cnpd",
+        "notas": null
+      },
+      "fontes": [
+        "cnpd",
+        "rgpd"
+      ],
+      "aceitaLADA": false,
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-04-30",
       "responsavel": "Por atribuir"
     }
   ]

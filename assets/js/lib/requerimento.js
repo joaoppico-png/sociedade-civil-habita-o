@@ -100,8 +100,9 @@ export function gerarLADA(d, modalidade) {
   if (contexto) partes.push(`Para facilitar a identificação dos documentos, informo o seguinte: ${contexto}`);
   partes.push(
     `Pretendo que o acesso seja facultado sob a forma de ${modalidade?.texto || limpar(d.modalidade)}${modalidade?.exigeEmail && d.email ? ` (${limpar(d.email)})` : ''}.`,
-    'Caso algum dos documentos não se encontre na posse dessa entidade, solicito que me seja indicada a entidade que o detém ou que o pedido lhe seja remetido, nos termos legais aplicáveis.',
-    'Caso se entenda que algum documento contém informação de acesso restrito, solicito o acesso à parte restante, com expurgo da informação restrita, e a indicação dos fundamentos da restrição.',
+    'Caso algum dos documentos não se encontre na posse dessa entidade, solicito que o pedido seja remetido à entidade que o detém, com conhecimento ao requerente, nos termos do artigo 15.º, n.º 1, alínea d), da Lei n.º 26/2016 e do artigo 41.º do Código do Procedimento Administrativo.',
+    'Caso os documentos contenham informação sujeita a restrição legal, solicito o acesso à parte não protegida, mediante expurgo da informação reservada, nos termos do artigo 6.º, n.º 8, da Lei n.º 26/2016.',
+    'Solicito ainda que qualquer recusa, total ou parcial, ou qualquer encargo seja comunicado por escrito, de forma fundamentada e com o cálculo discriminado.',
     'Aguardo resposta no prazo legalmente previsto.',
     assinatura(d)
   );
@@ -117,8 +118,8 @@ export function gerarInsistencia(d) {
     `${limpar(d.local)}, ${formatDate(d.data) || limpar(d.data)}`,
     `Assunto: Insistência — pedido de acesso a documentos administrativos de ${formatDate(d.dataPedido) || limpar(d.dataPedido)}${ref ? ` (ref.ª ${ref})` : ''}`,
     `${limpar(d.nome)}, ${identificacao(d)}, residente em ${limpar(d.morada)}, apresentou em ${formatDate(d.dataPedido) || limpar(d.dataPedido)} um pedido de acesso a documentos administrativos ao abrigo da Lei n.º 26/2016, de 22 de agosto, ao qual não obteve, até à presente data, resposta.`,
-    'Venho, por isso, solicitar a V. Ex.ª que me seja comunicada, com a maior brevidade, a decisão sobre o referido pedido.',
-    'Informo que, na ausência de resposta, ponderarei apresentar queixa à Comissão de Acesso aos Documentos Administrativos (CADA), nos termos da mesma lei.',
+    `Reitero integralmente o pedido apresentado em ${formatDate(d.dataPedido) || limpar(d.dataPedido)}, que mantém essa data de apresentação, e solicito a V. Ex.ª que me seja comunicada, com a maior brevidade, a decisão sobre o mesmo, nos termos do artigo 15.º da referida lei.`,
+    'Esta insistência é feita sem prejuízo dos meios de reação previstos na Lei n.º 26/2016, incluindo a queixa à Comissão de Acesso aos Documentos Administrativos (CADA).',
     assinatura(d)
   ];
   return partes.join('\n\n') + '\n';
@@ -135,9 +136,11 @@ export function gerarSenhorioObras(d) {
     `Assunto: Pedido de realização de obras de conservação — ${limpar(d.moradaImovel)}`,
     `Na qualidade de arrendatário(a) do imóvel sito em ${limpar(d.moradaImovel)}, venho comunicar a V. Ex.ª a existência dos seguintes problemas, que carecem de obras de conservação:`,
     lista(problemas),
-    d.desde ? `Os problemas verificam-se desde ${limpar(d.desde, 80)}.` : null,
-    `Nos termos do contrato de arrendamento e da lei aplicável, solicito a V. Ex.ª que proceda à realização das obras necessárias, propondo para o efeito o prazo de ${prazo} dias a contar da receção desta comunicação, e que me informe da data em que as mesmas terão início, para que possa facultar o acesso ao imóvel.`,
+    d.desde ? `Os problemas foram detetados em ${limpar(d.desde, 80)}.` : null,
+    d.consequencias ? `Estes problemas afetam a utilização da habitação da seguinte forma: ${limpar(d.consequencias, LIMITES.longo)}` : null,
+    `Nos termos do contrato de arrendamento e da lei aplicável, solicito a V. Ex.ª a avaliação e a realização das reparações necessárias à reposição das condições adequadas de utilização do imóvel, propondo para o efeito o prazo de ${prazo} dias a contar da receção desta comunicação, e que me indique as medidas previstas e o respetivo calendário, para que possa facultar o acesso ao imóvel.`,
     'Disponho de registo fotográfico, que posso facultar.',
+    'A presente comunicação é feita sem prejuízo dos direitos legalmente previstos para situações urgentes ou de incumprimento.',
     assinatura(d)
   ].filter(Boolean);
   return partes.join('\n\n') + '\n';

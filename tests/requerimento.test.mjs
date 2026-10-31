@@ -72,3 +72,29 @@ test('datas inválidas são rejeitadas e nome do ficheiro é seguro', () => {
   assert.equal(nomeFicheiro('lada', '2026-10-31'), 'pedido-acesso-documentos-2026-10-31.txt');
   assert.equal(nomeFicheiro('lada', '../../x'), 'pedido-acesso-documentos-sem-data.txt');
 });
+
+test('Q21: cláusulas do pedido LADA — remessa (CPA 41.º), expurgo (6.º, n.º 8) e fundamentação de recusa ou encargo', () => {
+  const t = gerarLADA({ ...base, entidade: 'IHRU', documentos: 'Ata', modalidade: 'consulta' }, modalidades[0]);
+  assert.match(t, /artigo 41\.º do Código do Procedimento Administrativo/);
+  assert.match(t, /artigo 6\.º, n\.º 8/);
+  assert.match(t, /recusa, total ou parcial, ou qualquer encargo/);
+});
+
+test('Q21: insistência mantém a data do pedido original e não reinicia prazos', () => {
+  const t = gerarInsistencia({ ...base, entidade: 'IHRU', dataPedido: '2026-09-01' });
+  assert.match(t, /mantém essa data de apresentação/);
+  assert.match(t, /artigo 15\.º/);
+});
+
+test('Q21: carta ao senhorio pede calendário, reserva direitos e nunca anuncia desconto ou suspensão da renda', () => {
+  const t = gerarSenhorioObras({ ...base, destinatario: 'J', moradaImovel: 'Rua C', problemas: 'Infiltração', prazoDias: '30', consequencias: 'Quarto inutilizável', desde: 'março de 2026' });
+  assert.match(t, /respetivo calendário/);
+  assert.match(t, /sem prejuízo dos direitos legalmente previstos/);
+  assert.match(t, /Quarto inutilizável/);
+  assert.doesNotMatch(t, /dedu|suspen|compensa|reter/i);
+});
+
+test('Q21: campos vazios não produzem factos inventados', () => {
+  const t = gerarSenhorioObras({ ...base, destinatario: 'J', moradaImovel: 'Rua C', problemas: 'Infiltração', prazoDias: '30' });
+  assert.doesNotMatch(t, /detetados em|afetam a utilização|undefined|null/);
+});
