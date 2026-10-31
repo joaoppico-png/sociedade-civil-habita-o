@@ -1,0 +1,77 @@
+{
+  "meta": {
+    "demo": true,
+    "descricao": "DADOS FICTÍCIOS DE DEMONSTRAÇÃO. Servem apenas para testar filtros e fichas. Nunca publicar como conteúdo real.",
+    "atualizadoEm": "2026-10-31"
+  },
+  "oportunidades": [
+    {
+      "id": "demo-001",
+      "titulo": "[DEMO] Discussão pública de um plano de pormenor fictício",
+      "descricao": "Exemplo fictício de uma discussão pública municipal sobre um plano urbanístico.",
+      "tipo": "discussao-publica",
+      "entidade": "cm-lisboa",
+      "municipio": "lisboa",
+      "abertura": "2026-10-01",
+      "prazo": "2026-12-15",
+      "estado": "verificado",
+      "estadoProcedimento": "aberta",
+      "url": "https://example.org/demo-1",
+      "instrucoes": "Exemplo: enviar contributo escrito através do formulário indicado na página oficial.",
+      "verificadoEm": "2026-10-31",
+      "revisaoPrevista": "2026-11-30",
+      "responsavel": "Demonstração"
+    },
+    {
+      "id": "demo-002",
+      "titulo": "[DEMO] Reunião pública fictícia com período de intervenção do público",
+      "descricao": "Exemplo fictício de uma reunião pública em que os cidadãos podem intervir.",
+      "tipo": "reuniao-publica",
+      "entidade": "am-lisboa",
+      "municipio": "lisboa",
+      "abertura": "2026-09-01",
+      "prazo": "2026-09-30",
+      "estado": "verificado",
+      "estadoProcedimento": "aberta",
+      "url": "https://example.org/demo-2",
+      "instrucoes": "Exemplo: inscrição prévia no prazo indicado.",
+      "verificadoEm": "2026-09-01",
+      "revisaoPrevista": "2026-10-01",
+      "responsavel": "Demonstração"
+    },
+    {
+      "id": "demo-003",
+      "titulo": "[DEMO] Consulta pública nacional fictícia sobre arrendamento",
+      "descricao": "Exemplo fictício de consulta pública de âmbito nacional.",
+      "tipo": "consulta-publica",
+      "entidade": "governo",
+      "municipio": "nacional",
+      "abertura": "2026-10-20",
+      "prazo": "2026-11-20",
+      "estado": "por-confirmar",
+      "estadoProcedimento": "aberta",
+      "url": "javascript:alert(1)",
+      "instrucoes": "Exemplo com URL inválido, para testar a validação.",
+      "verificadoEm": null,
+      "revisaoPrevista": "2026-11-20",
+      "responsavel": "Demonstração"
+    },
+    {
+      "id": "demo-004",
+      "titulo": "<img src=x onerror=alert(1)> [DEMO] Título malicioso",
+      "descricao": "Registo de teste de injeção HTML: o título deve aparecer como texto.",
+      "tipo": "consulta-publica",
+      "entidade": "governo",
+      "municipio": "nacional",
+      "abertura": "2026-13-45",
+      "prazo": "data-invalida",
+      "estado": "verificado",
+      "estadoProcedimento": "aberta",
+      "url": "https://example.org/demo-4",
+      "instrucoes": "Exemplo com datas inválidas.",
+      "verificadoEm": "2026-10-31",
+      "revisaoPrevista": "2026-12-31",
+      "responsavel": "Demonstração"
+    }
+  ]
+}

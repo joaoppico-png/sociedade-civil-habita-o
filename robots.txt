@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /data/demo/
+Disallow: /tests/
+Disallow: /tools/
+
+Sitemap: https://example.org/sitemap.xml

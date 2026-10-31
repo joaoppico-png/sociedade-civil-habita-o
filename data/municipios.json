@@ -1,0 +1,22 @@
+{
+  "municipios": [
+    {
+      "id": "lisboa",
+      "nome": "Lisboa",
+      "cobertura": "piloto",
+      "camara": "cm-lisboa",
+      "habitacaoMunicipal": "gebalis",
+      "assembleia": "am-lisboa",
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-01-31",
+      "responsavel": "Por atribuir"
+    }
+  ],
+  "outro": {
+    "id": "outro",
+    "nome": "Outro concelho",
+    "cobertura": "nenhuma",
+    "nota": "Ainda não temos informação municipal verificada para este concelho. A orientação abaixo é nacional; procura no site oficial da tua câmara municipal o serviço equivalente."
+  }
+}

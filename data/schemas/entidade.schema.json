@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Entidade (data/entidades.json → entidades[])",
+  "allOf": [{ "$ref": "registo-editorial.schema.json" }],
+  "type": "object",
+  "required": ["nome", "tipo", "ambito", "competencias", "fontes", "aceitaLADA"],
+  "properties": {
+    "nome": { "type": "string" },
+    "tipo": { "enum": ["parte", "publica", "tribunal", "associacao"] },
+    "ambito": { "type": "string", "description": "nacional | municipal-generico | id de município (ex.: lisboa)" },
+    "competencias": { "type": "string" },
+    "contacto": { "type": ["object", "null"], "properties": { "fonte": { "type": "string" }, "notas": { "type": ["string", "null"] } } },
+    "fontes": { "type": "array", "items": { "type": "string" } },
+    "aceitaLADA": { "type": "boolean", "description": "Aparece no gerador de pedidos de documentos." }
+  }
+}

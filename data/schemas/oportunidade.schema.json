@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Oportunidade de participação (data/oportunidades.json → oportunidades[])",
+  "allOf": [{ "$ref": "registo-editorial.schema.json" }],
+  "type": "object",
+  "required": ["titulo", "descricao", "tipo", "entidade", "municipio", "abertura", "prazo", "estadoProcedimento", "url", "instrucoes"],
+  "properties": {
+    "tipo": { "enum": ["consulta-publica", "discussao-publica", "reuniao-publica", "orcamento-participativo", "peticao"] },
+    "entidade": { "type": "string", "description": "id em entidades.json" },
+    "municipio": { "type": "string", "description": "id de município ou «nacional»" },
+    "abertura": { "type": "string", "format": "date" },
+    "prazo": { "type": "string", "format": "date" },
+    "estadoProcedimento": { "enum": ["aberta", "suspensa", "encerrada"], "description": "O site só mostra «Aberta» se o registo estiver verificado, dentro da revisão e do prazo." },
+    "url": { "type": "string", "pattern": "^https://" },
+    "instrucoes": { "type": "string" }
+  }
+}

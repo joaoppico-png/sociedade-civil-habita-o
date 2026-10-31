@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Árvore de decisão (data/arvore.json)",
+  "type": "object",
+  "required": ["inicio", "perguntas", "resultados"],
+  "properties": {
+    "inicio": { "type": "string" },
+    "perguntas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "texto"],
+        "properties": {
+          "id": { "type": "string" },
+          "tipo": { "enum": ["municipio"], "description": "Opções geradas a partir de municipios.json; usa «resultado» ou «seguinte» da própria pergunta." },
+          "texto": { "type": "string" },
+          "ajuda": { "type": "string" },
+          "resultado": { "type": "string" },
+          "seguinte": { "type": "string" },
+          "opcoes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id", "rotulo"],
+              "properties": { "id": { "type": "string" }, "rotulo": { "type": "string" }, "seguinte": { "type": "string" }, "resultado": { "type": "string" } },
+              "oneOf": [{ "required": ["seguinte"] }, { "required": ["resultado"] }]
+            }
+          }
+        }
+      }
+    },
+    "resultados": {
+      "type": "array",
+      "items": {
+        "allOf": [{ "$ref": "registo-editorial.schema.json" }],
+        "type": "object",
+        "required": ["titulo", "resumo", "entidades", "passos", "fontes"],
+        "properties": {
+          "municipal": { "type": "boolean", "description": "true = mostra aviso de falta de cobertura fora dos municípios suportados." },
+          "regras": { "type": "array", "items": { "type": "object", "required": ["texto", "referencia", "fonte"] } },
+          "entidades": { "type": "array", "items": { "type": "object", "required": ["id", "papel"], "properties": { "se": { "type": "object" } } } },
+          "passos": { "type": "array", "items": { "type": "string" } },
+          "documentos": { "type": "array", "items": { "type": "string" } },
+          "acoes": { "type": "array", "items": { "type": "object", "required": ["rotulo"], "description": "href interno (com marcadores {camara} / {habitacaoMunicipal}) ou fonte." } },
+          "fontes": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+          "limitacoes": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  }
+}

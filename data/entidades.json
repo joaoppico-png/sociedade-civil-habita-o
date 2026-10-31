@@ -1,0 +1,241 @@
+{
+  "entidades": [
+    {
+      "id": "senhorio",
+      "nome": "Senhorio (proprietário que arrenda a casa)",
+      "tipo": "parte",
+      "ambito": "nacional",
+      "competencias": "Parte no contrato de arrendamento. Em regra, é o primeiro destinatário de pedidos sobre obras, rendas ou cumprimento do contrato.",
+      "contacto": null,
+      "fontes": [
+        "codigo-civil"
+      ],
+      "aceitaLADA": false,
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-01-31",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "administracao-condominio",
+      "nome": "Administração do condomínio e assembleia de condóminos",
+      "tipo": "parte",
+      "ambito": "nacional",
+      "competencias": "A assembleia de condóminos delibera sobre as partes comuns do prédio; a administração executa as deliberações e gere o dia a dia do condomínio.",
+      "contacto": null,
+      "fontes": [
+        "codigo-civil"
+      ],
+      "aceitaLADA": false,
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-01-31",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "camara-municipal",
+      "nome": "Câmara Municipal do teu concelho",
+      "tipo": "publica",
+      "ambito": "municipal-generico",
+      "competencias": "Controlo e fiscalização de obras, vistorias e determinação de obras de conservação em edifícios com más condições de segurança ou salubridade; habitação municipal e ação social, conforme a organização de cada município.",
+      "contacto": null,
+      "fontes": [
+        "rjue",
+        "lei-bases-habitacao"
+      ],
+      "aceitaLADA": true,
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-01-31",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "cm-lisboa",
+      "nome": "Câmara Municipal de Lisboa",
+      "tipo": "publica",
+      "ambito": "lisboa",
+      "competencias": "Licenciamento e fiscalização de obras em Lisboa, vistorias, programas municipais de habitação e concursos de habitação municipal.",
+      "contacto": {
+        "fonte": "cm-lisboa-site",
+        "notas": "Canal específico para cada serviço por confirmar no portal municipal."
+      },
+      "fontes": [
+        "cm-lisboa-site",
+        "rjue"
+      ],
+      "aceitaLADA": true,
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-01-31",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "am-lisboa",
+      "nome": "Assembleia Municipal de Lisboa",
+      "tipo": "publica",
+      "ambito": "lisboa",
+      "competencias": "Órgão deliberativo do município. Aprova regulamentos e planos municipais e fiscaliza a Câmara; as sessões são públicas.",
+      "contacto": {
+        "fonte": "am-lisboa-site",
+        "notas": null
+      },
+      "fontes": [
+        "am-lisboa-site"
+      ],
+      "aceitaLADA": true,
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-01-31",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "gebalis",
+      "nome": "Gebalis — Gestão de Bairros Municipais de Lisboa",
+      "tipo": "publica",
+      "ambito": "lisboa",
+      "competencias": "Empresa municipal que gere os bairros municipais de Lisboa: relação com os moradores, rendas e manutenção do parque habitacional municipal que lhe está atribuído.",
+      "contacto": {
+        "fonte": "gebalis-contactos",
+        "notas": "Existe também uma área do morador em morador.gebalis.pt."
+      },
+      "fontes": [
+        "gebalis-contactos"
+      ],
+      "aceitaLADA": true,
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-01-31",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "ihru",
+      "nome": "IHRU — Instituto da Habitação e da Reabilitação Urbana",
+      "tipo": "publica",
+      "ambito": "nacional",
+      "competencias": "Organismo nacional da política de habitação. Gere programas como o Porta 65 Jovem, o Arrendamento Acessível e o 1.º Direito (este último com os municípios).",
+      "contacto": {
+        "fonte": "portal-nrau",
+        "notas": "Contactos gerais no Portal da Habitação (página «Contacte-nos»)."
+      },
+      "fontes": [
+        "portal-nrau",
+        "portal-1-direito"
+      ],
+      "aceitaLADA": true,
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-01-31",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "seguranca-social",
+      "nome": "Segurança Social",
+      "tipo": "publica",
+      "ambito": "nacional",
+      "competencias": "Decide os pedidos de proteção jurídica (dispensa de custas, nomeação de advogado) e presta apoio social, incluindo a Linha Nacional de Emergência Social 144.",
+      "contacto": {
+        "fonte": "seg-social-protecao-juridica",
+        "notas": null
+      },
+      "fontes": [
+        "seg-social-protecao-juridica",
+        "linha-144"
+      ],
+      "aceitaLADA": true,
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-01-31",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "bas",
+      "nome": "Balcão do Arrendatário e do Senhorio (BAS)",
+      "tipo": "publica",
+      "ambito": "nacional",
+      "competencias": "Tramita o procedimento especial de despejo e a injunção em matéria de arrendamento.",
+      "contacto": null,
+      "fontes": [
+        "bas"
+      ],
+      "aceitaLADA": false,
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-01-31",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "julgados-paz",
+      "nome": "Julgados de Paz e tribunais judiciais",
+      "tipo": "tribunal",
+      "ambito": "nacional",
+      "competencias": "Resolvem litígios. Os Julgados de Paz tratam alguns conflitos de menor valor, incluindo certas questões de condomínio e de arrendamento; o âmbito exato está por confirmar.",
+      "contacto": null,
+      "fontes": [
+        "julgados-paz"
+      ],
+      "aceitaLADA": false,
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-01-31",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "provedor-justica",
+      "nome": "Provedor de Justiça",
+      "tipo": "publica",
+      "ambito": "nacional",
+      "competencias": "Recebe queixas sobre a atuação de entidades públicas, incluindo câmaras municipais e empresas municipais. Não resolve litígios entre particulares.",
+      "contacto": {
+        "fonte": "provedor-justica-site",
+        "notas": null
+      },
+      "fontes": [
+        "provedor-justica-site"
+      ],
+      "aceitaLADA": false,
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-01-31",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "cada",
+      "nome": "CADA — Comissão de Acesso aos Documentos Administrativos",
+      "tipo": "publica",
+      "ambito": "nacional",
+      "competencias": "Aprecia queixas quando uma entidade pública recusa, limita ou não responde a um pedido de acesso a documentos administrativos.",
+      "contacto": {
+        "fonte": "cada-site",
+        "notas": null
+      },
+      "fontes": [
+        "cada-site",
+        "lada"
+      ],
+      "aceitaLADA": false,
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-01-31",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "governo",
+      "nome": "Governo / ministério responsável pela habitação",
+      "tipo": "publica",
+      "ambito": "nacional",
+      "competencias": "Promove consultas públicas sobre legislação e políticas nacionais.",
+      "contacto": {
+        "fonte": "participa-gov",
+        "notas": null
+      },
+      "fontes": [
+        "participa-gov"
+      ],
+      "aceitaLADA": true,
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-01-31",
+      "responsavel": "Por atribuir"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Fonte (data/fontes.json → fontes[])",
+  "allOf": [{ "$ref": "registo-editorial.schema.json" }],
+  "type": "object",
+  "required": ["titulo", "emissor", "tipo", "url"],
+  "properties": {
+    "titulo": { "type": "string" },
+    "emissor": { "type": "string" },
+    "tipo": { "enum": ["legislacao", "institucional", "estatistica"] },
+    "url": { "type": ["string", "null"], "pattern": "^https?://", "description": "null = ligação ainda não identificada (mostrado como «por confirmar»)." },
+    "dataPublicacao": { "type": ["string", "null"], "format": "date" },
+    "ligacaoVerificadaEm": { "type": ["string", "null"], "format": "date", "description": "Verificação técnica: o URL respondeu nesta data." }
+  }
+}

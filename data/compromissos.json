@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "fase": 2,
+    "descricao": "Observatório «Prometeram. Cumpriram?» — estrutura preparada, sem fichas publicadas. Ver docs/OBSERVATORIO.md para critérios de estado.",
+    "atualizadoEm": "2026-10-31"
+  },
+  "estadosExecucao": {
+    "nao-documentado": "Não existe documento público que permita aferir a execução.",
+    "sem-inicio-documentado": "Não há evidência documental de início (contrato, consignação).",
+    "em-execucao-documentada": "Existe contrato ou auto de consignação e não há evidência de conclusão.",
+    "concluido-documentado": "Existe auto de receção, licença de utilização ou documento equivalente.",
+    "alterado": "O objetivo ou o prazo foram alterados por documento oficial posterior."
+  },
+  "compromissos": []
+}

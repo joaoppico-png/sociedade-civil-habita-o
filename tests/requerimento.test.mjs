@@ -1,0 +1,62 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { ler } from './helpers.mjs';
+import { validar, gerarLADA, gerarInsistencia, gerarSenhorioObras, limpar, linhas, nomeFicheiro } from '../assets/js/lib/requerimento.js';
+
+const { modalidades } = await ler('requerimento');
+const base = { nome: 'Maria Silva', morada: 'Rua A, 1, 1000-001 Lisboa', local: 'Lisboa', data: '2026-10-31' };
+
+test('LADA: campos obrigatórios em falta geram erros', () => {
+  const erros = validar('lada', {});
+  for (const c of ['entidade', 'documentos', 'modalidade', 'nome', 'morada', 'local', 'data']) assert.ok(erros[c], c);
+});
+
+test('LADA: cópia eletrónica exige e-mail válido', () => {
+  const d = { ...base, entidade: 'Câmara Municipal de Lisboa', documentos: 'Ata', modalidade: 'copia-eletronica' };
+  assert.ok(validar('lada', d, { modalidadeExigeEmail: true }).email);
+  assert.ok(validar('lada', { ...d, email: 'nao-e-email' }, { modalidadeExigeEmail: true }).email);
+  assert.deepEqual(validar('lada', { ...d, email: 'maria@exemplo.pt' }, { modalidadeExigeEmail: true }), {});
+});
+
+test('LADA: gera requerimento completo com lei, documentos numerados, modalidade e assinatura', () => {
+  const d = { ...base, entidade: 'Câmara Municipal de Lisboa', documentos: '- Auto de vistoria de 2026\n2) Projeto de arquitetura\n\n', contexto: 'Prédio da Rua B, 3.', modalidade: 'consulta' };
+  const t = gerarLADA(d, modalidades.find((m) => m.id === 'consulta'));
+  assert.match(t, /Lei n\.º 26\/2016, de 22 de agosto/);
+  assert.match(t, /1\. Auto de vistoria de 2026\n2\. Projeto de arquitetura/);
+  assert.match(t, /consulta gratuita/);
+  assert.match(t, /Lisboa, 31 de outubro de 2026/);
+  assert.match(t, /expurgo/);
+  assert.match(t, /_{10,}\nMaria Silva\n$/);
+  assert.match(t, /Prédio da Rua B/);
+});
+
+test('insistência refere a data do pedido original e a CADA', () => {
+  const t = gerarInsistencia({ ...base, entidade: 'IHRU', dataPedido: '2026-09-01', referencia: 'P-123' });
+  assert.match(t, /1 de setembro de 2026 \(ref\.ª P-123\)/);
+  assert.match(t, /CADA/);
+});
+
+test('carta ao senhorio não invoca a LADA e valida o prazo', () => {
+  const d = { ...base, destinatario: 'João Costa', moradaImovel: 'Rua C, 2', problemas: 'Infiltração na cozinha', prazoDias: '30' };
+  assert.deepEqual(validar('senhorio-obras', d), {});
+  const t = gerarSenhorioObras(d);
+  assert.doesNotMatch(t, /26\/2016/);
+  assert.match(t, /prazo de 30 dias/);
+  assert.ok(validar('senhorio-obras', { ...d, prazoDias: '0' }).prazoDias);
+  assert.ok(validar('senhorio-obras', { ...d, prazoDias: '2.5' }).prazoDias);
+});
+
+test('inputs maliciosos são tratados como texto e caracteres de controlo removidos', () => {
+  const mal = '<script>alert(1)</script>‮abc\u0000';
+  assert.equal(limpar(mal), '<script>alert(1)</script>abc');
+  const t = gerarLADA({ ...base, nome: mal, entidade: '"><img src=x>', documentos: mal, modalidade: 'consulta' }, modalidades[0]);
+  assert.ok(!t.includes('‮') && !t.includes('\u0000'));
+  assert.equal(linhas(Array(40).fill('x').join('\n')).length, 25);
+  assert.equal(limpar('a'.repeat(5000), 160).length, 160);
+});
+
+test('datas inválidas são rejeitadas e nome do ficheiro é seguro', () => {
+  assert.ok(validar('lada', { ...base, data: '2026-02-30' }).data);
+  assert.equal(nomeFicheiro('lada', '2026-10-31'), 'pedido-acesso-documentos-2026-10-31.txt');
+  assert.equal(nomeFicheiro('lada', '../../x'), 'pedido-acesso-documentos-sem-data.txt');
+});

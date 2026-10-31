@@ -1,0 +1,18 @@
+{
+  "site": {
+    "nome": "Sociedade Civil — Habitação",
+    "lema": "A tua casa. Os teus direitos. Respostas concretas.",
+    "dominio": null,
+    "eixos": [
+      "Compreender",
+      "Agir",
+      "Fiscalizar"
+    ]
+  },
+  "politica": {
+    "mostrarPorConfirmar": true,
+    "notaPorConfirmar": "Esta informação ainda não foi revista por um responsável editorial. Confirma-a na fonte oficial antes de agires."
+  },
+  "contactoEditorial": null,
+  "versaoDados": "2026-10-31"
+}

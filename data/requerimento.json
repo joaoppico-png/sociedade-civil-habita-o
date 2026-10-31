@@ -1,0 +1,84 @@
+{
+  "modelo": {
+    "id": "lada-acesso-v1",
+    "versao": "1.0",
+    "fonte": "lada",
+    "estado": "por-confirmar",
+    "verificadoEm": null,
+    "revisaoPrevista": "2027-01-31",
+    "responsavel": "Por atribuir"
+  },
+  "modalidades": [
+    {
+      "id": "consulta",
+      "rotulo": "Consulta presencial, nos serviços da entidade",
+      "texto": "consulta gratuita nos serviços que os detêm"
+    },
+    {
+      "id": "copia-eletronica",
+      "rotulo": "Cópia em formato eletrónico, enviada por e-mail",
+      "texto": "reprodução em formato eletrónico, enviada para o endereço de correio eletrónico indicado",
+      "exigeEmail": true
+    },
+    {
+      "id": "copia-papel",
+      "rotulo": "Fotocópia ou cópia em papel",
+      "texto": "reprodução por fotocópia ou outro meio técnico, em papel"
+    },
+    {
+      "id": "certidao",
+      "rotulo": "Certidão",
+      "texto": "passagem de certidão"
+    }
+  ],
+  "orientacoes": [
+    {
+      "id": "identificacao",
+      "titulo": "Identificação e assinatura",
+      "texto": "O pedido deve ser feito por escrito e conter os elementos que permitam identificar os documentos, além do nome, da morada e da assinatura de quem pede. Assina à mão, ou com assinatura digital qualificada (por exemplo, Cartão de Cidadão ou Chave Móvel Digital) se entregares por via eletrónica.",
+      "referencia": "Lei n.º 26/2016, art. 12.º",
+      "fonte": "lada",
+      "estado": "por-confirmar"
+    },
+    {
+      "id": "entrega",
+      "titulo": "Como entregar",
+      "texto": "Entrega o requerimento pelo canal oficial da entidade: presencialmente (pede um recibo com a data), por carta registada com aviso de receção, ou pelo e-mail ou formulário que a entidade indique para estes pedidos. Este site não envia nada por ti.",
+      "referencia": null,
+      "fonte": null,
+      "estado": "por-confirmar"
+    },
+    {
+      "id": "prazo",
+      "titulo": "Prazo de resposta",
+      "texto": "A entidade deve responder no prazo de 10 dias úteis. Em casos excecionais, por exemplo quando o volume ou a complexidade da informação o justifiquem, o prazo pode ser prorrogado, e a entidade deve informar-te disso.",
+      "referencia": "Lei n.º 26/2016, art. 15.º",
+      "fonte": "lada",
+      "estado": "por-confirmar"
+    },
+    {
+      "id": "custos",
+      "titulo": "Custos",
+      "texto": "A consulta é gratuita. A reprodução e as certidões podem ter encargos, segundo as taxas definidas pela entidade.",
+      "referencia": "Lei n.º 26/2016",
+      "fonte": "lada",
+      "estado": "por-confirmar"
+    },
+    {
+      "id": "reacao",
+      "titulo": "Se recusarem ou não responderem",
+      "texto": "Podes apresentar queixa à Comissão de Acesso aos Documentos Administrativos (CADA) num prazo de 20 dias. A queixa é gratuita e não precisa de advogado. A CADA emite um parecer, e a entidade tem depois de comunicar a decisão final. Podes também recorrer aos tribunais administrativos.",
+      "referencia": "Lei n.º 26/2016, art. 16.º",
+      "fonte": "cada-site",
+      "estado": "por-confirmar"
+    }
+  ],
+  "seguimento": {
+    "prazoRespostaDiasUteis": 10,
+    "referenciaResposta": "Lei n.º 26/2016, art. 15.º",
+    "prazoQueixaCADADias": 20,
+    "referenciaQueixa": "Lei n.º 26/2016, art. 16.º",
+    "contagem": "Dias úteis: exclui sábados, domingos e feriados nacionais obrigatórios. Não inclui feriados municipais nem tolerâncias de ponto. A regra de contagem e o momento a partir do qual conta o prazo da queixa estão por confirmar editorialmente.",
+    "estado": "por-confirmar"
+  }
+}

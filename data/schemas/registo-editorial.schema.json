@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "registo-editorial.schema.json",
+  "title": "Metadados editoriais comuns a qualquer registo factual",
+  "type": "object",
+  "required": ["id", "estado", "revisaoPrevista", "responsavel"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{0,60}$", "description": "Identificador estável. Nunca reutilizar." },
+    "estado": { "enum": ["verificado", "por-confirmar", "desatualizado", "arquivado"] },
+    "verificadoEm": { "type": ["string", "null"], "format": "date", "description": "Obrigatório quando estado = verificado." },
+    "revisaoPrevista": { "type": "string", "format": "date", "description": "Depois desta data o registo deixa de ser apresentado como orientação." },
+    "responsavel": { "type": "string", "minLength": 1 }
+  }
+}

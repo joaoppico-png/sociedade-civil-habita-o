@@ -1,0 +1,1044 @@
+{
+  "inicio": "inicio",
+  "perguntas": [
+    {
+      "id": "inicio",
+      "texto": "Qual é o teu problema de habitação?",
+      "opcoes": [
+        {
+          "id": "arrendada",
+          "rotulo": "Tenho um problema com a minha casa arrendada",
+          "seguinte": "arrendada-relacao"
+        },
+        {
+          "id": "procurar",
+          "rotulo": "Preciso de ajuda para encontrar habitação",
+          "seguinte": "procurar-situacao"
+        },
+        {
+          "id": "responsavel",
+          "rotulo": "Quero saber quem é responsável por uma situação",
+          "seguinte": "responsavel-tema"
+        },
+        {
+          "id": "documentos",
+          "rotulo": "Quero pedir documentos sobre um projeto ou decisão",
+          "resultado": "r-pedir-documentos"
+        },
+        {
+          "id": "participar",
+          "rotulo": "Quero participar numa decisão sobre habitação",
+          "resultado": "r-participar"
+        },
+        {
+          "id": "promessa",
+          "rotulo": "Quero acompanhar uma promessa de habitação pública",
+          "resultado": "r-promessa"
+        }
+      ]
+    },
+    {
+      "id": "arrendada-relacao",
+      "texto": "Qual é a tua relação com a casa?",
+      "ajuda": "As obrigações não são as mesmas para quem arrenda e para quem é dono.",
+      "opcoes": [
+        {
+          "id": "inquilino",
+          "rotulo": "Sou inquilino (pago renda)",
+          "seguinte": "inquilino-problema"
+        },
+        {
+          "id": "senhorio",
+          "rotulo": "Sou senhorio (sou dono e arrendo a casa)",
+          "seguinte": "senhorio-problema"
+        }
+      ]
+    },
+    {
+      "id": "inquilino-problema",
+      "texto": "O que se passa?",
+      "opcoes": [
+        {
+          "id": "conservacao",
+          "rotulo": "A casa precisa de obras: humidade, infiltrações, avarias, falta de segurança",
+          "seguinte": "conservacao-concelho"
+        },
+        {
+          "id": "contrato",
+          "rotulo": "Tenho dúvidas sobre o contrato, a renda ou o aumento",
+          "resultado": "r-contrato"
+        },
+        {
+          "id": "saida",
+          "rotulo": "Recebi uma carta para sair da casa ou para não renovar o contrato",
+          "resultado": "r-despejo"
+        }
+      ]
+    },
+    {
+      "id": "conservacao-concelho",
+      "tipo": "municipio",
+      "texto": "Em que concelho fica a casa?",
+      "ajuda": "Usamos o concelho só para indicar o serviço municipal certo. Não guardamos esta resposta.",
+      "resultado": "r-conservacao"
+    },
+    {
+      "id": "senhorio-problema",
+      "texto": "O que se passa?",
+      "opcoes": [
+        {
+          "id": "contrato",
+          "rotulo": "Tenho dúvidas sobre o contrato ou a atualização da renda",
+          "resultado": "r-contrato"
+        },
+        {
+          "id": "incumprimento",
+          "rotulo": "O inquilino não paga ou quero pôr fim ao contrato",
+          "resultado": "r-senhorio-incumprimento"
+        }
+      ]
+    },
+    {
+      "id": "procurar-situacao",
+      "texto": "Qual destas situações descreve melhor o teu caso?",
+      "opcoes": [
+        {
+          "id": "emergencia",
+          "rotulo": "Estou sem casa ou em risco de ficar sem casa nos próximos dias",
+          "seguinte": "emergencia-concelho"
+        },
+        {
+          "id": "jovem",
+          "rotulo": "Sou jovem e quero arrendar casa",
+          "resultado": "r-porta65"
+        },
+        {
+          "id": "rendimento",
+          "rotulo": "Não consigo pagar uma renda ao preço de mercado",
+          "seguinte": "rendimento-concelho"
+        },
+        {
+          "id": "municipal",
+          "rotulo": "Quero candidatar-me a uma casa municipal",
+          "seguinte": "rendimento-concelho"
+        }
+      ]
+    },
+    {
+      "id": "emergencia-concelho",
+      "tipo": "municipio",
+      "texto": "Em que concelho estás?",
+      "resultado": "r-emergencia"
+    },
+    {
+      "id": "rendimento-concelho",
+      "tipo": "municipio",
+      "texto": "Em que concelho procuras casa?",
+      "resultado": "r-procurar-apoio"
+    },
+    {
+      "id": "responsavel-tema",
+      "texto": "Sobre que situação?",
+      "opcoes": [
+        {
+          "id": "morador-municipal",
+          "rotulo": "Vivo numa casa municipal e tenho um problema",
+          "seguinte": "morador-concelho"
+        },
+        {
+          "id": "condominio",
+          "rotulo": "Um problema no prédio ou com o condomínio",
+          "resultado": "r-condominio"
+        },
+        {
+          "id": "obras",
+          "rotulo": "Uma obra ou licença: a minha, a de um vizinho ou uma construção nova",
+          "seguinte": "obras-concelho"
+        },
+        {
+          "id": "degradado",
+          "rotulo": "Um prédio degradado ou em risco",
+          "seguinte": "degradado-concelho"
+        },
+        {
+          "id": "projeto",
+          "rotulo": "Um projeto de habitação pública no meu bairro",
+          "resultado": "r-pedir-documentos"
+        }
+      ]
+    },
+    {
+      "id": "morador-concelho",
+      "tipo": "municipio",
+      "texto": "Em que concelho fica a casa municipal?",
+      "resultado": "r-morador-municipal"
+    },
+    {
+      "id": "obras-concelho",
+      "tipo": "municipio",
+      "texto": "Em que concelho fica a obra?",
+      "resultado": "r-obras"
+    },
+    {
+      "id": "degradado-concelho",
+      "tipo": "municipio",
+      "texto": "Em que concelho fica o prédio?",
+      "resultado": "r-degradado"
+    }
+  ],
+  "resultados": [
+    {
+      "id": "r-conservacao",
+      "titulo": "Obras de conservação numa casa arrendada",
+      "resumo": "Em regra, cabe ao senhorio fazer as obras de conservação. Começa por lhe pedir as obras por escrito. Se o problema afetar a segurança ou a salubridade e o senhorio não agir, podes pedir à câmara municipal uma vistoria.",
+      "municipal": true,
+      "regras": [
+        {
+          "texto": "Cabe ao senhorio executar as obras de conservação, ordinárias ou extraordinárias, salvo se o contrato disser outra coisa.",
+          "referencia": "Código Civil, art. 1074.º",
+          "fonte": "codigo-civil"
+        },
+        {
+          "texto": "A lei prevê um regime próprio para reparações urgentes feitas pelo inquilino.",
+          "referencia": "Código Civil, art. 1036.º",
+          "fonte": "codigo-civil"
+        },
+        {
+          "texto": "A câmara municipal pode determinar obras de conservação para corrigir más condições de segurança ou salubridade.",
+          "referencia": "RJUE, art. 89.º",
+          "fonte": "rjue"
+        }
+      ],
+      "entidades": [
+        {
+          "id": "senhorio",
+          "papel": "Primeiro destinatário: deves pedir-lhe as obras por escrito."
+        },
+        {
+          "id": "cm-lisboa",
+          "papel": "Vistoria e determinação de obras quando estão em causa a segurança ou a salubridade.",
+          "se": {
+            "municipio": "lisboa"
+          }
+        },
+        {
+          "id": "camara-municipal",
+          "papel": "Vistoria e determinação de obras quando estão em causa a segurança ou a salubridade.",
+          "se": {
+            "municipio": "outro"
+          }
+        },
+        {
+          "id": "seguranca-social",
+          "papel": "Proteção jurídica, se precisares de advogado e não o puderes pagar."
+        },
+        {
+          "id": "julgados-paz",
+          "papel": "Resolução do litígio, se não houver acordo."
+        }
+      ],
+      "passos": [
+        "Regista o problema: fotografias com data, descrição, quando começou e o que já tentaste.",
+        "Escreve ao senhorio a pedir as obras e um prazo razoável. Usa carta registada com aviso de receção, ou o meio de comunicação que o contrato prevê.",
+        "Guarda cópia de tudo o que envias e recebes.",
+        "Se não houver resposta e o problema afetar a segurança ou a salubridade, pede uma vistoria à câmara municipal.",
+        "Não deixes de pagar a renda nem faças obras por tua conta sem aconselhamento jurídico. Pode ter consequências graves."
+      ],
+      "documentos": [
+        "Contrato de arrendamento",
+        "Recibos de renda",
+        "Fotografias e descrição do problema",
+        "Cópias das cartas ou e-mails trocados com o senhorio"
+      ],
+      "acoes": [
+        {
+          "rotulo": "Preparar carta ao senhorio a pedir obras",
+          "href": "pedir-documentos.html?tipo=senhorio-obras"
+        },
+        {
+          "rotulo": "Pedir à câmara documentos sobre vistorias ao prédio",
+          "href": "pedir-documentos.html?entidade={camara}"
+        },
+        {
+          "rotulo": "Saber como pedir proteção jurídica",
+          "fonte": "seg-social-protecao-juridica"
+        }
+      ],
+      "fontes": [
+        "codigo-civil",
+        "rjue",
+        "seg-social-protecao-juridica"
+      ],
+      "limitacoes": [
+        "Se o contrato tiver cláusulas sobre obras, essas cláusulas podem alterar a regra geral.",
+        "O procedimento e o canal para pedir uma vistoria variam de concelho para concelho."
+      ],
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-01-31",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "r-contrato",
+      "titulo": "Dúvidas sobre contrato, renda ou atualização da renda",
+      "resumo": "As regras do arrendamento estão no Código Civil e no Novo Regime do Arrendamento Urbano (NRAU). O Portal da Habitação explica o regime. Para um caso concreto, procura aconselhamento jurídico.",
+      "municipal": false,
+      "regras": [
+        {
+          "texto": "O contrato de arrendamento urbano rege-se pelo Código Civil e pelo NRAU.",
+          "referencia": "Código Civil, art. 1064.º e seguintes; NRAU",
+          "fonte": "codigo-civil"
+        },
+        {
+          "texto": "O coeficiente anual de atualização das rendas é publicado em Diário da República. Confirma o valor do ano em causa.",
+          "referencia": "NRAU",
+          "fonte": "portal-nrau"
+        }
+      ],
+      "entidades": [
+        {
+          "id": "ihru",
+          "papel": "Informação geral sobre o regime do arrendamento no Portal da Habitação."
+        },
+        {
+          "id": "seguranca-social",
+          "papel": "Proteção jurídica, se precisares de advogado e não o puderes pagar."
+        },
+        {
+          "id": "julgados-paz",
+          "papel": "Resolução de litígios, se não houver acordo."
+        }
+      ],
+      "passos": [
+        "Relê o contrato: duração, renovação, valor da renda, regras de atualização e obras.",
+        "Consulta a informação sobre o NRAU no Portal da Habitação.",
+        "Antes de responderes por escrito a uma alteração ao contrato, procura aconselhamento jurídico."
+      ],
+      "documentos": [
+        "Contrato de arrendamento e aditamentos",
+        "Recibos de renda",
+        "Cartas ou comunicações recebidas"
+      ],
+      "acoes": [
+        {
+          "rotulo": "Ler a informação sobre o NRAU no Portal da Habitação",
+          "fonte": "portal-nrau"
+        },
+        {
+          "rotulo": "Saber como pedir proteção jurídica",
+          "fonte": "seg-social-protecao-juridica"
+        }
+      ],
+      "fontes": [
+        "codigo-civil",
+        "portal-nrau",
+        "seg-social-protecao-juridica"
+      ],
+      "limitacoes": [
+        "As regras aplicáveis dependem da data e do tipo de contrato. Contratos antigos podem ter regimes de transição."
+      ],
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-01-31",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "r-despejo",
+      "titulo": "Recebi uma carta para sair da casa",
+      "resumo": "Não ignores a carta. Uma oposição à renovação, uma denúncia, uma resolução do contrato ou uma notificação num procedimento de despejo têm prazos e consequências diferentes. Alguns prazos de resposta são curtos. Procura aconselhamento jurídico já.",
+      "municipal": false,
+      "regras": [
+        {
+          "texto": "O procedimento especial de despejo corre no Balcão do Arrendatário e do Senhorio (BAS).",
+          "referencia": "NRAU",
+          "fonte": "bas"
+        }
+      ],
+      "entidades": [
+        {
+          "id": "seguranca-social",
+          "papel": "Proteção jurídica: pede-a logo, porque os prazos continuam a correr."
+        },
+        {
+          "id": "bas",
+          "papel": "Se recebeste uma notificação do BAS, os prazos de resposta contam a partir dela."
+        },
+        {
+          "id": "camara-municipal",
+          "papel": "Serviços de ação social, se estiveres em risco de ficar sem casa."
+        }
+      ],
+      "passos": [
+        "Identifica quem enviou a carta (o senhorio ou o BAS) e a data em que a recebeste.",
+        "Guarda o envelope e a carta. A data de receção pode contar para os prazos.",
+        "Pede proteção jurídica ou procura um advogado de imediato.",
+        "Se estiveres em risco de ficar sem casa, contacta já os serviços sociais da câmara ou a Linha de Emergência Social 144."
+      ],
+      "documentos": [
+        "A carta recebida e o envelope",
+        "Contrato de arrendamento",
+        "Recibos de renda"
+      ],
+      "acoes": [
+        {
+          "rotulo": "Saber como pedir proteção jurídica",
+          "fonte": "seg-social-protecao-juridica"
+        }
+      ],
+      "fontes": [
+        "portal-nrau",
+        "bas",
+        "seg-social-protecao-juridica",
+        "linha-144"
+      ],
+      "limitacoes": [
+        "Esta ficha não indica prazos: dependem do tipo de comunicação e têm de ser confirmados por um jurista.",
+        "O canal oficial do BAS ainda não foi verificado."
+      ],
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-01-31",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "r-senhorio-incumprimento",
+      "titulo": "O inquilino não paga ou quero pôr fim ao contrato",
+      "resumo": "Para pôr fim ao contrato ou recuperar rendas em atraso há procedimentos próprios. O procedimento especial de despejo e a injunção em matéria de arrendamento correm no BAS. Não mudes fechaduras nem cortes serviços: pode ser ilegal.",
+      "municipal": false,
+      "regras": [
+        {
+          "texto": "O procedimento especial de despejo e a injunção em matéria de arrendamento correm no Balcão do Arrendatário e do Senhorio.",
+          "referencia": "NRAU",
+          "fonte": "bas"
+        }
+      ],
+      "entidades": [
+        {
+          "id": "bas",
+          "papel": "Procedimento especial de despejo e injunção em matéria de arrendamento."
+        },
+        {
+          "id": "julgados-paz",
+          "papel": "Resolução de litígios, conforme o caso."
+        },
+        {
+          "id": "seguranca-social",
+          "papel": "Proteção jurídica, se cumprires as condições."
+        }
+      ],
+      "passos": [
+        "Reúne o contrato, os comprovativos de pagamento e de falta de pagamento e as comunicações trocadas.",
+        "Procura aconselhamento jurídico sobre a forma correta de comunicar com o inquilino.",
+        "Usa apenas os procedimentos legais. Agir por meios próprios pode ser ilegal."
+      ],
+      "documentos": [
+        "Contrato de arrendamento",
+        "Comprovativo de comunicação do contrato às Finanças, se aplicável",
+        "Registo de pagamentos"
+      ],
+      "acoes": [
+        {
+          "rotulo": "Ler a informação sobre o NRAU no Portal da Habitação",
+          "fonte": "portal-nrau"
+        }
+      ],
+      "fontes": [
+        "portal-nrau",
+        "bas"
+      ],
+      "limitacoes": [
+        "O canal oficial do BAS ainda não foi verificado.",
+        "Os requisitos de cada procedimento não estão descritos nesta ficha."
+      ],
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-01-31",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "r-emergencia",
+      "titulo": "Estou sem casa ou em risco de ficar sem casa",
+      "resumo": "Liga para a Linha Nacional de Emergência Social, 144. É gratuita e funciona 24 horas por dia (confirma as condições no site da Segurança Social). Contacta também os serviços de ação social da câmara municipal. Se houver perigo imediato, liga 112.",
+      "municipal": true,
+      "regras": [],
+      "entidades": [
+        {
+          "id": "seguranca-social",
+          "papel": "Linha Nacional de Emergência Social 144 e apoio social."
+        },
+        {
+          "id": "cm-lisboa",
+          "papel": "Serviços municipais de ação social e habitação.",
+          "se": {
+            "municipio": "lisboa"
+          }
+        },
+        {
+          "id": "camara-municipal",
+          "papel": "Serviços municipais de ação social e habitação.",
+          "se": {
+            "municipio": "outro"
+          }
+        }
+      ],
+      "passos": [
+        "Liga para o 144 e explica a tua situação.",
+        "Contacta os serviços de ação social da câmara municipal.",
+        "Se recebeste uma ordem de despejo, procura também apoio jurídico."
+      ],
+      "documentos": [
+        "Documento de identificação",
+        "Comprovativos de rendimentos, se os tiveres",
+        "Cartas recebidas sobre a casa"
+      ],
+      "acoes": [
+        {
+          "rotulo": "Site da Segurança Social",
+          "fonte": "linha-144"
+        }
+      ],
+      "fontes": [
+        "linha-144"
+      ],
+      "limitacoes": [
+        "A Sociedade Civil — Habitação não presta apoio de emergência. Esta ficha só indica onde pedir ajuda."
+      ],
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-01-31",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "r-porta65",
+      "titulo": "Sou jovem e quero arrendar casa",
+      "resumo": "O Porta 65 Jovem é um programa do IHRU que comparticipa parte da renda de jovens. As candidaturas abrem em períodos definidos. As regras de idade, rendimento e renda máxima estão no Portal da Habitação.",
+      "municipal": false,
+      "regras": [
+        {
+          "texto": "O Porta 65 Jovem é um apoio financeiro ao arrendamento para jovens, gerido pelo IHRU.",
+          "referencia": "Portal da Habitação",
+          "fonte": "portal-porta65"
+        }
+      ],
+      "entidades": [
+        {
+          "id": "ihru",
+          "papel": "Gere o programa e decide as candidaturas."
+        }
+      ],
+      "passos": [
+        "Lê as condições do Porta 65 Jovem no Portal da Habitação.",
+        "Confirma quando abre o próximo período de candidaturas.",
+        "Prepara os documentos antes de abrir o período."
+      ],
+      "documentos": [
+        "Documentos de identificação",
+        "Declaração de IRS ou comprovativos de rendimentos",
+        "Contrato de arrendamento ou proposta, conforme as regras do programa"
+      ],
+      "acoes": [
+        {
+          "rotulo": "Ver as condições do Porta 65 Jovem",
+          "fonte": "portal-porta65"
+        },
+        {
+          "rotulo": "Ver o programa Arrendamento Acessível",
+          "fonte": "portal-arrendamento-acessivel"
+        }
+      ],
+      "fontes": [
+        "portal-porta65",
+        "portal-arrendamento-acessivel"
+      ],
+      "limitacoes": [
+        "Esta ficha não avalia se tens direito ao apoio. Só o IHRU decide."
+      ],
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-01-31",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "r-procurar-apoio",
+      "titulo": "Não consigo pagar uma renda de mercado",
+      "resumo": "Há programas nacionais e municipais que podem ser relevantes: habitação municipal, arrendamento apoiado, arrendamento acessível e o 1.º Direito, este último gerido pelos municípios. Esta ficha não avalia se tens direito a nenhum deles.",
+      "municipal": true,
+      "regras": [
+        {
+          "texto": "O 1.º Direito apoia o acesso a habitação de pessoas em condições habitacionais indignas e é concretizado pelos municípios.",
+          "referencia": "Decreto-Lei n.º 37/2018; Portal da Habitação",
+          "fonte": "portal-1-direito"
+        },
+        {
+          "texto": "No arrendamento apoiado, a renda é calculada em função do rendimento do agregado.",
+          "referencia": "Portal da Habitação",
+          "fonte": "portal-arrendamento-apoiado"
+        }
+      ],
+      "entidades": [
+        {
+          "id": "cm-lisboa",
+          "papel": "Concursos de habitação municipal e programas municipais de renda acessível.",
+          "se": {
+            "municipio": "lisboa"
+          }
+        },
+        {
+          "id": "camara-municipal",
+          "papel": "Habitação municipal e candidatura ao 1.º Direito no teu concelho.",
+          "se": {
+            "municipio": "outro"
+          }
+        },
+        {
+          "id": "ihru",
+          "papel": "Programas nacionais: Arrendamento Acessível, Porta 65 e financiamento do 1.º Direito."
+        }
+      ],
+      "passos": [
+        "Pergunta à câmara municipal que programas de habitação estão abertos e como te inscreves.",
+        "Lê as condições dos programas nacionais no Portal da Habitação.",
+        "Guarda os comprovativos de cada candidatura que fizeres."
+      ],
+      "documentos": [
+        "Documentos de identificação do agregado",
+        "Declarações de IRS e comprovativos de rendimentos",
+        "Comprovativo da situação habitacional atual"
+      ],
+      "acoes": [
+        {
+          "rotulo": "Ver o 1.º Direito no Portal da Habitação",
+          "fonte": "portal-1-direito"
+        },
+        {
+          "rotulo": "Ver o Arrendamento Acessível",
+          "fonte": "portal-arrendamento-acessivel"
+        },
+        {
+          "rotulo": "Portal da Câmara Municipal de Lisboa",
+          "fonte": "cm-lisboa-site",
+          "se": {
+            "municipio": "lisboa"
+          }
+        }
+      ],
+      "fontes": [
+        "portal-1-direito",
+        "portal-arrendamento-apoiado",
+        "portal-arrendamento-acessivel",
+        "cm-lisboa-site"
+      ],
+      "limitacoes": [
+        "Esta ficha não avalia a tua elegibilidade e não é uma decisão administrativa.",
+        "A página específica dos programas municipais de Lisboa ainda não foi verificada."
+      ],
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-01-31",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "r-morador-municipal",
+      "titulo": "Vivo numa casa municipal e tenho um problema",
+      "resumo": "Os problemas de manutenção, renda ou transferência são tratados pela entidade que gere o bairro. Em Lisboa, os bairros municipais são geridos pela Gebalis. Se a entidade pública não responder, podes apresentar queixa ao Provedor de Justiça.",
+      "municipal": true,
+      "regras": [],
+      "entidades": [
+        {
+          "id": "gebalis",
+          "papel": "Gestão dos bairros municipais de Lisboa: manutenção, rendas e relação com os moradores.",
+          "se": {
+            "municipio": "lisboa"
+          }
+        },
+        {
+          "id": "cm-lisboa",
+          "papel": "Proprietária do parque habitacional municipal.",
+          "se": {
+            "municipio": "lisboa"
+          }
+        },
+        {
+          "id": "camara-municipal",
+          "papel": "Proprietária da habitação municipal, ou empresa municipal que a gere.",
+          "se": {
+            "municipio": "outro"
+          }
+        },
+        {
+          "id": "provedor-justica",
+          "papel": "Queixas sobre a atuação da câmara ou da empresa municipal."
+        }
+      ],
+      "passos": [
+        "Faz o pedido por escrito à entidade gestora e guarda o comprovativo e o número do pedido.",
+        "Se não houver resposta num prazo razoável, insiste por escrito e indica o número do pedido anterior.",
+        "Se continuares sem resposta, podes pedir os documentos do teu processo ou apresentar queixa ao Provedor de Justiça."
+      ],
+      "documentos": [
+        "Contrato ou título de ocupação",
+        "Comprovativos de pagamento da renda",
+        "Pedidos anteriores e respetivos números"
+      ],
+      "acoes": [
+        {
+          "rotulo": "Contactos da Gebalis",
+          "fonte": "gebalis-contactos",
+          "se": {
+            "municipio": "lisboa"
+          }
+        },
+        {
+          "rotulo": "Pedir documentos do meu processo",
+          "href": "pedir-documentos.html?entidade={habitacaoMunicipal}"
+        }
+      ],
+      "fontes": [
+        "gebalis-contactos",
+        "provedor-justica-site"
+      ],
+      "limitacoes": [
+        "Nem todos os bairros municipais de Lisboa são necessariamente geridos pela Gebalis. Confirma no teu contrato."
+      ],
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-01-31",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "r-condominio",
+      "titulo": "Problemas no prédio ou com o condomínio",
+      "resumo": "As partes comuns do prédio são decididas em assembleia de condóminos e geridas pela administração do condomínio. Se não houver acordo, há meios de resolução de litígios. Se houver risco para a segurança, a câmara municipal pode intervir.",
+      "municipal": false,
+      "regras": [
+        {
+          "texto": "A administração das partes comuns cabe à assembleia de condóminos e a um administrador.",
+          "referencia": "Código Civil, art. 1430.º e seguintes",
+          "fonte": "codigo-civil"
+        }
+      ],
+      "entidades": [
+        {
+          "id": "administracao-condominio",
+          "papel": "Primeiro destinatário: pede por escrito que o assunto seja tratado ou incluído na ordem de trabalhos."
+        },
+        {
+          "id": "julgados-paz",
+          "papel": "Resolução de litígios entre condóminos, conforme o caso."
+        },
+        {
+          "id": "camara-municipal",
+          "papel": "Vistoria, se o estado das partes comuns puser em risco a segurança ou a salubridade."
+        }
+      ],
+      "passos": [
+        "Escreve à administração do condomínio a descrever o problema.",
+        "Se for preciso uma decisão coletiva, pede que o assunto entre na ordem de trabalhos da próxima assembleia.",
+        "Pede cópia das atas e das contas do condomínio."
+      ],
+      "documentos": [
+        "Atas das assembleias",
+        "Regulamento do condomínio",
+        "Fotografias do problema"
+      ],
+      "acoes": [],
+      "fontes": [
+        "codigo-civil",
+        "julgados-paz"
+      ],
+      "limitacoes": [
+        "Se fores inquilino, o interlocutor no condomínio é, em regra, o teu senhorio.",
+        "A competência dos Julgados de Paz em matéria de condomínio está por confirmar."
+      ],
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-01-31",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "r-obras",
+      "titulo": "Obras, licenças e construções",
+      "resumo": "O controlo das obras (licença ou comunicação prévia) e a fiscalização cabem à câmara municipal. Podes pedir para consultar o processo de uma obra e comunicar uma obra que te pareça irregular.",
+      "municipal": true,
+      "regras": [
+        {
+          "texto": "As operações urbanísticas estão sujeitas a controlo prévio municipal (licença, comunicação prévia ou outros procedimentos) e a fiscalização.",
+          "referencia": "RJUE",
+          "fonte": "rjue"
+        },
+        {
+          "texto": "Os processos urbanísticos são, em regra, documentos administrativos a que se pode pedir acesso, com as restrições previstas na lei.",
+          "referencia": "Lei n.º 26/2016",
+          "fonte": "lada"
+        }
+      ],
+      "entidades": [
+        {
+          "id": "cm-lisboa",
+          "papel": "Licenciamento, consulta de processos e fiscalização de obras em Lisboa.",
+          "se": {
+            "municipio": "lisboa"
+          }
+        },
+        {
+          "id": "camara-municipal",
+          "papel": "Licenciamento, consulta de processos e fiscalização de obras.",
+          "se": {
+            "municipio": "outro"
+          }
+        }
+      ],
+      "passos": [
+        "Anota a morada exata da obra e, se existir, o número do alvará afixado no local.",
+        "Pede à câmara acesso ao processo da obra.",
+        "Se a obra te parecer irregular, comunica-o por escrito aos serviços de fiscalização municipal."
+      ],
+      "documentos": [
+        "Morada e fotografias da obra",
+        "Número do alvará ou do aviso afixado, se existir"
+      ],
+      "acoes": [
+        {
+          "rotulo": "Pedir acesso ao processo da obra",
+          "href": "pedir-documentos.html?entidade={camara}"
+        }
+      ],
+      "fontes": [
+        "rjue",
+        "lada"
+      ],
+      "limitacoes": [
+        "O tipo de controlo prévio depende da obra. Algumas obras estão isentas."
+      ],
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-01-31",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "r-degradado",
+      "titulo": "Prédio degradado ou em risco",
+      "resumo": "O proprietário tem o dever de conservar o edifício. A câmara municipal pode fazer uma vistoria e determinar obras. Se houver perigo imediato, liga 112.",
+      "municipal": true,
+      "regras": [
+        {
+          "texto": "As edificações devem ser conservadas pelos proprietários, e a câmara municipal pode determinar obras de conservação.",
+          "referencia": "RJUE, art. 89.º e seguintes",
+          "fonte": "rjue"
+        }
+      ],
+      "entidades": [
+        {
+          "id": "cm-lisboa",
+          "papel": "Vistoria e determinação de obras em Lisboa.",
+          "se": {
+            "municipio": "lisboa"
+          }
+        },
+        {
+          "id": "camara-municipal",
+          "papel": "Vistoria e determinação de obras.",
+          "se": {
+            "municipio": "outro"
+          }
+        }
+      ],
+      "passos": [
+        "Se houver perigo imediato, liga 112.",
+        "Fotografa o problema visto da via pública e anota a morada exata.",
+        "Pede por escrito à câmara municipal uma vistoria ao edifício.",
+        "Pede depois acesso ao resultado da vistoria e às decisões tomadas."
+      ],
+      "documentos": [
+        "Morada exata",
+        "Fotografias",
+        "Descrição do risco"
+      ],
+      "acoes": [
+        {
+          "rotulo": "Pedir à câmara os documentos sobre o prédio",
+          "href": "pedir-documentos.html?entidade={camara}"
+        }
+      ],
+      "fontes": [
+        "rjue"
+      ],
+      "limitacoes": [
+        "O canal para pedir uma vistoria varia de concelho para concelho."
+      ],
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-01-31",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "r-pedir-documentos",
+      "titulo": "Pedir documentos sobre um projeto ou decisão",
+      "resumo": "Qualquer pessoa pode pedir acesso a documentos administrativos sem ter de explicar porquê, com as exceções previstas na lei. Prepara o pedido com o nosso gerador e entrega-o tu à entidade que tem os documentos.",
+      "municipal": false,
+      "regras": [
+        {
+          "texto": "Todos têm direito de acesso aos documentos administrativos, sem necessidade de enunciar qualquer interesse, salvo as restrições legais.",
+          "referencia": "Lei n.º 26/2016, art. 5.º",
+          "fonte": "lada"
+        },
+        {
+          "texto": "Se a entidade recusar, limitar ou não responder ao pedido, podes apresentar queixa à CADA.",
+          "referencia": "Lei n.º 26/2016, art. 16.º",
+          "fonte": "cada-site"
+        }
+      ],
+      "entidades": [
+        {
+          "id": "camara-municipal",
+          "papel": "Detém processos de obras, projetos municipais de habitação e atas."
+        },
+        {
+          "id": "ihru",
+          "papel": "Detém documentos de programas nacionais e de projetos financiados."
+        },
+        {
+          "id": "cada",
+          "papel": "Aprecia queixas se o pedido for recusado ou ficar sem resposta."
+        }
+      ],
+      "passos": [
+        "Identifica a entidade que tem os documentos.",
+        "Descreve os documentos com o máximo de precisão: datas, números de processo, nomes de projetos.",
+        "Gera o requerimento, revê-o, assina-o e entrega-o pelo canal oficial da entidade.",
+        "Guarda o comprovativo de entrega e a data."
+      ],
+      "documentos": [
+        "Dados que identifiquem os documentos: número de processo, data, nome do projeto"
+      ],
+      "acoes": [
+        {
+          "rotulo": "Abrir o gerador de requerimentos",
+          "href": "pedir-documentos.html"
+        },
+        {
+          "rotulo": "Pesquisar contratos públicos no Portal BASE",
+          "fonte": "base"
+        }
+      ],
+      "fontes": [
+        "lada",
+        "cada-site",
+        "base"
+      ],
+      "limitacoes": [
+        "Alguns documentos têm acesso restrito, por exemplo dados pessoais de terceiros ou segredo comercial. Nesses casos podes pedir acesso parcial."
+      ],
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-01-31",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "r-participar",
+      "titulo": "Participar numa decisão sobre habitação",
+      "resumo": "Podes participar em consultas públicas nacionais, em discussões públicas de planos municipais e nas sessões públicas dos órgãos municipais. Vê o catálogo de oportunidades verificadas e os portais oficiais.",
+      "municipal": false,
+      "regras": [],
+      "entidades": [
+        {
+          "id": "governo",
+          "papel": "Consultas públicas sobre legislação e políticas nacionais."
+        },
+        {
+          "id": "am-lisboa",
+          "papel": "Sessões públicas da Assembleia Municipal de Lisboa."
+        },
+        {
+          "id": "cm-lisboa",
+          "papel": "Discussões públicas de planos e regulamentos municipais em Lisboa."
+        }
+      ],
+      "passos": [
+        "Consulta o catálogo de oportunidades verificadas.",
+        "Confirma o prazo e as regras de participação na página oficial.",
+        "Envia o teu contributo pelo canal oficial e guarda o comprovativo."
+      ],
+      "documentos": [],
+      "acoes": [
+        {
+          "rotulo": "Ver oportunidades de participação",
+          "href": "participar.html"
+        },
+        {
+          "rotulo": "Consultas públicas no Participa.gov",
+          "fonte": "participa-gov"
+        }
+      ],
+      "fontes": [
+        "participa-gov",
+        "participa-pt",
+        "am-lisboa-site"
+      ],
+      "limitacoes": [
+        "As regras de intervenção do público em cada órgão municipal estão por confirmar."
+      ],
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-01-31",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "r-promessa",
+      "titulo": "Acompanhar uma promessa de habitação pública",
+      "resumo": "O acompanhamento de promessas ainda está em preparação. Por agora, podes pedir os documentos que mostram em que ponto está um projeto: contratos, cronogramas, autos de consignação, relatórios de execução.",
+      "municipal": false,
+      "regras": [
+        {
+          "texto": "Os documentos sobre a execução de projetos públicos são, em regra, documentos administrativos acessíveis, com as restrições previstas na lei.",
+          "referencia": "Lei n.º 26/2016",
+          "fonte": "lada"
+        }
+      ],
+      "entidades": [
+        {
+          "id": "ihru",
+          "papel": "Projetos financiados por programas nacionais e pelo PRR."
+        },
+        {
+          "id": "camara-municipal",
+          "papel": "Projetos municipais de habitação."
+        }
+      ],
+      "passos": [
+        "Anota a promessa: quem a fez, quando, o que foi prometido e com que prazo.",
+        "Procura o contrato no Portal BASE e a informação de execução publicada.",
+        "Pede os documentos de execução com o gerador de requerimentos."
+      ],
+      "documentos": [
+        "Declaração original: notícia, comunicado ou documento oficial, com data"
+      ],
+      "acoes": [
+        {
+          "rotulo": "Pedir documentos sobre o projeto",
+          "href": "pedir-documentos.html"
+        },
+        {
+          "rotulo": "Pesquisar contratos no Portal BASE",
+          "fonte": "base"
+        },
+        {
+          "rotulo": "Ver a página de transparência do PRR no Portal da Habitação",
+          "fonte": "portal-prr-transparencia"
+        }
+      ],
+      "fontes": [
+        "lada",
+        "base",
+        "portal-prr-transparencia"
+      ],
+      "limitacoes": [
+        "O módulo «Seguir uma promessa» está previsto para a segunda fase e ainda não tem fichas publicadas."
+      ],
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-01-31",
+      "responsavel": "Por atribuir"
+    }
+  ]
+}

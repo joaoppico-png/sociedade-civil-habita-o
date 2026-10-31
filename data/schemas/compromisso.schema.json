@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Compromisso público (fase 2 — data/compromissos.json → compromissos[])",
+  "allOf": [{ "$ref": "registo-editorial.schema.json" }],
+  "type": "object",
+  "required": ["promessa", "entidade", "dataDeclaracao", "fonteDeclaracao", "objetivo", "prazoAnunciado", "estadoExecucao", "evidencias", "historico"],
+  "properties": {
+    "promessa": { "type": "string" },
+    "entidade": { "type": "string" },
+    "dataDeclaracao": { "type": "string", "format": "date" },
+    "fonteDeclaracao": { "type": "string", "description": "id em fontes.json" },
+    "objetivo": { "type": "object", "properties": { "fogos": { "type": ["integer", "null"] }, "local": { "type": ["string", "null"] }, "descricao": { "type": "string" } }, "description": "null = «Não documentado»" },
+    "prazoAnunciado": { "type": ["string", "null"], "format": "date" },
+    "alteracoes": { "type": "array", "items": { "type": "object", "required": ["data", "descricao", "fonte"] } },
+    "estadoExecucao": { "enum": ["nao-documentado", "sem-inicio-documentado", "em-execucao-documentada", "concluido-documentado", "alterado"] },
+    "evidencias": { "type": "array", "items": { "type": "object", "required": ["tipo", "fonte", "data"] } },
+    "historico": { "type": "array", "items": { "type": "object", "required": ["data", "alteracao", "responsavel"] } }
+  }
+}
