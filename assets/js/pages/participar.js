@@ -74,7 +74,7 @@ function render() {
     lista.append(vazio('Nenhuma oportunidade corresponde aos filtros.', 'Experimenta limpar os filtros ou consulta os portais oficiais:'));
     return;
   }
-  lista.append(h('ul', { class: 'cards cards--list', role: 'list' }, resultados.map(cartao)));
+  lista.append(h('h2', { class: 'visually-hidden' }, 'Oportunidades'), h('ul', { class: 'cards cards--list', role: 'list' }, resultados.map(cartao)));
 }
 
 function vazio(titulo, texto) {
