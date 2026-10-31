@@ -7,8 +7,8 @@ import { formatDate, parseDate } from '../core/status.js';
 export const LIMITES = { curto: 160, medio: 300, longo: 3000, linhas: 25 };
 
 export const TIPOS = {
-  lada: { obrigatorios: ['entidade', 'documentos', 'modalidade', 'nome', 'morada', 'local', 'data'] },
-  insistencia: { obrigatorios: ['entidade', 'nome', 'morada', 'local', 'data', 'dataPedido'] },
+  lada: { obrigatorios: ['entidade', 'documentos', 'modalidade', 'nome', 'identificacao', 'morada', 'local', 'data'], exigeContacto: true },
+  insistencia: { obrigatorios: ['entidade', 'nome', 'identificacao', 'morada', 'local', 'data', 'dataPedido'], exigeContacto: true },
   'senhorio-obras': { obrigatorios: ['destinatario', 'moradaImovel', 'problemas', 'prazoDias', 'nome', 'morada', 'local', 'data'] }
 };
 
@@ -39,6 +39,7 @@ export function validar(tipo, dados, opcoes = {}) {
   for (const campo of def.obrigatorios) {
     if (!limpar(String(dados[campo] ?? ''), LIMITES.longo)) erros[campo] = MENSAGENS[campo] || 'Campo obrigatório.';
   }
+  if (def.exigeContacto && !limpar(dados.email) && !limpar(dados.telefone)) erros.email = MENSAGENS.contacto;
   if (dados.email && !EMAIL.test(limpar(dados.email))) erros.email = 'Indica um endereço de e-mail válido (por exemplo, nome@exemplo.pt).';
   if (tipo === 'lada' && opcoes.modalidadeExigeEmail && !dados.email) erros.email = 'Para receberes cópias por e-mail, indica o teu endereço de e-mail.';
   if (dados.data && !parseDate(dados.data)) erros.data = 'Indica uma data válida.';
@@ -56,6 +57,8 @@ const MENSAGENS = {
   documentos: 'Descreve pelo menos um documento que pretendes.',
   modalidade: 'Escolhe a forma de acesso.',
   nome: 'Indica o teu nome completo. A lei exige a identificação de quem pede.',
+  identificacao: 'Indica um documento de identificação e o número (por exemplo, Cartão de Cidadão n.º …). A lei exige dados de identificação de quem pede.',
+  contacto: 'Indica pelo menos um contacto: e-mail ou telefone. A lei exige dados de contacto de quem pede.',
   morada: 'Indica a tua morada. A lei exige a morada de quem pede.',
   local: 'Indica a localidade onde assinas.',
   data: 'Indica a data.',
@@ -75,6 +78,10 @@ function assinatura(d) {
   return `Com os melhores cumprimentos,\n\n\n______________________________\n${limpar(d.nome)}`;
 }
 
+function identificacao(d) {
+  return `titular do documento de identificação ${limpar(d.identificacao, 80)}`;
+}
+
 function lista(itens) { return itens.map((t, i) => `${i + 1}. ${t}`).join('\n'); }
 
 /** Pedido de acesso a documentos administrativos (Lei n.º 26/2016). */
@@ -87,7 +94,7 @@ export function gerarLADA(d, modalidade) {
     `Exmo.(a) Senhor(a)\n${destinatario}\n${limpar(d.entidade)}`,
     `${limpar(d.local)}, ${formatDate(d.data) || limpar(d.data)}`,
     'Assunto: Pedido de acesso a documentos administrativos — Lei n.º 26/2016, de 22 de agosto',
-    `${limpar(d.nome)}, residente em ${limpar(d.morada)}, vem, ao abrigo da Lei n.º 26/2016, de 22 de agosto, que aprova o regime de acesso à informação administrativa e ambiental e de reutilização dos documentos administrativos, na sua redação atual, requerer a V. Ex.ª o acesso aos seguintes documentos administrativos:`,
+    `${limpar(d.nome)}, ${identificacao(d)}, residente em ${limpar(d.morada)}, vem, ao abrigo da Lei n.º 26/2016, de 22 de agosto, que aprova o regime de acesso à informação administrativa e ambiental e de reutilização dos documentos administrativos, na sua redação atual, requerer a V. Ex.ª o acesso aos seguintes documentos administrativos:`,
     lista(docs)
   ];
   if (contexto) partes.push(`Para facilitar a identificação dos documentos, informo o seguinte: ${contexto}`);
@@ -109,7 +116,7 @@ export function gerarInsistencia(d) {
     `Exmo.(a) Senhor(a)\n${limpar(d.cargo) || 'Responsável pelo acesso à informação'}\n${limpar(d.entidade)}`,
     `${limpar(d.local)}, ${formatDate(d.data) || limpar(d.data)}`,
     `Assunto: Insistência — pedido de acesso a documentos administrativos de ${formatDate(d.dataPedido) || limpar(d.dataPedido)}${ref ? ` (ref.ª ${ref})` : ''}`,
-    `${limpar(d.nome)}, residente em ${limpar(d.morada)}, apresentou em ${formatDate(d.dataPedido) || limpar(d.dataPedido)} um pedido de acesso a documentos administrativos ao abrigo da Lei n.º 26/2016, de 22 de agosto, ao qual não obteve, até à presente data, resposta.`,
+    `${limpar(d.nome)}, ${identificacao(d)}, residente em ${limpar(d.morada)}, apresentou em ${formatDate(d.dataPedido) || limpar(d.dataPedido)} um pedido de acesso a documentos administrativos ao abrigo da Lei n.º 26/2016, de 22 de agosto, ao qual não obteve, até à presente data, resposta.`,
     'Venho, por isso, solicitar a V. Ex.ª que me seja comunicada, com a maior brevidade, a decisão sobre o referido pedido.',
     'Informo que, na ausência de resposta, ponderarei apresentar queixa à Comissão de Acesso aos Documentos Administrativos (CADA), nos termos da mesma lei.',
     assinatura(d)

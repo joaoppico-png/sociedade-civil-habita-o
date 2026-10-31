@@ -4,12 +4,14 @@ Responsável: ______________________ Data: ____________
 
 ## Conteúdo jurídico e administrativo
 - [ ] Cada artigo citado em `regras[].referencia` foi lido na versão consolidada em vigor (Diário da República).
-- [ ] LADA: confirmados art. 5.º (acesso sem justificação), art. 12.º (elementos do pedido), art. 15.º (10 dias úteis e prorrogação), art. 16.º (queixa à CADA, prazo e contagem).
+- [x] LADA arts. 12.º, 15.º e 16.º e contagem dos prazos confirmados através de pareceres da CADA que citam o texto da lei (Proc. 240/2026, Parecer 38/2025, Proc. 518/2026) — 2026-10-31.
+- [ ] LADA: ler o texto consolidado no Diário da República (incluindo art. 5.º) e confirmar que não houve alterações posteriores aos pareceres.
 - [ ] Código Civil arts. 1036.º, 1074.º e 1430.º e seguintes; RJUE art. 89.º e seguintes; NRAU e BAS — confirmados.
 - [ ] Competência dos Julgados de Paz em condomínio e arrendamento confirmada (Lei n.º 78/2001) e URL oficial preenchido.
 - [ ] Canal oficial do BAS identificado e preenchido em `fontes.json`.
 - [ ] Linha 144: condições atuais confirmadas.
-- [ ] Contagem de dias úteis (`lib/prazos.js`) e lista de feriados confirmadas; início do prazo da queixa à CADA confirmado.
+- [x] Contagem: resposta em dias úteis (CPA, art. 87.º); queixa em 20 dias corridos a partir do dia seguinte ao fim da resposta (Parecer CADA, Proc. 518/2026). Testada com dois casos reais citados no parecer.
+- [ ] Lista de feriados nacionais confirmada; decidir se se avisa sobre feriados municipais e férias judiciais (contagem processual do prazo de 20 dias).
 - [ ] Modelo de requerimento revisto por um jurista.
 
 ## Fontes e ligações

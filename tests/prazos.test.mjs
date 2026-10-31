@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { easterSunday, feriadosNacionais, somarDiasUteis, calendarioSeguimento, gerarICS } from '../assets/js/lib/prazos.js';
+import { easterSunday, feriadosNacionais, somarDiasUteis, somarDiasCorridos, calendarioSeguimento, gerarICS } from '../assets/js/lib/prazos.js';
 
 test('Páscoa e feriados móveis', () => {
   assert.equal(easterSunday(2026).toISOString().slice(0, 10), '2026-04-05');
@@ -22,11 +22,29 @@ test('10 dias úteis contam fins de semana e feriados', () => {
 test('calendário de seguimento e ficheiro .ics', () => {
   const cal = calendarioSeguimento('2026-10-30', { prazoRespostaDiasUteis: 10, prazoQueixaCADADias: 20 });
   assert.equal(cal.limiteResposta, '2026-11-13');
-  assert.equal(cal.limiteQueixaSemResposta, '2026-12-15');
+  // Queixa: só a partir do dia seguinte ao fim da resposta; 20 dias corridos (Parecer CADA, Proc. 518/2026).
+  assert.equal(cal.queixaDesde, '2026-11-14');
+  assert.equal(cal.limiteQueixaSemResposta, '2026-12-03');
   const ics = gerarICS([{ data: cal.limiteResposta, titulo: 'Prazo; teste, 1', descricao: 'linha\nnova' }], new Date('2026-10-31T10:00:00Z'));
   assert.match(ics, /BEGIN:VCALENDAR\r\n/);
   assert.match(ics, /DTSTART;VALUE=DATE:20261113\r\nDTEND;VALUE=DATE:20261114/);
   assert.ok(ics.includes(String.raw`SUMMARY:Prazo\; teste\, 1`));
   assert.ok(ics.includes(String.raw`DESCRIPTION:linha\nnova`));
   assert.match(ics, /TRIGGER:-P1D/);
+});
+
+test('20 dias corridos passam para o dia útil seguinte se terminarem em fim de semana ou feriado', () => {
+  assert.equal(somarDiasCorridos('2026-11-16', 20), '2026-12-07'); // domingo 6/12 → segunda 7/12
+  assert.equal(somarDiasCorridos('2026-11-11', 20), '2026-12-02'); // 1/12 feriado → 2/12
+  assert.equal(somarDiasCorridos('x', 20), null);
+});
+
+test('caso do Parecer CADA 250/2025: pedido a 23/04/2025 → resposta até 09/05/2025', () => {
+  assert.equal(somarDiasUteis('2025-04-23', 10), '2025-05-09');
+});
+
+test('caso do Acórdão TCAS citado no Parecer CADA 518/2026: pedido 02/01/2025 → resposta 16/01 → 20 dias até 05/02/2025', () => {
+  const cal = calendarioSeguimento('2025-01-02', { prazoRespostaDiasUteis: 10, prazoQueixaCADADias: 20 });
+  assert.equal(cal.limiteResposta, '2025-01-16');
+  assert.equal(cal.limiteQueixaSemResposta, '2025-02-05');
 });

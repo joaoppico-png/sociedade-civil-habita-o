@@ -301,6 +301,45 @@
       "verificadoEm": null,
       "revisaoPrevista": "2027-01-31",
       "responsavel": "Por atribuir"
+    },
+    {
+      "id": "cada-parecer-240-2026",
+      "titulo": "Parecer da CADA, Proc. n.º 240/2026 — cita o art. 12.º, n.º 1, e o art. 16.º, n.º 4, da LADA",
+      "emissor": "CADA",
+      "tipo": "institucional",
+      "url": "https://www.cada.pt/files/pareceres/2026/127.pdf",
+      "dataPublicacao": null,
+      "ligacaoVerificadaEm": "2026-10-31",
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-04-30",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "cada-parecer-038-2025",
+      "titulo": "Parecer da CADA n.º 38/2025 — cita o art. 15.º, n.º 4, da LADA (prorrogação até 2 meses) e o dever de assistir o requerente",
+      "emissor": "CADA",
+      "tipo": "institucional",
+      "url": "https://www.cada.pt/files/pareceres/2025/038.pdf",
+      "dataPublicacao": null,
+      "ligacaoVerificadaEm": "2026-10-31",
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-04-30",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "cada-parecer-518-2026",
+      "titulo": "Parecer da CADA, Proc. n.º 518/2026 (1 de julho de 2026) — contagem dos prazos: resposta em dias úteis (CPA, art. 87.º), queixa em 20 dias corridos",
+      "emissor": "CADA",
+      "tipo": "institucional",
+      "url": "https://www.cada.pt/files/pareceres/2026/336.pdf",
+      "dataPublicacao": null,
+      "ligacaoVerificadaEm": "2026-10-31",
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-04-30",
+      "responsavel": "Por atribuir"
     }
   ]
 }

@@ -143,11 +143,12 @@
 
             <fieldset data-tipos="lada insistencia senhorio-obras">
               <legend>Os teus dados</legend>
-              <p class="hint">A lei exige o nome, a morada e a assinatura de quem faz um pedido de documentos. Não é preciso o número de identificação.</p>
+              <p class="hint" data-hint-lada>Num pedido de documentos, a lei exige o nome, dados de identificação, um contacto e a assinatura de quem pede. Nada disto sai do teu computador.</p>
               <div class="field"><label for="nome">Nome completo</label><input type="text" id="nome" name="nome" maxlength="160" autocomplete="off" required></div>
+              <div class="field" data-campo-identificacao><label for="identificacao">Documento de identificação e número</label><p class="hint" id="identificacao-hint">Por exemplo: «Cartão de Cidadão n.º 12345678». Obrigatório nos pedidos a entidades públicas.</p><input type="text" id="identificacao" name="identificacao" maxlength="80" autocomplete="off" aria-describedby="identificacao-hint"></div>
               <div class="field"><label for="morada">Morada</label><input type="text" id="morada" name="morada" maxlength="300" autocomplete="off" required></div>
-              <div class="field"><label for="email">E-mail <span class="optional">(opcional, obrigatório para receber cópias por e-mail)</span></label><input type="email" id="email" name="email" maxlength="160" autocomplete="off"></div>
-              <div class="field"><label for="telefone">Telefone <span class="optional">(opcional)</span></label><input type="tel" id="telefone" name="telefone" maxlength="30" autocomplete="off"></div>
+              <div class="field"><label for="email">E-mail <span class="optional">(indica e-mail ou telefone; o e-mail é obrigatório para receber cópias por e-mail)</span></label><input type="email" id="email" name="email" maxlength="160" autocomplete="off"></div>
+              <div class="field"><label for="telefone">Telefone <span class="optional">(opcional se indicares e-mail)</span></label><input type="tel" id="telefone" name="telefone" maxlength="30" autocomplete="off"></div>
               <div class="field"><label for="local">Localidade</label><input type="text" id="local" name="local" maxlength="80" autocomplete="off" required></div>
               <div class="field"><label for="data">Data</label><input type="date" id="data" name="data" required></div>
             </fieldset>

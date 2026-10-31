@@ -44,14 +44,31 @@ export function somarDiasUteis(inicio, n) {
   return iso(date);
 }
 
-/** Calendário de seguimento de um pedido LADA entregue numa data. */
+/**
+ * Soma n dias corridos (o dia inicial não conta). Se o último dia não for útil,
+ * o prazo passa para o primeiro dia útil seguinte (regra dos prazos processuais).
+ */
+export function somarDiasCorridos(inicio, n) {
+  const start = parseDate(inicio);
+  if (!start || !Number.isInteger(n) || n < 0) return null;
+  let date = addDays(start, n);
+  while (!isDiaUtil(date)) date = addDays(date, 1);
+  return iso(date);
+}
+
+/**
+ * Calendário de seguimento de um pedido LADA entregue numa data.
+ * Resposta: dias úteis (CPA, art. 87.º). Queixa à CADA: dias corridos, contados a partir do
+ * dia seguinte ao fim do prazo de resposta; antes disso a queixa é intempestiva.
+ */
 export function calendarioSeguimento(dataEntrega, regras) {
   const limiteResposta = somarDiasUteis(dataEntrega, regras.prazoRespostaDiasUteis);
   if (!limiteResposta) return null;
   return {
     entrega: dataEntrega,
     limiteResposta,
-    limiteQueixaSemResposta: somarDiasUteis(limiteResposta, regras.prazoQueixaCADADias)
+    queixaDesde: iso(addDays(parseDate(limiteResposta), 1)),
+    limiteQueixaSemResposta: somarDiasCorridos(limiteResposta, regras.prazoQueixaCADADias)
   };
 }
 
@@ -65,7 +82,7 @@ export function gerarICS(eventos, agora = new Date()) {
   const stamp = agora.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
   const linhas = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Sociedade Civil Habitacao//Seguimento//PT', 'CALSCALE:GREGORIAN'];
   eventos.forEach((ev, i) => {
-    const fim = icsDate(somarDiasCorridos(ev.data, 1));
+    const fim = icsDate(iso(addDays(parseDate(ev.data), 1)));
     linhas.push('BEGIN:VEVENT', `UID:${icsDate(ev.data)}-${i}@sociedade-civil-habitacao`, `DTSTAMP:${stamp}`,
       `DTSTART;VALUE=DATE:${icsDate(ev.data)}`, `DTEND;VALUE=DATE:${fim}`,
       `SUMMARY:${icsEscape(ev.titulo)}`, `DESCRIPTION:${icsEscape(ev.descricao)}`,
@@ -76,4 +93,3 @@ export function gerarICS(eventos, agora = new Date()) {
   return linhas.join('\r\n') + '\r\n';
 }
 
-function somarDiasCorridos(isoDate, n) { return iso(addDays(parseDate(isoDate), n)); }

@@ -20,6 +20,7 @@ let dados;
 
 const ROTULOS = {
   entidade: 'Entidade', documentos: 'Documentos pretendidos', modalidade: 'Forma de acesso', nome: 'Nome completo',
+  identificacao: 'Documento de identificação',
   morada: 'Morada', email: 'E-mail', local: 'Localidade', data: 'Data', dataPedido: 'Data do pedido original',
   destinatario: 'Nome do senhorio', moradaImovel: 'Morada da casa arrendada', problemas: 'Problemas', prazoDias: 'Prazo proposto'
 };
@@ -89,6 +90,9 @@ function atualizarTipo() {
     fs.disabled = !ativo;
   }
   seguimento.hidden = t === 'senhorio-obras';
+  // A carta ao senhorio é privada: não pede número de identificação.
+  form.querySelector('[data-campo-identificacao]').hidden = t === 'senhorio-obras';
+  form.querySelector('[data-hint-lada]').hidden = t === 'senhorio-obras';
   document.getElementById('nota-senhorio').hidden = t !== 'senhorio-obras';
   preview.hidden = true;
   limparErros();
@@ -211,7 +215,8 @@ function calcularPrazos() {
   ics.addEventListener('click', () => {
     descarregar(`lembretes-pedido-${cal.entrega}.ics`, gerarICS([
       { data: cal.limiteResposta, titulo: 'Fim do prazo de resposta ao pedido de documentos', descricao: `Pedido entregue em ${cal.entrega}. Se não houver resposta, podes insistir ou apresentar queixa à CADA. Confirma o prazo na fonte oficial.` },
-      { data: cal.limiteQueixaSemResposta, titulo: 'Data estimada para a queixa à CADA', descricao: 'Estimativa sujeita a confirmação. Confirma o prazo da queixa no site da CADA.' }
+      { data: cal.queixaDesde, titulo: 'Sem resposta? A partir de hoje podes apresentar queixa à CADA', descricao: 'Antes desta data a queixa seria intempestiva. Prazo: 20 dias corridos. Confirma no site da CADA.' },
+      { data: cal.limiteQueixaSemResposta, titulo: 'Último dia estimado para a queixa à CADA', descricao: 'Estimativa sujeita a confirmação (20 dias corridos). Confirma o prazo no site da CADA.' }
     ]), 'text/calendar;charset=utf-8');
     estado('Ficheiro de calendário descarregado.');
   });
@@ -225,7 +230,8 @@ function calcularPrazos() {
   saida.append(
     h('dl', { class: 'deadlines' },
       h('dt', {}, 'Fim do prazo de resposta (estimativa)'), h('dd', {}, formatDate(cal.limiteResposta)),
-      h('dt', {}, 'Data estimada para a queixa à CADA, se não houver resposta'), h('dd', {}, formatDate(cal.limiteQueixaSemResposta))),
+      h('dt', {}, 'Sem resposta, podes apresentar queixa à CADA a partir de'), h('dd', {}, formatDate(cal.queixaDesde)),
+      h('dt', {}, 'Último dia para a queixa (estimativa, 20 dias corridos)'), h('dd', {}, formatDate(cal.limiteQueixaSemResposta))),
     alerta('warning', 'Estimativa, não prazo oficial', h('p', {}, regras.contagem)),
     h('div', { class: 'actions' }, ics, insistir));
   anunciar(`Fim do prazo de resposta estimado: ${formatDate(cal.limiteResposta)}.`);

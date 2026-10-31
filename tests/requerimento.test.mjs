@@ -4,11 +4,22 @@ import { ler } from './helpers.mjs';
 import { validar, gerarLADA, gerarInsistencia, gerarSenhorioObras, limpar, linhas, nomeFicheiro } from '../assets/js/lib/requerimento.js';
 
 const { modalidades } = await ler('requerimento');
-const base = { nome: 'Maria Silva', morada: 'Rua A, 1, 1000-001 Lisboa', local: 'Lisboa', data: '2026-10-31' };
+const base = { nome: 'Maria Silva', identificacao: 'Cartão de Cidadão n.º 12345678', morada: 'Rua A, 1, 1000-001 Lisboa', telefone: '210000000', local: 'Lisboa', data: '2026-10-31' };
 
 test('LADA: campos obrigatórios em falta geram erros', () => {
   const erros = validar('lada', {});
-  for (const c of ['entidade', 'documentos', 'modalidade', 'nome', 'morada', 'local', 'data']) assert.ok(erros[c], c);
+  for (const c of ['entidade', 'documentos', 'modalidade', 'nome', 'identificacao', 'morada', 'local', 'data']) assert.ok(erros[c], c);
+  assert.match(erros.email, /pelo menos um contacto/);
+});
+
+test('LADA e insistência exigem identificação e um contacto (art. 12.º, n.º 1); carta ao senhorio não', () => {
+  const d = { ...base, entidade: 'IHRU', documentos: 'Ata', modalidade: 'consulta' };
+  assert.deepEqual(validar('lada', d), {});
+  assert.ok(validar('lada', { ...d, identificacao: '' }).identificacao);
+  assert.ok(validar('lada', { ...d, telefone: '' }).email);
+  assert.ok(validar('insistencia', { ...base, entidade: 'IHRU', dataPedido: '2026-09-01', identificacao: '' }).identificacao);
+  const senhorio = { ...base, identificacao: '', telefone: '', destinatario: 'J', moradaImovel: 'R', problemas: 'P', prazoDias: '30' };
+  assert.deepEqual(validar('senhorio-obras', senhorio), {});
 });
 
 test('LADA: cópia eletrónica exige e-mail válido', () => {
@@ -28,6 +39,7 @@ test('LADA: gera requerimento completo com lei, documentos numerados, modalidade
   assert.match(t, /expurgo/);
   assert.match(t, /_{10,}\nMaria Silva\n$/);
   assert.match(t, /Prédio da Rua B/);
+  assert.match(t, /Maria Silva, titular do documento de identificação Cartão de Cidadão n\.º 12345678, residente em/);
 });
 
 test('insistência refere a data do pedido original e a CADA', () => {

@@ -34,26 +34,34 @@
   "orientacoes": [
     {
       "id": "identificacao",
-      "titulo": "Identificação e assinatura",
-      "texto": "O pedido deve ser feito por escrito e conter os elementos que permitam identificar os documentos, além do nome, da morada e da assinatura de quem pede. Assina à mão, ou com assinatura digital qualificada (por exemplo, Cartão de Cidadão ou Chave Móvel Digital) se entregares por via eletrónica.",
+      "titulo": "Identificação, contacto e assinatura",
+      "texto": "O pedido é feito por escrito e deve conter os elementos essenciais à tua identificação: nome, dados de identificação pessoal (por exemplo, o número do Cartão de Cidadão), dados de contacto e assinatura. Não tens de explicar porque queres os documentos. O formulário da entidade, quando existe, é um meio facilitador: podes usar outro, desde que cumpra estes requisitos. Assina à mão, ou com assinatura digital qualificada (Cartão de Cidadão ou Chave Móvel Digital) se entregares por via eletrónica.",
+      "referencia": "Lei n.º 26/2016, art. 12.º, n.º 1",
+      "fonte": "cada-parecer-240-2026",
+      "estado": "por-confirmar"
+    },
+    {
+      "id": "impreciso",
+      "titulo": "Se o pedido não for claro",
+      "texto": "Se o pedido não for suficientemente preciso, a entidade deve, no prazo de 5 dias, indicar-te o que falta, convidar-te a corrigir e ajudar-te, por exemplo com informação sobre os seus arquivos. Por isso, descreve os documentos com o máximo de pormenor.",
       "referencia": "Lei n.º 26/2016, art. 12.º",
-      "fonte": "lada",
+      "fonte": "cada-parecer-038-2025",
       "estado": "por-confirmar"
     },
     {
       "id": "entrega",
       "titulo": "Como entregar",
-      "texto": "Entrega o requerimento pelo canal oficial da entidade: presencialmente (pede um recibo com a data), por carta registada com aviso de receção, ou pelo e-mail ou formulário que a entidade indique para estes pedidos. Este site não envia nada por ti.",
-      "referencia": null,
-      "fonte": null,
+      "texto": "Entrega o requerimento pelo canal oficial da entidade: presencialmente (pede um recibo com a data), por carta registada com aviso de receção, ou pelo e-mail ou formulário que a entidade indique. Num envio eletrónico, conta a data de envio. Guarda o comprovativo: é a partir dessa data que contam os prazos. Este site não envia nada por ti.",
+      "referencia": "CPA, art. 104.º",
+      "fonte": "cada-parecer-518-2026",
       "estado": "por-confirmar"
     },
     {
       "id": "prazo",
-      "titulo": "Prazo de resposta",
-      "texto": "A entidade deve responder no prazo de 10 dias úteis. Em casos excecionais, por exemplo quando o volume ou a complexidade da informação o justifiquem, o prazo pode ser prorrogado, e a entidade deve informar-te disso.",
-      "referencia": "Lei n.º 26/2016, art. 15.º",
-      "fonte": "lada",
+      "titulo": "Prazo e formas de resposta",
+      "texto": "A entidade tem 10 dias úteis para responder. Pode: indicar data, local e modo de consulta; enviar a reprodução ou a certidão; recusar total ou parcialmente, por escrito, com os motivos e os meios de reação; informar que não tem o documento e remeter o pedido a quem o tenha; ou pedir um parecer à CADA. Em casos excecionais de volume ou complexidade, o prazo pode ir até 2 meses, mas a entidade tem de te informar disso, com os fundamentos, no prazo de 10 dias.",
+      "referencia": "Lei n.º 26/2016, art. 15.º, n.os 1 e 4",
+      "fonte": "cada-parecer-038-2025",
       "estado": "por-confirmar"
     },
     {
@@ -67,18 +75,22 @@
     {
       "id": "reacao",
       "titulo": "Se recusarem ou não responderem",
-      "texto": "Podes apresentar queixa à Comissão de Acesso aos Documentos Administrativos (CADA) num prazo de 20 dias. A queixa é gratuita e não precisa de advogado. A CADA emite um parecer, e a entidade tem depois de comunicar a decisão final. Podes também recorrer aos tribunais administrativos.",
-      "referencia": "Lei n.º 26/2016, art. 16.º",
-      "fonte": "cada-site",
+      "texto": "Podes apresentar queixa à CADA no prazo de 20 dias corridos se não houver resposta no prazo, se o pedido for recusado ou satisfeito só em parte, ou perante outra decisão que limite o acesso. Sem resposta, os 20 dias contam a partir do dia seguinte ao fim do prazo de resposta: não apresentes a queixa antes, porque é recusada como intempestiva. A queixa é gratuita e não precisa de advogado. A CADA pede informações à entidade e emite um parecer, não vinculativo, em 40 dias. Depois de o receber, a entidade tem 10 dias para te comunicar a decisão final fundamentada. Em alternativa, podes pedir a intimação da entidade no tribunal administrativo, também no prazo de 20 dias.",
+      "referencia": "Lei n.º 26/2016, art. 16.º; Parecer CADA, Proc. n.º 518/2026",
+      "fonte": "cada-parecer-518-2026",
       "estado": "por-confirmar"
     }
   ],
   "seguimento": {
     "prazoRespostaDiasUteis": 10,
-    "referenciaResposta": "Lei n.º 26/2016, art. 15.º",
+    "referenciaResposta": "Lei n.º 26/2016, art. 15.º, n.º 1; CPA, art. 87.º",
     "prazoQueixaCADADias": 20,
-    "referenciaQueixa": "Lei n.º 26/2016, art. 16.º",
-    "contagem": "Dias úteis: exclui sábados, domingos e feriados nacionais obrigatórios. Não inclui feriados municipais nem tolerâncias de ponto. A regra de contagem e o momento a partir do qual conta o prazo da queixa estão por confirmar editorialmente.",
+    "referenciaQueixa": "Lei n.º 26/2016, art. 16.º, n.º 1; Parecer CADA, Proc. n.º 518/2026",
+    "contagem": "Resposta: 10 dias úteis a contar do dia seguinte à entrega (excluem-se sábados, domingos e feriados nacionais; não incluímos feriados municipais nem tolerâncias de ponto). Queixa à CADA sem resposta: 20 dias corridos, a contar do dia seguinte ao fim do prazo de resposta; se o último dia não for útil, passa para o dia útil seguinte. Uma queixa apresentada antes de terminar o prazo de resposta é considerada intempestiva. Se a entidade prorrogar o prazo ou responder com recusa, as datas mudam.",
+    "fontes": [
+      "lada",
+      "cada-parecer-518-2026"
+    ],
     "estado": "por-confirmar"
   }
 }

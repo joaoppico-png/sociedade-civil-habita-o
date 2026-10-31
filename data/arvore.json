@@ -883,9 +883,19 @@
           "fonte": "lada"
         },
         {
-          "texto": "Se a entidade recusar, limitar ou não responder ao pedido, podes apresentar queixa à CADA.",
+          "texto": "O pedido é escrito e contém o nome, dados de identificação, dados de contacto e assinatura de quem pede.",
+          "referencia": "Lei n.º 26/2016, art. 12.º, n.º 1",
+          "fonte": "cada-parecer-240-2026"
+        },
+        {
+          "texto": "A entidade tem 10 dias úteis para responder; em casos excecionais, até 2 meses, com aviso fundamentado em 10 dias.",
+          "referencia": "Lei n.º 26/2016, art. 15.º",
+          "fonte": "cada-parecer-038-2025"
+        },
+        {
+          "texto": "Sem resposta, recusa ou acesso parcial, podes apresentar queixa à CADA no prazo de 20 dias corridos.",
           "referencia": "Lei n.º 26/2016, art. 16.º",
-          "fonte": "cada-site"
+          "fonte": "cada-parecer-518-2026"
         }
       ],
       "entidades": [
@@ -923,6 +933,9 @@
       ],
       "fontes": [
         "lada",
+        "cada-parecer-240-2026",
+        "cada-parecer-038-2025",
+        "cada-parecer-518-2026",
         "cada-site",
         "base"
       ],
