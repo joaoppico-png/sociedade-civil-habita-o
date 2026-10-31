@@ -245,6 +245,11 @@
           "texto": "A câmara municipal pode, a requerimento de qualquer interessado, determinar as obras necessárias para corrigir más condições de segurança ou salubridade.",
           "referencia": "RJUE, art. 89.º, n.º 2 (redação do DL 108/2026)",
           "fonte": "dl-108-2026"
+        },
+        {
+          "texto": "Se o senhorio não fizer obras que lhe cabem e isso comprometer a habitabilidade da casa, o inquilino pode resolver o contrato.",
+          "referencia": "Código Civil, art. 1083.º, n.º 5",
+          "fonte": "codigo-civil"
         }
       ],
       "entidades": [
@@ -279,8 +284,8 @@
         "Regista o problema: fotografias com data, descrição, quando começou e o que já tentaste.",
         "Escreve ao senhorio a pedir as obras e propõe um prazo. Envia por carta registada com aviso de receção, ou entrega em mão e pede que assine uma cópia.",
         "Guarda cópia de tudo o que envias e recebes.",
-        "Se não houver resposta e o problema afetar a segurança ou a salubridade, pede por escrito uma vistoria à câmara municipal.",
-        "Não deixes de pagar a renda nem faças obras por tua conta sem aconselhamento jurídico, exceto reparações verdadeiramente urgentes. Mesmo nesse caso, avisa o senhorio e guarda faturas."
+        "Se não houver resposta e o problema afetar a segurança ou a salubridade, pede por escrito uma vistoria à câmara municipal: indica a morada, descreve o perigo, junta fotografias e pede o número do processo.",
+        "Não suspendas o pagamento da renda nem deduzas despesas de obras por iniciativa própria sem confirmares os requisitos legais. Em certas reparações urgentes, ou em obras feitas em substituição do senhorio, a lei permite reembolso ou compensação, mas exige condições e comunicações específicas. Guarda fotografias, orçamentos, faturas, comprovativos de pagamento e todas as comunicações."
       ],
       "documentos": [
         "Contrato de arrendamento",
@@ -407,6 +412,11 @@
           "texto": "Estas comunicações fazem-se por escrito assinado, enviado por carta registada com aviso de receção para a casa arrendada, ou entregue em mão com assinatura numa cópia.",
           "referencia": "NRAU, art. 9.º, n.os 1, 2 e 6",
           "fonte": "nrau"
+        },
+        {
+          "texto": "Se o senhorio puser fim ao contrato por carta com fundamento em rendas em atraso de 3 meses ou mais, a resolução fica sem efeito se o inquilino pagar o que deve no prazo de um mês. Esta possibilidade só pode ser usada uma vez em cada contrato.",
+          "referencia": "Código Civil, arts. 1083.º, n.º 3, e 1084.º, n.os 2 a 4",
+          "fonte": "codigo-civil"
         }
       ],
       "entidades": [
@@ -447,8 +457,8 @@
         "seg-social-protecao-juridica"
       ],
       "limitacoes": [
-        "Contratos anteriores a 2006 ou a 1990 podem ter regras de transição diferentes.",
-        "Uma carta de resolução por falta de pagamento tem regras próprias, ainda em análise jurídica.",
+        "Contratos anteriores a 2006 ou a 1990 podem ter regras de transição diferentes: a data do contrato é indispensável.",
+        "Se a carta não respeitar a antecedência mínima, não se deve presumir em que data produz efeitos: isso exige análise do contrato.",
         "Esta ficha não calcula se a tua carta é válida."
       ],
       "estado": "por-confirmar",
@@ -503,7 +513,6 @@
         "bas"
       ],
       "limitacoes": [
-        "O canal oficial do BAS ainda não foi verificado.",
         "Os requisitos de cada procedimento não estão descritos nesta ficha."
       ],
       "estado": "por-confirmar",
@@ -626,7 +635,8 @@
       ],
       "limitacoes": [
         "Esta ficha não avalia se tens direito ao apoio nem calcula o valor. Só o IHRU decide.",
-        "As condições foram lidas no Portal da Habitação; a correspondência com o texto legal está em análise jurídica."
+        "As condições foram lidas no Portal da Habitação; a correspondência com o texto legal está em análise jurídica.",
+        "Se te candidatares sem contrato, segue o prazo indicado na notificação dos resultados para juntar o contrato: o Portal refere prazos em momentos diferentes."
       ],
       "estado": "por-confirmar",
       "verificadoEm": null,
@@ -900,9 +910,9 @@
         }
       ],
       "passos": [
-        "Anota a morada exata da obra e, se existir, o número do alvará afixado no local.",
+        "Anota a morada exata da obra, o tipo de trabalhos e, se existir, o aviso afixado no local.",
         "Pede à câmara acesso ao processo da obra.",
-        "Se a obra te parecer irregular, comunica-o por escrito aos serviços de fiscalização municipal."
+        "Se a obra te parecer irregular, comunica-o por escrito à fiscalização municipal, com fotografias. Uma obra sem aviso visível não é, só por isso, ilegal: há obras dispensadas."
       ],
       "documentos": [
         "Morada e fotografias da obra",
@@ -1070,7 +1080,7 @@
         "base"
       ],
       "limitacoes": [
-        "O Portal BASE não é um arquivo de todos os documentos administrativos: só cobre contratação pública, oculta informação protegida e mostra os últimos 10 anos. Para o resto, faz um pedido à entidade.",
+        "O Portal BASE não é um arquivo de todos os documentos administrativos: só cobre contratação pública e oculta informação protegida. A informação fica visível 10 anos; depois disso, o acesso depende de autorização do IMPIC e de uma taxa. Não encontrar um contrato no portal não prova que ele não exista nem que seja ilegal.",
         "Documentos com dados pessoais de outras pessoas, como candidaturas a apoios à habitação, só são acessíveis com autorização do titular, com interesse legítimo demonstrado ou em versão anonimizada.",
         "A LADA não se aplica a registos prediais, documentos notariais, dados protegidos por segredo fiscal e outros regimes especiais.",
         "A relação entre o RJUE e a LADA para processos de obras já concluídos e o funcionamento prático do Portal BASE ainda estão por confirmar."
@@ -1189,12 +1199,17 @@
     {
       "id": "r-despejo-notificacao",
       "titulo": "Recebi uma notificação do BAS ou de um tribunal",
-      "resumo": "Uma notificação do Balcão do Arrendatário e do Senhorio ou de um tribunal abre prazos curtos para te defenderes. Se não reagires a tempo, o despejo pode avançar. Procura apoio jurídico hoje.",
+      "resumo": "Se recebeste uma notificação do Balcão do Arrendatário e do Senhorio (BAS) num procedimento especial de despejo, tens 15 dias a contar da notificação para apresentar oposição, por via eletrónica no BAS. Procura apoio jurídico hoje. Uma notificação de tribunal tem os prazos indicados nela.",
       "municipal": false,
       "regras": [
         {
-          "texto": "O procedimento especial de despejo corre no Balcão do Arrendatário e do Senhorio (BAS).",
-          "referencia": "NRAU, art. 15.º",
+          "texto": "O requerido pode opor-se ao despejo no prazo de 15 dias a contar da notificação. A oposição é apresentada no BAS por via eletrónica.",
+          "referencia": "NRAU, art. 15.º-F, n.os 1 e 2",
+          "fonte": "nrau"
+        },
+        {
+          "texto": "Com a oposição tem de ser junto o comprovativo da taxa de justiça e, quando o despejo se funda em rendas em atraso, uma caução até seis rendas, salvo para quem tem apoio judiciário. Sem estes pagamentos, a oposição é considerada não apresentada.",
+          "referencia": "NRAU, art. 15.º-F, n.os 5 e 6",
           "fonte": "nrau"
         }
       ],
@@ -1213,9 +1228,9 @@
         }
       ],
       "passos": [
-        "Lê a notificação e anota o prazo que nela é indicado e a data em que a recebeste.",
-        "Pede proteção jurídica hoje e guarda o comprovativo.",
-        "Junta o contrato, os recibos e as cartas trocadas com o senhorio.",
+        "Verifica imediatamente a data da notificação e anota o fim dos 15 dias.",
+        "Procura apoio jurídico urgente. Se não tiveres meios, pede apoio judiciário na Segurança Social.",
+        "Guarda o comprovativo do pedido de apoio judiciário e garante que é comunicado ao processo nos termos legais. Não suponhas que o prazo parou automaticamente.",
         "Se estiveres em risco de ficar sem casa, contacta a ação social da câmara ou a Linha 144."
       ],
       "documentos": [
@@ -1225,18 +1240,23 @@
       ],
       "acoes": [
         {
+          "rotulo": "Página oficial do Balcão do Arrendatário e do Senhorio",
+          "fonte": "bas"
+        },
+        {
           "rotulo": "Saber como pedir proteção jurídica",
           "fonte": "seg-social-protecao-juridica"
         }
       ],
       "fontes": [
         "nrau",
+        "bas",
         "seg-social-protecao-juridica",
         "linha-144"
       ],
       "limitacoes": [
-        "Os prazos de oposição e o efeito do pedido de apoio judiciário estão em análise jurídica e não são indicados aqui.",
-        "O canal oficial do BAS ainda não foi verificado."
+        "Esta ficha não calcula o prazo: confirma a contagem com a notificação recebida e com apoio jurídico.",
+        "O efeito exato do pedido de apoio judiciário sobre o prazo está em análise jurídica."
       ],
       "estado": "por-confirmar",
       "verificadoEm": null,
@@ -1298,6 +1318,7 @@
       ],
       "passos": [
         "Lê a comunicação e anota o motivo invocado e o prazo para te pronunciares.",
+        "Confirma na comunicação quem decidiu (câmara, empresa municipal ou outro órgão), o fundamento, se foste ouvido antes e que meios de reação são indicados.",
         "Responde por escrito dentro do prazo, com a tua versão e documentos.",
         "Se a decisão for desfavorável, pede apoio jurídico para recorrer.",
         "Se não tiveres alternativa de habitação, di-lo por escrito: a lei prevê encaminhamento prévio."

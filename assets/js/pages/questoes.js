@@ -48,7 +48,11 @@ function cartao(q, fontes, nomes) {
       h('dt', {}, 'Afeta'), h('dd', {}, q.registos.map((r) => nomes.get(r) || r).join(' · ')),
       h('dt', {}, 'Impacto'), h('dd', {}, q.impacto),
       fs.length ? [h('dt', {}, 'Fontes já consultadas'), h('dd', {}, h('ul', { class: 'sources' }, fs.map((f) => h('li', {}, externalLink(f.url, f.titulo)))))] : null,
-      h('dt', {}, 'Resposta'), h('dd', {}, q.resposta
+      q.respostaPreliminar ? [
+        h('dt', {}, 'Resposta preliminar (não assinada por advogado)'),
+        h('dd', {}, q.respostaPreliminar.texto, ' ', h('span', { class: 'meta' }, `— ${q.respostaPreliminar.origem}.`)),
+        h('dt', {}, 'A nossa verificação'), h('dd', {}, q.respostaPreliminar.verificacaoNossa)] : null,
+      h('dt', {}, 'Resposta do advogado'), h('dd', {}, q.resposta
         ? [q.resposta, ' ', h('span', { class: 'meta' }, `(${q.respondidoPor || 'advogado'}, ${formatDate(q.respondidoEm) || 's/ data'})`)]
         : h('span', { class: 'answer-line' }, 'Por responder.')))));
 }

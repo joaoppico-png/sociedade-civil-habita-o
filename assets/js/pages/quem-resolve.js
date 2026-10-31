@@ -158,7 +158,7 @@ function ficha(resultadoBase, contexto) {
     porConfirmar ? alerta('warning', 'Informação por confirmar', h('p', {}, politica.notaPorConfirmar)) : null,
     h('p', { class: 'lead' }, r.resumo),
     r.notaCobertura ? alerta('info', 'Sem cobertura municipal', h('p', {}, r.notaCobertura)) : null,
-    alerta('neutral', null, h('p', {}, 'Isto é um encaminhamento informativo, não um diagnóstico jurídico. Para decidir o que fazer no teu caso, procura aconselhamento jurídico.')),
+    alerta('neutral', null, h('p', {}, 'Informação geral e modelos para preparares os teus próprios pedidos. Não é consulta jurídica individual, representação nem garantia de resultado. Em despejos, prazos judiciais ou litígios, procura um profissional legalmente habilitado.')),
 
     r.regras?.length ? h('section', { class: 'block' },
       h('h3', {}, 'O que diz a lei'),
