@@ -13,6 +13,12 @@ export function safeUrl(value) {
   }
 }
 
+/** Ligação mailto: com endereço válido e, opcionalmente, assunto. */
+export function safeMailto(email, assunto = '') {
+  if (typeof email !== 'string' || !/^[^\s@<>()"',;:]+@[^\s@<>()"',;:]+\.[a-z]{2,}$/i.test(email.trim())) return null;
+  return `mailto:${email.trim()}${assunto ? `?subject=${encodeURIComponent(assunto.slice(0, 150))}` : ''}`;
+}
+
 /** Ligação interna relativa (sem protocolo, sem «//»). */
 export function safeInternalHref(value) {
   if (typeof value !== 'string') return null;
@@ -31,7 +37,7 @@ export function h(tag, attrs = {}, ...children) {
     if (value === null || value === undefined || value === false) continue;
     if (key.startsWith('on')) continue;
     if (key === 'href') {
-      const href = safeInternalHref(value) ?? safeUrl(value);
+      const href = safeInternalHref(value) ?? safeUrl(value) ?? (/^mailto:/.test(value) ? value : null);
       if (href) node.setAttribute('href', href);
       continue;
     }

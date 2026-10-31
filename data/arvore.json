@@ -6,6 +6,11 @@
       "texto": "Qual é o teu problema de habitação?",
       "opcoes": [
         {
+          "id": "urgente",
+          "rotulo": "Recebi uma carta ou notificação para sair de casa",
+          "seguinte": "saida-origem"
+        },
+        {
           "id": "arrendada",
           "rotulo": "Tenho um problema com a minha casa arrendada",
           "seguinte": "arrendada-relacao"
@@ -713,7 +718,10 @@
       "estado": "por-confirmar",
       "verificadoEm": null,
       "revisaoPrevista": "2027-04-30",
-      "responsavel": "Por atribuir"
+      "responsavel": "Por atribuir",
+      "cartao": {
+        "urgente": true
+      }
     },
     {
       "id": "r-senhorio-incumprimento",
@@ -828,7 +836,10 @@
       "estado": "verificado",
       "verificadoEm": "2026-10-31",
       "revisaoPrevista": "2027-04-30",
-      "responsavel": "João Pico"
+      "responsavel": "João Pico",
+      "cartao": {
+        "urgente": true
+      }
     },
     {
       "id": "r-porta65",
@@ -1568,7 +1579,15 @@
       "estado": "por-confirmar",
       "verificadoEm": null,
       "revisaoPrevista": "2027-04-30",
-      "responsavel": "Por atribuir"
+      "responsavel": "Por atribuir",
+      "cartao": {
+        "urgente": true,
+        "prazo": {
+          "texto": "15 dias para apresentar oposição, a contar da notificação",
+          "referencia": "NRAU, art. 15.º-F, n.º 1",
+          "fonte": "nrau"
+        }
+      }
     },
     {
       "id": "r-despejo-apoiado",
@@ -1662,7 +1681,10 @@
       "estado": "por-confirmar",
       "verificadoEm": null,
       "revisaoPrevista": "2027-04-30",
-      "responsavel": "Por atribuir"
+      "responsavel": "Por atribuir",
+      "cartao": {
+        "urgente": true
+      }
     },
     {
       "id": "r-processo-proprio",

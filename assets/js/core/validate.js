@@ -89,6 +89,7 @@ export function validarArvore(arvore, idsEntidades, idsFontes) {
     if (!Array.isArray(r.entidades) || r.entidades.length === 0) erros.push(`${onde}: sem entidades`);
     for (const e of r.entidades || []) if (!idsEntidades.has(e.id)) erros.push(`${onde}: entidade desconhecida «${e.id}»`);
     if (!Array.isArray(r.passos) || r.passos.length === 0) erros.push(`${onde}: sem passos`);
+    if (r.cartao?.prazo && !idsFontes.has(r.cartao.prazo.fonte)) erros.push(`${onde}: prazo do cartão sem fonte válida`);
     for (const campo of ['passos', 'limitacoes', 'documentos']) {
       for (const x of r[campo] || []) {
         if (typeof x !== 'string' && (typeof x?.texto !== 'string' || typeof x?.se !== 'object')) erros.push(`${onde}: item inválido em ${campo}`);

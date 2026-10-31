@@ -1,11 +1,12 @@
 // Página «Quem resolve?» — liga o motor da árvore ao DOM.
 
-import { h, clear, externalLink } from '../core/dom.js';
+import { h, clear, externalLink, safeUrl, safeMailto } from '../core/dom.js';
 import { loadAll } from '../core/data.js';
-import { isDisplayable, todayISO } from '../core/status.js';
+import { isDisplayable, todayISO, formatDate, effectiveStatus, ESTADOS } from '../core/status.js';
 import { alerta, badge, datasEditoriais, listaFontes, mostrarErro, anunciar } from '../core/ui.js';
 import { indexTree, walk, opcoesDe, resolveResultado, parseCaminho } from '../lib/decision.js';
 import { questoesDe } from '../lib/questoes.js';
+import { construirCartao } from '../lib/acao.js';
 
 const app = document.getElementById('app');
 const hoje = todayISO();
@@ -56,7 +57,7 @@ function render(focar) {
   if (estado.passos.length) app.append(resumo(estado.passos));
 
   const alvo = estado.resultadoId
-    ? ficha(ctx.tree.resultados.get(estado.resultadoId), estado.contexto)
+    ? ficha(ctx.tree.resultados.get(estado.resultadoId), estado.contexto, estado.passos)
     : pergunta(estado.atual, estado.passos.length);
   app.append(alvo);
 
@@ -118,7 +119,7 @@ function pergunta(p, profundidade) {
     lista, controlos);
 }
 
-function ficha(resultadoBase, contexto) {
+function ficha(resultadoBase, contexto, respostas = []) {
   const politica = ctx.config.politica || {};
   const caminho = caminhoAtual();
   const voltar = h('button', { type: 'button', class: 'btn btn--secondary' }, '← Voltar');
@@ -146,10 +147,23 @@ function ficha(resultadoBase, contexto) {
     .map((e) => ({ ...e, dados: ctx.entidades.get(e.id) }))
     .filter((e) => e.dados && isDisplayable(e.dados, politica, hoje));
 
-  const imprimir = h('button', { type: 'button', class: 'btn btn--link' }, 'Imprimir esta ficha');
-  imprimir.addEventListener('click', () => window.print());
+  const cartao = construirCartao(r, ctx.entidades, ctx.questoes);
+
+  // Dossiê: documento para guardar em PDF ou imprimir, gerado no browser a partir desta ficha.
+  const guardar = h('button', { type: 'button', class: 'btn btn--primary' }, 'Guardar o meu dossiê (PDF)');
+  guardar.addEventListener('click', () => {
+    const destino = document.getElementById('dossie');
+    clear(destino).append(dossie(r, respostas, entidades, cartao));
+    document.body.classList.add('imprimir-dossie');
+    window.print();
+  });
+  window.addEventListener('afterprint', () => document.body.classList.remove('imprimir-dossie'));
   window.addEventListener('beforeprint', () => document.querySelectorAll('#app details').forEach((d) => { d.open = true; }));
-  controlos.append(imprimir);
+  const imprimir = h('button', { type: 'button', class: 'btn btn--link' }, 'Imprimir só esta ficha');
+  imprimir.addEventListener('click', () => window.print());
+  controlos.append(guardar, imprimir);
+  const mail = safeMailto(ctx.config.contactoEditorial?.email, `Erro na ficha: ${r.titulo} (${r.id})`);
+  if (mail) controlos.append(h('a', { href: mail, class: 'btn btn--link' }, 'Reportar um erro nesta ficha'));
 
   return h('article', { class: 'result', 'aria-labelledby': 'resultado-titulo' },
     h('header', { class: 'result__header' },
@@ -157,6 +171,7 @@ function ficha(resultadoBase, contexto) {
       h('h2', { id: 'resultado-titulo', tabindex: '-1', 'data-foco': '' }, r.titulo)),
     porConfirmar ? alerta('warning', 'Informação por confirmar', h('p', {}, politica.notaPorConfirmar)) : null,
     h('p', { class: 'lead' }, r.resumo),
+    cartaoAcao(cartao),
     r.notaCobertura ? alerta('info', 'Sem cobertura municipal', h('p', {}, r.notaCobertura)) : null,
     alerta('neutral', null, h('p', {}, 'Informação geral e modelos para preparares os teus próprios pedidos. Não é consulta jurídica individual, representação nem garantia de resultado. Em despejos, prazos judiciais ou litígios, procura um profissional legalmente habilitado.')),
 
@@ -222,6 +237,54 @@ function cartaoEntidade(e) {
       : h('p', { class: 'meta' }, 'Canal de contacto ainda não verificado.'),
     e.dados.contacto?.notas ? h('p', { class: 'meta' }, e.dados.contacto.notas) : null,
     h('p', {}, badge(e.dados, hoje)));
+}
+
+function cartaoAcao(c) {
+  const linha = (rotulo, ...valor) => [h('dt', {}, rotulo), h('dd', {}, ...valor)];
+  return h('section', { class: `cartao-acao${c.urgente ? ' cartao-acao--urgente' : ''}`, 'aria-labelledby': 'cartao-titulo' },
+    h('h3', { id: 'cartao-titulo' }, 'O que faço agora?'),
+    h('dl', {},
+      c.entidade ? linha('Com quem falar primeiro', h('strong', {}, c.entidade.nome), ' — ', c.entidade.papel) : null,
+      c.acao ? linha('Primeiro passo', c.acao) : null,
+      c.prazo
+        ? linha('Prazo', h('strong', {}, c.prazo.texto), ' ', h('span', { class: 'meta' }, `(${c.prazo.referencia})`))
+        : linha('Prazo', h('span', { class: 'meta' }, 'Esta ficha não indica um prazo. Se recebeste uma carta ou notificação, vê a data e o prazo nela indicados.')),
+      c.documentos.length ? linha('Documentos a reunir', c.documentos.join(' · ')) : null,
+      c.porVerificar.length ? linha('Ainda por verificar', `${c.porVerificar.length} questão(ões) jurídica(s) em análise: `, c.porVerificar.map((id, i) => [i ? ', ' : '', h('a', { href: `questoes-juridicas.html#${id}` }, id)])) : null),
+    c.ligacao ? h('p', { class: 'cartao-acao__acao' }, acao(c.ligacao)) : null);
+}
+
+/** Dossiê do cidadão: tudo o que precisa para levar a um serviço, associação ou advogado. */
+function dossie(r, respostas, entidades, cartao) {
+  const estado = ESTADOS[effectiveStatus(r, hoje).estado].rotulo;
+  const ligacao = (id) => { const f = ctx.fontes.get(id); return f ? `${f.titulo} — ${safeUrl(f.url) || 'ligação por confirmar'}` : id; };
+  const caixa = (t) => h('li', {}, '☐ ', t);
+  return h('div', { class: 'dossie' },
+    h('p', { class: 'dossie__marca' }, 'Sociedade Civil — Habitação · Dossiê'),
+    h('h1', {}, r.titulo),
+    h('p', { class: 'meta' }, `Gerado em ${formatDate(hoje)} · Estado da ficha: ${estado} · Sem revisão por advogado, salvo indicação em contrário · ${window.location.href}`),
+    h('h2', {}, 'A situação descrita'),
+    h('ul', {}, respostas.map((p) => h('li', {}, `${p.pergunta.texto} `, h('strong', {}, p.opcao.rotulo)))),
+    h('h2', {}, 'O que fazer agora'),
+    h('ul', {},
+      cartao.entidade ? h('li', {}, 'Com quem falar primeiro: ', h('strong', {}, cartao.entidade.nome), ` — ${cartao.entidade.papel}`) : null,
+      cartao.prazo ? h('li', {}, 'Prazo: ', h('strong', {}, cartao.prazo.texto), ` (${cartao.prazo.referencia})`) : h('li', {}, 'Prazo: esta ficha não indica um prazo. Confirma a data e o prazo na carta ou notificação recebida.')),
+    h('h2', {}, 'Passos (marca os que já fizeste)'),
+    h('ul', { class: 'dossie__lista' }, r.passos.map(caixa)),
+    r.documentos?.length ? [h('h2', {}, 'Documentos a reunir'), h('ul', { class: 'dossie__lista' }, r.documentos.map(caixa))] : null,
+    r.regras?.length ? [h('h2', {}, 'O que diz a lei'), h('ol', {}, r.regras.map((g) => h('li', {}, g.texto, ' ', h('em', {}, `(${g.referencia})`))))] : null,
+    h('h2', {}, 'Entidades'),
+    h('ul', {}, entidades.map((e) => {
+      const c = e.dados.contacto?.fonte ? ctx.fontes.get(e.dados.contacto.fonte) : null;
+      return h('li', {}, h('strong', {}, e.dados.nome), ` — ${e.papel}`, c?.url ? ` Contacto: ${safeUrl(c.url) || ''}` : '');
+    })),
+    r.limitacoes?.length ? [h('h2', {}, 'Limitações e o que falta confirmar'), h('ul', {}, r.limitacoes.map((l) => h('li', {}, l)))] : null,
+    cartao.porVerificar.length ? h('p', {}, `Questões jurídicas em análise: ${cartao.porVerificar.join(', ')} (ver «Questões jurídicas em aberto» no site).`) : null,
+    h('h2', {}, 'Fontes'),
+    h('ul', { class: 'dossie__fontes' }, r.fontes.map((id) => h('li', {}, ligacao(id)))),
+    h('h2', {}, 'Notas'),
+    h('div', { class: 'dossie__notas' }),
+    h('p', { class: 'dossie__aviso' }, 'Informação geral, preparada a partir da Sociedade Civil — Habitação. Não é consulta jurídica individual, representação nem garantia de resultado. Em despejos, prazos judiciais ou litígios, procura um profissional legalmente habilitado. Este documento foi gerado no teu browser: nada foi enviado nem guardado.'));
 }
 
 function acao(a) {
