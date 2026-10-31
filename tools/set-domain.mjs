@@ -7,7 +7,7 @@ if (!/^https:\/\/[a-z0-9.-]+\.[a-z]{2,}$/.test(dominio)) {
   console.error('Indica um domínio https válido, por exemplo: https://habitacao.exemplo.pt');
   process.exit(1);
 }
-const paginas = ['index.html', 'quem-resolve.html', 'pedir-documentos.html', 'participar.html', 'sobre.html'];
+const paginas = ['index.html', 'quem-resolve.html', 'pedir-documentos.html', 'participar.html', 'sobre.html', 'questoes-juridicas.html'];
 const raiz = new URL('../', import.meta.url);
 
 for (const p of paginas) {

@@ -20,9 +20,10 @@
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>
+  <div class="topline" aria-hidden="true"><div class="wrap"><span>Plataforma cívica independente</span><span>Habitação · Portugal · Lisboa piloto</span><span>Sem IA · sem registo · sem rastreio</span></div></div>
   <header class="site-header">
     <div class="wrap">
-      <a class="brand" href="index.html"><svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M4 15 16 5l12 10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M8 13v14h16V13" fill="none" stroke="currentColor" stroke-width="2.5"/><rect x="13" y="18" width="6" height="9" fill="#0e5a47"/></svg><span>Sociedade Civil <small>Habitação</small></span></a>
+      <a class="brand" href="index.html"><svg class="brand__mark" viewBox="0 0 44 44" aria-hidden="true" focusable="false"><circle cx="22" cy="22" r="20.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 22 22 13l10 9" fill="none" stroke="#b42c25" stroke-width="2.5" stroke-linejoin="miter"/><path d="M15 20v11h14V20" fill="none" stroke="currentColor" stroke-width="2"/></svg><span class="brand__name">Sociedade Civil<small>Habitação</small></span></a>
       <nav class="nav" aria-label="Principal">
         <ul>
           <li><a href="index.html" aria-current="page">Início</a></li>
@@ -37,36 +38,73 @@
   <main id="conteudo" tabindex="-1">
     <div class="wrap">
       <section class="hero" aria-labelledby="titulo">
-        <p class="eyebrow">Habitação em Portugal · Lisboa como município-piloto</p>
-        <h1 id="titulo">A tua casa. Os teus direitos. Respostas concretas.</h1>
-        <p class="lead">Descobre quem é responsável pelo teu problema de habitação, o que podes fazer e onde está a fonte oficial que o sustenta. Sem registo, sem dados guardados.</p>
+        <h1 id="titulo" class="hero__title"><span>A tua casa.</span> <span class="red">Os teus</span> <span class="red">direitos.</span></h1>
+        <div class="hero__art">
+          <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+            <rect width="400" height="500" fill="#b42c25"/>
+            <path d="M40 250 200 110l160 140" fill="none" stroke="#f4ede4" stroke-width="14" stroke-linejoin="miter"/>
+            <path d="M80 222v238h240V222" fill="none" stroke="#f4ede4" stroke-width="14"/>
+            <rect x="170" y="330" width="60" height="130" fill="#121212"/>
+            <rect x="110" y="270" width="44" height="44" fill="none" stroke="#f4ede4" stroke-width="6"/>
+            <rect x="246" y="270" width="44" height="44" fill="#f4ede4"/>
+            <path d="M360 40h20M370 30v20" stroke="#f4ede4" stroke-width="3"/>
+          </svg>
+        </div>
+        <div class="hero__aside">
+          <svg class="seal" viewBox="0 0 120 120" role="img" aria-label="Sem inteligência artificial, sem registo, sem rastreio">
+            <defs><path id="seal-circle" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0"/></defs>
+            <text><textPath href="#seal-circle">Sem IA · sem registo · sem rastreio ·</textPath></text>
+            <path d="M60 50v20M50 60h20M53 53l14 14M67 53 53 67" stroke="#b42c25" stroke-width="2.5"/>
+          </svg>
+          <p class="hero__note"><strong>Respostas concretas.</strong> Quem é responsável pelo teu problema de habitação, o que diz a lei e qual é o próximo passo. Sem registo, sem dados guardados.</p>
+          <a class="scroll-cue" href="#problema">Escolhe o teu problema</a>
+        </div>
+      </section>
+
+      <section class="band" aria-labelledby="sobre-titulo">
+        <div>
+          <p class="eyebrow">O que é</p>
+          <h2 id="sobre-titulo">Orientação, ação e fiscalização cívica sobre habitação.</h2>
+          <p>Não substituímos a administração pública nem um advogado. Ligamos o teu problema à entidade certa, à fonte oficial e a um documento pronto a entregar.</p>
+          <p><a class="btn btn--link" href="sobre.html#metodo">Como verificamos a informação</a></p>
+        </div>
+        <dl class="stats">
+          <div><dt>Fichas de orientação</dt><dd>16</dd></div>
+          <div><dt>Ferramentas</dt><dd>3</dd></div>
+          <div><dt>Dados pessoais guardados</dt><dd>0</dd></div>
+          <div><dt>Questões em revisão jurídica</dt><dd>21</dd></div>
+        </dl>
       </section>
 
       <section aria-labelledby="problema">
-        <h2 id="problema">Qual é o teu problema de habitação?</h2>
-        <p class="hint">Escolhe a situação mais próxima da tua. Podes voltar atrás e mudar as respostas.</p>
+        <div class="section-head">
+          <h2 id="problema">Qual é o teu problema de habitação?</h2>
+          <p class="hint">Escolhe a situação mais próxima da tua. Podes voltar atrás e mudar as respostas a qualquer momento.</p>
+        </div>
         <ul class="paths" role="list">
-          <li><a class="path" href="quem-resolve.html?caminho=arrendada"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 11 12 4l9 7v9H3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span>Tenho um problema com a minha casa arrendada<small>Obras, contrato, renda ou carta para sair.</small></span></a></li>
-          <li><a class="path" href="quem-resolve.html?caminho=procurar"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="m15 15 6 6" stroke="currentColor" stroke-width="2"/></svg><span>Preciso de ajuda para encontrar habitação<small>Emergência, apoio à renda, habitação municipal.</small></span></a></li>
-          <li><a class="path" href="quem-resolve.html?caminho=responsavel"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="9" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2 20c0-4 3-6 6-6s6 2 6 6M14 20c0-3 1.5-5 4-5s4 2 4 5" fill="none" stroke="currentColor" stroke-width="2"/></svg><span>Quero saber quem é responsável por uma situação<small>Condomínio, obras, prédio degradado, casa municipal.</small></span></a></li>
-          <li><a class="path" href="pedir-documentos.html"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 2h9l5 5v15H6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12h8M9 16h8" stroke="currentColor" stroke-width="2"/></svg><span>Quero pedir documentos sobre um projeto ou decisão<small>Gerador de requerimento ao abrigo da Lei n.º 26/2016.</small></span></a></li>
-          <li><a class="path" href="participar.html"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 5h18v11H9l-5 4v-4H3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span>Quero participar numa decisão sobre habitação<small>Consultas, discussões públicas e sessões abertas.</small></span></a></li>
-          <li><a class="path" href="quem-resolve.html?caminho=promessa"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/></svg><span>Quero acompanhar uma promessa de habitação pública<small>O que foi prometido, que documentos existem, como pedir.</small></span></a></li>
+          <li><a class="path" href="quem-resolve.html?caminho=arrendada"><b class="num" aria-hidden="true">01</b><span>Tenho um problema com a minha casa arrendada</span><small>Obras, contrato, renda ou carta para sair.</small></a></li>
+          <li><a class="path path--red" href="quem-resolve.html?caminho=procurar"><b class="num" aria-hidden="true">02</b><span>Preciso de ajuda para encontrar habitação</span><small>Emergência, apoio à renda, habitação municipal.</small></a></li>
+          <li><a class="path" href="quem-resolve.html?caminho=responsavel"><b class="num" aria-hidden="true">03</b><span>Quero saber quem é responsável por uma situação</span><small>Condomínio, obras, prédio degradado, casa municipal.</small></a></li>
+          <li><a class="path path--ink" href="pedir-documentos.html"><b class="num" aria-hidden="true">04</b><span>Quero pedir documentos sobre um projeto ou decisão</span><small>Gerador de requerimento ao abrigo da Lei n.º 26/2016.</small></a></li>
+          <li><a class="path" href="participar.html"><b class="num" aria-hidden="true">05</b><span>Quero participar numa decisão sobre habitação</span><small>Consultas, discussões públicas e sessões abertas.</small></a></li>
+          <li><a class="path" href="quem-resolve.html?caminho=promessa"><b class="num" aria-hidden="true">06</b><span>Quero acompanhar uma promessa de habitação pública</span><small>O que foi prometido, que documentos existem, como pedir.</small></a></li>
         </ul>
       </section>
 
       <section aria-labelledby="como">
-        <h2 id="como">Como funciona</h2>
+        <div class="section-head">
+          <h2 id="como">Como funciona</h2>
+        </div>
         <ul class="pillars" role="list">
-          <li><strong>Compreender</strong>Que entidade é responsável, o que diz a lei e onde está a fonte, com a data em que foi verificada.</li>
-          <li><strong>Agir</strong>Prepara um pedido de documentos ou uma carta ao senhorio, calcula prazos e descarrega lembretes.</li>
-          <li><strong>Fiscalizar</strong>Acompanha decisões e promessas públicas com documentos, não com opiniões.</li>
+          <li><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="#121212"/><path d="M20 2a18 18 0 0 1 0 36z" fill="#b42c25"/></svg><strong>Compreender</strong>Que entidade é responsável, o que diz a lei e onde está a fonte, com a data em que foi verificada.</li>
+          <li><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="2" y="14" width="24" height="24" fill="#b42c25"/><rect x="18" y="2" width="20" height="20" fill="#121212"/></svg><strong>Agir</strong>Prepara um pedido de documentos ou uma carta ao senhorio, calcula prazos e descarrega lembretes.</li>
+          <li><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="11" cy="11" r="9" fill="#121212"/><circle cx="29" cy="11" r="9" fill="#121212"/><circle cx="11" cy="29" r="9" fill="#121212"/><circle cx="29" cy="29" r="9" fill="#b42c25"/></svg><strong>Fiscalizar</strong>Acompanha decisões e promessas públicas com documentos, não com opiniões.</li>
         </ul>
       </section>
 
       <aside class="alert alert--warning" aria-labelledby="estado-conteudos">
         <p class="alert__title" id="estado-conteudos">Versão inicial: conteúdos em revisão</p>
-        <p>Toda a informação está marcada como «por confirmar» até ser revista por um responsável editorial. Confirma sempre na fonte oficial indicada. <a href="sobre.html#metodo">Como verificamos</a>.</p>
+        <p>A maior parte da informação está marcada como «por confirmar» até ser revista por um responsável editorial e por um advogado. Confirma sempre na fonte oficial indicada. <a href="questoes-juridicas.html">Ver as questões jurídicas em aberto</a>.</p>
       </aside>
     </div>
   </main>
@@ -78,6 +116,7 @@
         <li><a href="sobre.html#privacidade">Privacidade</a></li>
         <li><a href="sobre.html#limites">Limitações</a></li>
         <li><a href="sobre.html#correcoes">Correções</a></li>
+        <li><a href="questoes-juridicas.html">Questões jurídicas em aberto</a></li>
       </ul>
       <p>Sem publicidade, sem rastreadores, sem inteligência artificial. Os dados que escreves ficam no teu browser.</p>
     </div>

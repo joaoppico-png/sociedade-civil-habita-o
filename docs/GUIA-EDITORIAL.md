@@ -41,3 +41,18 @@ npm run check
 ```
 
 Registar a alteração (data, ficheiro, o que mudou, quem verificou) no histórico do repositório (mensagem de commit).
+
+## Questões jurídicas (`data/questoes-juridicas.json`)
+
+As dúvidas enviadas ao advogado vivem num único ficheiro. Esse ficheiro alimenta:
+- a página pública `questoes-juridicas.html`, que se imprime ou guarda em PDF para entregar ao advogado;
+- o bloco «Em análise jurídica» de cada ficha e de cada orientação do gerador (campo `registos`).
+
+**Quando o advogado responder:**
+1. Preencher `resposta`, `respondidoEm` (AAAA-MM-DD) e `respondidoPor`, e mudar `estado` para `respondida`.
+2. Corrigir as fichas indicadas em `registos` de acordo com a resposta.
+3. Mudar `estado` para `aplicada`. A questão desaparece das fichas e fica no histórico da página.
+4. Só depois disso passar a ficha a `verificado`, com `verificadoEm` e `responsavel`.
+5. Correr `npm run check`.
+
+**Nova dúvida:** acrescentar um registo com `id` sequencial (Q22…), uma pergunta fechada e explícita, o texto atual do site, as fontes já consultadas (ids de `fontes.json`) e os registos afetados (`r-…` ou `requerimento:<id>`).

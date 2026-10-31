@@ -5,6 +5,7 @@ import { loadAll } from '../core/data.js';
 import { isDisplayable, todayISO } from '../core/status.js';
 import { alerta, badge, datasEditoriais, listaFontes, mostrarErro, anunciar } from '../core/ui.js';
 import { indexTree, walk, opcoesDe, resolveResultado, parseCaminho } from '../lib/decision.js';
+import { questoesDe } from '../lib/questoes.js';
 
 const app = document.getElementById('app');
 const hoje = todayISO();
@@ -12,13 +13,14 @@ let ctx;
 
 async function iniciar() {
   try {
-    const d = await loadAll(['config', 'arvore', 'entidades', 'fontes', 'municipios']);
+    const d = await loadAll(['config', 'arvore', 'entidades', 'fontes', 'municipios', 'questoes-juridicas']);
     ctx = {
       config: d.config,
       tree: indexTree(d.arvore),
       municipios: d.municipios,
       entidades: new Map(d.entidades.entidades.map((e) => [e.id, e])),
-      fontes: new Map(d.fontes.fontes.map((f) => [f.id, f]))
+      fontes: new Map(d.fontes.fontes.map((f) => [f.id, f])),
+      questoes: d['questoes-juridicas'].questoes
     };
   } catch (erro) {
     mostrarErro(app, erro);
@@ -176,11 +178,22 @@ function ficha(resultadoBase, contexto) {
       h('h3', {}, 'Limitações e o que falta confirmar'),
       h('ul', {}, r.limitacoes.map((l) => h('li', {}, l)))) : null,
 
+    blocoQuestoes(r.id),
+
     h('section', { class: 'block' },
       h('h3', {}, 'Fontes'),
       listaFontes(r.fontes, ctx.fontes, hoje),
       datasEditoriais(r)),
     controlos);
+}
+
+function blocoQuestoes(id) {
+  const qs = questoesDe(id, ctx.questoes);
+  if (!qs.length) return null;
+  return h('section', { class: 'block block--pending' },
+    h('h3', {}, 'Em análise jurídica'),
+    h('p', { class: 'hint' }, 'Estas dúvidas foram enviadas a um advogado. Até haver resposta, a ficha não as resolve.'),
+    h('ul', {}, qs.map((q) => h('li', {}, h('a', { href: `questoes-juridicas.html#${q.id}` }, q.id), ' — ', q.pergunta.length > 180 ? `${q.pergunta.slice(0, 177)}…` : q.pergunta))));
 }
 
 function cartaoEntidade(e) {

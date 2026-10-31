@@ -7,6 +7,7 @@ import { todayISO, formatDate, isDisplayable } from '../core/status.js';
 import { alerta, badge, mostrarErro, anunciar, descarregar, copiar } from '../core/ui.js';
 import { validar, gerarLADA, gerarInsistencia, gerarSenhorioObras, nomeFicheiro } from '../lib/requerimento.js';
 import { calendarioSeguimento, gerarICS } from '../lib/prazos.js';
+import { questoesDe } from '../lib/questoes.js';
 
 const form = document.getElementById('gerador');
 const resumoErros = document.getElementById('erros');
@@ -27,7 +28,7 @@ const ROTULOS = {
 
 async function iniciar() {
   try {
-    dados = await loadAll(['config', 'entidades', 'fontes', 'requerimento']);
+    dados = await loadAll(['config', 'entidades', 'fontes', 'requerimento', 'questoes-juridicas']);
   } catch (erro) {
     mostrarErro(document.getElementById('app-erro'), erro);
     form.hidden = true;
@@ -196,8 +197,16 @@ function renderOrientacoes() {
       h('summary', {}, o.titulo, ' ', badge(o)),
       h('p', {}, o.texto),
       o.referencia ? h('p', { class: 'meta' }, o.referencia) : null,
-      lista.length ? h('ul', { class: 'sources' }, lista.map((f) => h('li', {}, externalLink(f.url, f.titulo)))) : null);
+      lista.length ? h('ul', { class: 'sources' }, lista.map((f) => h('li', {}, externalLink(f.url, f.titulo)))) : null,
+      pendentes(`requerimento:${o.id}`));
   }));
+}
+
+function pendentes(registo) {
+  const qs = questoesDe(registo, dados['questoes-juridicas'].questoes);
+  if (!qs.length) return null;
+  return h('p', { class: 'meta' }, 'Em análise jurídica: ',
+    qs.map((q, i) => [i ? ', ' : '', h('a', { href: `questoes-juridicas.html#${q.id}` }, q.id)]));
 }
 
 function calcularPrazos() {

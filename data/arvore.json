@@ -71,7 +71,7 @@
         {
           "id": "saida",
           "rotulo": "Recebi uma carta para sair da casa ou para não renovar o contrato",
-          "resultado": "r-despejo"
+          "seguinte": "saida-origem"
         }
       ]
     },
@@ -184,6 +184,34 @@
       "tipo": "municipio",
       "texto": "Em que concelho fica o prédio?",
       "resultado": "r-degradado"
+    },
+    {
+      "id": "saida-origem",
+      "texto": "O que recebeste?",
+      "ajuda": "As regras e os prazos mudam conforme quem envia a comunicação e o tipo de casa.",
+      "opcoes": [
+        {
+          "id": "carta-senhorio",
+          "rotulo": "Uma carta do senhorio (casa arrendada a um particular ou empresa)",
+          "resultado": "r-despejo"
+        },
+        {
+          "id": "notificacao",
+          "rotulo": "Uma notificação do Balcão do Arrendatário e do Senhorio (BAS) ou de um tribunal",
+          "resultado": "r-despejo-notificacao"
+        },
+        {
+          "id": "apoiado",
+          "rotulo": "Uma comunicação da câmara ou da empresa municipal (casa municipal ou arrendamento apoiado)",
+          "seguinte": "apoiado-concelho"
+        }
+      ]
+    },
+    {
+      "id": "apoiado-concelho",
+      "tipo": "municipio",
+      "texto": "Em que concelho fica a casa?",
+      "resultado": "r-despejo-apoiado"
     }
   ],
   "resultados": [
@@ -194,19 +222,29 @@
       "municipal": true,
       "regras": [
         {
-          "texto": "Cabe ao senhorio executar as obras de conservação, ordinárias ou extraordinárias, salvo se o contrato disser outra coisa.",
-          "referencia": "Código Civil, art. 1074.º",
+          "texto": "Cabe ao senhorio executar todas as obras de conservação, ordinárias ou extraordinárias, salvo se o contrato disser outra coisa.",
+          "referencia": "Código Civil, art. 1074.º, n.º 1",
           "fonte": "codigo-civil"
         },
         {
-          "texto": "A lei prevê um regime próprio para reparações urgentes feitas pelo inquilino.",
+          "texto": "O inquilino só pode fazer obras se o contrato o permitir ou com autorização escrita do senhorio. A exceção são as reparações urgentes.",
+          "referencia": "Código Civil, art. 1074.º, n.os 2 e 3",
+          "fonte": "codigo-civil"
+        },
+        {
+          "texto": "Reparações urgentes: se o senhorio estiver em atraso e a urgência não permitir esperar por um tribunal, o inquilino pode fazê-las e pedir o reembolso. Se a urgência não permitir qualquer demora, pode fazê-las mesmo sem atraso do senhorio, desde que o avise ao mesmo tempo.",
           "referencia": "Código Civil, art. 1036.º",
           "fonte": "codigo-civil"
         },
         {
-          "texto": "A câmara municipal pode determinar obras de conservação para corrigir más condições de segurança ou salubridade.",
-          "referencia": "RJUE, art. 89.º",
-          "fonte": "rjue"
+          "texto": "As comunicações sobre obras entre senhorio e inquilino fazem-se por escrito assinado, enviado por carta registada com aviso de receção, ou entregue em mão com assinatura do destinatário numa cópia.",
+          "referencia": "NRAU, art. 9.º, n.os 1 e 6",
+          "fonte": "nrau"
+        },
+        {
+          "texto": "A câmara municipal pode, a requerimento de qualquer interessado, determinar as obras necessárias para corrigir más condições de segurança ou salubridade.",
+          "referencia": "RJUE, art. 89.º, n.º 2 (redação do DL 108/2026)",
+          "fonte": "dl-108-2026"
         }
       ],
       "entidades": [
@@ -239,10 +277,10 @@
       ],
       "passos": [
         "Regista o problema: fotografias com data, descrição, quando começou e o que já tentaste.",
-        "Escreve ao senhorio a pedir as obras e um prazo razoável. Usa carta registada com aviso de receção, ou o meio de comunicação que o contrato prevê.",
+        "Escreve ao senhorio a pedir as obras e propõe um prazo. Envia por carta registada com aviso de receção, ou entrega em mão e pede que assine uma cópia.",
         "Guarda cópia de tudo o que envias e recebes.",
-        "Se não houver resposta e o problema afetar a segurança ou a salubridade, pede uma vistoria à câmara municipal.",
-        "Não deixes de pagar a renda nem faças obras por tua conta sem aconselhamento jurídico. Pode ter consequências graves."
+        "Se não houver resposta e o problema afetar a segurança ou a salubridade, pede por escrito uma vistoria à câmara municipal.",
+        "Não deixes de pagar a renda nem faças obras por tua conta sem aconselhamento jurídico, exceto reparações verdadeiramente urgentes. Mesmo nesse caso, avisa o senhorio e guarda faturas."
       ],
       "documentos": [
         "Contrato de arrendamento",
@@ -266,16 +304,18 @@
       ],
       "fontes": [
         "codigo-civil",
-        "rjue",
+        "nrau",
+        "dl-108-2026",
         "seg-social-protecao-juridica"
       ],
       "limitacoes": [
         "Se o contrato tiver cláusulas sobre obras, essas cláusulas podem alterar a regra geral.",
-        "O procedimento e o canal para pedir uma vistoria variam de concelho para concelho."
+        "O procedimento e o canal para pedir uma vistoria variam de concelho para concelho.",
+        "Questões em análise jurídica: forma da carta ao senhorio, reparações urgentes e retenção de renda."
       ],
       "estado": "por-confirmar",
       "verificadoEm": null,
-      "revisaoPrevista": "2027-01-31",
+      "revisaoPrevista": "2027-04-30",
       "responsavel": "Por atribuir"
     },
     {
@@ -344,14 +384,29 @@
     },
     {
       "id": "r-despejo",
-      "titulo": "Recebi uma carta para sair da casa",
-      "resumo": "Não ignores a carta. Uma oposição à renovação, uma denúncia, uma resolução do contrato ou uma notificação num procedimento de despejo têm prazos e consequências diferentes. Alguns prazos de resposta são curtos. Procura aconselhamento jurídico já.",
+      "titulo": "Recebi uma carta do senhorio para sair",
+      "resumo": "Uma carta do senhorio não é uma ordem de despejo, mas pode pôr fim ao contrato se cumprir a lei. Tudo depende do tipo de contrato, do motivo, da antecedência e da forma como foi enviada. Não saias nem ignores a carta antes de confirmar estes pontos com apoio jurídico.",
       "municipal": false,
       "regras": [
         {
-          "texto": "O procedimento especial de despejo corre no Balcão do Arrendatário e do Senhorio (BAS).",
-          "referencia": "NRAU",
-          "fonte": "bas"
+          "texto": "Contratos com prazo: o senhorio pode opor-se à renovação com antecedência mínima de 240 dias (contrato ou renovação de 6 anos ou mais), 120 dias (de 1 a 6 anos), 60 dias (de 6 meses a 1 ano) ou um terço do prazo (menos de 6 meses), contada até ao fim do prazo.",
+          "referencia": "Código Civil, art. 1097.º, n.os 1 e 2",
+          "fonte": "codigo-civil"
+        },
+        {
+          "texto": "A oposição do senhorio à primeira renovação só produz efeitos três anos depois da celebração do contrato, salvo se precisar da casa para si ou para filhos.",
+          "referencia": "Código Civil, art. 1097.º, n.os 3 e 4",
+          "fonte": "codigo-civil"
+        },
+        {
+          "texto": "Contratos sem prazo: o senhorio só pode denunciar por necessidade de habitação própria ou dos filhos, por obras profundas que obriguem a sair (com aviso de pelo menos 6 meses e o motivo escrito na carta), ou com aviso de pelo menos 5 anos.",
+          "referencia": "Código Civil, arts. 1101.º e 1103.º, n.º 1",
+          "fonte": "codigo-civil"
+        },
+        {
+          "texto": "Estas comunicações fazem-se por escrito assinado, enviado por carta registada com aviso de receção para a casa arrendada, ou entregue em mão com assinatura numa cópia.",
+          "referencia": "NRAU, art. 9.º, n.os 1, 2 e 6",
+          "fonte": "nrau"
         }
       ],
       "entidades": [
@@ -360,8 +415,8 @@
           "papel": "Proteção jurídica: pede-a logo, porque os prazos continuam a correr."
         },
         {
-          "id": "bas",
-          "papel": "Se recebeste uma notificação do BAS, os prazos de resposta contam a partir dela."
+          "id": "julgados-paz",
+          "papel": "Resolução do litígio, se não houver acordo."
         },
         {
           "id": "camara-municipal",
@@ -369,14 +424,15 @@
         }
       ],
       "passos": [
-        "Identifica quem enviou a carta (o senhorio ou o BAS) e a data em que a recebeste.",
-        "Guarda o envelope e a carta. A data de receção pode contar para os prazos.",
-        "Pede proteção jurídica ou procura um advogado de imediato.",
-        "Se estiveres em risco de ficar sem casa, contacta já os serviços sociais da câmara ou a Linha de Emergência Social 144."
+        "Anota a data em que recebeste a carta e guarda o envelope.",
+        "Vê no contrato a data de início, se tem prazo e qual a duração.",
+        "Identifica o que a carta diz: não renovação, denúncia (fim de contrato sem prazo) ou resolução (por incumprimento).",
+        "Confirma se a antecedência e a forma de envio cumprem a lei.",
+        "Pede proteção jurídica ou procura um advogado antes de responder ou de sair."
       ],
       "documentos": [
         "A carta recebida e o envelope",
-        "Contrato de arrendamento",
+        "Contrato de arrendamento e aditamentos",
         "Recibos de renda"
       ],
       "acoes": [
@@ -386,18 +442,18 @@
         }
       ],
       "fontes": [
-        "portal-nrau",
-        "bas",
-        "seg-social-protecao-juridica",
-        "linha-144"
+        "codigo-civil",
+        "nrau",
+        "seg-social-protecao-juridica"
       ],
       "limitacoes": [
-        "Esta ficha não indica prazos: dependem do tipo de comunicação e têm de ser confirmados por um jurista.",
-        "O canal oficial do BAS ainda não foi verificado."
+        "Contratos anteriores a 2006 ou a 1990 podem ter regras de transição diferentes.",
+        "Uma carta de resolução por falta de pagamento tem regras próprias, ainda em análise jurídica.",
+        "Esta ficha não calcula se a tua carta é válida."
       ],
       "estado": "por-confirmar",
       "verificadoEm": null,
-      "revisaoPrevista": "2027-01-31",
+      "revisaoPrevista": "2027-04-30",
       "responsavel": "Por atribuir"
     },
     {
@@ -511,12 +567,27 @@
     {
       "id": "r-porta65",
       "titulo": "Sou jovem e quero arrendar casa",
-      "resumo": "O Porta 65 Jovem é um programa do IHRU que comparticipa parte da renda de jovens. As candidaturas abrem em períodos definidos. As regras de idade, rendimento e renda máxima estão no Portal da Habitação.",
+      "resumo": "O Porta 65 Jovem paga mensalmente uma percentagem da renda a jovens dos 18 aos 35 anos (num casal, um pode ter até 37). Podes candidatar-te mesmo sem contrato, desde que o assines até 2 meses depois da aprovação. Cada candidatura dura 12 meses e o apoio pode durar até 5 anos. A análise demora 45 dias úteis. Só o IHRU decide se tens direito e quanto recebes.",
       "municipal": false,
       "regras": [
         {
-          "texto": "O Porta 65 Jovem é um apoio financeiro ao arrendamento para jovens, gerido pelo IHRU.",
-          "referencia": "Portal da Habitação",
+          "texto": "Beneficiários: jovens dos 18 aos 35 anos (num casal, um pode ter até 37), sem outros apoios públicos à habitação, sem outra casa própria ou arrendada e sem parentesco com o senhorio.",
+          "referencia": "Portal da Habitação — beneficiários (Portaria n.º 277-A/2010)",
+          "fonte": "portal-porta65-beneficiarios"
+        },
+        {
+          "texto": "A renda não pode ultrapassar 60% do rendimento médio mensal bruto do agregado nem a renda máxima de referência do concelho.",
+          "referencia": "Portal da Habitação — perguntas frequentes",
+          "fonte": "portal-porta65-faq"
+        },
+        {
+          "texto": "Cada candidatura aprovada dura 12 meses; o apoio pode durar até 5 anos, com nova candidatura todos os anos até 3 meses antes do fim da subvenção.",
+          "referencia": "Portal da Habitação — perguntas frequentes",
+          "fonte": "portal-porta65-faq"
+        },
+        {
+          "texto": "A candidatura pode ser feita sem contrato de arrendamento, desde que o contrato seja assinado até 2 meses depois da aprovação.",
+          "referencia": "Decreto-Lei n.º 42/2024; Portal da Habitação",
           "fonte": "portal-porta65"
         }
       ],
@@ -527,9 +598,10 @@
         }
       ],
       "passos": [
-        "Lê as condições do Porta 65 Jovem no Portal da Habitação.",
-        "Confirma quando abre o próximo período de candidaturas.",
-        "Prepara os documentos antes de abrir o período."
+        "Confirma a idade, os rendimentos e a renda máxima do teu concelho no Portal da Habitação.",
+        "Usa o simulador oficial para estimar a subvenção.",
+        "Prepara os comprovativos de rendimentos (12 meses do ano anterior ou últimos 3 meses).",
+        "Submete a candidatura e conta com 45 dias úteis de análise."
       ],
       "documentos": [
         "Documentos de identificação",
@@ -548,14 +620,17 @@
       ],
       "fontes": [
         "portal-porta65",
+        "portal-porta65-beneficiarios",
+        "portal-porta65-faq",
         "portal-arrendamento-acessivel"
       ],
       "limitacoes": [
-        "Esta ficha não avalia se tens direito ao apoio. Só o IHRU decide."
+        "Esta ficha não avalia se tens direito ao apoio nem calcula o valor. Só o IHRU decide.",
+        "As condições foram lidas no Portal da Habitação; a correspondência com o texto legal está em análise jurídica."
       ],
       "estado": "por-confirmar",
       "verificadoEm": null,
-      "revisaoPrevista": "2027-01-31",
+      "revisaoPrevista": "2027-04-30",
       "responsavel": "Por atribuir"
     },
     {
@@ -640,9 +715,20 @@
     {
       "id": "r-morador-municipal",
       "titulo": "Vivo numa casa municipal e tenho um problema",
-      "resumo": "Os problemas de manutenção, renda ou transferência são tratados pela entidade que gere o bairro. Em Lisboa, os bairros municipais são geridos pela Gebalis. Se a entidade pública não responder, podes apresentar queixa ao Provedor de Justiça.",
+      "resumo": "Habitação municipal, arrendamento apoiado, renda acessível e 1.º Direito são regimes diferentes. Se já vives numa casa municipal em arrendamento apoiado, aplica-se a Lei n.º 81/2014 e o regulamento do teu município. Problemas de manutenção, renda ou transferência são tratados pela entidade que gere o bairro: em Lisboa, a Gebalis.",
       "municipal": true,
-      "regras": [],
+      "regras": [
+        {
+          "texto": "O arrendamento apoiado tem regime próprio: renda calculada pelos rendimentos, obrigações das partes, revisão da renda e cessação do contrato.",
+          "referencia": "Lei n.º 81/2014",
+          "fonte": "lei-81-2014"
+        },
+        {
+          "texto": "A resolução do contrato pela entidade pública exige comunicação fundamentada, depois de ouvir o arrendatário, com direito de recurso.",
+          "referencia": "Lei n.º 81/2014, art. 25.º, n.º 2",
+          "fonte": "lei-81-2014"
+        }
+      ],
       "entidades": [
         {
           "id": "gebalis",
@@ -694,26 +780,39 @@
         }
       ],
       "fontes": [
+        "lei-81-2014",
         "gebalis-contactos",
         "provedor-justica-site"
       ],
       "limitacoes": [
-        "Nem todos os bairros municipais de Lisboa são necessariamente geridos pela Gebalis. Confirma no teu contrato."
+        "Nem todos os bairros municipais de Lisboa são necessariamente geridos pela Gebalis. Confirma no teu contrato.",
+        "O Regulamento Municipal do Direito à Habitação de Lisboa está em revisão desde junho de 2026; a versão em vigor está em análise.",
+        "O Tribunal Constitucional declarou inconstitucionais os n.os 4 e 5 do art. 2.º da Lei n.º 81/2014 (Acórdão n.º 197/2023)."
       ],
       "estado": "por-confirmar",
       "verificadoEm": null,
-      "revisaoPrevista": "2027-01-31",
+      "revisaoPrevista": "2027-04-30",
       "responsavel": "Por atribuir"
     },
     {
       "id": "r-condominio",
       "titulo": "Problemas no prédio ou com o condomínio",
-      "resumo": "As partes comuns do prédio são decididas em assembleia de condóminos e geridas pela administração do condomínio. Se não houver acordo, há meios de resolução de litígios. Se houver risco para a segurança, a câmara municipal pode intervir.",
+      "resumo": "As partes comuns do prédio (estrutura, telhado, escadas, instalações gerais) pertencem a todos os condóminos. As decisões sobre elas são tomadas em assembleia e executadas pelo administrador. As despesas dividem-se, em regra, pela permilagem, mas há exceções.",
       "municipal": false,
       "regras": [
         {
-          "texto": "A administração das partes comuns cabe à assembleia de condóminos e a um administrador.",
-          "referencia": "Código Civil, art. 1430.º e seguintes",
+          "texto": "São partes comuns, entre outras, a estrutura do prédio, o telhado, as entradas e escadas de uso comum e as instalações gerais de água, eletricidade, gás e comunicações.",
+          "referencia": "Código Civil, art. 1421.º",
+          "fonte": "codigo-civil"
+        },
+        {
+          "texto": "As despesas de conservação das partes comuns são pagas pelos condóminos na proporção do valor das frações, salvo disposição em contrário. Há exceções, por exemplo nos elevadores, só pagos por quem deles se possa servir, ou em partes que sirvam só alguns condóminos.",
+          "referencia": "Código Civil, art. 1424.º (redação da Lei n.º 8/2022)",
+          "fonte": "codigo-civil"
+        },
+        {
+          "texto": "O administrador convoca a assembleia, cobra e paga as despesas comuns, guarda os documentos do condomínio e executa as deliberações no prazo máximo de 15 dias úteis, salvo outro prazo fixado ou impossibilidade fundamentada.",
+          "referencia": "Código Civil, art. 1436.º, n.º 1",
           "fonte": "codigo-civil"
         }
       ],
@@ -732,9 +831,10 @@
         }
       ],
       "passos": [
-        "Escreve à administração do condomínio a descrever o problema.",
+        "Escreve ao administrador do condomínio a descrever o problema.",
         "Se for preciso uma decisão coletiva, pede que o assunto entre na ordem de trabalhos da próxima assembleia.",
-        "Pede cópia das atas e das contas do condomínio."
+        "Pede cópia das atas, do regulamento e das contas do condomínio.",
+        "Se uma deliberação não for executada, lembra por escrito o prazo de 15 dias úteis."
       ],
       "documentos": [
         "Atas das assembleias",
@@ -747,12 +847,13 @@
         "julgados-paz"
       ],
       "limitacoes": [
-        "Se fores inquilino, o interlocutor no condomínio é, em regra, o teu senhorio.",
-        "A competência dos Julgados de Paz em matéria de condomínio está por confirmar."
+        "Se fores inquilino, o interlocutor no condomínio é, em regra, o teu senhorio; o papel do inquilino está em análise jurídica.",
+        "A competência dos Julgados de Paz em matéria de condomínio está por confirmar.",
+        "A Lei n.º 29/2026 alterou as regras sobre inovações (art. 1425.º); não estão descritas aqui."
       ],
       "estado": "por-confirmar",
       "verificadoEm": null,
-      "revisaoPrevista": "2027-01-31",
+      "revisaoPrevista": "2027-04-30",
       "responsavel": "Por atribuir"
     },
     {
@@ -762,14 +863,24 @@
       "municipal": true,
       "regras": [
         {
-          "texto": "As operações urbanísticas estão sujeitas a controlo prévio municipal (licença, comunicação prévia ou outros procedimentos) e a fiscalização.",
-          "referencia": "RJUE",
-          "fonte": "rjue"
+          "texto": "Estão isentas de licença e de comunicação prévia, entre outras, as obras de conservação e certas obras de alteração no interior que não mexam no exterior nem na estabilidade do edifício.",
+          "referencia": "RJUE, art. 6.º, n.º 1 (redação do DL 108/2026)",
+          "fonte": "dl-108-2026"
         },
         {
-          "texto": "Os processos urbanísticos são, em regra, documentos administrativos a que se pode pedir acesso, com as restrições previstas na lei.",
-          "referencia": "Lei n.º 26/2016",
-          "fonte": "lada"
+          "texto": "Mesmo as obras isentas têm, em regra, de ser comunicadas à câmara até 5 dias antes do início, e anunciadas por aviso afixado. Só ficam dispensadas desta comunicação as obras de conservação feitas exclusivamente no interior.",
+          "referencia": "RJUE, art. 80.º-A, n.os 1, 3 e 5",
+          "fonte": "dl-108-2026"
+        },
+        {
+          "texto": "As operações urbanísticas estão sujeitas a controlo prévio municipal e a fiscalização. A revisão do RJUE aplica-se aos procedimentos iniciados a partir de 1/10/2026.",
+          "referencia": "RJUE; DL 108/2026, arts. 12.º e 13.º",
+          "fonte": "dl-108-2026"
+        },
+        {
+          "texto": "Os interessados podem consultar o processo e pedir certidões, por escrito, com resposta em 10 dias; quem prove interesse legítimo tem o mesmo direito.",
+          "referencia": "RJUE, art. 110.º, n.os 3, 4 e 6",
+          "fonte": "dl-108-2026"
         }
       ],
       "entidades": [
@@ -804,15 +915,17 @@
         }
       ],
       "fontes": [
+        "dl-108-2026",
         "rjue",
         "lada"
       ],
       "limitacoes": [
-        "O tipo de controlo prévio depende da obra. Algumas obras estão isentas."
+        "O tipo de controlo prévio depende da obra concreta. Nunca assumas que uma obra interior está dispensada de tudo.",
+        "Os novos modelos de requerimento previstos na revisão do RJUE estão por confirmar."
       ],
       "estado": "por-confirmar",
       "verificadoEm": null,
-      "revisaoPrevista": "2027-01-31",
+      "revisaoPrevista": "2027-04-30",
       "responsavel": "Por atribuir"
     },
     {
@@ -1071,6 +1184,151 @@
       "estado": "por-confirmar",
       "verificadoEm": null,
       "revisaoPrevista": "2027-01-31",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "r-despejo-notificacao",
+      "titulo": "Recebi uma notificação do BAS ou de um tribunal",
+      "resumo": "Uma notificação do Balcão do Arrendatário e do Senhorio ou de um tribunal abre prazos curtos para te defenderes. Se não reagires a tempo, o despejo pode avançar. Procura apoio jurídico hoje.",
+      "municipal": false,
+      "regras": [
+        {
+          "texto": "O procedimento especial de despejo corre no Balcão do Arrendatário e do Senhorio (BAS).",
+          "referencia": "NRAU, art. 15.º",
+          "fonte": "nrau"
+        }
+      ],
+      "entidades": [
+        {
+          "id": "seguranca-social",
+          "papel": "Proteção jurídica: pede-a de imediato e guarda o comprovativo do pedido."
+        },
+        {
+          "id": "bas",
+          "papel": "Entidade que te notificou; a notificação indica o prazo e como responder."
+        },
+        {
+          "id": "camara-municipal",
+          "papel": "Serviços de ação social, se estiveres em risco de ficar sem casa."
+        }
+      ],
+      "passos": [
+        "Lê a notificação e anota o prazo que nela é indicado e a data em que a recebeste.",
+        "Pede proteção jurídica hoje e guarda o comprovativo.",
+        "Junta o contrato, os recibos e as cartas trocadas com o senhorio.",
+        "Se estiveres em risco de ficar sem casa, contacta a ação social da câmara ou a Linha 144."
+      ],
+      "documentos": [
+        "A notificação e o envelope",
+        "Contrato de arrendamento",
+        "Recibos de renda"
+      ],
+      "acoes": [
+        {
+          "rotulo": "Saber como pedir proteção jurídica",
+          "fonte": "seg-social-protecao-juridica"
+        }
+      ],
+      "fontes": [
+        "nrau",
+        "seg-social-protecao-juridica",
+        "linha-144"
+      ],
+      "limitacoes": [
+        "Os prazos de oposição e o efeito do pedido de apoio judiciário estão em análise jurídica e não são indicados aqui.",
+        "O canal oficial do BAS ainda não foi verificado."
+      ],
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-04-30",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "r-despejo-apoiado",
+      "titulo": "A câmara ou a empresa municipal quer pôr fim ao meu contrato",
+      "resumo": "Nas casas municipais em arrendamento apoiado aplica-se uma lei própria, a Lei n.º 81/2014, e não o despejo do arrendamento privado. A entidade tem de te ouvir antes de decidir e tens direito de recorrer. Se houver despejo e estiveres em carência habitacional, deves ser encaminhado para outra solução de habitação ou apoio.",
+      "municipal": true,
+      "regras": [
+        {
+          "texto": "A resolução do contrato pelo senhorio público faz-se por comunicação fundamentada, depois de ouvir o arrendatário, que tem sempre direito de recorrer da decisão.",
+          "referencia": "Lei n.º 81/2014, art. 25.º, n.º 2",
+          "fonte": "lei-81-2014"
+        },
+        {
+          "texto": "As decisões de despejo cabem aos dirigentes da entidade pública proprietária.",
+          "referencia": "Lei n.º 81/2014, art. 28.º, n.os 1 e 2",
+          "fonte": "lei-81-2014"
+        },
+        {
+          "texto": "Os agregados alvo de despejo com efetiva carência habitacional são previamente encaminhados para soluções legais de acesso à habitação ou para apoios habitacionais.",
+          "referencia": "Lei n.º 81/2014, art. 28.º, n.º 6",
+          "fonte": "lei-81-2014"
+        }
+      ],
+      "entidades": [
+        {
+          "id": "gebalis",
+          "papel": "Gere os bairros municipais de Lisboa; normalmente é quem comunica com os moradores.",
+          "se": {
+            "municipio": "lisboa"
+          }
+        },
+        {
+          "id": "cm-lisboa",
+          "papel": "Proprietária da habitação municipal.",
+          "se": {
+            "municipio": "lisboa"
+          }
+        },
+        {
+          "id": "camara-municipal",
+          "papel": "Proprietária da habitação municipal, ou empresa municipal que a gere.",
+          "se": {
+            "municipio": "outro"
+          }
+        },
+        {
+          "id": "seguranca-social",
+          "papel": "Proteção jurídica para recorrer da decisão."
+        },
+        {
+          "id": "provedor-justica",
+          "papel": "Queixas sobre a atuação da câmara ou da empresa municipal."
+        }
+      ],
+      "passos": [
+        "Lê a comunicação e anota o motivo invocado e o prazo para te pronunciares.",
+        "Responde por escrito dentro do prazo, com a tua versão e documentos.",
+        "Se a decisão for desfavorável, pede apoio jurídico para recorrer.",
+        "Se não tiveres alternativa de habitação, di-lo por escrito: a lei prevê encaminhamento prévio."
+      ],
+      "documentos": [
+        "Contrato ou título de ocupação",
+        "Comprovativos de pagamento da renda",
+        "Comprovativos de rendimentos do agregado"
+      ],
+      "acoes": [
+        {
+          "rotulo": "Pedir documentos do meu processo",
+          "href": "pedir-documentos.html?entidade={habitacaoMunicipal}"
+        },
+        {
+          "rotulo": "Saber como pedir proteção jurídica",
+          "fonte": "seg-social-protecao-juridica"
+        }
+      ],
+      "fontes": [
+        "lei-81-2014",
+        "gebalis-contactos",
+        "provedor-justica-site"
+      ],
+      "limitacoes": [
+        "Fora de Lisboa, confirma no teu contrato qual é a entidade proprietária ou gestora.",
+        "O tipo de recurso, o prazo e o regulamento municipal aplicável estão em análise jurídica."
+      ],
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-04-30",
       "responsavel": "Por atribuir"
     }
   ]

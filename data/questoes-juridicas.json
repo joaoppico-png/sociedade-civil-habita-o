@@ -1,0 +1,221 @@
+{
+  "meta": {
+    "titulo": "Questões jurídicas para revisão por advogado",
+    "preparadoEm": "2026-10-31",
+    "preparadoPor": "Equipa editorial Sociedade Civil — Habitação (com apoio de pesquisa automatizada)",
+    "instrucoes": "Para cada questão, indicar: (1) resposta direta; (2) norma, número e alínea; (3) se a redação proposta para o site pode ser publicada tal como está, com alterações (indicar quais) ou não deve ser publicada. As afirmações marcadas «fonte secundária» não foram confirmadas por nós na fonte oficial.",
+    "estados": { "aberta": "Por responder", "respondida": "Respondida — por aplicar ao site", "aplicada": "Respondida e aplicada ao site" }
+  },
+  "questoes": [
+    {
+      "id": "Q01", "tema": "Acesso a documentos — custos", "prioridade": "alta",
+      "pergunta": "O Despacho n.º 8617/2002 está em vigor e funciona, ao abrigo do art. 14.º, n.os 2 e 3, da Lei n.º 26/2016, como tabela de referência das taxas de reprodução e certidão para as entidades que não publicaram tabela própria? Se sim, quais os valores atuais e a quem se aplica (administração central, autarquias, empresas municipais)?",
+      "contexto": "A LADA manda o Governo fixar as taxas (art. 14.º, n.º 2) e permite às entidades com poder tributário ir até +100% (n.º 3). Não localizámos a tabela nacional. Uma auditoria externa indica o Despacho n.º 8617/2002 como ainda em vigor (fonte secundária, não confirmada por nós). O Despacho n.º 5995/2025 é só da Procuradoria-Geral da República.",
+      "redacaoAtual": "«A taxa tem de corresponder ao custo do serviço, sem ultrapassar o valor médio de mercado… Cada entidade deve publicar no site… a lista de taxas… Câmaras e outras entidades com poder tributário próprio podem ter tabela própria.»",
+      "fontesConsultadas": ["lada", "cada-parecer-445-2024"],
+      "registos": ["requerimento:custos"],
+      "impacto": "Permite indicar valores de referência ao cidadão e contestar cobranças excessivas.",
+      "estado": "aberta", "resposta": null, "respondidoEm": null, "respondidoPor": null
+    },
+    {
+      "id": "Q02", "tema": "Acesso a documentos — custos", "prioridade": "alta",
+      "pergunta": "Na vigência da Lei n.º 26/2016, pode uma entidade exigir o pagamento antecipado (preparo) da taxa de reprodução ou certidão antes de disponibilizar os documentos? Com que fundamento legal? Se o cidadão considerar a cobrança indevida, pode queixar-se à CADA como «outra decisão limitadora do acesso» (art. 16.º, n.º 1)?",
+      "contexto": "A Lei n.º 46/2007 previa um preparo; a LADA de 2016 não reproduziu essa norma (fonte secundária: auditoria externa). No Parecer CADA 445/2024, uma câmara exigiu pagamento prévio sem que a CADA o tenha censurado. A ficha diz hoje: «Se te pedirem pagamento antecipado, pede que indiquem a norma que o permite.»",
+      "redacaoAtual": "«Se te pedirem pagamento antecipado, pede que indiquem a norma que o permite.»",
+      "fontesConsultadas": ["lada", "cada-parecer-445-2024"],
+      "registos": ["requerimento:custos"],
+      "impacto": "Define se o site pode dizer que o pagamento prévio não é exigível.",
+      "estado": "aberta", "resposta": null, "respondidoEm": null, "respondidoPor": null
+    },
+    {
+      "id": "Q03", "tema": "Acesso a documentos — pedido", "prioridade": "alta",
+      "pergunta": "Um requerimento ao abrigo da LADA enviado por e-mail com assinatura manuscrita digitalizada (PDF digitalizado) cumpre o requisito de «assinatura» do art. 12.º, n.º 1? E um e-mail sem qualquer assinatura, mas com identificação completa? Se a entidade considerar a assinatura insuficiente, deve convidar o requerente a corrigir, aplicando por analogia o art. 12.º, n.º 6, ou o CPA (art. 108.º), ou pode indeferir?",
+      "contexto": "O Parecer CADA 470/2025 aceitou uma assinatura digital qualificada num anexo ao e-mail. Segundo uma auditoria externa (fonte secundária), a APA aceita assinatura manuscrita digitalizada. Não localizámos norma expressa sobre a assinatura digitalizada.",
+      "redacaoAtual": "«Por e-mail, anexa o requerimento assinado. A assinatura digital qualificada (Cartão de Cidadão ou Chave Móvel Digital) dá mais segurança; uma assinatura à mão digitalizada pode ser recusada por algumas entidades.»",
+      "fontesConsultadas": ["lada", "cada-parecer-470-2025", "cpa"],
+      "registos": ["requerimento:entrega", "requerimento:identificacao"],
+      "impacto": "Determina se recomendamos e-mail com PDF digitalizado como meio seguro.",
+      "estado": "aberta", "resposta": null, "respondidoEm": null, "respondidoPor": null
+    },
+    {
+      "id": "Q04", "tema": "Acesso a documentos — prazos", "prioridade": "alta",
+      "pergunta": "O prazo de 20 dias para a queixa à CADA (art. 16.º, n.º 1) conta-se em dias corridos e, por seguir a contagem dos prazos processuais, suspende-se durante as férias judiciais? Se o termo cair num sábado, domingo ou feriado, transfere-se para o dia útil seguinte?",
+      "contexto": "O Parecer CADA 518/2026 diz que o prazo é de 20 dias corridos e se conta como os prazos processuais, coincidindo com o da intimação (CPTA, art. 105.º). O calculador do site conta 20 dias corridos a partir do dia seguinte ao fim do prazo de resposta e passa para o dia útil seguinte, mas não considera férias judiciais.",
+      "redacaoAtual": "Calculador: «Último dia para a queixa (estimativa, 20 dias corridos)».",
+      "fontesConsultadas": ["lada", "cada-parecer-518-2026"],
+      "registos": ["requerimento:reacao", "requerimento:seguimento"],
+      "impacto": "Um erro aqui pode fazer o cidadão perder o prazo da queixa.",
+      "estado": "aberta", "resposta": null, "respondidoEm": null, "respondidoPor": null
+    },
+    {
+      "id": "Q05", "tema": "Acesso a documentos — urbanismo", "prioridade": "alta",
+      "pergunta": "Para um processo urbanístico já concluído ou arquivado (por exemplo, a licença de obra de um prédio vizinho), um cidadão sem interesse direto pode pedir acesso ao abrigo da LADA (art. 5.º, sem justificar interesse) ou fica sujeito ao art. 110.º, n.º 6, do RJUE (prova de interesse legítimo)? Qual dos regimes prevalece, que prazo se aplica (10 dias úteis na LADA ou 10 dias no RJUE) e quais as taxas (LADA, art. 14.º, ou taxas urbanísticas municipais)?",
+      "contexto": "O art. 110.º do RJUE, na redação do DL 108/2026, dá informação em 15 dias e consulta e certidões em 10 dias aos interessados e a quem prove interesse legítimo. A LADA não prejudica legislação específica (art. 1.º, n.º 4).",
+      "redacaoAtual": "Ficha «Pedir documentos», limitação: «A relação entre o RJUE e a LADA para processos de obras já concluídos… ainda estão por confirmar.»",
+      "fontesConsultadas": ["lada", "dl-108-2026", "cada-parecer-445-2024"],
+      "registos": ["r-pedir-documentos", "r-obras"],
+      "impacto": "Necessária para fechar a ficha «Pedir documentos».",
+      "estado": "aberta", "resposta": null, "respondidoEm": null, "respondidoPor": null
+    },
+    {
+      "id": "Q06", "tema": "Acesso a documentos — processos em curso", "prioridade": "média",
+      "pergunta": "Se um terceiro não interessado pedir documentos de um procedimento ainda em curso (por exemplo, um licenciamento pendente), aplica-se o diferimento do art. 6.º, n.º 3, da LADA, ou o art. 85.º do CPA (interesse legítimo e despacho do dirigente)? Que deve a ficha dizer ao cidadão nesse caso?",
+      "contexto": "O Parecer CADA 445/2024 (§20–21) diz que os procedimentos em curso se regem pelo CPA e não pela LADA.",
+      "redacaoAtual": "«Se o processo ainda estiver a decorrer e for teu, aplicam-se regras próprias.»",
+      "fontesConsultadas": ["lada", "cpa", "cada-parecer-445-2024"],
+      "registos": ["r-pedir-documentos"],
+      "impacto": "Completa a ficha para pedidos de terceiros.",
+      "estado": "aberta", "resposta": null, "respondidoEm": null, "respondidoPor": null
+    },
+    {
+      "id": "Q07", "tema": "Acesso a documentos — dados pessoais", "prioridade": "média",
+      "pergunta": "Para obter o seu próprio processo de candidatura a um apoio à habitação (habitação municipal, 1.º Direito, Porta 65), o cidadão deve invocar a LADA (art. 1.º, n.º 3), o direito de acesso do RGPD (art. 15.º) ou o CPA (art. 82.º)? Há diferenças de prazo e de entidade de queixa (CADA ou CNPD)? E é possível obter dados agregados ou anonimizados das candidaturas de terceiros?",
+      "contexto": "Os documentos nominativos de terceiros exigem autorização ou interesse direto, pessoal, legítimo e constitucionalmente protegido (LADA, art. 6.º, n.º 5). Não lemos o RGPD nesta auditoria.",
+      "redacaoAtual": "«Documentos com dados pessoais de outras pessoas, como candidaturas a apoios à habitação, só são acessíveis com autorização do titular, com interesse legítimo demonstrado ou em versão anonimizada.»",
+      "fontesConsultadas": ["lada", "cpa"],
+      "registos": ["r-pedir-documentos", "r-morador-municipal"],
+      "impacto": "Orienta pedidos sobre candidaturas próprias e alheias.",
+      "estado": "aberta", "resposta": null, "respondidoEm": null, "respondidoPor": null
+    },
+    {
+      "id": "Q08", "tema": "Contratação pública — Portal BASE", "prioridade": "média",
+      "pergunta": "(a) Podemos informar o cidadão de que um contrato de ajuste direto ou de consulta prévia não publicado no Portal BASE não produz efeitos para pagamentos (CCP, art. 127.º, n.º 3), como sinal de alerta? (b) Os contratos de habitação pública celebrados pela nova consulta prévia especial (CCP, arts. 127.º-A e 127.º-B, aditados pelo DL 177/2026) estão sujeitos à mesma publicitação do art. 127.º, n.º 1? (c) A Portaria n.º 318-B/2023 continua a aplicar-se sem desatualização de remissões depois da republicação do CCP pelo DL 177/2026, em particular quanto à visibilidade de 10 anos (art. 6.º, n.º 1)?",
+      "contexto": "Confirmámos a obrigação de publicitação (CCP, arts. 127.º, 315.º e 465.º; Portaria n.º 318-B/2023, arts. 2.º a 6.º). O teste prático no portal não foi possível porque fomos redirecionados para o login.",
+      "redacaoAtual": "«O Portal BASE publica informação sobre a formação e execução de contratos públicos… a informação fica visível 10 anos.»",
+      "fontesConsultadas": ["portaria-base", "dl-177-2026"],
+      "registos": ["r-pedir-documentos", "r-promessa"],
+      "impacto": "Necessária para fechar a ficha «Pedir documentos» e preparar o observatório de promessas.",
+      "estado": "aberta", "resposta": null, "respondidoEm": null, "respondidoPor": null
+    },
+    {
+      "id": "Q09", "tema": "Arrendamento — obras", "prioridade": "alta",
+      "pergunta": "O pedido de obras de conservação feito pelo arrendatário ao senhorio é uma «comunicação legalmente exigível» relativa a obras para efeitos do art. 9.º, n.º 1, do NRAU, e tem de ser enviado por carta registada com aviso de receção ou entregue em mão contra assinatura? Um e-mail é suficiente se o contrato previr comunicação eletrónica?",
+      "contexto": "O NRAU, art. 9.º, n.º 1, abrange as comunicações «relativas a cessação do contrato de arrendamento, actualização da renda e obras». A versão anterior do site dizia «ou o meio que o contrato prevê»; retirámos essa frase.",
+      "redacaoAtual": "«Envia por carta registada com aviso de receção, ou entrega em mão e pede que assine uma cópia.»",
+      "fontesConsultadas": ["nrau", "codigo-civil"],
+      "registos": ["r-conservacao"],
+      "impacto": "Valida o modelo de carta ao senhorio do gerador.",
+      "estado": "aberta", "resposta": null, "respondidoEm": null, "respondidoPor": null
+    },
+    {
+      "id": "Q10", "tema": "Arrendamento — obras", "prioridade": "alta",
+      "pergunta": "Que pode o site dizer, com segurança, sobre: (a) reparações urgentes feitas pelo inquilino (CC, art. 1036.º): que prova recomendam guardar e se é necessário aviso prévio por escrito; (b) obras feitas pelo arrendatário ao abrigo do art. 22.º-A do DL 157/2006 (referido no art. 1074.º, n.º 3); (c) retenção ou compensação da renda quando o senhorio não faz obras — deve o site continuar a desaconselhar suspender o pagamento?",
+      "contexto": "Confirmámos os arts. 1036.º e 1074.º do Código Civil. Não lemos o DL 157/2006.",
+      "redacaoAtual": "«Não deixes de pagar a renda nem faças obras por tua conta sem aconselhamento jurídico, exceto reparações verdadeiramente urgentes. Mesmo nesse caso, avisa o senhorio e guarda faturas.»",
+      "fontesConsultadas": ["codigo-civil"],
+      "registos": ["r-conservacao"],
+      "impacto": "Evita orientar o inquilino para atos que o exponham a resolução do contrato.",
+      "estado": "aberta", "resposta": null, "respondidoEm": null, "respondidoPor": null
+    },
+    {
+      "id": "Q11", "tema": "Arrendamento — vistoria", "prioridade": "média",
+      "pergunta": "O inquilino é «interessado» para pedir à câmara municipal que determine obras de conservação (RJUE, art. 89.º, n.º 2)? Há taxa municipal pela vistoria, em particular em Lisboa? Depois da revisão de 2026 há algum prazo para a câmara decidir?",
+      "contexto": "Confirmámos o art. 89.º, n.º 2: «a requerimento de qualquer interessado».",
+      "redacaoAtual": "«Se não houver resposta e o problema afetar a segurança ou a salubridade, pede por escrito uma vistoria à câmara municipal.»",
+      "fontesConsultadas": ["dl-108-2026"],
+      "registos": ["r-conservacao", "r-degradado"],
+      "impacto": "Completa o percurso de obras e de prédio degradado.",
+      "estado": "aberta", "resposta": null, "respondidoEm": null, "respondidoPor": null
+    },
+    {
+      "id": "Q12", "tema": "Arrendamento — carta para sair", "prioridade": "alta",
+      "pergunta": "Confirmam que a ficha pode afirmar o seguinte? (a) As antecedências mínimas do art. 1097.º, n.º 1, do CC (240, 120 e 60 dias, ou um terço do prazo). (b) A oposição à primeira renovação só produz efeitos três anos depois da celebração, salvo necessidade de habitação do senhorio ou dos filhos (n.os 3 e 4). (c) A comunicação tem de respeitar a forma do NRAU, art. 9.º. E, quando a antecedência é insuficiente, a oposição é ineficaz ou produz efeitos no termo seguinte?",
+      "contexto": "Confirmámos os arts. 1097.º, 1101.º e 1103.º do CC e os arts. 9.º e 10.º do NRAU.",
+      "redacaoAtual": "Ver regras da ficha «Recebi uma carta do senhorio para sair».",
+      "fontesConsultadas": ["codigo-civil", "nrau"],
+      "registos": ["r-despejo"],
+      "impacto": "É a ficha de maior risco do site.",
+      "estado": "aberta", "resposta": null, "respondidoEm": null, "respondidoPor": null
+    },
+    {
+      "id": "Q13", "tema": "Arrendamento — carta para sair", "prioridade": "alta",
+      "pergunta": "Que perguntas deve a ficha fazer para distinguir os contratos com regimes de transição (anteriores a 1990, entre 1990 e 2006 e posteriores ao NRAU), e que mensagem deve dar em cada caso? Que deve dizer sobre a resolução por falta de pagamento (CC, arts. 1083.º e 1084.º; NRAU, art. 9.º, n.º 7), incluindo a possibilidade de pôr fim à mora e os prazos?",
+      "contexto": "Não lemos as normas transitórias do NRAU nem os arts. 1083.º e 1084.º do CC nesta auditoria.",
+      "redacaoAtual": "Limitações: «Contratos anteriores a 2006 ou a 1990 podem ter regras de transição diferentes» e «Uma carta de resolução por falta de pagamento tem regras próprias, ainda em análise jurídica».",
+      "fontesConsultadas": ["codigo-civil", "nrau"],
+      "registos": ["r-despejo", "r-senhorio-incumprimento"],
+      "impacto": "Permite criar perguntas adicionais no questionário.",
+      "estado": "aberta", "resposta": null, "respondidoEm": null, "respondidoPor": null
+    },
+    {
+      "id": "Q14", "tema": "Arrendamento — notificação do BAS ou do tribunal", "prioridade": "alta",
+      "pergunta": "No procedimento especial de despejo (NRAU, art. 15.º e seguintes), qual o prazo de oposição a contar da notificação, como se conta e qual o canal oficial do BAS? O pedido de apoio judiciário interrompe ou suspende esse prazo, e o que deve o cidadão fazer para o garantir? Que redação curta e segura recomendam para «hoje mesmo»?",
+      "contexto": "A ficha não indica prazos por não os termos confirmado. O canal oficial do BAS não foi localizado.",
+      "redacaoAtual": "«Os prazos de oposição e o efeito do pedido de apoio judiciário estão em análise jurídica e não são indicados aqui.»",
+      "fontesConsultadas": ["nrau"],
+      "registos": ["r-despejo-notificacao", "r-senhorio-incumprimento"],
+      "impacto": "Sem esta resposta, a ficha não pode dar o passo mais útil.",
+      "estado": "aberta", "resposta": null, "respondidoEm": null, "respondidoPor": null
+    },
+    {
+      "id": "Q15", "tema": "Condomínio", "prioridade": "média",
+      "pergunta": "(a) O arrendatário pode dirigir-se diretamente ao administrador do condomínio sobre problemas nas partes comuns, ou só através do senhorio? Tem direito a cópia de atas? (b) Qual a competência atual dos Julgados de Paz (Lei n.º 78/2001, art. 9.º) para litígios de condomínio e de arrendamento, incluindo o limite de valor? (c) As alterações da Lei n.º 29/2026 ao art. 1425.º do CC (inovações) devem constar da ficha?",
+      "contexto": "Confirmámos os arts. 1421.º, 1424.º e 1436.º do CC. Não lemos a Lei n.º 78/2001 nem a Lei n.º 29/2026.",
+      "redacaoAtual": "Ver ficha «Problemas no prédio ou com o condomínio».",
+      "fontesConsultadas": ["codigo-civil"],
+      "registos": ["r-condominio", "r-conservacao"],
+      "impacto": "Fecha a ficha de condomínio.",
+      "estado": "aberta", "resposta": null, "respondidoEm": null, "respondidoPor": null
+    },
+    {
+      "id": "Q16", "tema": "Habitação pública — arrendamento apoiado", "prioridade": "alta",
+      "pergunta": "No arrendamento apoiado (Lei n.º 81/2014), o «direito de recurso» da decisão de resolução (art. 25.º, n.º 2) é uma reclamação ou recurso administrativo (para que órgão e em que prazo, à luz do CPA) ou uma impugnação judicial? Que prazos indicar? Em Lisboa, quem decide o despejo nos bairros geridos pela Gebalis: a Gebalis ou a Câmara (art. 28.º, n.º 2)?",
+      "contexto": "Confirmámos os arts. 25.º e 28.º da Lei n.º 81/2014 consolidada (última alteração: DL 38/2023; Acórdão do TC n.º 197/2023 sobre o art. 2.º, n.os 4 e 5).",
+      "redacaoAtual": "Ficha nova «A câmara ou a empresa municipal quer pôr fim ao meu contrato».",
+      "fontesConsultadas": ["lei-81-2014"],
+      "registos": ["r-despejo-apoiado", "r-morador-municipal"],
+      "impacto": "Ficha nova, separada do despejo privado.",
+      "estado": "aberta", "resposta": null, "respondidoEm": null, "respondidoPor": null
+    },
+    {
+      "id": "Q17", "tema": "Habitação pública — Lisboa", "prioridade": "média",
+      "pergunta": "Qual a versão em vigor do Regulamento Municipal do Direito à Habitação de Lisboa (2019, alterado pelo Aviso n.º 18018/2023)? A revisão iniciada em junho de 2026 foi aprovada e publicada? Quais as consequências do Acórdão do TC n.º 197/2023 para esse regulamento?",
+      "contexto": "Informação de fonte secundária (auditoria externa); não confirmada por nós no Diário da República.",
+      "redacaoAtual": "«O Regulamento Municipal do Direito à Habitação de Lisboa está em revisão desde junho de 2026; a versão em vigor está em análise.»",
+      "fontesConsultadas": ["lei-81-2014"],
+      "registos": ["r-morador-municipal", "r-procurar-apoio", "r-despejo-apoiado"],
+      "impacto": "Necessária para qualquer ficha municipal de Lisboa.",
+      "estado": "aberta", "resposta": null, "respondidoEm": null, "respondidoPor": null
+    },
+    {
+      "id": "Q18", "tema": "Programas de apoio", "prioridade": "média",
+      "pergunta": "(a) 1.º Direito (DL 37/2018, alterado pelo DL 116/2025, segundo fonte secundária): onde e como se candidata um agregado, há prazo de resposta ou direito a decisão, e como dizer que não é um concurso de habitação municipal sem criar expectativas? (b) Porta 65 Jovem: as condições publicadas no Portal da Habitação (18–35 anos, ou 37 num casal; taxa de esforço máxima de 60%; 12 meses por candidatura e até 5 anos; 45 dias úteis de análise; contrato até 2 meses após a aprovação) coincidem com o DL 308/2007, na redação do DL 42/2024, e com a Portaria n.º 277-A/2010?",
+      "contexto": "As condições do Porta 65 foram lidas no Portal da Habitação (FAQ e beneficiários) em 31/10/2026. Não lemos o DL 37/2018 nem o DL 308/2007.",
+      "redacaoAtual": "Fichas «Sou jovem e quero arrendar casa» e «Não consigo pagar uma renda de mercado».",
+      "fontesConsultadas": ["portal-porta65-faq", "portal-porta65-beneficiarios", "portal-1-direito"],
+      "registos": ["r-porta65", "r-procurar-apoio"],
+      "impacto": "Fecha as fichas de programas.",
+      "estado": "aberta", "resposta": null, "respondidoEm": null, "respondidoPor": null
+    },
+    {
+      "id": "Q19", "tema": "Urbanismo — obras", "prioridade": "média",
+      "pergunta": "(a) Perante obras de um vizinho sem o aviso afixado nem a comunicação prévia à câmara (RJUE, art. 80.º-A, n.os 1 e 5), que pode o cidadão fazer e a quem se dirige? (b) Existe a Portaria n.º 320/2026/1, que aprova os novos modelos e revoga as Portarias n.os 71-A/2024 e 71-B/2024? É fonte secundária, não confirmada por nós.",
+      "contexto": "Confirmámos os arts. 6.º, 80.º-A, 89.º e 110.º do RJUE na redação do DL 108/2026, em vigor desde 1/10/2026 (DL 155-B/2026).",
+      "redacaoAtual": "Ficha «Obras, licenças e construções».",
+      "fontesConsultadas": ["dl-108-2026"],
+      "registos": ["r-obras"],
+      "impacto": "Fecha a ficha de obras.",
+      "estado": "aberta", "resposta": null, "respondidoEm": null, "respondidoPor": null
+    },
+    {
+      "id": "Q20", "tema": "Geral — responsabilidade", "prioridade": "alta",
+      "pergunta": "O aviso usado no site («Isto é um encaminhamento informativo, não um diagnóstico jurídico») e o texto da página «Sobre» são suficientes para delimitar a responsabilidade da plataforma? Recomendam outra redação, por exemplo à luz da Lei dos Atos Próprios dos Advogados (Lei n.º 49/2004)? Os modelos gerados (pedido LADA, insistência, carta ao senhorio) podem ser disponibilizados por uma entidade que não é advogado?",
+      "contexto": "Não lemos a Lei n.º 49/2004.",
+      "redacaoAtual": "Aviso em todas as fichas e página «Sobre».",
+      "fontesConsultadas": [],
+      "registos": ["requerimento:modelo"],
+      "impacto": "Condição prévia de publicação.",
+      "estado": "aberta", "resposta": null, "respondidoEm": null, "respondidoPor": null
+    },
+    {
+      "id": "Q21", "tema": "Geral — modelos de documentos", "prioridade": "média",
+      "pergunta": "Revisão do texto dos três modelos gerados pelo site (pedido LADA, insistência, carta ao senhorio a pedir obras): são juridicamente adequados? Há cláusulas a acrescentar ou retirar, como o pedido de remessa à entidade competente, o pedido de acesso parcial com expurgo ou o prazo proposto ao senhorio?",
+      "contexto": "Os modelos estão em assets/js/lib/requerimento.js e podem ser gerados em pedir-documentos.html.",
+      "redacaoAtual": "Ver os três modelos no gerador.",
+      "fontesConsultadas": ["lada", "nrau"],
+      "registos": ["requerimento:modelo"],
+      "impacto": "Valida o gerador.",
+      "estado": "aberta", "resposta": null, "respondidoEm": null, "respondidoPor": null
+    }
+  ]
+}

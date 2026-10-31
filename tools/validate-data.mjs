@@ -3,12 +3,16 @@
 import { readFile } from 'node:fs/promises';
 import { validarTudo, validarOportunidades } from '../assets/js/core/validate.js';
 import { effectiveStatus, todayISO } from '../assets/js/core/status.js';
+import { validarQuestoes } from '../assets/js/lib/questoes.js';
 
 const ler = async (n) => JSON.parse(await readFile(new URL(`../data/${n}.json`, import.meta.url), 'utf8'));
 const [config, fontes, entidades, arvore, oportunidades, municipios, requerimento, compromissos] = await Promise.all(
   ['config', 'fontes', 'entidades', 'arvore', 'oportunidades', 'municipios', 'requerimento', 'compromissos'].map(ler));
 
 const erros = validarTudo({ fontes, entidades, arvore, oportunidades });
+const questoes = await ler('questoes-juridicas');
+erros.push(...validarQuestoes(questoes, arvore, requerimento));
+for (const q of questoes.questoes) for (const f of q.fontesConsultadas) if (!fontes.fontes.some((x) => x.id === f)) erros.push(`questão ${q.id}: fonte desconhecida «${f}»`);
 if (!Array.isArray(compromissos.compromissos)) erros.push('compromissos.json: falta a lista «compromissos»');
 if (!requerimento.modalidades?.length) erros.push('requerimento.json: sem modalidades');
 for (const m of municipios.municipios) {
@@ -37,4 +41,5 @@ if (erros.length) {
   console.error(`\n${erros.length} erro(s):\n- ${erros.join('\n- ')}`);
   process.exit(1);
 }
+console.log(`Questões jurídicas: ${questoes.questoes.length} (${questoes.questoes.filter((q) => q.estado === 'aberta').length} por responder)`);
 console.log('Dados válidos.');
