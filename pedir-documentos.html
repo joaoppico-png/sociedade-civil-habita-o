@@ -185,8 +185,9 @@
             <p class="hint">Indica quando entregaste o pedido. Calculamos as datas aqui, no teu browser. Não guardamos nada nem acompanhamos o processo.</p>
             <form id="calc-prazos" novalidate>
               <div class="field">
-                <label for="data-entrega">Data de entrega do pedido</label>
-                <input type="date" id="data-entrega" name="dataEntrega">
+                <label for="data-entrega">Data em que apresentaste o pedido</label>
+                <p class="hint" id="data-entrega-hint">Entrega nos serviços, data do registo postal ou data de envio do e-mail.</p>
+                <input type="date" id="data-entrega" name="dataEntrega" aria-describedby="data-entrega-hint">
               </div>
               <button type="submit" class="btn btn--secondary">Calcular prazos</button>
             </form>

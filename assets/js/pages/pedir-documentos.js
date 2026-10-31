@@ -191,11 +191,12 @@ function limparTudo() {
 function renderOrientacoes() {
   const fontes = new Map(dados.fontes.fontes.map((f) => [f.id, f]));
   clear(orientacoes).append(...dados.requerimento.orientacoes.map((o) => {
-    const f = o.fonte ? fontes.get(o.fonte) : null;
+    const lista = (o.fontes || (o.fonte ? [o.fonte] : [])).map((id) => fontes.get(id)).filter(Boolean);
     return h('details', { class: 'guide' },
       h('summary', {}, o.titulo, ' ', badge(o)),
       h('p', {}, o.texto),
-      o.referencia || f ? h('p', { class: 'meta' }, o.referencia || '', f ? ' — ' : '', f ? externalLink(f.url, 'ver fonte') : null) : null);
+      o.referencia ? h('p', { class: 'meta' }, o.referencia) : null,
+      lista.length ? h('ul', { class: 'sources' }, lista.map((f) => h('li', {}, externalLink(f.url, f.titulo)))) : null);
   }));
 }
 

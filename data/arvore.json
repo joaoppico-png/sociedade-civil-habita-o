@@ -874,38 +874,53 @@
     {
       "id": "r-pedir-documentos",
       "titulo": "Pedir documentos sobre um projeto ou decisão",
-      "resumo": "Qualquer pessoa pode pedir acesso a documentos administrativos sem ter de explicar porquê, com as exceções previstas na lei. Prepara o pedido com o nosso gerador e entrega-o tu à entidade que tem os documentos.",
+      "resumo": "Podes pedir a uma entidade pública os documentos que ela tem — contratos, atas, projetos, relatórios — sem explicar porquê. Há exceções: documentos com dados pessoais de outras pessoas, segredos comerciais e alguns outros casos protegidos por lei. Se o processo ainda estiver a decorrer e for teu, aplicam-se regras próprias. Antes de pedir, vê se o documento já está publicado, por exemplo no Portal BASE, no caso dos contratos públicos.",
       "municipal": false,
       "regras": [
         {
-          "texto": "Todos têm direito de acesso aos documentos administrativos, sem necessidade de enunciar qualquer interesse, salvo as restrições legais.",
+          "texto": "Todos têm direito de acesso aos documentos administrativos, sem necessidade de enunciar qualquer interesse. O direito inclui consultar, obter cópia e saber se o documento existe e o que contém.",
           "referencia": "Lei n.º 26/2016, art. 5.º",
           "fonte": "lada"
         },
         {
+          "texto": "Há restrições: documentos com dados pessoais de terceiros só são acessíveis com autorização do titular ou interesse direto, pessoal e legítimo demonstrado; o mesmo vale para segredos comerciais. Também pode haver adiamento enquanto a decisão não for tomada. Sempre que possível, a entidade deve dar acesso à parte não protegida.",
+          "referencia": "Lei n.º 26/2016, art. 6.º, n.os 3, 5, 6 e 8",
+          "fonte": "lada"
+        },
+        {
+          "texto": "Se o processo ainda estiver em curso e te disser diretamente respeito, o direito à informação rege-se pelo Código do Procedimento Administrativo (resposta em 10 dias). Nos processos de obras e licenciamento, o RJUE dá-te o direito de consultar o processo e pedir certidões em 10 dias e informação em 15 dias.",
+          "referencia": "LADA, art. 1.º, n.º 4, al. a); CPA, arts. 82.º a 85.º; RJUE, art. 110.º",
+          "fonte": "cpa"
+        },
+        {
           "texto": "O pedido é escrito e contém o nome, dados de identificação, dados de contacto e assinatura de quem pede.",
           "referencia": "Lei n.º 26/2016, art. 12.º, n.º 1",
-          "fonte": "cada-parecer-240-2026"
+          "fonte": "lada"
         },
         {
           "texto": "A entidade tem 10 dias úteis para responder; em casos excecionais, até 2 meses, com aviso fundamentado em 10 dias.",
-          "referencia": "Lei n.º 26/2016, art. 15.º",
-          "fonte": "cada-parecer-038-2025"
+          "referencia": "Lei n.º 26/2016, art. 15.º; CPA, art. 87.º",
+          "fonte": "lada"
         },
         {
           "texto": "Sem resposta, recusa ou acesso parcial, podes apresentar queixa à CADA no prazo de 20 dias corridos.",
           "referencia": "Lei n.º 26/2016, art. 16.º",
           "fonte": "cada-parecer-518-2026"
+        },
+        {
+          "texto": "O Portal BASE publica informação sobre a formação e execução de contratos públicos, incluindo contratos, anexos e modificações. Os segredos comerciais e os dados pessoais são retirados, e a informação fica visível 10 anos.",
+          "referencia": "Portaria n.º 318-B/2023, arts. 2.º a 4.º e 6.º; CCP, arts. 127.º, 315.º e 465.º",
+          "fonte": "portaria-base"
         }
       ],
       "entidades": [
         {
           "id": "camara-municipal",
-          "papel": "Detém processos de obras, projetos municipais de habitação e atas."
+          "papel": "Tem os processos de obras, os contratos e projetos municipais de habitação e as atas."
         },
         {
           "id": "ihru",
-          "papel": "Detém documentos de programas nacionais e de projetos financiados."
+          "papel": "Tem documentos dos programas nacionais de habitação e dos projetos que financia."
         },
         {
           "id": "cada",
@@ -913,10 +928,11 @@
         }
       ],
       "passos": [
-        "Identifica a entidade que tem os documentos.",
+        "Se for um contrato público, procura-o primeiro no Portal BASE. Se não o encontrares, isso não significa que não exista.",
+        "Identifica a entidade que tem os documentos e vê no site dela o modelo de pedido e o canal para o entregar.",
         "Descreve os documentos com o máximo de precisão: datas, números de processo, nomes de projetos.",
-        "Gera o requerimento, revê-o, assina-o e entrega-o pelo canal oficial da entidade.",
-        "Guarda o comprovativo de entrega e a data."
+        "Gera o requerimento, revê-o, assina-o e entrega-o pelo canal oficial.",
+        "Guarda o comprovativo de entrega. A partir dessa data contam 10 dias úteis para a resposta."
       ],
       "documentos": [
         "Dados que identifiquem os documentos: número de processo, data, nome do projeto"
@@ -933,18 +949,22 @@
       ],
       "fontes": [
         "lada",
-        "cada-parecer-240-2026",
-        "cada-parecer-038-2025",
+        "cpa",
+        "dl-108-2026",
         "cada-parecer-518-2026",
-        "cada-site",
+        "portaria-base",
+        "dl-177-2026",
         "base"
       ],
       "limitacoes": [
-        "Alguns documentos têm acesso restrito, por exemplo dados pessoais de terceiros ou segredo comercial. Nesses casos podes pedir acesso parcial."
+        "O Portal BASE não é um arquivo de todos os documentos administrativos: só cobre contratação pública, oculta informação protegida e mostra os últimos 10 anos. Para o resto, faz um pedido à entidade.",
+        "Documentos com dados pessoais de outras pessoas, como candidaturas a apoios à habitação, só são acessíveis com autorização do titular, com interesse legítimo demonstrado ou em versão anonimizada.",
+        "A LADA não se aplica a registos prediais, documentos notariais, dados protegidos por segredo fiscal e outros regimes especiais.",
+        "A relação entre o RJUE e a LADA para processos de obras já concluídos e o funcionamento prático do Portal BASE ainda estão por confirmar."
       ],
       "estado": "por-confirmar",
       "verificadoEm": null,
-      "revisaoPrevista": "2027-01-31",
+      "revisaoPrevista": "2027-04-30",
       "responsavel": "Por atribuir"
     },
     {

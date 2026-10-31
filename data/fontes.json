@@ -5,7 +5,7 @@
   "fontes": [
     {
       "id": "lada",
-      "titulo": "Lei n.º 26/2016, de 22 de agosto — Lei de Acesso aos Documentos Administrativos (LADA), versão consolidada",
+      "titulo": "Lei n.º 26/2016, de 22 de agosto — Lei de Acesso aos Documentos Administrativos (LADA), versão consolidada (última alteração: Lei n.º 68/2021, em vigor desde 27/08/2021)",
       "emissor": "Diário da República",
       "tipo": "legislacao",
       "url": "https://diariodarepublica.pt/dr/legislacao-consolidada/lei/2016-106603618",
@@ -213,7 +213,7 @@
     },
     {
       "id": "base",
-      "titulo": "Portal BASE — contratos públicos",
+      "titulo": "Portal BASE — contratos públicos (gerido pelo IMPIC)",
       "emissor": "IMPIC",
       "tipo": "institucional",
       "url": "https://www.base.gov.pt/",
@@ -340,6 +340,97 @@
       "verificadoEm": "2026-10-31",
       "revisaoPrevista": "2027-04-30",
       "responsavel": "João Pico"
+    },
+    {
+      "id": "cpa",
+      "titulo": "Código do Procedimento Administrativo (Decreto-Lei n.º 4/2015), versão consolidada — arts. 17.º, 82.º a 85.º, 87.º, 102.º e 104.º",
+      "emissor": "Diário da República",
+      "tipo": "legislacao",
+      "url": "https://diariodarepublica.pt/dr/legislacao-consolidada/decreto-lei/2015-105602322",
+      "dataPublicacao": "2015-01-07",
+      "ligacaoVerificadaEm": "2026-10-31",
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-04-30",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "cada-parecer-202-2026",
+      "titulo": "Parecer da CADA n.º 202/2026 (29 de abril de 2026) — consulta e envio por e-mail gratuitos; digitalização de documentos em papel pode ter encargos",
+      "emissor": "CADA",
+      "tipo": "institucional",
+      "url": "https://www.cada.pt/files/pareceres/2026/202.pdf",
+      "dataPublicacao": null,
+      "ligacaoVerificadaEm": "2026-10-31",
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-04-30",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "cada-parecer-445-2024",
+      "titulo": "Parecer da CADA n.º 445/2024 (6 de novembro de 2024) — encargos da digitalização; procedimentos em curso regem-se pelo CPA",
+      "emissor": "CADA",
+      "tipo": "institucional",
+      "url": "https://www.cada.pt/files/pareceres/2024/445.pdf",
+      "dataPublicacao": null,
+      "ligacaoVerificadaEm": "2026-10-31",
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-04-30",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "portaria-base",
+      "titulo": "Portaria n.º 318-B/2023, de 25 de outubro — funcionamento e gestão do Portal BASE (retificada pela Declaração de Retificação n.º 33-B/2023)",
+      "emissor": "Diário da República",
+      "tipo": "legislacao",
+      "url": "https://diariodarepublica.pt/dr/detalhe/portaria/318-b-2023-223338607",
+      "dataPublicacao": "2023-10-25",
+      "ligacaoVerificadaEm": "2026-10-31",
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-04-30",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "dl-177-2026",
+      "titulo": "Decreto-Lei n.º 177/2026, de 4 de setembro — altera e republica o Código dos Contratos Públicos (em vigor desde 1/10/2026); arts. 127.º, 315.º e 465.º do CCP",
+      "emissor": "Diário da República",
+      "tipo": "legislacao",
+      "url": "https://diariodarepublica.pt/dr/detalhe/decreto-lei/177-2026-1166969779",
+      "dataPublicacao": "2026-09-04",
+      "ligacaoVerificadaEm": "2026-10-31",
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-04-30",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "dl-108-2026",
+      "titulo": "Decreto-Lei n.º 108/2026, de 29 de maio — revisão do RJUE, em vigor desde 1/10/2026 (Decreto-Lei n.º 155-B/2026); art. 110.º do RJUE (direito à informação)",
+      "emissor": "Diário da República",
+      "tipo": "legislacao",
+      "url": "https://diariodarepublica.pt/dr/detalhe/decreto-lei/108-2026-1128002421",
+      "dataPublicacao": "2026-05-29",
+      "ligacaoVerificadaEm": "2026-10-31",
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-04-30",
+      "responsavel": "Por atribuir"
+    },
+    {
+      "id": "cml-reproducao",
+      "titulo": "Câmara Municipal de Lisboa — Reprodução simples de documento (Loja Lisboa Online e lojas presenciais; taxa comunicada após análise)",
+      "emissor": "Câmara Municipal de Lisboa",
+      "tipo": "institucional",
+      "url": "https://servicos.lisboa.pt/pedidos/detalhe/reproducao-simples-de-documento",
+      "dataPublicacao": null,
+      "ligacaoVerificadaEm": "2026-10-31",
+      "estado": "por-confirmar",
+      "verificadoEm": null,
+      "revisaoPrevista": "2027-04-30",
+      "responsavel": "Por atribuir"
     }
   ]
 }

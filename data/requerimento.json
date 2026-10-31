@@ -11,12 +11,12 @@
   "modalidades": [
     {
       "id": "consulta",
-      "rotulo": "Consulta presencial, nos serviços da entidade",
-      "texto": "consulta gratuita nos serviços que os detêm"
+      "rotulo": "Consulta (gratuita), presencial nos serviços ou eletrónica",
+      "texto": "consulta gratuita, eletrónica ou presencial, nos serviços que os detêm"
     },
     {
       "id": "copia-eletronica",
-      "rotulo": "Cópia em formato eletrónico, enviada por e-mail",
+      "rotulo": "Cópia eletrónica, enviada por e-mail (o envio é gratuito; digitalizar papel pode ter custo)",
       "texto": "reprodução em formato eletrónico, enviada para o endereço de correio eletrónico indicado",
       "exigeEmail": true
     },
@@ -56,14 +56,18 @@
     },
     {
       "id": "entrega",
-      "titulo": "Como entregar",
-      "texto": "Entrega o requerimento pelo canal oficial da entidade: presencialmente (pede um recibo com a data), por carta registada com aviso de receção, ou pelo e-mail ou formulário que a entidade indique. Num envio eletrónico, conta a data de envio. Guarda o comprovativo: é a partir dessa data que contam os prazos. Este site não envia nada por ti.",
-      "referencia": "CPA, art. 104.º",
-      "fonte": "cada-parecer-518-2026",
+      "titulo": "Como entregar o pedido e como recebes os documentos",
+      "texto": "Pedido: faz o pedido por escrito e assina-o. Podes entregá-lo nos serviços (conta a data de entrega; pede recibo), por correio registado (conta a data do registo) ou por e-mail ou plataforma da entidade (conta a data de envio, a qualquer hora). Usa o modelo da entidade, se existir: a lei obriga-a a publicá-lo no site, com a forma, o meio e o local para pedir. Podes usar outro texto, desde que tenha os elementos obrigatórios. Por e-mail, anexa o requerimento assinado; a assinatura digital qualificada (Cartão de Cidadão ou Chave Móvel Digital) dá mais garantias. A entidade pode aceitar pedidos verbais, mas, para poderes depois queixar-te à CADA, precisas de um pedido escrito ou de uma recusa por escrito. Documentos: escolhes entre consulta (presencial ou eletrónica), reprodução (fotocópia ou cópia digital) ou certidão. Documentos que já existam em formato digital são enviados por meio eletrónico quando isso for possível. Se o documento estiver publicado na Internet, a entidade pode limitar-se a indicar onde está, a menos que demonstres que não o consegues usar. A entidade não é obrigada a criar documentos novos nem a fazer extratos que exijam um esforço desproporcionado. Este site não envia nada por ti.",
+      "referencia": "Lei n.º 26/2016, arts. 12.º, n.os 1 a 5, e 13.º; CPA, art. 104.º",
+      "fonte": "lada",
       "estado": "por-confirmar",
       "verificadoEm": null,
-      "revisaoPrevista": "2027-01-31",
-      "responsavel": "Por atribuir"
+      "revisaoPrevista": "2027-04-30",
+      "responsavel": "Por atribuir",
+      "fontes": [
+        "lada",
+        "cpa"
+      ]
     },
     {
       "id": "prazo",
@@ -79,13 +83,18 @@
     {
       "id": "custos",
       "titulo": "Custos",
-      "texto": "A consulta é gratuita. A reprodução e as certidões podem ter encargos, segundo as taxas definidas pela entidade.",
-      "referencia": "Lei n.º 26/2016",
+      "texto": "Gratuito: a consulta, presencial ou eletrónica, e o envio por e-mail. Pode ter custo: as fotocópias, as certidões e a digitalização de documentos que só existam em papel (se o documento já estiver digitalizado, o envio por e-mail não tem custo). Também pode haver custos de envio por correio e, quando a lei o exija, de anonimização. A taxa tem de corresponder ao custo do serviço, sem ultrapassar o valor médio de mercado, e cobre um único exemplar. Cada entidade deve publicar no site, e afixar ao público, a lista de taxas e as isenções. Câmaras e outras entidades com poder tributário próprio podem ter tabela própria. Isenções: beneficiários de apoio judiciário (para a informação necessária ao processo) e vítimas de violência doméstica (nos casos previstos). Antes de pedires cópias, pergunta quanto custa ou opta pela consulta ou pelo envio eletrónico.",
+      "referencia": "Lei n.º 26/2016, arts. 13.º, n.º 1, al. a), e 14.º; Pareceres CADA 202/2026 e 445/2024",
       "fonte": "lada",
       "estado": "por-confirmar",
       "verificadoEm": null,
-      "revisaoPrevista": "2027-01-31",
-      "responsavel": "Por atribuir"
+      "revisaoPrevista": "2027-04-30",
+      "responsavel": "Por atribuir",
+      "fontes": [
+        "lada",
+        "cada-parecer-202-2026",
+        "cada-parecer-445-2024"
+      ]
     },
     {
       "id": "reacao",
@@ -104,7 +113,7 @@
     "referenciaResposta": "Lei n.º 26/2016, art. 15.º, n.º 1; CPA, art. 87.º",
     "prazoQueixaCADADias": 20,
     "referenciaQueixa": "Lei n.º 26/2016, art. 16.º, n.º 1; Parecer CADA, Proc. n.º 518/2026",
-    "contagem": "Resposta: 10 dias úteis a contar do dia seguinte à entrega (excluem-se sábados, domingos e feriados nacionais; não incluímos feriados municipais nem tolerâncias de ponto). Queixa à CADA sem resposta: 20 dias corridos, a contar do dia seguinte ao fim do prazo de resposta; se o último dia não for útil, passa para o dia útil seguinte. Uma queixa apresentada antes de terminar o prazo de resposta é considerada intempestiva. Se a entidade prorrogar o prazo ou responder com recusa, as datas mudam.",
+    "contagem": "Resposta: 10 dias úteis a contar do dia seguinte à apresentação do pedido (entrega nos serviços, registo postal ou envio eletrónico) (excluem-se sábados, domingos e feriados nacionais; não incluímos feriados municipais nem tolerâncias de ponto, que também suspendem a contagem quando o serviço está fechado). Queixa à CADA sem resposta: 20 dias corridos, a contar do dia seguinte ao fim do prazo de resposta; se o último dia não for útil, passa para o dia útil seguinte. Uma queixa apresentada antes de terminar o prazo de resposta é considerada intempestiva. Se a entidade prorrogar o prazo ou responder com recusa, as datas mudam.",
     "fontes": [
       "lada",
       "cada-parecer-518-2026"
