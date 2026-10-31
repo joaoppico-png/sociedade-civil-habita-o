@@ -103,6 +103,13 @@
 
             <fieldset data-tipos="insistencia">
               <legend>Sobre o pedido original</legend>
+              <div class="field" role="group" aria-labelledby="motivo-ins-label">
+                <p class="label" id="motivo-ins-label">O que aconteceu ao pedido?</p>
+                <div class="radio"><input type="radio" id="ins-sem" name="motivoInsistencia" value="sem-resposta" checked><label for="ins-sem">Não recebi resposta</label></div>
+                <div class="radio"><input type="radio" id="ins-parcial" name="motivoInsistencia" value="resposta-parcial"><label for="ins-parcial">Recebi só parte dos documentos, sem explicação</label></div>
+                <div class="radio"><input type="radio" id="ins-recusa" name="motivoInsistencia" value="recusa-sem-fundamento"><label for="ins-recusa">Recusaram sem explicar porquê</label></div>
+                <p class="hint">Uma insistência não reinicia o prazo da queixa à CADA: esse prazo conta a partir do fim do prazo de resposta ou da decisão recebida.</p>
+              </div>
               <div class="field">
                 <label for="dataPedido">Data em que entregaste o pedido</label>
                 <input type="date" id="dataPedido" name="dataPedido" required>
@@ -141,9 +148,16 @@
                 <p class="hint" id="consequencias-hint">Por exemplo: «A humidade impede usar o quarto» ou «Há risco de queda do teto». Só factos.</p>
                 <textarea id="consequencias" name="consequencias" rows="3" maxlength="3000" aria-describedby="consequencias-hint"></textarea>
               </div>
+              <div class="field" role="group" aria-labelledby="urgencia-label">
+                <p class="label" id="urgencia-label">Qual é a gravidade?</p>
+                <div class="radio"><input type="radio" id="urg-risco" name="urgencia" value="risco"><label for="urg-risco">Há risco para a segurança ou a saúde (eletricidade, gás, estrutura, água a entrar)</label></div>
+                <div class="radio"><input type="radio" id="urg-grave" name="urgencia" value="grave"><label for="urg-grave">Impede usar parte da casa</label></div>
+                <div class="radio"><input type="radio" id="urg-normal" name="urgencia" value="normal" checked><label for="urg-normal">Precisa de reparação, sem urgência</label></div>
+                <p class="hint">Se houver perigo imediato, liga 112. Em reparações urgentes a lei tem regras próprias: vê a ficha «Obras de conservação».</p>
+              </div>
               <div class="field">
-                <label for="prazoDias">Prazo que propões, em dias</label>
-                <p class="hint" id="prazoDias-hint">Um prazo razoável para o senhorio iniciar as obras. A lei não fixa um número para este pedido.</p>
+                <label for="prazoDias">Prazo que propões para o senhorio responder, em dias</label>
+                <p class="hint" id="prazoDias-hint">É uma proposta tua, não um prazo legal. Para situações de risco, propõe um prazo curto.</p>
                 <input type="number" id="prazoDias" name="prazoDias" min="1" max="180" inputmode="numeric" aria-describedby="prazoDias-hint" required>
               </div>
             </fieldset>
@@ -152,7 +166,7 @@
               <legend>Os teus dados</legend>
               <p class="hint" data-hint-lada>Num pedido de documentos, a lei exige o nome, dados de identificação, um contacto e a assinatura de quem pede. Nada disto sai do teu computador.</p>
               <div class="field"><label for="nome">Nome completo</label><input type="text" id="nome" name="nome" maxlength="160" autocomplete="off" required></div>
-              <div class="field" data-campo-identificacao><label for="identificacao">Documento de identificação e número</label><p class="hint" id="identificacao-hint">Por exemplo: «Cartão de Cidadão n.º 12345678». Obrigatório nos pedidos a entidades públicas.</p><input type="text" id="identificacao" name="identificacao" maxlength="80" autocomplete="off" aria-describedby="identificacao-hint"></div>
+              <div class="field" data-campo-identificacao><label for="identificacao">Dados de identificação</label><p class="hint" id="identificacao-hint">Por exemplo: «Cartão de Cidadão n.º 12345678», passaporte ou NIF. A lei pede dados de identificação pessoal, sem exigir um documento específico.</p><input type="text" id="identificacao" name="identificacao" maxlength="80" autocomplete="off" aria-describedby="identificacao-hint"></div>
               <div class="field"><label for="morada">Morada</label><input type="text" id="morada" name="morada" maxlength="300" autocomplete="off" required></div>
               <div class="field"><label for="email">E-mail <span class="optional">(indica e-mail ou telefone; o e-mail é obrigatório para receber cópias por e-mail)</span></label><input type="email" id="email" name="email" maxlength="160" autocomplete="off"></div>
               <div class="field"><label for="telefone">Telefone <span class="optional">(opcional se indicares e-mail)</span></label><input type="tel" id="telefone" name="telefone" maxlength="30" autocomplete="off"></div>
@@ -173,6 +187,7 @@
               <label for="texto-final">Texto do documento</label>
               <textarea id="texto-final" class="document" spellcheck="true"></textarea>
             </div>
+            <div class="alert alert--warning"><p class="alert__title">Falta assinar</p><p>A linha de assinatura não é uma assinatura. Assina à mão depois de imprimires, ou assina o PDF com Cartão de Cidadão ou Chave Móvel Digital, antes de entregar.</p></div>
             <div class="actions">
               <button type="button" class="btn btn--primary" id="btn-copiar">Copiar texto</button>
               <button type="button" class="btn btn--secondary" id="btn-txt">Descarregar .txt</button>

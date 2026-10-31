@@ -17,8 +17,8 @@ test('LADA e insistência exigem identificação e um contacto (art. 12.º, n.º
   assert.deepEqual(validar('lada', d), {});
   assert.ok(validar('lada', { ...d, identificacao: '' }).identificacao);
   assert.ok(validar('lada', { ...d, telefone: '' }).email);
-  assert.ok(validar('insistencia', { ...base, entidade: 'IHRU', dataPedido: '2026-09-01', identificacao: '' }).identificacao);
-  const senhorio = { ...base, identificacao: '', telefone: '', destinatario: 'J', moradaImovel: 'R', problemas: 'P', prazoDias: '30' };
+  assert.ok(validar('insistencia', { ...base, entidade: 'IHRU', dataPedido: '2026-09-01', motivoInsistencia: 'sem-resposta', identificacao: '' }).identificacao);
+  const senhorio = { ...base, identificacao: '', telefone: '', destinatario: 'J', moradaImovel: 'R', problemas: 'P', urgencia: 'normal', prazoDias: '30' };
   assert.deepEqual(validar('senhorio-obras', senhorio), {});
 });
 
@@ -39,7 +39,7 @@ test('LADA: gera requerimento completo com lei, documentos numerados, modalidade
   assert.match(t, /expurgo/);
   assert.match(t, /_{10,}\nMaria Silva\n$/);
   assert.match(t, /Prédio da Rua B/);
-  assert.match(t, /Maria Silva, titular do documento de identificação Cartão de Cidadão n\.º 12345678, residente em/);
+  assert.match(t, /Maria Silva, com os seguintes dados de identificação: Cartão de Cidadão n\.º 12345678, residente em/);
 });
 
 test('insistência refere a data do pedido original e a CADA', () => {
@@ -49,11 +49,11 @@ test('insistência refere a data do pedido original e a CADA', () => {
 });
 
 test('carta ao senhorio não invoca a LADA e valida o prazo', () => {
-  const d = { ...base, destinatario: 'João Costa', moradaImovel: 'Rua C, 2', problemas: 'Infiltração na cozinha', prazoDias: '30' };
+  const d = { ...base, destinatario: 'João Costa', moradaImovel: 'Rua C, 2', problemas: 'Infiltração na cozinha', urgencia: 'normal', prazoDias: '30' };
   assert.deepEqual(validar('senhorio-obras', d), {});
   const t = gerarSenhorioObras(d);
   assert.doesNotMatch(t, /26\/2016/);
-  assert.match(t, /prazo de 30 dias/);
+  assert.match(t, /no prazo de 30 dias/);
   assert.ok(validar('senhorio-obras', { ...d, prazoDias: '0' }).prazoDias);
   assert.ok(validar('senhorio-obras', { ...d, prazoDias: '2.5' }).prazoDias);
 });
@@ -87,7 +87,7 @@ test('Q21: insistência mantém a data do pedido original e não reinicia prazos
 });
 
 test('Q21: carta ao senhorio pede calendário, reserva direitos e nunca anuncia desconto ou suspensão da renda', () => {
-  const t = gerarSenhorioObras({ ...base, destinatario: 'J', moradaImovel: 'Rua C', problemas: 'Infiltração', prazoDias: '30', consequencias: 'Quarto inutilizável', desde: 'março de 2026' });
+  const t = gerarSenhorioObras({ ...base, destinatario: 'J', moradaImovel: 'Rua C', problemas: 'Infiltração', urgencia: 'normal', prazoDias: '30', consequencias: 'Quarto inutilizável', desde: 'março de 2026' });
   assert.match(t, /respetivo calendário/);
   assert.match(t, /sem prejuízo dos direitos legalmente previstos/);
   assert.match(t, /Quarto inutilizável/);
@@ -95,6 +95,26 @@ test('Q21: carta ao senhorio pede calendário, reserva direitos e nunca anuncia 
 });
 
 test('Q21: campos vazios não produzem factos inventados', () => {
-  const t = gerarSenhorioObras({ ...base, destinatario: 'J', moradaImovel: 'Rua C', problemas: 'Infiltração', prazoDias: '30' });
+  const t = gerarSenhorioObras({ ...base, destinatario: 'J', moradaImovel: 'Rua C', problemas: 'Infiltração', urgencia: 'normal', prazoDias: '30' });
   assert.doesNotMatch(t, /detetados em|afetam a utilização|undefined|null/);
+});
+
+test('4.ª revisão: insistência distingue três situações e rejeita data do pedido posterior', () => {
+  const b = { ...base, entidade: 'IHRU', dataPedido: '2026-09-01' };
+  assert.match(gerarInsistencia({ ...b, motivoInsistencia: 'sem-resposta' }), /não obteve, até à presente data, resposta/);
+  assert.match(gerarInsistencia({ ...b, motivoInsistencia: 'resposta-parcial' }), /apenas resposta parcial/);
+  const r = gerarInsistencia({ ...b, motivoInsistencia: 'recusa-sem-fundamento' });
+  assert.match(r, /Pedido de fundamentação da recusa/);
+  assert.match(r, /artigo 15\.º, n\.º 1, alínea c\)/);
+  assert.ok(validar('insistencia', { ...b, motivoInsistencia: 'sem-resposta', dataPedido: '2026-12-01' }).dataPedido);
+  assert.ok(validar('insistencia', { ...b, motivoInsistencia: 'inventado' }).motivoInsistencia);
+});
+
+test('4.ª revisão: carta ao senhorio separa resposta e execução e marca o risco', () => {
+  const d = { ...base, destinatario: 'J', moradaImovel: 'Rua C', problemas: 'Fios elétricos expostos', prazoDias: '3' };
+  const risco = gerarSenhorioObras({ ...d, urgencia: 'risco' });
+  assert.match(risco, /risco para a segurança ou a saúde/);
+  assert.match(risco, /Solicito igualmente resposta a esta comunicação no prazo de 3 dias/);
+  assert.doesNotMatch(gerarSenhorioObras({ ...d, urgencia: 'normal' }), /risco para a segurança/);
+  assert.ok(validar('senhorio-obras', { ...d, urgencia: '' }).urgencia);
 });

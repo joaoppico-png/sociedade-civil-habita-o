@@ -436,6 +436,12 @@
           "origem": "Investigação documental 3 (não assinada por advogado; declara-o expressamente)",
           "resumo": "Carta sem a antecedência legal pode não produzir a cessação na data indicada (acórdão da Relação de Lisboa de 2026, citado); não presumir aproveitamento para renovação seguinte.",
           "verificacaoNossa": "Aplicada a redação recomendada sobre carta tardia."
+        },
+        {
+          "data": "2026-10-31",
+          "origem": "Revisão documental 4 das questões críticas (não assinada por advogado; declara-o expressamente)",
+          "resumo": "Aprovo com alterações: antecedências do 1097.º; carta tardia pode não produzir cessação na data indicada e pode, em certas circunstâncias, produzir efeitos numa renovação posterior (RL 05/03/2026, proc. 961/25.7YLPRT.L1-2; RL 08/02/2022, proc. 966/21.7YLPRT.L1-7); contrato pode prever antecedência maior (RL 29/04/2025).",
+          "verificacaoNossa": "Aplicada a redação; acórdãos não lidos por nós."
         }
       ],
       "estadoInvestigacao": "respondida",
@@ -471,6 +477,12 @@
           "origem": "Investigação documental 3 (não assinada por advogado; declara-o expressamente)",
           "resumo": "Propõe questionário de 8 perguntas: data do contrato (antes de 15/11/1990, até 27/06/2006, depois), prazo, aditamentos, fundamento, receção, condições pessoais (NRAU art. 36.º), dívidas, uso anterior do art. 1084.º, n.º 3.",
           "verificacaoNossa": "Aplicado: perguntas sobre data do contrato e motivo da carta, com regras condicionais. Falta: condições pessoais, aditamentos e regimes de transição detalhados."
+        },
+        {
+          "data": "2026-10-31",
+          "origem": "Revisão documental 4 das questões críticas (não assinada por advogado; declara-o expressamente)",
+          "resumo": "Aprovo com alterações: regimes transitórios (NRAU 26.º–28.º; 28.º, n.º 2, afasta a denúncia com 5 anos nos contratos anteriores ao RAU); mecanismos de mora (CC 1041.º, n.º 2; 1083.º, n.os 3, 4 e 6; 1084.º, n.os 3 e 4; 1048.º).",
+          "verificacaoNossa": "Todas estas normas lidas por nós no DR e aplicadas, incluindo NRAU 26.º, n.º 4, al. c). Falta pergunta específica sobre notificação do BAS dentro deste percurso (existe percurso próprio)."
         }
       ],
       "estadoInvestigacao": "respondida",
@@ -505,6 +517,12 @@
           "origem": "Investigação documental 3 (não assinada por advogado; declara-o expressamente)",
           "resumo": "15 dias (NRAU 15.º-F); notificação indica prazo (15.º-D, n.º 4, al. b)); interrupção por pedido de patrono se o comprovativo for junto aos autos (Lei n.º 34/2004, art. 24.º, n.os 4 e 5).",
           "verificacaoNossa": "Jurisprudência confirma que a interrupção exige junção do comprovativo aos autos durante o prazo; o Acórdão do TC n.º 515/2020 declarou inconstitucional uma interpretação do art. 24.º, n.º 5, al. a), não referida na 3.ª investigação — por isso o site não indica quando o prazo recomeça. Lei n.º 34/2004 não lida por nós no DR."
+        },
+        {
+          "data": "2026-10-31",
+          "origem": "Revisão documental 4 das questões críticas (não assinada por advogado; declara-o expressamente)",
+          "resumo": "Aprovo com alterações: 15 dias (NRAU 15.º-F); interrupção por pedido de nomeação de patrono se o comprovativo chegar ao processo dentro do prazo (Lei 34/2004, art. 24.º, n.º 4; STJ 19/09/2024, proc. 4833/23.1T8MTS.P1.S1); reinício segundo o n.º 5 e o Acórdão do TC 515/2020. Não aprova calculador automático.",
+          "verificacaoNossa": "Aplicada a redação proposta, sem data de reinício. Lei 34/2004 continua não lida por nós no DR."
         }
       ],
       "estadoInvestigacao": "respondida",
@@ -573,6 +591,12 @@
           "origem": "Investigação documental 3 (não assinada por advogado; declara-o expressamente)",
           "resumo": "Confirma a nossa leitura: art. 25.º, n.º 2, prevê direito de recurso; n.º 3 revogado. Meio e prazo dependem do ato (reclamação 15 dias, recurso hierárquico 30 dias, impugnação 3 meses como referências gerais); competência Gebalis/Câmara depende do contrato e de delegação.",
           "verificacaoNossa": "Coincide com o texto consolidado lido por nós. Aplicada a redação recomendada."
+        },
+        {
+          "data": "2026-10-31",
+          "origem": "Revisão documental 4 das questões críticas (não assinada por advogado; declara-o expressamente)",
+          "resumo": "Aprovo com alterações: direito de recurso (art. 25.º, n.º 2) e n.º 3 revogado; contrato administrativo e tribunais administrativos (art. 17.º); meio e prazo dependem do ato; reclamação não suspende necessariamente.",
+          "verificacaoNossa": "Art. 17.º lido por nós no DR e aplicado. Sem prazo fixo publicado."
         }
       ],
       "estadoInvestigacao": "respondida",
@@ -708,11 +732,17 @@
           "origem": "Investigação documental 3 (não assinada por advogado; declara-o expressamente)",
           "resumo": "Lei 10/2024, arts. 3.º, 4.º, 6.º, 7.º, 11.º, 12.º, 15.º; matriz de risco por funcionalidade; requisitos técnicos (bloquear resultados definitivos sem dados, encaminhar casos de despejo).",
           "verificacaoNossa": "Não verificado de novo por nós nesta ronda."
+        },
+        {
+          "data": "2026-10-31",
+          "origem": "Revisão documental 4 das questões críticas (não assinada por advogado; declara-o expressamente)",
+          "resumo": "Aprovo com alterações: texto de limites do serviço; a conformidade com a Lei 10/2024 depende do comportamento real das funcionalidades; regras: não declarar validade individual, não gerar peças processuais, encaminhar casos críticos.",
+          "verificacaoNossa": "Texto aplicado em «Sobre». O site não declara validade de cartas nem gera peças processuais. Falta revisão funcional por advogado."
         }
       ],
       "estadoInvestigacao": "respondida",
       "estadoValidacaoProfissional": "pendente",
-      "estadoAplicacaoSite": "parcial",
+      "estadoAplicacaoSite": "aplicada",
       "parecerAssinado": null
     },
     {
@@ -742,11 +772,17 @@
           "origem": "Investigação documental 3 (não assinada por advogado; declara-o expressamente)",
           "resumo": "Requisitos e cláusulas propostos para os três modelos e 9 testes obrigatórios; código não examinado.",
           "verificacaoNossa": "Aplicadas as cláusulas propostas (remessa, expurgo, fundamentação, data do pedido original, calendário e reserva de direitos, sem desconto de renda) e 6 testes novos. Falta revisão por advogado."
+        },
+        {
+          "data": "2026-10-31",
+          "origem": "Revisão documental 4 das questões críticas (não assinada por advogado; declara-o expressamente)",
+          "resumo": "Aprovo com alterações (leu requerimento.js): identificação proporcional, aviso de assinatura visível, insistência com três situações e validação de datas, carta ao senhorio com gravidade e separação entre resposta e execução.",
+          "verificacaoNossa": "Tudo aplicado e testado (48 testes)."
         }
       ],
       "estadoInvestigacao": "respondida",
       "estadoValidacaoProfissional": "pendente",
-      "estadoAplicacaoSite": "parcial",
+      "estadoAplicacaoSite": "aplicada",
       "parecerAssinado": null
     }
   ]

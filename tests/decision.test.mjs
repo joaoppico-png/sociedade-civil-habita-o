@@ -87,7 +87,11 @@ test('Q13: a carta para sair mostra só as regras do motivo indicado e avisa sob
   const rendas = res('antes-1990', 'rendas');
   assert.ok(rendas.regras.some((g) => /1084/.test(g.referencia)));
   assert.ok(!rendas.regras.some((g) => /1097/.test(g.referencia)));
-  assert.ok(rendas.limitacoes.some((l) => /anterior ao NRAU/.test(l)));
+  assert.ok(rendas.limitacoes.some((l) => /anterior a novembro de 1990/.test(l)));
+  assert.ok(rendas.regras.some((g) => /1041/.test(g.referencia)) && rendas.regras.some((g) => /1048/.test(g.referencia)));
+  const den = res('antes-1990', 'denuncia');
+  assert.ok(den.regras.some((g) => /28\.º, n\.º 2/.test(g.referencia)));
+  assert.ok(!res('depois-2006', 'denuncia').regras.some((g) => /28\.º, n\.º 2/.test(g.referencia)));
   assert.ok(rendas.passos.every((p) => typeof p === 'string'));
 });
 

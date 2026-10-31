@@ -222,7 +222,7 @@
           "id": "antes-1990",
           "rotulo": "Antes de novembro de 1990",
           "define": {
-            "contrato": "antigo"
+            "contrato": "pre-rau"
           },
           "seguinte": "carta-motivo"
         },
@@ -230,7 +230,7 @@
           "id": "1990-2006",
           "rotulo": "Entre novembro de 1990 e junho de 2006",
           "define": {
-            "contrato": "antigo"
+            "contrato": "rau"
           },
           "seguinte": "carta-motivo"
         },
@@ -519,7 +519,7 @@
     {
       "id": "r-despejo",
       "titulo": "Recebi uma carta do senhorio para sair",
-      "resumo": "Uma carta do senhorio não é uma ordem de despejo, mas pode pôr fim ao contrato se cumprir a lei. Tudo depende do tipo de contrato, do motivo, da antecedência e da forma como foi enviada. Não saias nem ignores a carta antes de confirmar estes pontos com apoio jurídico.",
+      "resumo": "Uma carta do senhorio não significa necessariamente que tens de sair já. Pode pôr fim ao contrato se cumprir a lei, mas tudo depende do tipo de contrato, da data em que foi celebrado, do motivo, da antecedência e da forma como foi enviada. Guarda a carta e confirma os teus direitos antes de decidir.",
       "municipal": false,
       "regras": [
         {
@@ -539,7 +539,7 @@
           }
         },
         {
-          "texto": "Contratos sem prazo: o senhorio só pode denunciar por necessidade de habitação própria ou dos filhos, por obras profundas que obriguem a sair (com aviso de pelo menos 6 meses e o motivo escrito na carta), ou com aviso de pelo menos 5 anos.",
+          "texto": "Contratos sem prazo: o senhorio pode denunciar por necessidade de habitação própria ou dos filhos, ou por obras profundas que obriguem a sair, com aviso de pelo menos 6 meses e o motivo escrito na carta. Pode ainda denunciar com aviso de pelo menos 5 anos, mas esta possibilidade tem exceções nos contratos antigos.",
           "referencia": "Código Civil, arts. 1101.º e 1103.º, n.º 1",
           "fonte": "codigo-civil",
           "se": {
@@ -547,8 +547,50 @@
           }
         },
         {
-          "texto": "Com rendas em atraso de 3 meses ou mais, o senhorio pode resolver o contrato por carta. A resolução fica sem efeito se o inquilino pagar o que deve no prazo de um mês, mas só uma vez em cada contrato.",
-          "referencia": "Código Civil, arts. 1083.º, n.º 3, e 1084.º, n.os 2 a 4",
+          "texto": "Nos contratos anteriores a novembro de 1990, o senhorio não pode usar a denúncia com aviso de 5 anos.",
+          "referencia": "NRAU, arts. 27.º e 28.º, n.º 2",
+          "fonte": "nrau",
+          "se": {
+            "motivo": "denuncia",
+            "contrato": "pre-rau"
+          }
+        },
+        {
+          "texto": "Nos contratos sem prazo celebrados entre 1990 e 2006, o senhorio não pode usar a denúncia com aviso de 5 anos se o inquilino tiver 65 anos ou mais, ou incapacidade comprovada de pelo menos 60%.",
+          "referencia": "NRAU, art. 26.º, n.º 4, al. c)",
+          "fonte": "nrau",
+          "se": {
+            "motivo": "denuncia",
+            "contrato": "rau"
+          }
+        },
+        {
+          "texto": "Se pagares nos primeiros 8 dias de atraso, o senhorio deixa de poder resolver o contrato ou exigir a indemnização por esse atraso.",
+          "referencia": "Código Civil, art. 1041.º, n.º 2",
+          "fonte": "codigo-civil",
+          "se": {
+            "motivo": "rendas"
+          }
+        },
+        {
+          "texto": "O senhorio pode resolver o contrato por carta com rendas em atraso de 3 meses ou mais. A resolução fica sem efeito se pagares o que deves no prazo de um mês, mas só uma vez em cada contrato.",
+          "referencia": "Código Civil, arts. 1083.º, n.º 3, e 1084.º, n.os 3 e 4",
+          "fonte": "codigo-civil",
+          "se": {
+            "motivo": "rendas"
+          }
+        },
+        {
+          "texto": "Também pode resolver se houver mais de quatro atrasos superiores a 8 dias em 12 meses, mas só se te tiver avisado por carta registada, depois do terceiro atraso, de que o faria. Neste caso, pagar depois não anula a resolução.",
+          "referencia": "Código Civil, art. 1083.º, n.os 4 e 6",
+          "fonte": "codigo-civil",
+          "se": {
+            "motivo": "rendas"
+          }
+        },
+        {
+          "texto": "Se o senhorio pedir a resolução em tribunal, o direito caduca se pagares as rendas em falta e uma indemnização de 20% até ao fim do prazo para contestar, também só uma vez por contrato.",
+          "referencia": "Código Civil, arts. 1041.º, n.º 1, e 1048.º",
           "fonte": "codigo-civil",
           "se": {
             "motivo": "rendas"
@@ -585,7 +627,7 @@
       "passos": [
         "Anota a data em que recebeste a carta e guarda o envelope.",
         {
-          "texto": "Vê no contrato o prazo e a data da última renovação, e conta os dias até ao fim do prazo: compara com a antecedência mínima.",
+          "texto": "Vê no contrato o prazo e a data da última renovação, e conta os dias até ao fim do prazo: compara com a antecedência mínima. O contrato pode prever uma antecedência maior do que a da lei.",
           "se": {
             "motivo": "renovacao"
           }
@@ -597,7 +639,13 @@
           }
         },
         {
-          "texto": "Calcula o valor em atraso e confirma se já usaste antes, neste contrato, a possibilidade de pagar para anular a resolução: só se pode usar uma vez.",
+          "texto": "Reúne as datas e os valores de todas as rendas em atraso, quantos atrasos superiores a 8 dias houve nos últimos 12 meses e se já recebeste algum aviso por carta registada.",
+          "se": {
+            "motivo": "rendas"
+          }
+        },
+        {
+          "texto": "Confirma se já usaste antes, neste contrato, a possibilidade de pagar para anular a resolução: só se pode usar uma vez.",
           "se": {
             "motivo": "rendas"
           }
@@ -636,9 +684,15 @@
       ],
       "limitacoes": [
         {
-          "texto": "O teu contrato é anterior ao NRAU (2006): pode ter regras de transição próprias, que esta ficha não descreve. Confirma com apoio jurídico.",
+          "texto": "O teu contrato é anterior a novembro de 1990: aplicam-se regras de transição próprias (NRAU, arts. 27.º a 37.º), que esta ficha não descreve por inteiro. Confirma com apoio jurídico.",
           "se": {
-            "contrato": "antigo"
+            "contrato": "pre-rau"
+          }
+        },
+        {
+          "texto": "O teu contrato foi celebrado entre 1990 e 2006: aplicam-se especificidades do NRAU, art. 26.º. Confirma com apoio jurídico.",
+          "se": {
+            "contrato": "rau"
           }
         },
         {
@@ -647,8 +701,14 @@
             "contrato": "desconhecido"
           }
         },
-        "Se o senhorio não respeitou a antecedência legal, a carta pode não produzir a cessação na data indicada. O resultado depende do contrato, da data de receção e da lei aplicável. Não abandones a casa só porque recebeste a carta, mas também não a ignores.",
-        "Esta ficha não calcula se a tua carta é válida."
+        {
+          "texto": "Quando a antecedência não é respeitada, a carta pode não produzir a cessação na data indicada. Em certas circunstâncias, poderá produzir efeitos numa renovação posterior: depende do contrato, da forma e da data de receção.",
+          "se": {
+            "motivo": "renovacao"
+          }
+        },
+        "Não abandones a casa só porque recebeste uma carta, mas também não a ignores.",
+        "Esta ficha não decide se a tua carta é válida nem se o contrato terminou."
       ],
       "estado": "por-confirmar",
       "verificadoEm": null,
@@ -1472,11 +1532,12 @@
         }
       ],
       "passos": [
-        "Guarda a notificação completa, com o envelope, o aviso de receção e os anexos.",
-        "Confirma a data em que foste notificado e o prazo indicado na notificação.",
-        "Procura apoio jurídico urgente. Se não tiveres meios, pede apoio judiciário na Segurança Social.",
-        "Se pedires nomeação de advogado oficioso, junta ao processo o comprovativo desse pedido antes de o prazo terminar. Sem essa junção, o prazo pode continuar a correr.",
-        "Não ignores a taxa de justiça, a caução nem as rendas que se vençam durante o procedimento.",
+        "Verifica imediatamente a data da notificação e o prazo nela indicado. Guarda a comunicação completa e todos os documentos.",
+        "Se não tens meios económicos, pede apoio judiciário, incluindo a nomeação de advogado oficioso (patrono).",
+        "O comprovativo do pedido de nomeação de patrono tem de chegar ao processo dentro do prazo. Não assumas que basta apresentar o pedido na Segurança Social para a contagem parar.",
+        "Se for nomeado um patrono, ou se o pedido for recusado, o prazo recomeça segundo regras próprias, ligadas às notificações que receberes: confirma a data com o patrono ou com apoio jurídico.",
+        "A oposição pode exigir taxa de justiça e caução, salvo isenção ou apoio judiciário.",
+        "Procura apoio jurídico imediatamente: uma oposição tardia pode ter consequências graves para a manutenção da casa.",
         "Se estiveres em risco de ficar sem casa, contacta a ação social da câmara ou a Linha 144."
       ],
       "documentos": [
@@ -1518,6 +1579,11 @@
         {
           "texto": "A resolução do contrato pelo senhorio público faz-se por comunicação fundamentada, depois de ouvir o arrendatário, que tem sempre direito de recorrer da decisão.",
           "referencia": "Lei n.º 81/2014, art. 25.º, n.º 2",
+          "fonte": "lei-81-2014"
+        },
+        {
+          "texto": "O contrato de arrendamento apoiado é um contrato administrativo; as questões sobre a sua invalidade ou cessação são decididas pelos tribunais administrativos.",
+          "referencia": "Lei n.º 81/2014, art. 17.º, n.os 2 e 3",
           "fonte": "lei-81-2014"
         },
         {
@@ -1589,7 +1655,8 @@
         "provedor-justica-site"
       ],
       "limitacoes": [
-        "Não presumas que o prazo é igual ao de um despejo privado, nem que uma reclamação suspende automaticamente a decisão.",
+        "O prazo e o meio de reação dependem da decisão concreta e da entidade que a tomou. Não se aplica automaticamente o prazo do despejo do arrendamento privado.",
+        "Uma reclamação não suspende necessariamente a decisão. Em situações urgentes pode ser preciso recorrer aos tribunais administrativos ou pedir uma providência cautelar.",
         "Não se pode dizer em geral se decide a Câmara ou a empresa municipal: depende do contrato e das delegações de poderes."
       ],
       "estado": "por-confirmar",

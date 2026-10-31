@@ -21,7 +21,7 @@ let dados;
 
 const ROTULOS = {
   entidade: 'Entidade', documentos: 'Documentos pretendidos', modalidade: 'Forma de acesso', nome: 'Nome completo',
-  identificacao: 'Documento de identificação',
+  identificacao: 'Dados de identificação', motivoInsistencia: 'O que aconteceu ao pedido', urgencia: 'Gravidade',
   morada: 'Morada', email: 'E-mail', local: 'Localidade', data: 'Data', dataPedido: 'Data do pedido original',
   destinatario: 'Nome do senhorio', moradaImovel: 'Morada da casa arrendada', problemas: 'Problemas', prazoDias: 'Prazo proposto'
 };
@@ -140,6 +140,8 @@ function limparErros() {
 function campoDe(nome) {
   if (nome === 'entidade') return form.elements.entidadeId.value === 'outra' ? form.elements.entidadeOutra : form.elements.entidadeId;
   if (nome === 'modalidade') return document.getElementById('modalidades').querySelector('input');
+  if (nome === 'motivoInsistencia') return document.getElementById('ins-sem');
+  if (nome === 'urgencia') return document.getElementById('urg-risco');
   return form.elements[nome];
 }
 

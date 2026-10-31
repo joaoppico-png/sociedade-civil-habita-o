@@ -8,8 +8,8 @@ export const LIMITES = { curto: 160, medio: 300, longo: 3000, linhas: 25 };
 
 export const TIPOS = {
   lada: { obrigatorios: ['entidade', 'documentos', 'modalidade', 'nome', 'identificacao', 'morada', 'local', 'data'], exigeContacto: true },
-  insistencia: { obrigatorios: ['entidade', 'nome', 'identificacao', 'morada', 'local', 'data', 'dataPedido'], exigeContacto: true },
-  'senhorio-obras': { obrigatorios: ['destinatario', 'moradaImovel', 'problemas', 'prazoDias', 'nome', 'morada', 'local', 'data'] }
+  insistencia: { obrigatorios: ['entidade', 'nome', 'identificacao', 'morada', 'local', 'data', 'dataPedido', 'motivoInsistencia'], exigeContacto: true },
+  'senhorio-obras': { obrigatorios: ['destinatario', 'moradaImovel', 'problemas', 'urgencia', 'prazoDias', 'nome', 'morada', 'local', 'data'] }
 };
 
 /** Remove caracteres de controlo (exceto mudança de linha), normaliza espaços e corta no limite. */
@@ -44,6 +44,9 @@ export function validar(tipo, dados, opcoes = {}) {
   if (tipo === 'lada' && opcoes.modalidadeExigeEmail && !dados.email) erros.email = 'Para receberes cópias por e-mail, indica o teu endereço de e-mail.';
   if (dados.data && !parseDate(dados.data)) erros.data = 'Indica uma data válida.';
   if (tipo === 'insistencia' && dados.dataPedido && !parseDate(dados.dataPedido)) erros.dataPedido = 'Indica uma data válida.';
+  if (tipo === 'insistencia' && parseDate(dados.dataPedido) && parseDate(dados.data) && dados.dataPedido > dados.data) erros.dataPedido = 'A data do pedido original não pode ser posterior à data desta insistência.';
+  if (tipo === 'insistencia' && dados.motivoInsistencia && !INSISTENCIA[dados.motivoInsistencia]) erros.motivoInsistencia = MENSAGENS.motivoInsistencia;
+  if (tipo === 'senhorio-obras' && dados.urgencia && !Object.hasOwn(URGENCIA, dados.urgencia)) erros.urgencia = MENSAGENS.urgencia;
   if (tipo === 'senhorio-obras' && dados.prazoDias !== undefined && dados.prazoDias !== '') {
     const n = Number(dados.prazoDias);
     if (!Number.isInteger(n) || n < 1 || n > 180) erros.prazoDias = 'Indica um número de dias entre 1 e 180.';
@@ -66,7 +69,23 @@ const MENSAGENS = {
   destinatario: 'Indica o nome do senhorio.',
   moradaImovel: 'Indica a morada da casa arrendada.',
   problemas: 'Descreve pelo menos um problema.',
-  prazoDias: 'Indica o prazo, em dias, que propões ao senhorio.'
+  prazoDias: 'Indica o prazo, em dias, que propões ao senhorio para responder.',
+  motivoInsistencia: 'Escolhe o que aconteceu ao pedido original.',
+  urgencia: 'Indica a gravidade da situação.'
+};
+
+/** Três situações diferentes que justificam insistir (não são procedimentos equivalentes). */
+export const INSISTENCIA = {
+  'sem-resposta': (data) => `apresentou em ${data} um pedido de acesso a documentos administrativos ao abrigo da Lei n.º 26/2016, de 22 de agosto, ao qual não obteve, até à presente data, resposta.`,
+  'resposta-parcial': (data) => `apresentou em ${data} um pedido de acesso a documentos administrativos ao abrigo da Lei n.º 26/2016, de 22 de agosto, ao qual foi dada apenas resposta parcial, sem que tenham sido facultados todos os documentos pedidos nem indicados os fundamentos para não o fazer.`,
+  'recusa-sem-fundamento': (data) => `apresentou em ${data} um pedido de acesso a documentos administrativos ao abrigo da Lei n.º 26/2016, de 22 de agosto, que foi recusado sem que tenham sido comunicados por escrito os fundamentos da recusa, como exige o artigo 15.º, n.º 1, alínea c), da mesma lei.`
+};
+
+/** Classificação factual da gravidade indicada pelo inquilino (não determina o regime jurídico). */
+export const URGENCIA = {
+  risco: 'Considerando que a situação representa risco para a segurança ou a saúde de quem vive na casa, solicito que a mesma seja tratada com a máxima urgência.',
+  grave: 'A situação impede a utilização normal de parte da habitação.',
+  normal: null
 };
 
 function cabecalho(d) {
@@ -79,7 +98,7 @@ function assinatura(d) {
 }
 
 function identificacao(d) {
-  return `titular do documento de identificação ${limpar(d.identificacao, 80)}`;
+  return `com os seguintes dados de identificação: ${limpar(d.identificacao, 80)}`;
 }
 
 function lista(itens) { return itens.map((t, i) => `${i + 1}. ${t}`).join('\n'); }
@@ -116,8 +135,8 @@ export function gerarInsistencia(d) {
     cabecalho(d),
     `Exmo.(a) Senhor(a)\n${limpar(d.cargo) || 'Responsável pelo acesso à informação'}\n${limpar(d.entidade)}`,
     `${limpar(d.local)}, ${formatDate(d.data) || limpar(d.data)}`,
-    `Assunto: Insistência — pedido de acesso a documentos administrativos de ${formatDate(d.dataPedido) || limpar(d.dataPedido)}${ref ? ` (ref.ª ${ref})` : ''}`,
-    `${limpar(d.nome)}, ${identificacao(d)}, residente em ${limpar(d.morada)}, apresentou em ${formatDate(d.dataPedido) || limpar(d.dataPedido)} um pedido de acesso a documentos administrativos ao abrigo da Lei n.º 26/2016, de 22 de agosto, ao qual não obteve, até à presente data, resposta.`,
+    `Assunto: ${d.motivoInsistencia === 'recusa-sem-fundamento' ? 'Pedido de fundamentação da recusa' : 'Insistência'} — pedido de acesso a documentos administrativos de ${formatDate(d.dataPedido) || limpar(d.dataPedido)}${ref ? ` (ref.ª ${ref})` : ''}`,
+    `${limpar(d.nome)}, ${identificacao(d)}, residente em ${limpar(d.morada)}, ${(INSISTENCIA[d.motivoInsistencia] || INSISTENCIA['sem-resposta'])(formatDate(d.dataPedido) || limpar(d.dataPedido))}`,
     `Reitero integralmente o pedido apresentado em ${formatDate(d.dataPedido) || limpar(d.dataPedido)}, que mantém essa data de apresentação, e solicito a V. Ex.ª que me seja comunicada, com a maior brevidade, a decisão sobre o mesmo, nos termos do artigo 15.º da referida lei.`,
     'Esta insistência é feita sem prejuízo dos meios de reação previstos na Lei n.º 26/2016, incluindo a queixa à Comissão de Acesso aos Documentos Administrativos (CADA).',
     assinatura(d)
@@ -138,7 +157,9 @@ export function gerarSenhorioObras(d) {
     lista(problemas),
     d.desde ? `Os problemas foram detetados em ${limpar(d.desde, 80)}.` : null,
     d.consequencias ? `Estes problemas afetam a utilização da habitação da seguinte forma: ${limpar(d.consequencias, LIMITES.longo)}` : null,
-    `Nos termos do contrato de arrendamento e da lei aplicável, solicito a V. Ex.ª a avaliação e a realização das reparações necessárias à reposição das condições adequadas de utilização do imóvel, propondo para o efeito o prazo de ${prazo} dias a contar da receção desta comunicação, e que me indique as medidas previstas e o respetivo calendário, para que possa facultar o acesso ao imóvel.`,
+    URGENCIA[d.urgencia] || null,
+    'Nos termos do contrato de arrendamento e da lei aplicável, solicito a V. Ex.ª a avaliação e a realização das reparações necessárias à reposição das condições adequadas de utilização do imóvel.',
+    `Solicito igualmente resposta a esta comunicação no prazo de ${prazo} dias a contar da sua receção, com a indicação das medidas previstas e do respetivo calendário de execução, para que possa facultar o acesso ao imóvel.`,
     'Disponho de registo fotográfico, que posso facultar.',
     'A presente comunicação é feita sem prejuízo dos direitos legalmente previstos para situações urgentes ou de incumprimento.',
     assinatura(d)
