@@ -326,18 +326,28 @@
     {
       "id": "r-contrato",
       "titulo": "Dúvidas sobre contrato, renda ou atualização da renda",
-      "resumo": "As regras do arrendamento estão no Código Civil e no Novo Regime do Arrendamento Urbano (NRAU). O Portal da Habitação explica o regime. Para um caso concreto, procura aconselhamento jurídico.",
+      "resumo": "As regras do arrendamento de casas estão no Código Civil (arts. 1064.º e seguintes) e no NRAU. O contrato deve ser escrito. A atualização da renda segue o que o contrato disser; se nada disser, pode ser feita uma vez por ano, com o coeficiente oficial, avisando por escrito com 30 dias de antecedência. Para um caso concreto, procura aconselhamento jurídico.",
       "municipal": false,
       "regras": [
         {
-          "texto": "O contrato de arrendamento urbano rege-se pelo Código Civil e pelo NRAU.",
-          "referencia": "Código Civil, art. 1064.º e seguintes; NRAU",
+          "texto": "O contrato de arrendamento de prédios urbanos rege-se pelos arts. 1064.º e seguintes do Código Civil.",
+          "referencia": "Código Civil, art. 1064.º",
           "fonte": "codigo-civil"
         },
         {
-          "texto": "O coeficiente anual de atualização das rendas é publicado em Diário da República. Confirma o valor do ano em causa.",
-          "referencia": "NRAU",
-          "fonte": "portal-nrau"
+          "texto": "O contrato deve ser escrito. Se não o for por razão que não seja culpa do inquilino, este pode provar o arrendamento por qualquer meio, por exemplo mostrando que vive na casa sem oposição do senhorio e que paga a renda mensalmente há seis meses.",
+          "referencia": "Código Civil, art. 1069.º",
+          "fonte": "codigo-civil"
+        },
+        {
+          "texto": "As partes estipulam por escrito se a renda pode ser atualizada e como. Se nada tiverem acordado, a renda pode ser atualizada uma vez por ano com o coeficiente oficial; a primeira atualização só pode ser pedida um ano após o início do contrato; o senhorio comunica por escrito, com pelo menos 30 dias de antecedência, o coeficiente e a nova renda.",
+          "referencia": "Código Civil, art. 1077.º",
+          "fonte": "codigo-civil"
+        },
+        {
+          "texto": "O coeficiente anual corresponde à variação do índice de preços no consumidor, sem habitação, apurada pelo INE, e é publicado em Diário da República até 30 de outubro de cada ano.",
+          "referencia": "NRAU, art. 24.º",
+          "fonte": "nrau"
         }
       ],
       "entidades": [
@@ -348,14 +358,11 @@
         {
           "id": "seguranca-social",
           "papel": "Proteção jurídica, se precisares de advogado e não o puderes pagar."
-        },
-        {
-          "id": "julgados-paz",
-          "papel": "Resolução de litígios, se não houver acordo."
         }
       ],
       "passos": [
         "Relê o contrato: duração, renovação, valor da renda, regras de atualização e obras.",
+        "Se receberes um aumento de renda, confirma se o contrato o prevê, se passou um ano desde o início ou desde o último aumento, se o coeficiente é o do ano em causa e se foste avisado por escrito com 30 dias de antecedência.",
         "Consulta a informação sobre o NRAU no Portal da Habitação.",
         "Antes de responderes por escrito a uma alteração ao contrato, procura aconselhamento jurídico."
       ],
@@ -376,16 +383,18 @@
       ],
       "fontes": [
         "codigo-civil",
+        "nrau",
         "portal-nrau",
         "seg-social-protecao-juridica"
       ],
       "limitacoes": [
-        "As regras aplicáveis dependem da data e do tipo de contrato. Contratos antigos podem ter regimes de transição."
+        "Contratos antigos (anteriores a 1990 ou ao NRAU, de 2006) podem ter regimes de transição próprios, que esta ficha não descreve.",
+        "Esta ficha não confirma se um aumento concreto é válido."
       ],
-      "estado": "por-confirmar",
-      "verificadoEm": null,
-      "revisaoPrevista": "2027-01-31",
-      "responsavel": "Por atribuir"
+      "estado": "verificado",
+      "verificadoEm": "2026-10-31",
+      "revisaoPrevista": "2027-04-30",
+      "responsavel": "João Pico"
     },
     {
       "id": "r-despejo",
@@ -523,9 +532,15 @@
     {
       "id": "r-emergencia",
       "titulo": "Estou sem casa ou em risco de ficar sem casa",
-      "resumo": "Liga para a Linha Nacional de Emergência Social, 144. É gratuita e funciona 24 horas por dia (confirma as condições no site da Segurança Social). Contacta também os serviços de ação social da câmara municipal. Se houver perigo imediato, liga 112.",
+      "resumo": "Liga para a Linha Nacional de Emergência Social, 144: segundo o Governo, funciona 24 horas por dia, todos os dias do ano, para quem esteja sem condições mínimas de sobrevivência ou precise de apoio social urgente. Contacta também os serviços de ação social da câmara municipal. Se houver perigo imediato para a vida ou a segurança, liga 112.",
       "municipal": true,
-      "regras": [],
+      "regras": [
+        {
+          "texto": "A Linha Nacional de Emergência Social, 144, funciona 24 horas por dia, 365 dias por ano, e destina-se a cidadãos em situação de desproteção e vulnerabilidade que precisem de apoio social.",
+          "referencia": "Governo de Portugal, 30/09/2021",
+          "fonte": "gov-lnes-2021"
+        }
+      ],
       "entidades": [
         {
           "id": "seguranca-social",
@@ -563,15 +578,17 @@
         }
       ],
       "fontes": [
+        "gov-lnes-2021",
         "linha-144"
       ],
       "limitacoes": [
-        "A Sociedade Civil — Habitação não presta apoio de emergência. Esta ficha só indica onde pedir ajuda."
+        "A Sociedade Civil — Habitação não presta apoio de emergência. Esta ficha só indica onde pedir ajuda.",
+        "A confirmação oficial mais recente que localizámos sobre a Linha 144 é de 2021; o site da Segurança Social não estava acessível na data da verificação."
       ],
-      "estado": "por-confirmar",
-      "verificadoEm": null,
-      "revisaoPrevista": "2027-01-31",
-      "responsavel": "Por atribuir"
+      "estado": "verificado",
+      "verificadoEm": "2026-10-31",
+      "revisaoPrevista": "2027-04-30",
+      "responsavel": "João Pico"
     },
     {
       "id": "r-porta65",
@@ -1093,27 +1110,49 @@
     {
       "id": "r-participar",
       "titulo": "Participar numa decisão sobre habitação",
-      "resumo": "Podes participar em consultas públicas nacionais, em discussões públicas de planos municipais e nas sessões públicas dos órgãos municipais. Vê o catálogo de oportunidades verificadas e os portais oficiais.",
+      "resumo": "As sessões da assembleia municipal são públicas e têm um período para intervenção e esclarecimento do público. A câmara municipal faz pelo menos uma reunião pública por mês, também com espaço para o público. As datas têm de ser divulgadas com pelo menos dois dias úteis de antecedência. As consultas públicas do Governo estão no portal Participa.gov.",
       "municipal": false,
-      "regras": [],
+      "regras": [
+        {
+          "texto": "As sessões dos órgãos deliberativos das autarquias (assembleia municipal e de freguesia) são públicas, com um período para intervenção e esclarecimento do público fixado no regimento.",
+          "referencia": "Lei n.º 75/2013, anexo I, art. 49.º, n.º 1",
+          "fonte": "lei-75-2013"
+        },
+        {
+          "texto": "Os órgãos executivos (câmara municipal e junta de freguesia) realizam pelo menos uma reunião pública por mês, também com período para o público.",
+          "referencia": "Lei n.º 75/2013, anexo I, art. 49.º, n.º 2",
+          "fonte": "lei-75-2013"
+        },
+        {
+          "texto": "Dias, horas e locais das sessões e reuniões são divulgados com pelo menos dois dias úteis de antecedência. As atas registam um resumo das intervenções do público e das respostas.",
+          "referencia": "Lei n.º 75/2013, anexo I, art. 49.º, n.os 3 e 6",
+          "fonte": "lei-75-2013"
+        },
+        {
+          "texto": "A assembleia municipal aprova os regulamentos municipais com eficácia externa e os planos e instrumentos de ordenamento do território e urbanismo, sob proposta da câmara.",
+          "referencia": "Lei n.º 75/2013, anexo I, art. 25.º, n.º 1, als. g), h) e r)",
+          "fonte": "lei-75-2013"
+        }
+      ],
       "entidades": [
         {
           "id": "governo",
-          "papel": "Consultas públicas sobre legislação e políticas nacionais."
+          "papel": "Consultas públicas sobre legislação e políticas nacionais, no portal Participa.gov."
         },
         {
           "id": "am-lisboa",
-          "papel": "Sessões públicas da Assembleia Municipal de Lisboa."
+          "papel": "Sessões públicas com período de intervenção do público; aprova regulamentos e planos municipais."
         },
         {
           "id": "cm-lisboa",
-          "papel": "Discussões públicas de planos e regulamentos municipais em Lisboa."
+          "papel": "Reuniões públicas da Câmara, pelo menos uma por mês."
         }
       ],
       "passos": [
         "Consulta o catálogo de oportunidades verificadas.",
-        "Confirma o prazo e as regras de participação na página oficial.",
-        "Envia o teu contributo pelo canal oficial e guarda o comprovativo."
+        "Vê no site da assembleia municipal ou da câmara as datas das próximas sessões públicas e as regras de inscrição para intervir, que constam do regimento.",
+        "Prepara uma intervenção curta e objetiva; podes pedir esclarecimentos.",
+        "Para consultas nacionais, confirma o prazo e as regras na página da consulta e guarda o comprovativo do teu contributo."
       ],
       "documentos": [],
       "acoes": [
@@ -1127,17 +1166,18 @@
         }
       ],
       "fontes": [
+        "lei-75-2013",
         "participa-gov",
-        "participa-pt",
         "am-lisboa-site"
       ],
       "limitacoes": [
-        "As regras de intervenção do público em cada órgão municipal estão por confirmar."
+        "O tempo e a forma de inscrição para intervir dependem do regimento de cada órgão.",
+        "Os períodos de discussão pública de planos e regulamentos têm regras próprias, que esta ficha ainda não descreve."
       ],
-      "estado": "por-confirmar",
-      "verificadoEm": null,
-      "revisaoPrevista": "2027-01-31",
-      "responsavel": "Por atribuir"
+      "estado": "verificado",
+      "verificadoEm": "2026-10-31",
+      "revisaoPrevista": "2027-04-30",
+      "responsavel": "João Pico"
     },
     {
       "id": "r-promessa",

@@ -37,10 +37,10 @@
       "url": "https://diariodarepublica.pt/dr/legislacao-consolidada/decreto-lei/1966-34509075",
       "dataPublicacao": "1966-11-25",
       "ligacaoVerificadaEm": "2026-10-31",
-      "estado": "por-confirmar",
-      "verificadoEm": null,
-      "revisaoPrevista": "2027-01-31",
-      "responsavel": "Por atribuir"
+      "estado": "verificado",
+      "verificadoEm": "2026-10-31",
+      "revisaoPrevista": "2027-04-30",
+      "responsavel": "João Pico"
     },
     {
       "id": "rjue",
@@ -63,10 +63,10 @@
       "url": "https://www.portaldahabitacao.pt/web/guest/nrau",
       "dataPublicacao": null,
       "ligacaoVerificadaEm": "2026-10-31",
-      "estado": "por-confirmar",
-      "verificadoEm": null,
-      "revisaoPrevista": "2027-01-31",
-      "responsavel": "Por atribuir"
+      "estado": "verificado",
+      "verificadoEm": "2026-10-31",
+      "revisaoPrevista": "2027-04-30",
+      "responsavel": "João Pico"
     },
     {
       "id": "portal-porta65",
@@ -193,10 +193,10 @@
       "url": "https://participa.gov.pt/",
       "dataPublicacao": null,
       "ligacaoVerificadaEm": "2026-10-31",
-      "estado": "por-confirmar",
-      "verificadoEm": null,
-      "revisaoPrevista": "2027-01-31",
-      "responsavel": "Por atribuir"
+      "estado": "verificado",
+      "verificadoEm": "2026-10-31",
+      "revisaoPrevista": "2027-04-30",
+      "responsavel": "João Pico"
     },
     {
       "id": "participa-pt",
@@ -440,10 +440,10 @@
       "url": "https://diariodarepublica.pt/dr/legislacao-consolidada/lei/2006-34578375",
       "dataPublicacao": "2006-02-27",
       "ligacaoVerificadaEm": "2026-10-31",
-      "estado": "por-confirmar",
-      "verificadoEm": null,
+      "estado": "verificado",
+      "verificadoEm": "2026-10-31",
       "revisaoPrevista": "2027-04-30",
-      "responsavel": "Por atribuir"
+      "responsavel": "João Pico"
     },
     {
       "id": "lei-81-2014",
@@ -522,6 +522,32 @@
       "verificadoEm": null,
       "revisaoPrevista": "2027-04-30",
       "responsavel": "Por atribuir"
+    },
+    {
+      "id": "lei-75-2013",
+      "titulo": "Lei n.º 75/2013, de 12 de setembro — regime jurídico das autarquias locais, versão consolidada (arts. 25.º e 49.º do anexo I)",
+      "emissor": "Diário da República",
+      "tipo": "legislacao",
+      "url": "https://diariodarepublica.pt/dr/legislacao-consolidada/lei/2013-56366098",
+      "dataPublicacao": "2013-09-12",
+      "ligacaoVerificadaEm": "2026-10-31",
+      "estado": "verificado",
+      "verificadoEm": "2026-10-31",
+      "revisaoPrevista": "2027-04-30",
+      "responsavel": "João Pico"
+    },
+    {
+      "id": "gov-lnes-2021",
+      "titulo": "Governo de Portugal — «Lançada Rede de Resposta Integrada em Emergência Social» (30/09/2021): Linha Nacional de Emergência Social 144, 24 horas por dia, 365 dias por ano",
+      "emissor": "Governo de Portugal",
+      "tipo": "institucional",
+      "url": "https://portugal.gov.pt/gc22/comunicacao/noticias/lancada-rede-de-resposta-integrada-em-emergencia-social",
+      "dataPublicacao": "2021-09-30",
+      "ligacaoVerificadaEm": "2026-10-31",
+      "estado": "verificado",
+      "verificadoEm": "2026-10-31",
+      "revisaoPrevista": "2027-04-30",
+      "responsavel": "João Pico"
     }
   ]
 }

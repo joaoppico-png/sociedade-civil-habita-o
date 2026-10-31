@@ -23,7 +23,7 @@ Estado no commit seguinte a `35bfc8c`. Verificações automáticas executadas ne
 | # | Falta | Onde | Quem |
 | --- | --- | --- | --- |
 | B1 | **Revisão por advogado inscrito** das 21 questões. As respostas atuais são preliminares e não estão assinadas. Prioridade às Q12–Q14 (despejo), Q16 (arrendamento apoiado, com contradição por resolver), Q20 e Q21 (responsabilidade e modelos) | `questoes-juridicas.html` | Advogado |
-| B2 | **0 de 16 fichas verificadas.** Só as 6 orientações do gerador estão verificadas | `data/arvore.json` | Editor + advogado |
+| B2 | **3 de 16 fichas verificadas** (contrato, emergência, participar — 31/10/2026, João Pico). As restantes 13 dependem das questões jurídicas | `data/arvore.json` | Editor + advogado |
 | B3 | **Responsável editorial, contacto e canal de correções** por definir | `sobre.html`, `config.json` | João Pico |
 | B4 | **Domínio final** por definir. Falta `canonical`/`og:url` e o sitemap aponta para `example.org` | `tools/set-domain.mjs` | João Pico |
 | B5 | **Decidir a política de publicação**: `mostrarPorConfirmar` está `true`. Para publicar só o verificado, passar a `false`, mas então o «Quem resolve?» fica quase vazio | `data/config.json` | João Pico |
@@ -67,5 +67,5 @@ Estado no commit seguinte a `35bfc8c`. Verificações automáticas executadas ne
 
 1. **B1:** entregar o caderno de questões impresso a um advogado, começando pelas Q12–Q14, Q16, Q20 e Q21.
 2. **B3 + B4:** definir o responsável editorial, o contacto e o domínio (30 minutos).
-3. **B2:** verificar primeiro as 3 fichas sem questões pendentes (`r-contrato`, `r-emergencia`, `r-participar`) e depois as de despejo, à medida que as respostas chegarem.
+3. **B2:** ~~verificar as 3 fichas sem questões pendentes~~ (feito); seguem-se as de despejo, à medida que as respostas do advogado chegarem.
 4. **C1 + C2:** só depois das respostas do advogado, para não reestruturar duas vezes.

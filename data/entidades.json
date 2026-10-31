@@ -74,19 +74,20 @@
       "nome": "Assembleia Municipal de Lisboa",
       "tipo": "publica",
       "ambito": "lisboa",
-      "competencias": "Órgão deliberativo do município. Aprova regulamentos e planos municipais e fiscaliza a Câmara; as sessões são públicas.",
+      "competencias": "Órgão deliberativo do município. Aprova, sob proposta da câmara, os regulamentos com eficácia externa, os planos e os instrumentos de ordenamento do território e urbanismo, e acompanha e fiscaliza a atividade da câmara e das empresas municipais. As sessões são públicas, com um período para intervenção do público.",
       "contacto": {
         "fonte": "am-lisboa-site",
         "notas": null
       },
       "fontes": [
-        "am-lisboa-site"
+        "am-lisboa-site",
+        "lei-75-2013"
       ],
       "aceitaLADA": true,
-      "estado": "por-confirmar",
-      "verificadoEm": null,
-      "revisaoPrevista": "2027-01-31",
-      "responsavel": "Por atribuir"
+      "estado": "verificado",
+      "verificadoEm": "2026-10-31",
+      "revisaoPrevista": "2027-04-30",
+      "responsavel": "João Pico"
     },
     {
       "id": "gebalis",
