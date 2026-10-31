@@ -428,3 +428,7 @@ html { scroll-padding-top: var(--s-4); }
 @media print {
   .collapsible > summary::after { content: none; }
 }
+
+/* Dentro de um iframe (WordPress): sem barra de topo e com margens menores */
+.em-iframe .topline { display: none; }
+.em-iframe main { padding-bottom: var(--s-6); }
