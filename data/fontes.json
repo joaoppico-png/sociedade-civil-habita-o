@@ -11,10 +11,10 @@
       "url": "https://diariodarepublica.pt/dr/legislacao-consolidada/lei/2016-106603618",
       "dataPublicacao": "2016-08-22",
       "ligacaoVerificadaEm": "2026-10-31",
-      "estado": "por-confirmar",
-      "verificadoEm": null,
-      "revisaoPrevista": "2027-01-31",
-      "responsavel": "Por atribuir"
+      "estado": "verificado",
+      "verificadoEm": "2026-10-31",
+      "revisaoPrevista": "2027-04-30",
+      "responsavel": "João Pico"
     },
     {
       "id": "lei-bases-habitacao",
@@ -349,10 +349,10 @@
       "url": "https://diariodarepublica.pt/dr/legislacao-consolidada/decreto-lei/2015-105602322",
       "dataPublicacao": "2015-01-07",
       "ligacaoVerificadaEm": "2026-10-31",
-      "estado": "por-confirmar",
-      "verificadoEm": null,
+      "estado": "verificado",
+      "verificadoEm": "2026-10-31",
       "revisaoPrevista": "2027-04-30",
-      "responsavel": "Por atribuir"
+      "responsavel": "João Pico"
     },
     {
       "id": "cada-parecer-202-2026",
@@ -362,10 +362,10 @@
       "url": "https://www.cada.pt/files/pareceres/2026/202.pdf",
       "dataPublicacao": null,
       "ligacaoVerificadaEm": "2026-10-31",
-      "estado": "por-confirmar",
-      "verificadoEm": null,
+      "estado": "verificado",
+      "verificadoEm": "2026-10-31",
       "revisaoPrevista": "2027-04-30",
-      "responsavel": "Por atribuir"
+      "responsavel": "João Pico"
     },
     {
       "id": "cada-parecer-445-2024",
@@ -375,10 +375,10 @@
       "url": "https://www.cada.pt/files/pareceres/2024/445.pdf",
       "dataPublicacao": null,
       "ligacaoVerificadaEm": "2026-10-31",
-      "estado": "por-confirmar",
-      "verificadoEm": null,
+      "estado": "verificado",
+      "verificadoEm": "2026-10-31",
       "revisaoPrevista": "2027-04-30",
-      "responsavel": "Por atribuir"
+      "responsavel": "João Pico"
     },
     {
       "id": "portaria-base",

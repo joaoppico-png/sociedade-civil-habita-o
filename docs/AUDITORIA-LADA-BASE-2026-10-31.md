@@ -233,7 +233,7 @@ Antes de pedires cópias, pergunta quanto custa ou opta pela consulta ou pelo en
 
 **Decisão final por ficha:** Como entregar — **VERIFICADO** (texto corrigido) · Custos — **VERIFICADO** (texto corrigido) · Pedir documentos — **POR CONFIRMAR**.
 
-No site, as três continuam `por-confirmar` até um responsável humano aprovar a mudança de estado.
+No site: «Como entregar» e «Custos» marcados `verificado` por João Pico em 31/10/2026 (revisão a 30/04/2027); «Pedir documentos» continua `por-confirmar`.
 
 ---
 
@@ -258,7 +258,7 @@ No site, as três continuam `por-confirmar` até um responsável humano aprovar 
 
 | # | Diligência | Responsável recomendado | Prioridade | Condição de conclusão |
 | --- | --- | --- | --- | --- |
-| 1 | Aprovar a passagem de «Como entregar» e «Custos» a `verificado` | Responsável editorial (João Pico) | Alta | Estado alterado em `data/requerimento.json` com nome e data |
+| 1 | ~~Aprovar a passagem de «Como entregar» e «Custos» a `verificado`~~ — **feito em 31/10/2026 por João Pico** | Responsável editorial | — | Concluído |
 | 2 | Parecer sobre RJUE 110.º vs. LADA para processos urbanísticos concluídos | Jurista (direito administrativo/urbanismo) | Alta | Regra P5 confirmada ou reescrita |
 | 3 | Teste manual do Portal BASE: pesquisar um contrato municipal de reabilitação em Lisboa e abrir o contrato e os anexos | Editor | Alta | Captura e URL de um contrato real registados na ficha |
 | 4 | Confirmar se existe tabela nacional de taxas (LADA 14.º/2) e se a entidade pode exigir pagamento prévio | Jurista | Média | Diploma identificado ou ausência documentada |
