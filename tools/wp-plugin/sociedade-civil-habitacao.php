@@ -18,6 +18,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+define( 'SCH_HABITACAO_VERSAO', 'dev' );
+
 /**
  * [sociedade_civil_habitacao pagina="index.html" altura="900"]
  *
@@ -37,7 +39,7 @@ function sch_habitacao_shortcode( $atts ) {
 	$permitidas = array( 'index.html', 'quem-resolve.html', 'pedir-documentos.html', 'participar.html', 'sobre.html', 'questoes-juridicas.html' );
 	$pagina     = in_array( $atts['pagina'], $permitidas, true ) ? $atts['pagina'] : 'index.html';
 	$altura     = max( 400, min( 5000, intval( $atts['altura'] ) ) );
-	$src        = plugins_url( 'site/' . $pagina, __FILE__ );
+	$src        = add_query_arg( 'v', SCH_HABITACAO_VERSAO, plugins_url( 'site/' . $pagina, __FILE__ ) );
 	$id         = 'sch-habitacao-' . wp_rand( 1000, 999999 );
 
 	ob_start();

@@ -23,19 +23,34 @@ const site = path.join(plugin, 'site');
 await rm(trabalho, { recursive: true, force: true });
 await mkdir(site, { recursive: true });
 
-await cp(path.join(raiz, 'tools', 'wp-plugin', `${nome}.php`), path.join(plugin, `${nome}.php`));
+// Versão por data e hora: o WordPress mostra a atualização e os browsers não usam ficheiros antigos.
+const versao = `1.0.${new Date().toISOString().slice(0, 16).replace(/[-:T]/g, '')}`;
+const php = (await readFile(path.join(raiz, 'tools', 'wp-plugin', `${nome}.php`), 'utf8'))
+  .replace(/Version:(\s+)[\d.]+/, `Version:$1${versao}`)
+  .replace("define( 'SCH_HABITACAO_VERSAO', 'dev' );", `define( 'SCH_HABITACAO_VERSAO', '${versao}' );`);
+await writeFile(path.join(plugin, `${nome}.php`), php);
 const paginas = (await readdir(raiz)).filter((f) => f.endsWith('.html') && f !== '404.html');
 for (const f of paginas) {
   let html = await readFile(path.join(raiz, f), 'utf8');
   html = html.replace(/<meta name="robots" content="[^"]*">/, `<meta name="robots" content="${indexar ? 'index, follow' : 'noindex, nofollow'}">`);
+  html = html.replace(/(href|src)="(assets\/[^"?]+\.(?:css|js))"/g, `$1="$2?v=${versao}"`);
   await writeFile(path.join(site, f), html);
 }
 await cp(path.join(raiz, 'assets'), path.join(site, 'assets'), { recursive: true });
+// Versionar os imports entre módulos, para que uma atualização chegue logo a quem já visitou.
+for (const sub of ['core', 'lib', 'pages']) {
+  const dir = path.join(site, 'assets', 'js', sub);
+  for (const f of await readdir(dir)) {
+    const ficheiro = path.join(dir, f);
+    const js = await readFile(ficheiro, 'utf8');
+    await writeFile(ficheiro, js.replace(/from '(\.\.?\/[^']+\.js)'/g, `from '$1?v=${versao}'`));
+  }
+}
 await cp(path.join(raiz, 'data'), path.join(site, 'data'), { recursive: true, filter: (src) => !src.includes(`${path.sep}schemas`) });
 await writeFile(path.join(site, 'index.php'), '<?php // Silêncio.\n');
 
 await writeFile(path.join(plugin, 'readme.txt'), `=== Sociedade Civil — Habitação ===
-Stable tag: 1.0.0
+Stable tag: ${versao}
 License: GPL-2.0-or-later
 
 Ferramenta cívica de habitação em Portugal: quem resolve o teu problema, pedidos de documentos administrativos e participação.
@@ -53,11 +68,11 @@ Exemplo: [sociedade_civil_habitacao pagina="quem-resolve.html"]
 
 == Notas ==
 - Versão de teste (${hoje}): as páginas da ferramenta têm ${indexar ? 'indexação permitida' : 'noindex'} e a maior parte dos conteúdos está «por confirmar».
-- Para atualizar: gerar novo ZIP (node tools/build-wp-plugin.mjs), desativar e apagar a versão antiga, carregar a nova.
+- Para atualizar: Plugins → Adicionar novo → Carregar plugin → escolher o ZIP novo → «Substituir a versão atual pela carregada». As páginas com o shortcode não mudam.
 - Nada é guardado na base de dados do WordPress; os dados escritos no gerador ficam só no browser de quem os escreve.
 `);
 
 const zip = `${nome}-wp-${hoje}.zip`;
 await rm(path.join(raiz, 'dist', zip), { force: true });
 execFileSync('zip', ['-qr', path.join('..', zip), nome], { cwd: trabalho });
-console.log(`\nPlugin pronto: dist/${zip}`);
+console.log(`\nPlugin pronto: dist/${zip} (versão ${versao})`);
