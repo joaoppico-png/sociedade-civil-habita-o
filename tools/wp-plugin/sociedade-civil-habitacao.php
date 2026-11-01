@@ -42,11 +42,20 @@ function sch_habitacao_shortcode( $atts ) {
 	$src        = add_query_arg( 'v', SCH_HABITACAO_VERSAO, plugins_url( 'site/' . $pagina, __FILE__ ) );
 	$id         = 'sch-habitacao-' . wp_rand( 1000, 999999 );
 
+	// Origem esperada das mensagens, calculada aqui e não a partir de frame.src no browser:
+	// plugins de lazy load (ex.: Smush) trocam o src por uma imagem data: e a origem seria «null».
+	$partes = wp_parse_url( $src );
+	$origem = $partes['scheme'] . '://' . $partes['host'] . ( isset( $partes['port'] ) ? ':' . $partes['port'] : '' );
+
 	ob_start();
 	?>
 	<div class="sch-embed">
 		<iframe
 			id="<?php echo esc_attr( $id ); ?>"
+			class="no-lazyload skip-lazy"
+			data-no-lazy="1"
+			data-skip-lazy="1"
+			loading="eager"
 			title="<?php echo esc_attr__( 'Sociedade Civil — Habitação: quem resolve o teu problema de habitação', 'sociedade-civil-habitacao' ); ?>"
 			src="<?php echo esc_url( $src ); ?>"
 			referrerpolicy="strict-origin-when-cross-origin"
@@ -61,7 +70,15 @@ function sch_habitacao_shortcode( $atts ) {
 	(function () {
 		var frame = document.getElementById(<?php echo wp_json_encode( $id ); ?>);
 		if (!frame) return;
-		var origem = new URL(frame.src, window.location.href).origin;
+		var origem = <?php echo wp_json_encode( $origem ); ?>;
+		// Se um plugin de lazy load ainda assim substituiu o src, repõe o endereço real.
+		var real = frame.getAttribute('data-src') || frame.getAttribute('data-lazy-src');
+		if (real && /^data:/.test(frame.getAttribute('src') || '')) {
+			frame.removeAttribute('data-src');
+			frame.removeAttribute('data-lazy-src');
+			frame.classList.remove('lazyload', 'lazyloading');
+			frame.setAttribute('src', real);
+		}
 		window.addEventListener('message', function (ev) {
 			if (ev.source !== frame.contentWindow || ev.origin !== origem || !ev.data || typeof ev.data !== 'object') return;
 			if (ev.data.tipo === 'sch-altura' && typeof ev.data.altura === 'number' && ev.data.altura > 200 && ev.data.altura < 40000) {

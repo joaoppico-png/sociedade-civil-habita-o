@@ -72,6 +72,25 @@ export function calendarioSeguimento(dataEntrega, regras) {
   };
 }
 
+/**
+ * Dias úteis no intervalo ]inicio, fim] em que é habitual o Governo conceder tolerância de ponto
+ * (24 e 31 de dezembro, terça-feira de Carnaval). Não são feriados: dependem de despacho anual,
+ * por isso o calculador conta-os como úteis e só avisa. Devolve [{ data, motivo }].
+ */
+export function datasComTolerancia(inicio, fim) {
+  const a = parseDate(inicio), b = parseDate(fim);
+  if (!a || !b || b < a) return [];
+  const encontradas = [];
+  for (let ano = a.getUTCFullYear(); ano <= b.getUTCFullYear(); ano += 1) {
+    [[`${ano}-12-24`, 'véspera de Natal'], [`${ano}-12-31`, 'véspera de Ano Novo'],
+      [iso(addDays(easterSunday(ano), -47)), 'Carnaval']].forEach(([data, motivo]) => {
+      const d = parseDate(data);
+      if (d > a && d <= b && isDiaUtil(d)) encontradas.push({ data, motivo });
+    });
+  }
+  return encontradas.sort((x, y) => x.data.localeCompare(y.data));
+}
+
 function icsDate(isoDate) { return isoDate.replace(/-/g, ''); }
 function icsEscape(text) {
   return String(text).replace(/\\/g, '\\\\').replace(/\n/g, '\\n').replace(/([,;])/g, '\\$1');

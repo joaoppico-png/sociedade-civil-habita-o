@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { easterSunday, feriadosNacionais, somarDiasUteis, somarDiasCorridos, calendarioSeguimento, gerarICS } from '../assets/js/lib/prazos.js';
+import { easterSunday, feriadosNacionais, somarDiasUteis, somarDiasCorridos, calendarioSeguimento, datasComTolerancia, gerarICS } from '../assets/js/lib/prazos.js';
 
 test('Páscoa e feriados móveis', () => {
   assert.equal(easterSunday(2026).toISOString().slice(0, 10), '2026-04-05');
@@ -47,4 +47,19 @@ test('caso do Acórdão TCAS citado no Parecer CADA 518/2026: pedido 02/01/2025 
   const cal = calendarioSeguimento('2025-01-02', { prazoRespostaDiasUteis: 10, prazoQueixaCADADias: 20 });
   assert.equal(cal.limiteResposta, '2025-01-16');
   assert.equal(cal.limiteQueixaSemResposta, '2025-02-05');
+});
+
+test('datasComTolerancia: assinala 24/12 e 31/12 úteis dentro do prazo', () => {
+  assert.deepEqual(datasComTolerancia('2026-12-23', '2027-01-08').map((d) => d.data), ['2026-12-24', '2026-12-31']);
+});
+
+test('datasComTolerancia: Carnaval de 2027 (9 de fevereiro) e fora do intervalo', () => {
+  assert.deepEqual(datasComTolerancia('2027-02-01', '2027-02-20'), [{ data: '2027-02-09', motivo: 'Carnaval' }]);
+  assert.deepEqual(datasComTolerancia('2027-03-01', '2027-04-01'), []);
+  assert.deepEqual(datasComTolerancia('2027-02-09', '2027-02-20'), [], 'o dia inicial não conta');
+});
+
+test('datasComTolerancia: ignora 24/12 ao fim de semana e datas inválidas', () => {
+  assert.deepEqual(datasComTolerancia('2028-12-20', '2028-12-26').length, 0); // 24/12/2028 é domingo
+  assert.deepEqual(datasComTolerancia('x', '2027-01-01'), []);
 });

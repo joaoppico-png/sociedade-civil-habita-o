@@ -4,6 +4,12 @@
 // As mensagens levam apenas a altura ou um pedido para voltar ao topo — nunca endereços,
 // parâmetros ou dados escritos pelo utilizador — e só são enviadas para a origem do anfitrião.
 
+// Fora dos sites permitidos (lib/anfitriao.js), a página não se mostra: fica só uma ligação
+// para a abrir em página própria (proteção contra clickjacking).
+
+import { h } from './dom.js';
+import { anfitriaoPermitido } from '../lib/anfitriao.js';
+
 const emIframe = window.self !== window.top;
 
 /**
@@ -25,7 +31,31 @@ function origemAnfitria() {
   }
 }
 
-if (emIframe) {
+/** Origens de todos os sites que contêm o iframe; [null] quando o browser não as revela. */
+function origensAncestrais() {
+  if (window.location.ancestorOrigins) return [...window.location.ancestorOrigins];
+  try {
+    const ref = document.referrer ? new URL(document.referrer).origin : null;
+    if (ref && ref !== window.location.origin) return [ref];
+    return [sessionStorage.getItem('sch-anfitriao')];
+  } catch {
+    return [null];
+  }
+}
+
+function bloquear() {
+  document.documentElement.classList.add('incorporacao-bloqueada');
+  document.body.replaceChildren(h('main', { class: 'wrap' },
+    h('p', {}, 'Esta ferramenta só pode ser usada no site da Sociedade Civil.'),
+    h('p', {}, h('a', { href: window.location.href, target: '_blank', rel: 'noopener noreferrer' },
+      'Abrir a ferramenta numa página própria ↗'))));
+}
+
+const permitido = !emIframe || origensAncestrais().every((o) => anfitriaoPermitido(o, window.location.origin));
+
+if (emIframe && !permitido) bloquear();
+
+if (emIframe && permitido) {
   document.documentElement.classList.add('em-iframe');
   const destino = origemAnfitria();
   const enviar = (mensagem) => window.parent.postMessage(mensagem, destino);

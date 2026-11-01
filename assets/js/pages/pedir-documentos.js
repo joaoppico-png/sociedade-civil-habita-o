@@ -6,7 +6,7 @@ import { loadAll } from '../core/data.js';
 import { todayISO, formatDate, isDisplayable } from '../core/status.js';
 import { alerta, badge, mostrarErro, anunciar, descarregar, copiar } from '../core/ui.js';
 import { validar, gerarLADA, gerarInsistencia, gerarSenhorioObras, nomeFicheiro } from '../lib/requerimento.js';
-import { calendarioSeguimento, gerarICS } from '../lib/prazos.js';
+import { calendarioSeguimento, datasComTolerancia, gerarICS } from '../lib/prazos.js';
 import { questoesDe } from '../lib/questoes.js';
 
 const form = document.getElementById('gerador');
@@ -247,7 +247,19 @@ function calcularPrazos() {
     alerta('warning', 'Estimativa, não prazo oficial', h('p', {}, regras.contagem),
       h('p', { class: 'meta' }, badge(regras), regras.verificadoEm ? ` Regra de contagem verificada em ${formatDate(regras.verificadoEm)}.` : '')),
     h('div', { class: 'actions' }, ics, insistir));
+  const tolerancia = avisoTolerancia(cal);
+  if (tolerancia) saida.querySelector('.actions').before(tolerancia);
   anunciar(`Fim do prazo de resposta estimado: ${formatDate(cal.limiteResposta)}.`);
+}
+
+/** Aviso quando o prazo atravessa dias em que costuma haver tolerância de ponto. */
+function avisoTolerancia(cal) {
+  const datas = datasComTolerancia(cal.entrega, cal.limiteQueixaSemResposta);
+  if (!datas.length) return null;
+  return alerta('info', 'Atenção: este prazo inclui dias de possível tolerância de ponto',
+    h('p', {}, 'O cálculo conta como dias úteis: ',
+      datas.map((d, i) => [i ? '; ' : '', `${formatDate(d.data)} (${d.motivo})`]), '.'),
+    h('p', {}, 'Se o Governo ou a câmara concederem tolerância de ponto nesses dias, os serviços podem estar fechados e o prazo pode terminar mais tarde. Os feriados municipais também não estão contados. Na dúvida, age antes da data mais cedo.'));
 }
 
 iniciar();

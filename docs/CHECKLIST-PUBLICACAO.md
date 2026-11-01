@@ -30,6 +30,10 @@ Responsável: ______________________ Data: ____________
 - [ ] Teste manual: copiar texto, imprimir/PDF, `.ics` num calendário real (Google, Apple, Outlook).
 - [ ] Teste com leitor de ecrã (VoiceOver ou NVDA) nos três módulos.
 - [ ] Teste com zoom a 200% e a 400%.
+- [ ] Na página WordPress, o `src` do iframe é o endereço real (não `data:`) e a altura acompanha o conteúdo, sem scroll interno.
+- [ ] Proteção contra incorporação por outros sites no servidor. O alojamento é nginx, por isso o `.htaccess` não se aplica: pedir ao alojamento que, para `/wp-content/plugins/sociedade-civil-habitacao/site/`, envie
+      `add_header Content-Security-Policy "frame-ancestors 'self'" always;`
+      e confirmar com `curl -I`. Até lá, só existe a defesa em JavaScript (`assets/js/lib/anfitriao.js`).
 
 ## Transparência
 - [ ] `sobre.html`: responsável editorial, canal de correções e contacto preenchidos.

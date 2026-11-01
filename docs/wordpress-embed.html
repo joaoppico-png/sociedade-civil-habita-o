@@ -5,10 +5,13 @@
               Se o script for removido, o iframe funciona na mesma, mas com altura fixa.
   Antes de usar: trocar o endereço (em src e na ligação) pelo endereço onde o site está publicado
                  (ex.: https://sociedadecivil.pt/direito_habitacao/). Tem de ser HTTPS e público.
+                 Se o domínio for outro, trocar também a variável «origem» no script.
 -->
 <div class="sch-embed">
   <iframe
     id="sch-habitacao"
+    class="no-lazyload skip-lazy"
+    data-no-lazy="1"
     title="Sociedade Civil — Habitação: quem resolve o teu problema de habitação"
     src="https://sociedadecivil.pt/direito_habitacao/index.html"
     referrerpolicy="strict-origin-when-cross-origin"
@@ -23,7 +26,14 @@
   (function () {
     var frame = document.getElementById('sch-habitacao');
     if (!frame) return;
-    var origem = new URL(frame.src).origin;
+    // Origem escrita à mão (não lida de frame.src): plugins de lazy load trocam o src por uma imagem data:.
+    var origem = 'https://sociedadecivil.pt';
+    var real = frame.getAttribute('data-src');
+    if (real && /^data:/.test(frame.getAttribute('src') || '')) {
+      frame.removeAttribute('data-src');
+      frame.classList.remove('lazyload', 'lazyloading');
+      frame.setAttribute('src', real);
+    }
     window.addEventListener('message', function (ev) {
       if (ev.source !== frame.contentWindow || ev.origin !== origem || !ev.data || typeof ev.data !== 'object') return;
       if (ev.data.tipo === 'sch-altura' && typeof ev.data.altura === 'number' && ev.data.altura > 200 && ev.data.altura < 40000) {
