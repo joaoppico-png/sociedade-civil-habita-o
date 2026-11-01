@@ -24,7 +24,7 @@ Estado no commit seguinte a `35bfc8c`. Verificações automáticas executadas ne
 | --- | --- | --- | --- |
 | B1 | **Revisão por advogado inscrito** das 21 questões. As respostas atuais são preliminares e não estão assinadas. Prioridade às Q12–Q14 (despejo), Q16 (arrendamento apoiado, com contradição por resolver), Q20 e Q21 (responsabilidade e modelos) | `questoes-juridicas.html` | Advogado |
 | B2 | **3 de 16 fichas verificadas** (contrato, emergência, participar — 31/10/2026, João Pico). As restantes 13 dependem das questões jurídicas | `data/arvore.json` | Editor + advogado |
-| B3 | **Responsável editorial, contacto e canal de correções** por definir | `sobre.html`, `config.json` | João Pico |
+| B3 | ~~Responsável editorial, contacto e canal de correções~~ — feito em 01/11/2026 (joaoppico@gmail.com, João Pico) | `sobre.html`, `config.json` | — |
 | B4 | **Domínio final** por definir. Falta `canonical`/`og:url` e o sitemap aponta para `example.org` | `tools/set-domain.mjs` | João Pico |
 | B5 | **Decidir a política de publicação**: `mostrarPorConfirmar` está `true`. Para publicar só o verificado, passar a `false`, mas então o «Quem resolve?» fica quase vazio | `data/config.json` | João Pico |
 

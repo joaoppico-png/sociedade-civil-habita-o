@@ -14,6 +14,9 @@
     "mostrarPorConfirmar": true,
     "notaPorConfirmar": "Esta informação ainda não foi revista por um responsável editorial. Confirma-a na fonte oficial antes de agires."
   },
-  "contactoEditorial": null,
+  "contactoEditorial": {
+    "email": "joaoppico@gmail.com",
+    "responsavel": "João Pico"
+  },
   "versaoDados": "2026-10-31"
 }
