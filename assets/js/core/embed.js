@@ -62,7 +62,9 @@ if (emIframe && permitido) {
 
   let ultima = 0;
   const altura = () => {
-    const valor = Math.ceil(document.documentElement.scrollHeight);
+    // Altura do conteúdo, não scrollHeight: este nunca é menor do que o próprio iframe,
+    // por isso o iframe crescia mas não voltava a encolher ao passar para uma página mais curta.
+    const valor = Math.ceil(document.documentElement.getBoundingClientRect().height);
     if (valor === ultima) return;
     ultima = valor;
     enviar({ tipo: 'sch-altura', altura: valor });
