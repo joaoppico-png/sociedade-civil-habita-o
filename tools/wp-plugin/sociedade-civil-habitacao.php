@@ -25,12 +25,14 @@ define( 'SCH_HABITACAO_VERSAO', 'dev' );
  *
  * pagina: index.html, quem-resolve.html, pedir-documentos.html, participar.html, sobre.html ou questoes-juridicas.html
  * altura: altura inicial em píxeis (ajustada automaticamente depois de carregar)
+ * margem: espaço, em píxeis, deixado acima da ferramenta ao voltar ao topo (cabeçalho fixo do tema)
  */
 function sch_habitacao_shortcode( $atts ) {
 	$atts = shortcode_atts(
 		array(
 			'pagina' => 'index.html',
 			'altura' => '900',
+			'margem' => '80',
 		),
 		$atts,
 		'sociedade_civil_habitacao'
@@ -39,6 +41,7 @@ function sch_habitacao_shortcode( $atts ) {
 	$permitidas = array( 'index.html', 'quem-resolve.html', 'pedir-documentos.html', 'participar.html', 'sobre.html', 'questoes-juridicas.html' );
 	$pagina     = in_array( $atts['pagina'], $permitidas, true ) ? $atts['pagina'] : 'index.html';
 	$altura     = max( 400, min( 5000, intval( $atts['altura'] ) ) );
+	$margem     = max( 0, min( 400, intval( $atts['margem'] ) ) );
 	$src        = add_query_arg( 'v', SCH_HABITACAO_VERSAO, plugins_url( 'site/' . $pagina, __FILE__ ) );
 	$id         = 'sch-habitacao-' . wp_rand( 1000, 999999 );
 
@@ -85,7 +88,7 @@ function sch_habitacao_shortcode( $atts ) {
 				frame.style.height = ev.data.altura + 'px';
 			}
 			if (ev.data.tipo === 'sch-topo' && frame.getBoundingClientRect().top < 0) {
-				window.scrollTo({ top: frame.getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' });
+				window.scrollTo({ top: frame.getBoundingClientRect().top + window.pageYOffset - <?php echo (int) $margem; ?>, behavior: 'smooth' });
 			}
 		});
 	})();
@@ -94,3 +97,24 @@ function sch_habitacao_shortcode( $atts ) {
 	return ob_get_clean();
 }
 add_shortcode( 'sociedade_civil_habitacao', 'sch_habitacao_shortcode' );
+
+/**
+ * Modelo de página «Sociedade Civil — ecrã inteiro»: em Página → Modelo, mostra só a ferramenta,
+ * sem cabeçalho, menu nem rodapé do tema. Para voltar atrás, escolher outra vez o modelo predefinido.
+ */
+function sch_habitacao_modelos( $modelos ) {
+	$modelos['sch-ecra-inteiro'] = __( 'Sociedade Civil — ecrã inteiro', 'sociedade-civil-habitacao' );
+	return $modelos;
+}
+add_filter( 'theme_page_templates', 'sch_habitacao_modelos' );
+
+function sch_habitacao_modelo_ecra_inteiro( $modelo ) {
+	if ( is_page() && 'sch-ecra-inteiro' === get_page_template_slug() ) {
+		$ficheiro = plugin_dir_path( __FILE__ ) . 'modelos/ecra-inteiro.php';
+		if ( file_exists( $ficheiro ) ) {
+			return $ficheiro;
+		}
+	}
+	return $modelo;
+}
+add_filter( 'template_include', 'sch_habitacao_modelo_ecra_inteiro' );

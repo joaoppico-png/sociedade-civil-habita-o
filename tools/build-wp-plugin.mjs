@@ -29,6 +29,7 @@ const php = (await readFile(path.join(raiz, 'tools', 'wp-plugin', `${nome}.php`)
   .replace(/Version:(\s+)[\d.]+/, `Version:$1${versao}`)
   .replace("define( 'SCH_HABITACAO_VERSAO', 'dev' );", `define( 'SCH_HABITACAO_VERSAO', '${versao}' );`);
 await writeFile(path.join(plugin, `${nome}.php`), php);
+await cp(path.join(raiz, 'tools', 'wp-plugin', 'modelos'), path.join(plugin, 'modelos'), { recursive: true });
 const paginas = (await readdir(raiz)).filter((f) => f.endsWith('.html') && f !== '404.html');
 for (const f of paginas) {
   let html = await readFile(path.join(raiz, f), 'utf8');
@@ -68,6 +69,9 @@ Opções do shortcode:
 - pagina: index.html (por defeito), quem-resolve.html, pedir-documentos.html, participar.html, sobre.html, questoes-juridicas.html
 - altura: altura inicial em píxeis (por defeito 900; ajusta-se sozinha)
 Exemplo: [sociedade_civil_habitacao pagina="quem-resolve.html"]
+
+Ecrã inteiro, sem o menu do tema: na página, em «Modelo» (painel lateral do editor), escolher
+«Sociedade Civil — ecrã inteiro». A página mostra só a ferramenta; o resto do site não muda.
 
 == Notas ==
 - Versão de teste (${hoje}): as páginas da ferramenta têm ${indexar ? 'indexação permitida' : 'noindex'} e a maior parte dos conteúdos está «por confirmar».
