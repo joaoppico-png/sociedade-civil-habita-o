@@ -43,7 +43,10 @@ for (const sub of ['core', 'lib', 'pages']) {
   for (const f of await readdir(dir)) {
     const ficheiro = path.join(dir, f);
     const js = await readFile(ficheiro, 'utf8');
-    await writeFile(ficheiro, js.replace(/from '(\.\.?\/[^']+\.js)'/g, `from '$1?v=${versao}'`));
+    // Os dados também levam a versão: a cache do alojamento guarda cópias por browser e compressão
+    // e chegou a servir o arvore.json antigo ao Chrome depois de uma atualização.
+    await writeFile(ficheiro, js.replace(/from '(\.\.?\/[^']+\.js)'/g, `from '$1?v=${versao}'`)
+      .replace('`data/${nome}.json`', `\`data/\${nome}.json?v=${versao}\``));
   }
 }
 await cp(path.join(raiz, 'data'), path.join(site, 'data'), { recursive: true, filter: (src) => !src.includes(`${path.sep}schemas`) });
