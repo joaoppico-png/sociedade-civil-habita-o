@@ -442,6 +442,18 @@
           "origem": "Revisão documental 4 das questões críticas (não assinada por advogado; declara-o expressamente)",
           "resumo": "Aprovo com alterações: antecedências do 1097.º; carta tardia pode não produzir cessação na data indicada e pode, em certas circunstâncias, produzir efeitos numa renovação posterior (RL 05/03/2026, proc. 961/25.7YLPRT.L1-2; RL 08/02/2022, proc. 966/21.7YLPRT.L1-7); contrato pode prever antecedência maior (RL 29/04/2025).",
           "verificacaoNossa": "Aplicada a redação; acórdãos não lidos por nós."
+        },
+        {
+          "data": "2026-11-01",
+          "origem": "Parecer prévio 5 (redigido na posição de advogado; declara não estar inscrito na Ordem)",
+          "resumo": "Aprovo com alterações (a), (b) e (c). Os tribunais divergem sobre a carta tardia (TRL 22-01-2026 vs. STJ 13-03-2025); a ficha não deve escolher nem calcular datas.",
+          "verificacaoNossa": "Confirmado por nós: NRAU, art. 9.º, n.os 1 e 6 (forma). Acórdãos não lidos por nós. Aplicado: limitação sobre a divergência dos tribunais e passo «não saias nem assines nada»."
+        },
+        {
+          "data": "2026-11-01",
+          "origem": "Revisão técnico-jurídica 6 (plugin Advogado; declara não ser parecer subscrito por advogado)",
+          "resumo": "Aprovo com alterações. Carta tardia não faz cessar na data indicada; eficácia numa renovação posterior depende do caso (TRL 05-03-2026 e 08-02-2022).",
+          "verificacaoNossa": "Coincide com o parecer 5 na recomendação de não dar regra automática."
         }
       ],
       "estadoInvestigacao": "respondida",
@@ -454,7 +466,7 @@
       "tema": "Arrendamento — carta para sair",
       "prioridade": "alta",
       "pergunta": "Que perguntas deve a ficha fazer para distinguir os contratos com regimes de transição (anteriores a 1990, entre 1990 e 2006 e posteriores ao NRAU), e que mensagem deve dar em cada caso? Que deve dizer sobre a resolução por falta de pagamento (CC, arts. 1083.º e 1084.º; NRAU, art. 9.º, n.º 7), incluindo a possibilidade de pôr fim à mora e os prazos?",
-      "contexto": "Não lemos as normas transitórias do NRAU nem os arts. 1083.º e 1084.º do CC nesta auditoria.",
+      "contexto": "Lidos por nós no DR a 01-11-2026: CC, arts. 1041.º, 1083.º e 1084.º; NRAU, arts. 9.º e 26.º a 28.º. Falta: art. 1048.º revisto, alcance dos arts. 35.º e 36.º do NRAU após a Lei 56/2023 e o questionário alargado.",
       "redacaoAtual": "Limitações: «Contratos anteriores a 2006 ou a 1990 podem ter regras de transição diferentes» e «Uma carta de resolução por falta de pagamento tem regras próprias, ainda em análise jurídica».",
       "fontesConsultadas": [
         "codigo-civil",
@@ -483,6 +495,18 @@
           "origem": "Revisão documental 4 das questões críticas (não assinada por advogado; declara-o expressamente)",
           "resumo": "Aprovo com alterações: regimes transitórios (NRAU 26.º–28.º; 28.º, n.º 2, afasta a denúncia com 5 anos nos contratos anteriores ao RAU); mecanismos de mora (CC 1041.º, n.º 2; 1083.º, n.os 3, 4 e 6; 1084.º, n.os 3 e 4; 1048.º).",
           "verificacaoNossa": "Todas estas normas lidas por nós no DR e aplicadas, incluindo NRAU 26.º, n.º 4, al. c). Falta pergunta específica sobre notificação do BAS dentro deste percurso (existe percurso próprio)."
+        },
+        {
+          "data": "2026-11-01",
+          "origem": "Parecer prévio 5 (redigido na posição de advogado; declara não estar inscrito na Ordem)",
+          "resumo": "Aprovo com alterações. Propõe 6 perguntas por regime. Diz que a resolução fica sem efeito se pagar em um mês com 20%, uma vez por contrato.",
+          "verificacaoNossa": "ERRO DETETADO: o parecer não ressalva que o art. 1083.º, n.º 4 do CC exclui esse mês nos atrasos repetidos (confirmado por nós no DR a 01-11-2026). O site já fazia essa distinção."
+        },
+        {
+          "data": "2026-11-01",
+          "origem": "Revisão técnico-jurídica 6 (plugin Advogado; declara não ser parecer subscrito por advogado)",
+          "resumo": "Aprovo com alterações. Distinguir mora de 3 meses, atrasos repetidos (sem o mês do art. 1084.º, n.º 3), resolução judicial e extrajudicial; forma do NRAU, art. 9.º, n.º 7.",
+          "verificacaoNossa": "Confirmados por nós no DR: CC, arts. 1041.º, 1083.º (n.os 3, 4 e 6) e 1084.º; NRAU, art. 9.º, n.º 7. Aplicado: forma própria da carta de resolução, aviso sobre atrasos repetidos, indemnização de 20% como posição dos tribunais. Questionário alargado por fazer."
         }
       ],
       "estadoInvestigacao": "respondida",
@@ -523,6 +547,18 @@
           "origem": "Revisão documental 4 das questões críticas (não assinada por advogado; declara-o expressamente)",
           "resumo": "Aprovo com alterações: 15 dias (NRAU 15.º-F); interrupção por pedido de nomeação de patrono se o comprovativo chegar ao processo dentro do prazo (Lei 34/2004, art. 24.º, n.º 4; STJ 19/09/2024, proc. 4833/23.1T8MTS.P1.S1); reinício segundo o n.º 5 e o Acórdão do TC 515/2020. Não aprova calculador automático.",
           "verificacaoNossa": "Aplicada a redação proposta, sem data de reinício. Lei 34/2004 continua não lida por nós no DR."
+        },
+        {
+          "data": "2026-11-01",
+          "origem": "Parecer prévio 5 (redigido na posição de advogado; declara não estar inscrito na Ordem)",
+          "resumo": "Aprovo com alterações. 15 dias seguidos, correm em férias (procedimento urgente). A interrupção exige que o comprovativo do pedido de patrono chegue ao BAS dentro dos 15 dias (TRC 27-01-2026, não lido por nós); recomeço pela última notificação (TC 515/2020). Não prometer isenção de caução: a Portaria 49/2024, art. 13.º, n.º 2 exigi-la-ia e os tribunais divergem.",
+          "verificacaoNossa": "Confirmados por nós no DR a 01-11-2026: NRAU, art. 15.º-S, n.os 3 (advogado obrigatório), 5 (regras do CPC, sem dilação) e 10 (urgente); art. 15.º-F, n.º 5 prevê isenção de caução com apoio judiciário «nos termos a definir por portaria». Portaria 49/2024 e acórdãos não lidos por nós. Aplicado: prazo seguido, advogado obrigatório, envio do comprovativo ao BAS, caução sem promessa de isenção."
+        },
+        {
+          "data": "2026-11-01",
+          "origem": "Revisão técnico-jurídica 6 (plugin Advogado; declara não ser parecer subscrito por advogado)",
+          "resumo": "Aprovo com alterações. Mesma contagem; interrupção depende da junção do comprovativo (cita TC 615/2025); não automatizar o reinício do prazo.",
+          "verificacaoNossa": "Coincide com o parecer 5 no essencial. TC 615/2025 não lido por nós."
         }
       ],
       "estadoInvestigacao": "respondida",
@@ -597,6 +633,18 @@
           "origem": "Revisão documental 4 das questões críticas (não assinada por advogado; declara-o expressamente)",
           "resumo": "Aprovo com alterações: direito de recurso (art. 25.º, n.º 2) e n.º 3 revogado; contrato administrativo e tribunais administrativos (art. 17.º); meio e prazo dependem do ato; reclamação não suspende necessariamente.",
           "verificacaoNossa": "Art. 17.º lido por nós no DR e aplicado. Sem prazo fixo publicado."
+        },
+        {
+          "data": "2026-11-01",
+          "origem": "Parecer prévio 5 (redigido na posição de advogado; declara não estar inscrito na Ordem)",
+          "resumo": "Aprovo com alterações. Indicar as vias de reação (reclamação, recurso hierárquico, tribunal administrativo com providência cautelar) e não nomear quem decide em Lisboa.",
+          "verificacaoNossa": "Aplicado: passos com audiência prévia e vias de reação, sem prazos nem decisor. Prazos do CPA/CPTA e competência Gebalis/Câmara continuam por confirmar."
+        },
+        {
+          "data": "2026-11-01",
+          "origem": "Revisão técnico-jurídica 6 (plugin Advogado; declara não ser parecer subscrito por advogado)",
+          "resumo": "Aprovo com alterações. «Direito de recurso» não identifica um meio único; não apresentar prazos gerais como prazo do art. 25.º; competência depende das delegações.",
+          "verificacaoNossa": "Coincide com o parecer 5."
         }
       ],
       "estadoInvestigacao": "respondida",
@@ -713,8 +761,8 @@
       "tema": "Geral — responsabilidade",
       "prioridade": "alta",
       "pergunta": "O aviso usado no site («Isto é um encaminhamento informativo, não um diagnóstico jurídico») e o texto da página «Sobre» são suficientes para delimitar a responsabilidade da plataforma? Recomendam outra redação, por exemplo à luz da Lei n.º 10/2024, que regula os atos de advogados e solicitadores e revogou a Lei n.º 49/2004? Os modelos gerados (pedido LADA, insistência, carta ao senhorio) podem ser disponibilizados por uma entidade que não é advogado?",
-      "contexto": "A Lei n.º 49/2004 foi revogada pela Lei n.º 10/2024, de 19 de janeiro. Não lemos ainda o texto da Lei n.º 10/2024.",
-      "redacaoAtual": "Aviso em todas as fichas e página «Sobre».",
+      "contexto": "A Lei n.º 49/2004 foi revogada pela Lei n.º 10/2024, de 19 de janeiro, lida por nós no DR a 01-11-2026 (arts. 4.º, 6.º, 7.º, 11.º e 12.º).",
+      "redacaoAtual": "Aviso em cada ficha: «Informação geral, não aconselhamento jurídico…»; aviso em cada modelo; página «Sobre» com limites e sem respostas a casos concretos.",
       "fontesConsultadas": [],
       "registos": [
         "requerimento:modelo"
@@ -738,6 +786,18 @@
           "origem": "Revisão documental 4 das questões críticas (não assinada por advogado; declara-o expressamente)",
           "resumo": "Aprovo com alterações: texto de limites do serviço; a conformidade com a Lei 10/2024 depende do comportamento real das funcionalidades; regras: não declarar validade individual, não gerar peças processuais, encaminhar casos críticos.",
           "verificacaoNossa": "Texto aplicado em «Sobre». O site não declara validade de cartas nem gera peças processuais. Falta revisão funcional por advogado."
+        },
+        {
+          "data": "2026-11-01",
+          "origem": "Parecer prévio 5 (redigido na posição de advogado; declara não estar inscrito na Ordem)",
+          "resumo": "Não aprovo a versão atual: aviso em cada resultado e modelo, sem respostas a casos concretos, revisão assinada e datada.",
+          "verificacaoNossa": "ERRO DETETADO: cita o art. 3.º, n.º 5 da Lei 10/2024 como definição de consulta jurídica; a definição está no art. 6.º, n.º 1 (confirmado por nós no DR). Aplicado: aviso nos modelos, aviso das fichas reformulado, «Sobre» sem respostas a casos concretos."
+        },
+        {
+          "data": "2026-11-01",
+          "origem": "Revisão técnico-jurídica 6 (plugin Advogado; declara não ser parecer subscrito por advogado)",
+          "resumo": "Aprovo com alterações o aviso; não aprovo ainda a conformidade global sem auditoria funcional.",
+          "verificacaoNossa": "Confirmados por nós no DR: Lei 10/2024, arts. 4.º (n.os 4, al. d), e 5), 6.º, n.º 1, 7.º, 11.º (procuradoria ilícita) e 12.º (contraordenação por publicidade de atos próprios)."
         }
       ],
       "estadoInvestigacao": "respondida",
@@ -778,6 +838,18 @@
           "origem": "Revisão documental 4 das questões críticas (não assinada por advogado; declara-o expressamente)",
           "resumo": "Aprovo com alterações (leu requerimento.js): identificação proporcional, aviso de assinatura visível, insistência com três situações e validação de datas, carta ao senhorio com gravidade e separação entre resposta e execução.",
           "verificacaoNossa": "Tudo aplicado e testado (48 testes)."
+        },
+        {
+          "data": "2026-11-01",
+          "origem": "Parecer prévio 5 (redigido na posição de advogado; declara não estar inscrito na Ordem)",
+          "resumo": "Aprovo com alterações. Manter remessa e expurgo; insistência não suspende o prazo da CADA; prazo ao senhorio como «prazo razoável»; não ameaçar suspender a renda.",
+          "verificacaoNossa": "Aplicado: aviso de que a carta não suspende a renda. Mantido o prazo proposto em dias, marcado como proposta (o parecer 6 aceita-o)."
+        },
+        {
+          "data": "2026-11-01",
+          "origem": "Revisão técnico-jurídica 6 (plugin Advogado; declara não ser parecer subscrito por advogado)",
+          "resumo": "Aprovo com alterações. Identificação proporcional; insistência não reinicia prazos; gravidade como avaliação do utilizador.",
+          "verificacaoNossa": "A insistência já avisava que não reinicia o prazo. Aplicado: mensagem de identificação sem Cartão de Cidadão; gravidade descrita como avaliação do utilizador."
         }
       ],
       "estadoInvestigacao": "respondida",

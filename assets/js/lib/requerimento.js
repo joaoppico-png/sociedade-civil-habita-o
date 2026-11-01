@@ -60,7 +60,7 @@ const MENSAGENS = {
   documentos: 'Descreve pelo menos um documento que pretendes.',
   modalidade: 'Escolhe a forma de acesso.',
   nome: 'Indica o teu nome completo. A lei exige a identificação de quem pede.',
-  identificacao: 'Indica um documento de identificação e o número (por exemplo, Cartão de Cidadão n.º …). A lei exige dados de identificação de quem pede.',
+  identificacao: 'Indica dados que te identifiquem (por exemplo, o número de um documento de identificação ou o NIF). A lei exige a identificação de quem pede, sem exigir um documento específico.',
   contacto: 'Indica pelo menos um contacto: e-mail ou telefone. A lei exige dados de contacto de quem pede.',
   morada: 'Indica a tua morada. A lei exige a morada de quem pede.',
   local: 'Indica a localidade onde assinas.',

@@ -173,7 +173,7 @@ function ficha(resultadoBase, contexto, respostas = []) {
     h('p', { class: 'lead' }, r.resumo),
     cartaoAcao(cartao),
     r.notaCobertura ? alerta('info', 'Sem cobertura municipal', h('p', {}, r.notaCobertura)) : null,
-    alerta('neutral', null, h('p', {}, 'Informação geral e modelos para preparares os teus próprios pedidos. Não é consulta jurídica individual, representação nem garantia de resultado. Em despejos, prazos judiciais ou litígios, procura um profissional legalmente habilitado.')),
+    alerta('neutral', null, h('p', {}, 'Informação geral, não aconselhamento jurídico. Esta ficha explica regras gerais e onde pedir ajuda; não analisa o teu caso nem garante resultados. Em despejos, prazos judiciais ou litígios, procura um advogado ou solicitador; se não tiveres meios, pede apoio judiciário.')),
 
     r.regras?.length ? h('section', { class: 'block' },
       h('h3', {}, 'O que diz a lei'),

@@ -24,7 +24,8 @@ const ROTULOS = {
   contrato: { 'pre-rau': 'contrato anterior a novembro de 1990', rau: 'contrato de 1990 a 2006', recente: 'contrato posterior a junho de 2006', desconhecido: 'data do contrato desconhecida' },
   municipio: { lisboa: 'Lisboa', outro: 'outro concelho' }
 };
-const condicao = (se) => se ? `<span class="cond">Só aparece se: ${esc(Object.entries(se).map(([k, v]) => ROTULOS[k]?.[v] || `${k} = ${v}`).join(' e '))}</span>` : '';
+const rotulo = (k, v) => [v].flat().map((y) => ROTULOS[k]?.[y] || `${k} = ${y}`).join(' ou ');
+const condicao = (se) => se ? `<span class="cond">Só aparece se: ${esc(Object.entries(se).map(([k, v]) => rotulo(k, v)).join(' e '))}</span>` : '';
 const item = (x) => (typeof x === 'string' ? `<li>${esc(x)}</li>` : `<li>${esc(x.texto)} ${condicao(x.se)}</li>`);
 
 function ficha(id) {
@@ -66,6 +67,21 @@ const PERGUNTA = {
   Q20: 'O texto de limites do serviço e o aviso das fichas são adequados à luz da Lei n.º 10/2024, considerando que o site fornece informação geral, um questionário de encaminhamento e modelos de documentos, sem declarar validade de situações individuais nem gerar peças processuais?',
   Q21: 'Os três modelos podem ser disponibilizados ao público tal como estão?'
 };
+// Pontos que as revisões prévias não confirmaram em fonte e que o site, por isso, não afirma.
+const PONTOS = {
+  Q14: ['Canal aceite pelo BAS para o comprovativo do pedido de apoio judiciário (Portaria n.º 49/2024; contactos indicados na notificação).',
+    'Se a caução é exigida a quem tem apoio judiciário: o NRAU, art. 15.º-F, n.º 5 prevê a isenção «nos termos a definir por portaria»; uma revisão prévia refere a Portaria n.º 49/2024, art. 13.º, n.º 2 e decisões das Relações em sentidos opostos.',
+    'Efeito do Acórdão do TC n.º 515/2020 e da jurisprudência mais recente (TRC 27-01-2026; TC 615/2025) sobre o envio do comprovativo dentro dos 15 dias e o recomeço do prazo.'],
+  Q16: ['Quem assina as decisões de resolução e despejo nos bairros geridos pela Gebalis: o conselho de administração da Gebalis ou a Câmara, por delegação.',
+    'Prazos a indicar: audiência prévia (CPA, art. 122.º), reclamação, recurso hierárquico, ação administrativa (CPTA, art. 58.º) e contestação.'],
+  Q12: ['Posição a adotar sobre a carta tardia: TRL 22-01-2026 (efeitos no termo seguinte) e STJ 13-03-2025 (renovação imperativa de 3 anos). O site diz apenas que os tribunais divergem.'],
+  Q13: ['Indemnização de 20% para pôr fim à mora no mês do art. 1084.º, n.º 3 do Código Civil: o site apresenta-a como exigência dos tribunais.',
+    'Data de entrada em vigor do RAU (14 ou 18 de novembro de 1990) e alcance dos arts. 35.º e 36.º do NRAU depois da Lei n.º 56/2023.',
+    'Perguntas a acrescentar ao questionário para distinguir os regimes de transição.'],
+  Q20: ['Se o questionário e as fichas, tal como estão, ficam fora da consulta jurídica (Lei n.º 10/2024, art. 6.º, n.º 1) e da publicidade de atos próprios (art. 12.º).'],
+  Q21: ['Prazo ao senhorio: manter um número de dias proposto pelo inquilino ou passar a «prazo razoável».',
+    'LADA, art. 6.º, n.º 8 (acesso parcial) e art. 15.º, n.º 1, al. d) (remessa à entidade competente).']
+};
 const CONTEUDO = { Q14: () => ficha('r-despejo-notificacao'), Q16: () => ficha('r-despejo-apoiado'), Q12: () => ficha('r-despejo'), Q13: () => '<p class="note">Mesma ficha da questão anterior (Q12): ver as regras e limitações assinaladas com «carta por rendas em atraso», «contrato anterior a novembro de 1990» e «contrato de 1990 a 2006».</p>', Q20: textoSobre, Q21: modelos };
 
 const blocos = [];
@@ -78,7 +94,8 @@ for (const [i, id] of ids.entries()) {
     ${await CONTEUDO[id]()}
     <p class="sub">Normas consultadas pela equipa</p>
     <ul class="fontes">${normas.map((f) => `<li>${esc(f.titulo)} — ${esc(f.url || 'sem ligação')}</li>`).join('')}</ul>
-    <p class="sub">Notas da equipa</p><p class="note">${esc(x.investigacoes.at(-1).verificacaoNossa)}</p>
+    <p class="sub">Notas da equipa</p>${x.investigacoes.filter((y) => y.data === x.investigacoes.at(-1).data).map((y) => `<p class="note"><strong>${esc(y.origem)}:</strong> ${esc(y.verificacaoNossa)}</p>`).join('')}
+    ${PONTOS[id] ? `<p class="sub">Pontos por confirmar</p><ul>${PONTOS[id].map((t) => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}
     <div class="decisao">
       <p class="sub">Decisão do advogado</p>
       <p class="box">☐ Aprovo tal como está</p>
@@ -120,7 +137,7 @@ const html = `<!doctype html><html lang="pt-PT"><head><meta charset="utf-8">
   <p><strong>Tempo estimado:</strong> 2 a 3 horas.</p>
   <p><strong>O que não pedimos:</strong> um parecer extenso, nem representação ou responsabilidade por casos concretos. Os textos são informação geral; o site encaminha sempre para apoio jurídico nas situações de despejo e litígio.</p>
   <p><strong>Como usamos a resposta:</strong> só marcamos uma ficha como «validada» com nome, cédula profissional e data. As alterações indicadas são aplicadas tal como escritas. A identificação do revisor só é publicada se o autorizar na última página.</p>
-  <p><strong>Contexto:</strong> estas questões já passaram por quatro revisões documentais e pela leitura direta das normas no Diário da República. Essas revisões não estão assinadas por advogado, e foi isso que nos levou a pedir esta validação.</p>
+  <p><strong>Contexto:</strong> estas questões já passaram por seis revisões documentais e pela leitura direta das normas no Diário da República. Essas revisões não estão assinadas por advogado, e foi isso que nos levou a pedir esta validação.</p>
   <p><strong>Ver o site:</strong> pode ser disponibilizado um acesso de teste a pedido.</p>
 </section>
 ${blocos.join('\n')}

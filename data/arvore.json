@@ -578,8 +578,8 @@
           }
         },
         {
-          "texto": "O senhorio pode resolver o contrato por carta com rendas em atraso de 3 meses ou mais. A resolução fica sem efeito se pagares o que deves no prazo de um mês, mas só uma vez em cada contrato.",
-          "referencia": "Código Civil, arts. 1083.º, n.º 3, e 1084.º, n.os 3 e 4",
+          "texto": "O senhorio pode resolver o contrato com rendas em atraso de 3 meses ou mais. A resolução fica sem efeito se puseres fim ao atraso no prazo de um mês, pagando o que deves, mas só uma vez em cada contrato. Os tribunais têm exigido que se pague também a indemnização de 20%: confirma o valor com apoio jurídico.",
+          "referencia": "Código Civil, arts. 1041.º, n.º 1, 1083.º, n.º 3, e 1084.º, n.os 3 e 4",
           "fonte": "codigo-civil",
           "se": {
             "motivo": "rendas"
@@ -602,9 +602,24 @@
           }
         },
         {
-          "texto": "Estas comunicações fazem-se por escrito assinado, enviado por carta registada com aviso de receção para a casa arrendada, ou entregue em mão com assinatura numa cópia.",
+          "texto": "A carta que põe fim ao contrato por rendas em atraso tem uma forma própria: notificação judicial avulsa, entrega pessoal por advogado, solicitador ou agente de execução, ou carta registada com aviso de receção para a morada combinada no contrato escrito. Um e-mail ou uma carta simples não chegam.",
+          "referencia": "NRAU, art. 9.º, n.º 7; Código Civil, art. 1084.º, n.º 2",
+          "fonte": "nrau",
+          "se": {
+            "motivo": "rendas"
+          }
+        },
+        {
+          "texto": "A carta do senhorio tem de ser escrita e assinada, e enviada por carta registada com aviso de receção para a casa arrendada, ou entregue em mão com a tua assinatura numa cópia.",
           "referencia": "NRAU, art. 9.º, n.os 1, 2 e 6",
-          "fonte": "nrau"
+          "fonte": "nrau",
+          "se": {
+            "motivo": [
+              "renovacao",
+              "denuncia",
+              "outro"
+            ]
+          }
         },
         {
           "texto": "Quem tem de sair por não renovação do contrato e não tem solução habitacional alternativa está numa situação de precariedade abrangida pelo 1.º Direito, a pedir na câmara municipal.",
@@ -631,6 +646,7 @@
       ],
       "passos": [
         "Anota a data em que recebeste a carta e guarda o envelope.",
+        "Não saias da casa nem assines nada só por teres recebido a carta.",
         {
           "texto": "Vê no contrato o prazo e a data da última renovação, e conta os dias até ao fim do prazo: compara com a antecedência mínima. O contrato pode prever uma antecedência maior do que a da lei.",
           "se": {
@@ -661,7 +677,7 @@
             "motivo": "outro"
           }
         },
-        "Confirma se a forma de envio cumpre a lei.",
+        "Confirma se a forma de envio cumpre a lei (vê a regra sobre a forma da carta).",
         "Pede proteção jurídica ou procura um advogado antes de responder ou de sair.",
         {
           "texto": "Se não tiveres alternativa de habitação, pede apoio à câmara municipal ao abrigo do 1.º Direito.",
@@ -707,9 +723,15 @@
           }
         },
         {
-          "texto": "Quando a antecedência não é respeitada, a carta pode não produzir a cessação na data indicada. Em certas circunstâncias, poderá produzir efeitos numa renovação posterior: depende do contrato, da forma e da data de receção.",
+          "texto": "Quando a antecedência não é respeitada, a carta não faz terminar o contrato na data indicada. Se pode produzir efeitos mais tarde, numa renovação seguinte, é uma questão que os tribunais decidem de forma diferente: esta ficha não responde a isso.",
           "se": {
             "motivo": "renovacao"
+          }
+        },
+        {
+          "texto": "Pagar depois não anula a resolução quando há atrasos repetidos (mais de 4 atrasos de mais de 8 dias em 12 meses), mesmo que o total em dívida seja pequeno.",
+          "se": {
+            "motivo": "rendas"
           }
         },
         "Não abandones a casa só porque recebeste uma carta, mas também não a ignores.",
@@ -1514,7 +1536,7 @@
     {
       "id": "r-despejo-notificacao",
       "titulo": "Recebi uma notificação do BAS ou de um tribunal",
-      "resumo": "Se recebeste uma notificação do Balcão do Arrendatário e do Senhorio (BAS) num procedimento especial de despejo, tens 15 dias a contar da notificação para apresentar oposição, por via eletrónica no BAS. Procura apoio jurídico hoje. Uma notificação de tribunal tem os prazos indicados nela.",
+      "resumo": "Se recebeste uma notificação do Balcão do Arrendatário e do Senhorio (BAS) num procedimento especial de despejo, tens 15 dias seguidos a contar da notificação para apresentar oposição, por via eletrónica no BAS e com advogado. O prazo corre em férias judiciais. Procura apoio jurídico hoje. Uma notificação de tribunal tem os prazos indicados nela.",
       "municipal": false,
       "regras": [
         {
@@ -1523,7 +1545,17 @@
           "fonte": "nrau"
         },
         {
-          "texto": "Com a oposição tem de ser junto o comprovativo da taxa de justiça e, quando o despejo se funda em rendas em atraso, uma caução até seis rendas, salvo para quem tem apoio judiciário. Sem estes pagamentos, a oposição é considerada não apresentada.",
+          "texto": "O procedimento é urgente: o prazo conta seguido, incluindo fins de semana, feriados e férias judiciais, sem dias extra (dilação). Se terminar num dia em que os tribunais estão fechados, passa para o dia útil seguinte.",
+          "referencia": "NRAU, art. 15.º-S, n.os 5 e 10; Código de Processo Civil, art. 138.º",
+          "fonte": "nrau"
+        },
+        {
+          "texto": "Para apresentar oposição é obrigatório ter advogado.",
+          "referencia": "NRAU, art. 15.º-S, n.º 3",
+          "fonte": "nrau"
+        },
+        {
+          "texto": "Com a oposição tem de ser junto o comprovativo da taxa de justiça e, quando o despejo se funda em rendas em atraso, uma caução até seis rendas. Sem estes pagamentos, a oposição é considerada não apresentada. A lei prevê isenção da caução para quem tem apoio judiciário, nos termos de uma portaria: confirma com o patrono se, no teu caso, a caução é exigida.",
           "referencia": "NRAU, art. 15.º-F, n.os 5 e 6",
           "fonte": "nrau"
         }
@@ -1543,11 +1575,11 @@
         }
       ],
       "passos": [
-        "Verifica imediatamente a data da notificação e o prazo nela indicado. Guarda a comunicação completa e todos os documentos.",
-        "Se não tens meios económicos, pede apoio judiciário, incluindo a nomeação de advogado oficioso (patrono).",
-        "O comprovativo do pedido de nomeação de patrono tem de chegar ao processo dentro do prazo. Não assumas que basta apresentar o pedido na Segurança Social para a contagem parar.",
+        "Verifica imediatamente a data da notificação e o prazo nela indicado. Guarda a comunicação completa, o envelope e todos os documentos.",
+        "Se não tens meios económicos, pede hoje apoio judiciário na Segurança Social, com nomeação de advogado oficioso (patrono) e dispensa de taxa de justiça e encargos. Guarda o comprovativo do pedido.",
+        "Envia ao BAS o comprovativo desse pedido antes de acabarem os 15 dias, pelo contacto indicado na notificação, e guarda prova do envio. Não basta pedir na Segurança Social: sem esse envio, o prazo continua a contar.",
         "Se for nomeado um patrono, ou se o pedido for recusado, o prazo recomeça segundo regras próprias, ligadas às notificações que receberes: confirma a data com o patrono ou com apoio jurídico.",
-        "A oposição pode exigir taxa de justiça e caução, salvo isenção ou apoio judiciário.",
+        "Contacta o patrono logo que receberes a nomeação.",
         "Procura apoio jurídico imediatamente: uma oposição tardia pode ter consequências graves para a manutenção da casa.",
         "Se estiveres em risco de ficar sem casa, contacta a ação social da câmara ou a Linha 144."
       ],
@@ -1583,8 +1615,8 @@
       "cartao": {
         "urgente": true,
         "prazo": {
-          "texto": "15 dias para apresentar oposição, a contar da notificação",
-          "referencia": "NRAU, art. 15.º-F, n.º 1",
+          "texto": "15 dias seguidos para apresentar oposição, a contar da notificação (contam fins de semana e férias)",
+          "referencia": "NRAU, arts. 15.º-F, n.º 1, e 15.º-S, n.º 10",
           "fonte": "nrau"
         }
       }
@@ -1649,8 +1681,9 @@
       ],
       "passos": [
         "Guarda a decisão completa e todos os anexos, e regista a data em que foste notificado.",
+        "Antes da decisão final tens direito a ser ouvido: responde por escrito dentro do prazo indicado na comunicação e junta documentos.",
         "Confirma quem tomou a decisão (câmara, empresa municipal ou outro órgão), o fundamento e se foste ouvido antes.",
-        "Procura apoio jurídico imediatamente para identificar a via de reação e o prazo aplicáveis.",
+        "Procura apoio jurídico imediatamente. Conforme a decisão, as vias podem ser uma reclamação a quem decidiu, um recurso para um órgão superior, uma ação no tribunal administrativo ou, em urgência, uma providência cautelar. A própria notificação deve dizer como podes reagir.",
         "Se estiveres em carência habitacional, comunica-o por escrito aos serviços de habitação e de ação social: a lei prevê encaminhamento prévio."
       ],
       "documentos": [

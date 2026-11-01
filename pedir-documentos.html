@@ -153,7 +153,7 @@
                 <div class="radio"><input type="radio" id="urg-risco" name="urgencia" value="risco"><label for="urg-risco">Há risco para a segurança ou a saúde (eletricidade, gás, estrutura, água a entrar)</label></div>
                 <div class="radio"><input type="radio" id="urg-grave" name="urgencia" value="grave"><label for="urg-grave">Impede usar parte da casa</label></div>
                 <div class="radio"><input type="radio" id="urg-normal" name="urgencia" value="normal" checked><label for="urg-normal">Precisa de reparação, sem urgência</label></div>
-                <p class="hint">Se houver perigo imediato, liga 112. Em reparações urgentes a lei tem regras próprias: vê a ficha «Obras de conservação».</p>
+                <p class="hint">É a tua descrição da situação, não uma classificação jurídica. A carta não suspende a renda nem anuncia descontos: deixar de pagar pode pôr o contrato em risco. Se houver perigo imediato, liga 112. Em reparações urgentes a lei tem regras próprias: vê a ficha «Obras de conservação».</p>
               </div>
               <div class="field">
                 <label for="prazoDias">Prazo que propões para o senhorio responder, em dias</label>
@@ -166,7 +166,7 @@
               <legend>Os teus dados</legend>
               <p class="hint" data-hint-lada>Num pedido de documentos, a lei exige o nome, dados de identificação, um contacto e a assinatura de quem pede. Nada disto sai do teu computador.</p>
               <div class="field"><label for="nome">Nome completo</label><input type="text" id="nome" name="nome" maxlength="160" autocomplete="off" required></div>
-              <div class="field" data-campo-identificacao><label for="identificacao">Dados de identificação</label><p class="hint" id="identificacao-hint">Por exemplo: «Cartão de Cidadão n.º 12345678», passaporte ou NIF. A lei pede dados de identificação pessoal, sem exigir um documento específico.</p><input type="text" id="identificacao" name="identificacao" maxlength="80" autocomplete="off" aria-describedby="identificacao-hint"></div>
+              <div class="field" data-campo-identificacao><label for="identificacao">Dados de identificação</label><p class="hint" id="identificacao-hint">Por exemplo, o número de um documento de identificação ou o NIF: só o necessário. A lei pede a identificação de quem pede, sem exigir um documento específico.</p><input type="text" id="identificacao" name="identificacao" maxlength="80" autocomplete="off" aria-describedby="identificacao-hint"></div>
               <div class="field"><label for="morada">Morada</label><input type="text" id="morada" name="morada" maxlength="300" autocomplete="off" required></div>
               <div class="field"><label for="email">E-mail <span class="optional">(indica e-mail ou telefone; o e-mail é obrigatório para receber cópias por e-mail)</span></label><input type="email" id="email" name="email" maxlength="160" autocomplete="off"></div>
               <div class="field"><label for="telefone">Telefone <span class="optional">(opcional se indicares e-mail)</span></label><input type="tel" id="telefone" name="telefone" maxlength="30" autocomplete="off"></div>
@@ -187,6 +187,7 @@
               <label for="texto-final">Texto do documento</label>
               <textarea id="texto-final" class="document" spellcheck="true"></textarea>
             </div>
+            <div class="alert alert--neutral"><p>Modelo genérico para preparares o teu próprio pedido. A plataforma não analisa o teu caso nem envia o documento: revê os dados, o destinatário e a forma de entrega antes de o usares.</p></div>
             <div class="alert alert--warning"><p class="alert__title">Falta assinar</p><p>A linha de assinatura não é uma assinatura. Assina à mão depois de imprimires, ou assina o PDF com Cartão de Cidadão ou Chave Móvel Digital, antes de entregar.</p></div>
             <div class="actions">
               <button type="button" class="btn btn--primary" id="btn-copiar">Copiar texto</button>

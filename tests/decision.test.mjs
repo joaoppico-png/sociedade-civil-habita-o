@@ -95,6 +95,21 @@ test('Q13: a carta para sair mostra só as regras do motivo indicado e avisa sob
   assert.ok(rendas.passos.every((p) => typeof p === 'string'));
 });
 
+test('pareceres 6 questões: forma da carta por motivo, atrasos repetidos e oposição no BAS', () => {
+  const base = ['arrendada', 'inquilino', 'saida', 'carta-senhorio', 'depois-2006'];
+  const res = (motivo) => { const w = walk(tree, [...base, motivo], municipios); return resolveResultado(tree.resultados.get(w.resultadoId), w.contexto, municipios); };
+  const rendas = res('rendas'), ren = res('renovacao');
+  assert.ok(rendas.regras.some((g) => /9\.º, n\.º 7/.test(g.referencia)), 'rendas: forma própria da resolução');
+  assert.ok(!rendas.regras.some((g) => /registada com aviso de receção para a casa arrendada/.test(g.texto)), 'rendas: sem a regra geral');
+  assert.ok(ren.regras.some((g) => /registada com aviso de receção para a casa arrendada/.test(g.texto)), 'renovação: regra geral');
+  assert.ok(!ren.regras.some((g) => /9\.º, n\.º 7/.test(g.referencia)));
+  assert.ok(rendas.limitacoes.some((l) => /atrasos repetidos/.test(l)));
+  const bas = tree.resultados.get('r-despejo-notificacao');
+  assert.ok(bas.regras.some((g) => /15\.º-S, n\.º 3/.test(g.referencia)), 'advogado obrigatório');
+  assert.ok(bas.regras.some((g) => /n\.os 5 e 10/.test(g.referencia)), 'prazo seguido e urgente');
+  assert.ok(!bas.regras.some((g) => /salvo para quem tem apoio judiciário/.test(g.texto)), 'sem promessa de isenção');
+});
+
 test('Q05–Q07: quatro percursos para pedir documentos ou dados', () => {
   const ids = ['concluido', 'meu-processo', 'processo-terceiro', 'dados'].map((o) => walk(tree, ['documentos', o], municipios).resultadoId);
   assert.deepEqual(ids, ['r-pedir-documentos', 'r-processo-proprio', 'r-processo-terceiro', 'r-dados-pessoais']);

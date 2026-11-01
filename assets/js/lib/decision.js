@@ -45,8 +45,9 @@ export function walk(tree, caminho, municipios) {
   return { passos, atual: resultadoId ? null : atual, resultadoId, contexto, invalido };
 }
 
+// Cada valor da condição pode ser um valor único ou uma lista de valores aceites.
 const cumpre = (condicao, contexto) =>
-  !condicao || Object.entries(condicao).every(([k, v]) => contexto[k] === v);
+  !condicao || Object.entries(condicao).every(([k, v]) => (Array.isArray(v) ? v.includes(contexto[k]) : contexto[k] === v));
 
 // Itens de listas podem ser texto ou { texto, se }; os condicionados só aparecem se o contexto cumprir.
 const textos = (lista, contexto) => (lista || [])
